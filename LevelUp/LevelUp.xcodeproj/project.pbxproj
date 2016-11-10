@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8EBDF8C9C91D15816A39D3CA /* Pods_LevelUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D0004153DD4E42E4AE2BC6 /* Pods_LevelUp.framework */; };
+		9617549C1DD459E900080277 /* QuestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617549A1DD459E900080277 /* QuestTableViewCell.swift */; };
+		9617549D1DD459E900080277 /* QuestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9617549B1DD459E900080277 /* QuestTableViewCell.xib */; };
+		961754A01DD45BFB00080277 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617549F1DD45BFB00080277 /* ProfileViewController.swift */; };
+		961754A21DD45E0700080277 /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961754A11DD45E0700080277 /* Quest.swift */; };
 		968CB7041DD4571F002D565E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CB7031DD4571F002D565E /* AppDelegate.swift */; };
-		968CB7061DD4571F002D565E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CB7051DD4571F002D565E /* ViewController.swift */; };
 		968CB7091DD4571F002D565E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968CB7071DD4571F002D565E /* Main.storyboard */; };
 		968CB70B1DD4571F002D565E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 968CB70A1DD4571F002D565E /* Assets.xcassets */; };
 		968CB70E1DD4571F002D565E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968CB70C1DD4571F002D565E /* LaunchScreen.storyboard */; };
@@ -17,9 +20,12 @@
 
 /* Begin PBXFileReference section */
 		85D0004153DD4E42E4AE2BC6 /* Pods_LevelUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LevelUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9617549A1DD459E900080277 /* QuestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestTableViewCell.swift; sourceTree = "<group>"; };
+		9617549B1DD459E900080277 /* QuestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestTableViewCell.xib; sourceTree = "<group>"; };
+		9617549F1DD45BFB00080277 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		961754A11DD45E0700080277 /* Quest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		968CB7001DD4571F002D565E /* LevelUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevelUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		968CB7031DD4571F002D565E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		968CB7051DD4571F002D565E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		968CB7081DD4571F002D565E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		968CB70A1DD4571F002D565E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		968CB70D1DD4571F002D565E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +63,31 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		961754951DD458A000080277 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9617549A1DD459E900080277 /* QuestTableViewCell.swift */,
+				9617549B1DD459E900080277 /* QuestTableViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		961754961DD458A600080277 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9617549F1DD45BFB00080277 /* ProfileViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		961754971DD458AC00080277 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				961754A11DD45E0700080277 /* Quest.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		968CB6F71DD4571F002D565E = {
 			isa = PBXGroup;
 			children = (
@@ -78,8 +109,10 @@
 		968CB7021DD4571F002D565E /* LevelUp */ = {
 			isa = PBXGroup;
 			children = (
+				961754971DD458AC00080277 /* Models */,
+				961754961DD458A600080277 /* View Controllers */,
+				961754951DD458A000080277 /* Views */,
 				968CB7031DD4571F002D565E /* AppDelegate.swift */,
-				968CB7051DD4571F002D565E /* ViewController.swift */,
 				968CB7071DD4571F002D565E /* Main.storyboard */,
 				968CB70A1DD4571F002D565E /* Assets.xcassets */,
 				968CB70C1DD4571F002D565E /* LaunchScreen.storyboard */,
@@ -151,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9617549D1DD459E900080277 /* QuestTableViewCell.xib in Resources */,
 				968CB70E1DD4571F002D565E /* LaunchScreen.storyboard in Resources */,
 				968CB70B1DD4571F002D565E /* Assets.xcassets in Resources */,
 				968CB7091DD4571F002D565E /* Main.storyboard in Resources */,
@@ -212,8 +246,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				968CB7061DD4571F002D565E /* ViewController.swift in Sources */,
+				961754A21DD45E0700080277 /* Quest.swift in Sources */,
+				961754A01DD45BFB00080277 /* ProfileViewController.swift in Sources */,
 				968CB7041DD4571F002D565E /* AppDelegate.swift in Sources */,
+				9617549C1DD459E900080277 /* QuestTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
