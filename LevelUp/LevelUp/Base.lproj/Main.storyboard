@@ -1,11 +1,158 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hg7-pW-BKo">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Welcome View Controller-->
+        <scene sceneID="y6v-5c-PvR">
+            <objects>
+                <viewController id="hg7-pW-BKo" customClass="WelcomeViewController" customModule="LevelUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cdA-dS-mD8"/>
+                        <viewControllerLayoutGuide type="bottom" id="G03-5K-JbN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z0w-nF-Duf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAS-ki-pkT">
+                                <rect key="frame" x="20" y="50" width="335" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.73304647842639592" green="0.73304647842639592" blue="0.73304647842639592" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DfI-qW-zdw">
+                                <rect key="frame" x="30" y="127" width="315" height="425"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join Quests &amp; Improve Your Skills" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYx-gO-aBx">
+                                        <rect key="frame" x="50.5" y="127.5" width="214" height="170"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="214" id="Nkn-Uc-emR"/>
+                                            <constraint firstAttribute="height" constant="170" id="TV8-Bj-dvn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" red="0.72947265041803533" green="0.72947265041803533" blue="0.72947265041803533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="wYx-gO-aBx" firstAttribute="centerY" secondItem="DfI-qW-zdw" secondAttribute="centerY" id="TDN-Ir-BCw"/>
+                                    <constraint firstItem="wYx-gO-aBx" firstAttribute="centerX" secondItem="DfI-qW-zdw" secondAttribute="centerX" id="awa-wA-FfR"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vor-W9-vF5">
+                                <rect key="frame" x="115" y="587" width="145" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="145" id="2bQ-rw-Uua"/>
+                                    <constraint firstAttribute="height" constant="45" id="rnw-vO-bUO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Let's Go!">
+                                    <color key="titleColor" red="0.38431372549019605" green="0.89803921568627454" blue="0.51764705882352935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="tSn-3k-sHE" kind="presentation" id="sx7-fL-3sV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vor-W9-vF5" firstAttribute="centerX" secondItem="Z0w-nF-Duf" secondAttribute="centerX" id="44W-8x-9XG"/>
+                            <constraint firstItem="LAS-ki-pkT" firstAttribute="top" secondItem="cdA-dS-mD8" secondAttribute="bottom" constant="30" id="6N3-Re-2Co"/>
+                            <constraint firstAttribute="trailing" secondItem="DfI-qW-zdw" secondAttribute="trailing" constant="30" id="Ooz-CU-MtN"/>
+                            <constraint firstItem="DfI-qW-zdw" firstAttribute="top" secondItem="LAS-ki-pkT" secondAttribute="bottom" constant="35" id="QH6-tJ-dT0"/>
+                            <constraint firstItem="vor-W9-vF5" firstAttribute="top" secondItem="DfI-qW-zdw" secondAttribute="bottom" constant="35" id="ZBl-3H-dgX"/>
+                            <constraint firstItem="G03-5K-JbN" firstAttribute="top" secondItem="vor-W9-vF5" secondAttribute="bottom" constant="35" id="eHk-g0-esG"/>
+                            <constraint firstItem="DfI-qW-zdw" firstAttribute="leading" secondItem="Z0w-nF-Duf" secondAttribute="leading" constant="30" id="i1a-ey-KAQ"/>
+                            <constraint firstItem="LAS-ki-pkT" firstAttribute="leading" secondItem="Z0w-nF-Duf" secondAttribute="leading" constant="20" id="q0t-VI-Ib9"/>
+                            <constraint firstAttribute="trailing" secondItem="LAS-ki-pkT" secondAttribute="trailing" constant="20" id="q2X-dA-Sig"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="startButton" destination="vor-W9-vF5" id="fwu-3g-UMk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3MS-rd-Uh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-711.20000000000005" y="138.98050974512745"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="BpY-1V-OV8">
+            <objects>
+                <viewController id="tSn-3k-sHE" customClass="TutorialViewController" customModule="LevelUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Spl-tH-Wsm"/>
+                        <viewControllerLayoutGuide type="bottom" id="CfM-Wp-mMM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BRm-LQ-AQi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quests" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrR-oM-5Jh">
+                                <rect key="frame" x="20" y="50" width="335" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.73304647840000003" green="0.73304647840000003" blue="0.73304647840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfm-oD-BhC">
+                                <rect key="frame" x="20" y="127" width="335" height="425"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cE6-dT-TIK">
+                                        <rect key="frame" x="61" y="97.5" width="214" height="230"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="214" id="7tA-di-ziy"/>
+                                            <constraint firstAttribute="height" constant="230" id="jJF-W4-pch"/>
+                                        </constraints>
+                                        <string key="text">Create Quests that repeat on a weekly or daily basis and your goal is to complete each daily or weekly milestone to gain points and form longterm habits!</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" red="0.72947265039999998" green="0.72947265039999998" blue="0.72947265039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1764705882" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="cE6-dT-TIK" firstAttribute="centerX" secondItem="dfm-oD-BhC" secondAttribute="centerX" id="wgD-kt-aIy"/>
+                                    <constraint firstItem="cE6-dT-TIK" firstAttribute="centerY" secondItem="dfm-oD-BhC" secondAttribute="centerY" id="x5d-hr-2X6"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gR-QM-TE6">
+                                <rect key="frame" x="104.5" y="587" width="166" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="166" id="Ryn-hK-tsp"/>
+                                    <constraint firstAttribute="height" constant="45" id="Tax-5J-cOB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Create Quest">
+                                    <color key="titleColor" red="0.38431372549999998" green="0.8980392157" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qrR-oM-5Jh" firstAttribute="top" secondItem="Spl-tH-Wsm" secondAttribute="bottom" constant="30" id="4We-wr-gf9"/>
+                            <constraint firstAttribute="trailing" secondItem="qrR-oM-5Jh" secondAttribute="trailing" constant="20" id="52E-eJ-guW"/>
+                            <constraint firstItem="5gR-QM-TE6" firstAttribute="top" secondItem="dfm-oD-BhC" secondAttribute="bottom" constant="35" id="Cy5-MN-Flq"/>
+                            <constraint firstItem="5gR-QM-TE6" firstAttribute="centerX" secondItem="BRm-LQ-AQi" secondAttribute="centerX" id="Gco-uj-CeF"/>
+                            <constraint firstAttribute="trailing" secondItem="dfm-oD-BhC" secondAttribute="trailing" constant="20" id="QIn-VR-KfE"/>
+                            <constraint firstItem="qrR-oM-5Jh" firstAttribute="leading" secondItem="BRm-LQ-AQi" secondAttribute="leading" constant="20" id="d2x-xo-fAW"/>
+                            <constraint firstItem="dfm-oD-BhC" firstAttribute="top" secondItem="qrR-oM-5Jh" secondAttribute="bottom" constant="35" id="gBV-lC-zF7"/>
+                            <constraint firstItem="CfM-Wp-mMM" firstAttribute="top" secondItem="5gR-QM-TE6" secondAttribute="bottom" constant="35" id="her-Vh-POy"/>
+                            <constraint firstItem="dfm-oD-BhC" firstAttribute="leading" secondItem="BRm-LQ-AQi" secondAttribute="leading" constant="20" id="jX0-Fl-veK"/>
+                            <constraint firstItem="dfm-oD-BhC" firstAttribute="top" secondItem="qrR-oM-5Jh" secondAttribute="bottom" constant="35" id="kmn-ak-cgC"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="naC-lU-0dI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23.199999999999999" y="138.98050974512745"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -19,7 +166,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S58-ci-iPd">
-                                <frame key="frameInset" minY="165" width="375" height="421"/>
+                                <rect key="frame" x="0.0" y="165" width="375" height="421"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -32,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+            <point key="canvasLocation" x="641" y="139"/>
         </scene>
     </scenes>
 </document>
