@@ -1,4 +1,4 @@
-# GGoals
+# LevelUp
 
 Create and monitor goals with this habit forming app. 
 GGoals allows you to take a quest through your day by monitoring and tracking personal
