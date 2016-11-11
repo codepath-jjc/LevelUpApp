@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Parse
 
 class LevelUpClient: NSObject {
 
     func quests(_ success: @escaping ([Quest]) ->(), failure: @escaping (Error) -> ()){
-        
+        // TODO grab quests from parse or local storage
         
         var quests = [Quest]()
         
@@ -30,4 +31,47 @@ class LevelUpClient: NSObject {
 
         success(quests)
     }
+    
+    func milestones(_ success: @escaping ([Milestone]) -> (), failure: @escaping (Error) -> ()) {
+        // TODO grab milestones from parse or local storage
+
+    }
+    
+    func saveQuest(_ quest: Quest, success: @escaping (Quest) -> (), failure: @escaping (Error?) -> ()) {
+        var pfQuest = PFObject(className: "Quest")
+        pfQuest.setDictionary(quest.dictionary)
+        pfQuest.saveInBackground(block: {
+            (successStatus: Bool, error: Error?) -> () in
+            if (successStatus) {
+                success(quest)
+            } else {
+                failure(error)
+            }
+        })
+    }
+    
+    func saveMilestone(_ milestone: Milestone, success: @escaping (Milestone) -> (), failure: @escaping (Error?) -> ()) {
+        var pfMilestone = PFObject(className: "Milestone")
+        pfMilestone.setDictionary(milestone.dictionary)
+        pfMilestone.saveInBackground(block: {
+            (successStatus: Bool, error: Error?) -> () in
+            if (successStatus) {
+                success(milestone)
+            } else {
+                failure(error)
+            }
+        })
+    }
+}
+
+extension PFObject {
+    
+    func setDictionary(_ dictionary: NSDictionary?) {
+        guard let dictionary = dictionary else { return }
+        
+        for (key, val) in dictionary {
+            self.add(val, forKey: key as! String)
+        }
+    }
+    
 }
