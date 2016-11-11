@@ -21,7 +21,7 @@ class Quest: NSObject {
     init(_ dictionary: NSDictionary) {
 
         self.dictionary = dictionary
-
+        title  = dictionary["title"] as? String
     }
     
 }

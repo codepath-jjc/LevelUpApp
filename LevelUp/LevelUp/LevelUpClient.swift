@@ -11,6 +11,8 @@ import Parse
 
 class LevelUpClient: NSObject {
 
+    static let sharedInstance =  LevelUpClient()
+    
     func quests(_ success: @escaping ([Quest]) ->(), failure: @escaping (Error) -> ()){
         // TODO grab quests from parse or local storage
         
@@ -38,7 +40,7 @@ class LevelUpClient: NSObject {
     }
     
     func saveQuest(_ quest: Quest, success: @escaping (Quest) -> (), failure: @escaping (Error?) -> ()) {
-        var pfQuest = PFObject(className: "Quest")
+        let pfQuest = PFObject(className: "Quest")
         pfQuest.setDictionary(quest.dictionary)
         pfQuest.saveInBackground(block: {
             (successStatus: Bool, error: Error?) -> () in
@@ -51,7 +53,7 @@ class LevelUpClient: NSObject {
     }
     
     func saveMilestone(_ milestone: Milestone, success: @escaping (Milestone) -> (), failure: @escaping (Error?) -> ()) {
-        var pfMilestone = PFObject(className: "Milestone")
+        let pfMilestone = PFObject(className: "Milestone")
         pfMilestone.setDictionary(milestone.dictionary)
         pfMilestone.saveInBackground(block: {
             (successStatus: Bool, error: Error?) -> () in

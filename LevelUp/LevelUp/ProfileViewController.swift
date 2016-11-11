@@ -11,6 +11,8 @@ import UIKit
 class ProfileViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
+    
+    var quests = [Quest]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +23,13 @@ class ProfileViewController: UIViewController {
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
         
+        LevelUpClient.sharedInstance.quests({ (quests:[Quest]) in
+            
+            self.quests = quests
+            self.tableView.reloadData()
+        }) { (error:Error) in
+            
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -46,13 +55,13 @@ class ProfileViewController: UIViewController {
     extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 1
+            return quests.count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = Bundle.main.loadNibNamed("QuestTableViewCell", owner: self, options: nil)?.first  as! QuestTableViewCell
             //cell.tweet = tweets[indexPath.row]
-
+            cell.quest = quests[indexPath.row]
             return cell
             
             
