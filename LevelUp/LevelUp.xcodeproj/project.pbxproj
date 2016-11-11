@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42F23E581DD564C800CB8FB1 /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F23E571DD564C800CB8FB1 /* Milestone.swift */; };
 		8EBDF8C9C91D15816A39D3CA /* Pods_LevelUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D0004153DD4E42E4AE2BC6 /* Pods_LevelUp.framework */; };
 		9617549C1DD459E900080277 /* QuestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617549A1DD459E900080277 /* QuestTableViewCell.swift */; };
 		9617549D1DD459E900080277 /* QuestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9617549B1DD459E900080277 /* QuestTableViewCell.xib */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42F23E571DD564C800CB8FB1 /* Milestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
 		85D0004153DD4E42E4AE2BC6 /* Pods_LevelUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LevelUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9617549A1DD459E900080277 /* QuestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestTableViewCell.swift; sourceTree = "<group>"; };
 		9617549B1DD459E900080277 /* QuestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestTableViewCell.xib; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				961754A11DD45E0700080277 /* Quest.swift */,
+				42F23E571DD564C800CB8FB1 /* Milestone.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -232,7 +235,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		67D13D1230BB2AD6ECCC35D3 /* [CP] Copy Pods Resources */ = {
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F23E581DD564C800CB8FB1 /* Milestone.swift in Sources */,
 				961754A21DD45E0700080277 /* Quest.swift in Sources */,
 				961754A01DD45BFB00080277 /* ProfileViewController.swift in Sources */,
 				968CB7041DD4571F002D565E /* AppDelegate.swift in Sources */,
