@@ -1,5 +1,5 @@
 //
-//  TutorialViewController.swift
+//  NewQuestViewController.swift
 //  LevelUp
 //
 //  Created by Joshua Escribano on 11/11/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TutorialViewController: UIViewController {
+class NewQuestViewController: UIViewController {
 
     @IBOutlet weak var createQuestButton: UIButton!
     
