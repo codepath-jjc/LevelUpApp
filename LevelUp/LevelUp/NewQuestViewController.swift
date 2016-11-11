@@ -15,6 +15,7 @@ class NewQuestViewController: UIViewController {
     @IBOutlet weak var frequencyView: UIView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var createQuestButton: UIButton!
+    var hasPlaceholder = true
     var disabledButtonColor = UIColor(red:0.17, green:0.40, blue:0.23, alpha:1.0)
     var enabledButtonColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0)
     
@@ -24,6 +25,8 @@ class NewQuestViewController: UIViewController {
         let dashColor = UIColor(red:0.60, green:0.61, blue:0.61, alpha:1.0)
         titleTextField.attributedPlaceholder = NSAttributedString(string: "Music", attributes: [NSForegroundColorAttributeName: dashColor])
         titleTextField.delegate = self
+        
+        descriptionTextView.delegate = self
         
         createQuestButton.layer.borderWidth = 1.0
         createQuestButton.layer.cornerRadius = 5.0
@@ -66,5 +69,25 @@ extension NewQuestViewController: UITextFieldDelegate {
         }
         
         return false
+    }
+    
+}
+
+extension NewQuestViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        // Remove placeholder
+        if hasPlaceholder {
+            textView.text = ""
+            hasPlaceholder = false
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        // Reinsert placeholder
+        if textView.text.isEmpty && !hasPlaceholder {
+            textView.text = "Goals/Description"
+            hasPlaceholder = true
+        }
     }
 }
