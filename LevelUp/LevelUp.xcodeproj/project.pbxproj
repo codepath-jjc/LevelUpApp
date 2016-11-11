@@ -11,6 +11,7 @@
 		42FE5E071DD6656900E63BFF /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E061DD6656900E63BFF /* WelcomeViewController.swift */; };
 		42FE5E091DD6712200E63BFF /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E081DD6712100E63BFF /* TutorialViewController.swift */; };
 		42FE5E0B1DD6749900E63BFF /* NewQuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E0A1DD6749900E63BFF /* NewQuestViewController.swift */; };
+		42FE5E0E1DD68ADF00E63BFF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E0D1DD68ADF00E63BFF /* Extensions.swift */; };
 		8EBDF8C9C91D15816A39D3CA /* Pods_LevelUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D0004153DD4E42E4AE2BC6 /* Pods_LevelUp.framework */; };
 		9617549C1DD459E900080277 /* QuestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617549A1DD459E900080277 /* QuestTableViewCell.swift */; };
 		9617549D1DD459E900080277 /* QuestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9617549B1DD459E900080277 /* QuestTableViewCell.xib */; };
@@ -28,6 +29,7 @@
 		42FE5E061DD6656900E63BFF /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		42FE5E081DD6712100E63BFF /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		42FE5E0A1DD6749900E63BFF /* NewQuestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewQuestViewController.swift; sourceTree = "<group>"; };
+		42FE5E0D1DD68ADF00E63BFF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		85D0004153DD4E42E4AE2BC6 /* Pods_LevelUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LevelUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9617549A1DD459E900080277 /* QuestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestTableViewCell.swift; sourceTree = "<group>"; };
 		9617549B1DD459E900080277 /* QuestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestTableViewCell.xib; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 				85D0004153DD4E42E4AE2BC6 /* Pods_LevelUp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		42FE5E0C1DD68ACE00E63BFF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				42FE5E0D1DD68ADF00E63BFF /* Extensions.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		479B3DCCD1D639F3C89C6D69 /* Pods */ = {
@@ -131,6 +141,7 @@
 		968CB7021DD4571F002D565E /* LevelUp */ = {
 			isa = PBXGroup;
 			children = (
+				42FE5E0C1DD68ACE00E63BFF /* Helpers */,
 				961754A31DD5253300080277 /* API */,
 				961754971DD458AC00080277 /* Models */,
 				961754961DD458A600080277 /* View Controllers */,
@@ -274,6 +285,7 @@
 				42FE5E0B1DD6749900E63BFF /* NewQuestViewController.swift in Sources */,
 				42FE5E091DD6712200E63BFF /* TutorialViewController.swift in Sources */,
 				961754A01DD45BFB00080277 /* ProfileViewController.swift in Sources */,
+				42FE5E0E1DD68ADF00E63BFF /* Extensions.swift in Sources */,
 				968CB7041DD4571F002D565E /* AppDelegate.swift in Sources */,
 				961754A51DD5254400080277 /* LevelUpClient.swift in Sources */,
 				9617549C1DD459E900080277 /* QuestTableViewCell.swift in Sources */,

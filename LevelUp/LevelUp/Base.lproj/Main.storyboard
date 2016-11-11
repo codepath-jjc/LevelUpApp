@@ -192,11 +192,11 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Music" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v5z-Jp-prG">
                                 <rect key="frame" x="20" y="131" width="335" height="45"/>
-                                <color key="backgroundColor" red="0.45098039215686275" green="0.45882352941176469" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Uqe-S6-4CJ"/>
                                 </constraints>
-                                <color key="textColor" red="0.77254901960784317" green="0.78431372549019607" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.60392156862745094" green="0.61176470588235299" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -214,11 +214,11 @@
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Goal / Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pz4-5Z-0Vd">
                                 <rect key="frame" x="20" y="232" width="335" height="100"/>
-                                <color key="backgroundColor" red="0.45098039215686275" green="0.45882352941176469" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="1hK-99-tGi"/>
                                 </constraints>
-                                <color key="textColor" red="0.82745098039215681" green="0.84705882352941175" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.60392156862745094" green="0.61176470588235299" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -229,11 +229,11 @@
                                         <rect key="frame" x="14" y="12" width="209" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.82745098039215681" green="0.84705882352941175" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.60392156862745094" green="0.61176470588235299" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.45098039215686275" green="0.45882352941176469" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="1YD-DK-A7P"/>
                                 </constraints>
@@ -245,17 +245,17 @@
                                         <rect key="frame" x="8" y="12" width="98" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.82745098039215681" green="0.84705882352941175" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.60392156862745094" green="0.61176470588235299" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.45098039215686275" green="0.45882352941176469" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="hr2-3e-Nyu"/>
                                     <constraint firstAttribute="width" constant="170" id="w4r-Or-KzS"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJE-oc-HPh">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJE-oc-HPh">
                                 <rect key="frame" x="235" y="587" width="120" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="SLa-fc-cex"/>
@@ -263,7 +263,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Create">
-                                    <color key="titleColor" red="0.38431372549999998" green="0.8980392157" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.17254901960784313" green="0.396078431372549" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="1wp-ed-GC6"/>
@@ -300,6 +300,10 @@
                     </view>
                     <connections>
                         <outlet property="createQuestButton" destination="tJE-oc-HPh" id="ih3-BQ-ehI"/>
+                        <outlet property="descriptionTextView" destination="Pz4-5Z-0Vd" id="phH-7w-N9R"/>
+                        <outlet property="frequencyView" destination="fbc-mB-cJQ" id="cFp-N5-kiW"/>
+                        <outlet property="selectImageView" destination="TeL-Qc-aW6" id="kbe-Nd-fmV"/>
+                        <outlet property="titleTextField" destination="v5z-Jp-prG" id="s3H-9M-bhb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHw-Ik-Vav" userLabel="First Responder" sceneMemberID="firstResponder"/>
