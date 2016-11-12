@@ -14,4 +14,7 @@ progress on your goals and habits with helpful reminders and beautiful visualiza
 * Quest edit page allowing users to edit/delete their quest/goal
 
 **Wireframe**
+
+Link to clickable mockup: https://projects.invisionapp.com/share/5N9A11JJT#/screens
+
 ![wireframe](https://cloud.githubusercontent.com/assets/3940193/20111086/d718df5c-a59b-11e6-9770-bd4eaa4893b3.jpeg)
