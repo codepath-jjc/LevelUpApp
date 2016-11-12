@@ -51,6 +51,15 @@ class NewQuestViewController: UIViewController {
 
 extension NewQuestViewController: UITextFieldDelegate {
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let isEmpty = textField.text?.isEmpty ?? false
+        if !isEmpty {
+            descriptionTextView.becomeFirstResponder()
+        }
+        
+        return false
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let empty = willBeEmpty(textField: textField, replacementString: string)
@@ -86,6 +95,15 @@ extension NewQuestViewController: UITextViewDelegate {
             textView.text = ""
             hasPlaceholder = false
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        
+        return true
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

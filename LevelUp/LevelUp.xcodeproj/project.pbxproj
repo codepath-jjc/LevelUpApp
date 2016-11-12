@@ -12,6 +12,8 @@
 		42FE5E091DD6712200E63BFF /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E081DD6712100E63BFF /* TutorialViewController.swift */; };
 		42FE5E0B1DD6749900E63BFF /* NewQuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E0A1DD6749900E63BFF /* NewQuestViewController.swift */; };
 		42FE5E0E1DD68ADF00E63BFF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E0D1DD68ADF00E63BFF /* Extensions.swift */; };
+		42FE5E101DD777EB00E63BFF /* MilestoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E0F1DD777EA00E63BFF /* MilestoneViewController.swift */; };
+		42FE5E121DD777FE00E63BFF /* ActivityTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E111DD777FE00E63BFF /* ActivityTimelineViewController.swift */; };
 		8EBDF8C9C91D15816A39D3CA /* Pods_LevelUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D0004153DD4E42E4AE2BC6 /* Pods_LevelUp.framework */; };
 		9617549C1DD459E900080277 /* QuestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617549A1DD459E900080277 /* QuestTableViewCell.swift */; };
 		9617549D1DD459E900080277 /* QuestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9617549B1DD459E900080277 /* QuestTableViewCell.xib */; };
@@ -30,6 +32,8 @@
 		42FE5E081DD6712100E63BFF /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		42FE5E0A1DD6749900E63BFF /* NewQuestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewQuestViewController.swift; sourceTree = "<group>"; };
 		42FE5E0D1DD68ADF00E63BFF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		42FE5E0F1DD777EA00E63BFF /* MilestoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilestoneViewController.swift; sourceTree = "<group>"; };
+		42FE5E111DD777FE00E63BFF /* ActivityTimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTimelineViewController.swift; sourceTree = "<group>"; };
 		85D0004153DD4E42E4AE2BC6 /* Pods_LevelUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LevelUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9617549A1DD459E900080277 /* QuestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestTableViewCell.swift; sourceTree = "<group>"; };
 		9617549B1DD459E900080277 /* QuestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestTableViewCell.xib; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 				42FE5E061DD6656900E63BFF /* WelcomeViewController.swift */,
 				42FE5E081DD6712100E63BFF /* TutorialViewController.swift */,
 				42FE5E0A1DD6749900E63BFF /* NewQuestViewController.swift */,
+				42FE5E0F1DD777EA00E63BFF /* MilestoneViewController.swift */,
+				42FE5E111DD777FE00E63BFF /* ActivityTimelineViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -190,7 +196,7 @@
 				TargetAttributes = {
 					968CB6FF1DD4571F002D565E = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = P93ZKC5AFL;
+						DevelopmentTeam = GFSP92A3FB;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -282,6 +288,7 @@
 			files = (
 				42F23E581DD564C800CB8FB1 /* Milestone.swift in Sources */,
 				961754A21DD45E0700080277 /* Quest.swift in Sources */,
+				42FE5E121DD777FE00E63BFF /* ActivityTimelineViewController.swift in Sources */,
 				42FE5E0B1DD6749900E63BFF /* NewQuestViewController.swift in Sources */,
 				42FE5E091DD6712200E63BFF /* TutorialViewController.swift in Sources */,
 				961754A01DD45BFB00080277 /* ProfileViewController.swift in Sources */,
@@ -290,6 +297,7 @@
 				961754A51DD5254400080277 /* LevelUpClient.swift in Sources */,
 				9617549C1DD459E900080277 /* QuestTableViewCell.swift in Sources */,
 				42FE5E071DD6656900E63BFF /* WelcomeViewController.swift in Sources */,
+				42FE5E101DD777EB00E63BFF /* MilestoneViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,8 +419,9 @@
 			baseConfigurationReference = D161F0C0F2C0C56B63FB7D4A /* Pods-LevelUp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = P93ZKC5AFL;
+				DEVELOPMENT_TEAM = GFSP92A3FB;
 				INFOPLIST_FILE = LevelUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jasonify.LevelUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,8 +434,9 @@
 			baseConfigurationReference = C98740D3F5870BAF99ED43AF /* Pods-LevelUp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = P93ZKC5AFL;
+				DEVELOPMENT_TEAM = GFSP92A3FB;
 				INFOPLIST_FILE = LevelUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jasonify.LevelUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
