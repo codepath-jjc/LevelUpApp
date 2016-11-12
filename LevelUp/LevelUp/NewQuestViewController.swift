@@ -39,7 +39,12 @@ class NewQuestViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // TODO
+        
+        let dictionary = ["title": titleTextField.text!, "notes": descriptionTextView.text] as NSDictionary
+        let newQuest = Quest(dictionary)
+        
+        let vc = segue.destination as! ProfileViewController
+        vc.quests.append(newQuest)
     }
 
 }
