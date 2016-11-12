@@ -15,6 +15,7 @@ class NewQuestViewController: UIViewController {
     @IBOutlet weak var frequencyView: UIView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var createQuestButton: UIButton!
+    var navigationDelegate: TabBarViewController?
     var hasPlaceholder = true
     var disabledButtonColor = UIColor(red:0.17, green:0.40, blue:0.23, alpha:1.0)
     var enabledButtonColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0)
@@ -43,8 +44,11 @@ class NewQuestViewController: UIViewController {
         let dictionary = ["title": titleTextField.text!, "notes": descriptionTextView.text] as NSDictionary
         let newQuest = Quest(dictionary)
         
-        let vc = segue.destination as! ProfileViewController
-        vc.quests.append(newQuest)
+        let tabBarVC = segue.destination as? TabBarViewController
+        if let tabBarVC = tabBarVC {
+            //tabBarVC.
+            //vc.quests.append(newQuest)
+        }
     }
 
 }

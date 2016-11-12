@@ -9,6 +9,7 @@
 import UIKit
 
 class ActivityTimelineViewController: UIViewController {
+    var navigationDelegate: TabBarViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()

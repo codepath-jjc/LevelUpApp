@@ -9,6 +9,7 @@
 import UIKit
 
 class MilestoneViewController: UIViewController {
+    var navigationDelegate: TabBarViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()

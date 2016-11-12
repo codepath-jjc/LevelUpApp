@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    var navigationDelegate: TabBarViewController?
     var quests = [Quest]()
     
     override func viewDidLoad() {
