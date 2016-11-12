@@ -46,6 +46,7 @@ class TabBarViewController: UIViewController {
             
             let vc = viewControllers[newValue.rawValue]
             addChildViewController(vc)
+            vc.view.frame = contentView.frame
             contentView.addSubview(vc.view)
             vc.didMove(toParentViewController: self)
         }
