@@ -55,16 +55,25 @@ class ProfileViewController: UIViewController {
     extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return quests.count
+            return quests.count + 1
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = Bundle.main.loadNibNamed("QuestTableViewCell", owner: self, options: nil)?.first  as! QuestTableViewCell
-            //cell.tweet = tweets[indexPath.row]
-            cell.quest = quests[indexPath.row]
-            return cell
             
-            
+            if indexPath.row == 0 {
+                let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first  as! ActivityTableViewCell
+                
+                
+                return cell
+                
+                
+            } else {
+                let cell = Bundle.main.loadNibNamed("QuestTableViewCell", owner: self, options: nil)?.first  as! QuestTableViewCell
+                
+                cell.quest = quests[indexPath.row-1]
+                return cell
+                
+            }
         }
       
         
