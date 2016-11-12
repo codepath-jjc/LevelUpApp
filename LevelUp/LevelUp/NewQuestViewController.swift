@@ -43,12 +43,7 @@ class NewQuestViewController: UIViewController {
         
         let dictionary = ["title": titleTextField.text!, "notes": descriptionTextView.text] as NSDictionary
         let newQuest = Quest(dictionary)
-        
-        let tabBarVC = segue.destination as? TabBarViewController
-        if let tabBarVC = tabBarVC {
-            //tabBarVC.
-            //vc.quests.append(newQuest)
-        }
+        // TODO save new quest
     }
 
 }
