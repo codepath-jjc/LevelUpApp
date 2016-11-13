@@ -14,24 +14,37 @@ class LevelUpClient: NSObject {
     static let sharedInstance =  LevelUpClient()
     
     func quests(_ success: @escaping ([Quest]) ->(), failure: @escaping (Error) -> ()){
-        // TODO grab quests from parse or local storage
         
         var quests = [Quest]()
+        let questsQuery = PFQuery(className:"Questz")
         
-        let quest1 = [
-            "title": "Writting",
-            "image": "url"
-        ]
-        
-        let quest2 = [
-            "title": "Music",
-            "image": "url"
-        ]
-        
-        quests.append(Quest(quest1 as NSDictionary) )
-        quests.append(Quest(quest2 as NSDictionary) )
+        questsQuery.findObjectsInBackground {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            
+            if let error = error {                
+                failure(error)
+            } else {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) scores.")
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        
+                      
+                        quests.append(  Quest(parseObject: object as PFObject))
+                    }
+                    success(quests)
+                } else {
+                    success([])
+                }
 
-        success(quests)
+                
+                // Log details of the failure
+                
+            }
+        }
+        
+        //
     }
     
     func milestones(_ success: @escaping ([Milestone]) -> (), failure: @escaping (Error) -> ()) {
@@ -39,9 +52,12 @@ class LevelUpClient: NSObject {
 
     }
     
+
     func saveQuest(_ quest: Quest, success: @escaping (Quest) -> (), failure: @escaping (Error?) -> ()) {
         let pfQuest = PFObject(className: "Quest")
-        pfQuest.setDictionary(quest.dictionary)
+        
+       // pfQuest.dictionaryWithValues(forKeys: <#T##[String]#>)
+        // pfQuest.setDictionary(quest.dictionary)
         pfQuest.saveInBackground(block: {
             (successStatus: Bool, error: Error?) -> () in
             if (successStatus) {
@@ -64,6 +80,7 @@ class LevelUpClient: NSObject {
             }
         })
     }
+    
 }
 
 extension PFObject {
