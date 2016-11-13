@@ -16,7 +16,7 @@ class LevelUpClient: NSObject {
     func quests(_ success: @escaping ([Quest]) ->(), failure: @escaping (Error) -> ()){
         
         var quests = [Quest]()
-        let questsQuery = PFQuery(className:"Questz")
+        let questsQuery = PFQuery(className: Quest.tableName)
         
         questsQuery.findObjectsInBackground {
             (objects: [PFObject]?, error: Error?) -> Void in
@@ -25,7 +25,7 @@ class LevelUpClient: NSObject {
                 failure(error)
             } else {
                 // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
+                print("Successfully retrieved \(objects!.count) quests.")
                 // Do something with the found objects
                 if let objects = objects {
                     for object in objects {
@@ -54,10 +54,10 @@ class LevelUpClient: NSObject {
     
 
     func saveQuest(_ quest: Quest, success: @escaping (Quest) -> (), failure: @escaping (Error?) -> ()) {
-        let pfQuest = PFObject(className: "Quest")
+        let pfQuest = PFObject(className: Quest.tableName)
         
        // pfQuest.dictionaryWithValues(forKeys: <#T##[String]#>)
-        // pfQuest.setDictionary(quest.dictionary)
+        pfQuest.setDictionary(quest.dictionary)
         pfQuest.saveInBackground(block: {
             (successStatus: Bool, error: Error?) -> () in
             if (successStatus) {
@@ -89,6 +89,7 @@ extension PFObject {
         guard let dictionary = dictionary else { return }
         
         for (key, val) in dictionary {
+            print("key", key, val)
             self.add(val, forKey: key as! String)
         }
     }

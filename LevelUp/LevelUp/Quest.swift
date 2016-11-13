@@ -15,6 +15,8 @@ let QuestKeys = [
 ]
 
 class Quest: NSObject {
+    
+    static let tableName = "Questz23"
     var objectId: String?
     var title: String?
     var notes: String?
@@ -25,11 +27,13 @@ class Quest: NSObject {
     var dictionary: NSDictionary?
     var _parseObject: PFObject?
     
-   
+    
+    
+    
     init(_ _dictionary: NSDictionary) {
 
         self.dictionary = _dictionary
-        _parseObject =  PFObject(className: "Quest")        
+        _parseObject =  PFObject(className: Quest.tableName)
         _parseObject?.setDictionary(_dictionary)
         
         super.init()
@@ -43,18 +47,30 @@ class Quest: NSObject {
         // Getting our values from our parse object
         let keysArray = parseObject.dictionaryWithValues(forKeys: QuestKeys)
         var _dictionary = [String: Any]()
+        print("keysArray")
         for (key, value) in keysArray {
-            _dictionary[key] = value
+            print(key, "value", value)
+            _dictionary[key] = parseObject[key]
         }
+        print("keysArray----")
+
         self.init(_dictionary as NSDictionary)
     }
     
     // Override this:
     func loadFromDictionary(_ dictionary: NSDictionary){
         
+        print("dict", dictionary["title"]! )
         // self.parseObject = parseObject
-        title  = dictionary["title"] as? String
+        if let _title =  dictionary["title"] as? String {
+            title  = _title
+        }
         
+        
+        let name: AnyClass! = object_getClass(dictionary["title"])
+        print(name)
+
+        print("title", title)
     }
     
     
