@@ -62,11 +62,7 @@ class ProfileViewController: UIViewController {
             
             if indexPath.row == 0 {
                 let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first  as! ActivityTableViewCell
-                
-                
-                return cell
-                
-                
+                return cell                                
             } else {
                 let cell = Bundle.main.loadNibNamed("QuestTableViewCell", owner: self, options: nil)?.first  as! QuestTableViewCell
                 
