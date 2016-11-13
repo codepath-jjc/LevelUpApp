@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Setup the config
+        let config = ParseClientConfiguration(block: {
+            (configuration: ParseMutableClientConfiguration) -> Void in
+                configuration.server = "https://levelup-parse.herokuapp.com/"
+                configuration.applicationId = "LEVELUP"
+        })
+        
+        // Start parse
+        Parse.initialize(with: config)
+
         if UserDefaults.standard.bool(forKey: "HasLaunched") {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let tabBarVC = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
@@ -25,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             UserDefaults.standard.setValue(true, forKey: "HasLaunched")
         }
-        
+
         return true
     }
 
