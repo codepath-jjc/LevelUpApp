@@ -41,7 +41,7 @@ class NewQuestViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let dictionary = ["title": titleTextField.text!, "notes": descriptionTextView.text] as NSDictionary
+        let dictionary = ["title": titleTextField.text!, "notes": descriptionTextView.text] as [String: Any]
         print("new quest", dictionary)
         print("new quest title", dictionary["title"])
         let newQuest = Quest(dictionary)

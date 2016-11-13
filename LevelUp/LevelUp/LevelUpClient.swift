@@ -57,6 +57,7 @@ class LevelUpClient: NSObject {
         let pfQuest = PFObject(className: Quest.tableName)
         
        // pfQuest.dictionaryWithValues(forKeys: <#T##[String]#>)
+        print("STrING?", quest.dictionary["title"])
         pfQuest.setDictionary(quest.dictionary)
         pfQuest.saveInBackground(block: {
             (successStatus: Bool, error: Error?) -> () in
@@ -69,6 +70,7 @@ class LevelUpClient: NSObject {
     }
     
     func saveMilestone(_ milestone: Milestone, success: @escaping (Milestone) -> (), failure: @escaping (Error?) -> ()) {
+        /*
         let pfMilestone = PFObject(className: "Milestone")
         pfMilestone.setDictionary(milestone.dictionary)
         pfMilestone.saveInBackground(block: {
@@ -79,19 +81,25 @@ class LevelUpClient: NSObject {
                 failure(error)
             }
         })
+        */
     }
     
 }
 
 extension PFObject {
     
-    func setDictionary(_ dictionary: NSDictionary?) {
-        guard let dictionary = dictionary else { return }
+    func setDictionary(_ dictionary: [String: Any]) {
         
-        for (key, val) in dictionary {
-            print("key", key, val)
-            self.add(val, forKey: key as! String)
-        }
+        
+            print("SETTING__")
+            for (key, val) in dictionary {
+                print("key", key, val)
+                
+                self.add(val, forKey: key as! String)
+                
+            }
+        
+        print("---DONE SETTING__")
     }
     
 }

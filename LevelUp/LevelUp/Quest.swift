@@ -16,7 +16,7 @@ let QuestKeys = [
 
 class Quest: NSObject {
     
-    static let tableName = "Questz23"
+    static let tableName = "Questz09"
     var objectId: String?
     var title: String?
     var notes: String?
@@ -24,13 +24,13 @@ class Quest: NSObject {
     var tags: [String]?
     var archived: Bool = false
     var frequency = 1
-    var dictionary: NSDictionary?
+    var dictionary = [String: Any]()
     var _parseObject: PFObject?
     
     
     
     
-    init(_ _dictionary: NSDictionary) {
+    init(_ _dictionary: [String: Any]) {
 
         self.dictionary = _dictionary
         _parseObject =  PFObject(className: Quest.tableName)
@@ -54,11 +54,11 @@ class Quest: NSObject {
         }
         print("keysArray----")
 
-        self.init(_dictionary as NSDictionary)
+        self.init(_dictionary )
     }
     
     // Override this:
-    func loadFromDictionary(_ dictionary: NSDictionary){
+    func loadFromDictionary(_ dictionary: [String: Any]){
         
         print("dict", dictionary["title"]! )
         // self.parseObject = parseObject
