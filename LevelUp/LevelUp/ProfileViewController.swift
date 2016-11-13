@@ -10,47 +10,29 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-
-    
+    var navigationDelegate: TabBarViewController?
     var quests = [Quest]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
 
-        
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
         
         LevelUpClient.sharedInstance.quests({ (quests:[Quest]) in
-            
-            self.quests = quests
+            // In the event this VC has a quest loaded already
+            self.quests += quests
             self.tableView.reloadData()
         }) { (error:Error) in
             
         }
-        
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
 }
+
 
     extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         
@@ -70,8 +52,8 @@ class ProfileViewController: UIViewController {
                 return cell
                 
             }
-        }
-      
-        
+            
     }
+
+}
 
