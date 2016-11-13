@@ -29,8 +29,7 @@ class LevelUpClient: NSObject {
                 // Do something with the found objects
                 if let objects = objects {
                     for object in objects {
-                        
-                      
+                                        
                         quests.append(  Quest(parseObject: object as PFObject))
                     }
                     success(quests)
@@ -57,7 +56,7 @@ class LevelUpClient: NSObject {
         let pfQuest = PFObject(className: Quest.tableName)
         
        // pfQuest.dictionaryWithValues(forKeys: <#T##[String]#>)
-        print("STrING?", quest.dictionary["title"])
+//        print("STrING?", quest.dictionary["title"])
         pfQuest.setDictionary(quest.dictionary)
         pfQuest.saveInBackground(block: {
             (successStatus: Bool, error: Error?) -> () in
@@ -94,8 +93,9 @@ extension PFObject {
             print("SETTING__")
             for (key, val) in dictionary {
                 print("key", key, val)
-                
-                self.add(val, forKey: key as! String)
+                let name: AnyClass! = object_getClass(val)
+                print("type?", name)
+                self.add(dictionary[key]! , forKey: key as! String)
                 
             }
         

@@ -8,6 +8,8 @@
 
 import UIKit
 
+import Parse
+
 class ProfileViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var navigationDelegate: TabBarViewController?
@@ -22,13 +24,46 @@ class ProfileViewController: UIViewController {
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
         
+        
+        fetchStuff()
+      
+    }
+    
+    
+    func fetchStuff(){
+        var gameScore = PFObject(className: Quest.tableName)
+        
+        gameScore["title"] = "WASSA"
+        
+        // gameScore["user"] = PFUser.current()
+        //chatField.text = ""
+        gameScore.saveInBackground {
+            (success: Bool, error: Error?) -> Void in
+            if (success) {
+                
+                print("HELLO WORKED")
+                // The object has been saved.
+                self.reloadData()
+            } else {
+                
+                print("HELLO failed")
+                
+                // There was a problem, check error.description
+            }
+        }
+        
+        
+    }
+    func reloadData() {
+        
         LevelUpClient.sharedInstance.quests({ (quests:[Quest]) in
             // In the event this VC has a quest loaded already
-            self.quests += quests
+            self.quests = quests
             self.tableView.reloadData()
         }) { (error:Error) in
             
         }
+        
     }
 
 }

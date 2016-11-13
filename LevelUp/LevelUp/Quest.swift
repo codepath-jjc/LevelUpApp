@@ -16,7 +16,7 @@ let QuestKeys = [
 
 class Quest: NSObject {
     
-    static let tableName = "Questz09"
+    static let tableName = "Questz018"
     var objectId: String?
     var title: String?
     var notes: String?
@@ -45,15 +45,22 @@ class Quest: NSObject {
     
     convenience init(parseObject: PFObject) {
         // Getting our values from our parse object
-        let keysArray = parseObject.dictionaryWithValues(forKeys: QuestKeys)
+
         var _dictionary = [String: Any]()
         print("keysArray")
-        for (key, value) in keysArray {
-            print(key, "value", value)
-            _dictionary[key] = parseObject[key]
+        for key in QuestKeys {
+            
+            if let value =  parseObject.object(forKey: key)  {
+                print("key", key, "value", value)
+                let name: AnyClass! = object_getClass(value)
+                print(name)
+                _dictionary[key] = value
+            }
+            
         }
-        print("keysArray----")
+        print("keysArray---- now about to init normal")
 
+        
         self.init(_dictionary )
     }
     
@@ -62,15 +69,15 @@ class Quest: NSObject {
         
         print("dict", dictionary["title"]! )
         // self.parseObject = parseObject
-        if let _title =  dictionary["title"] as? String {
+        if let _title =  dictionary["title"] as? String  {
             title  = _title
         }
         
         
         let name: AnyClass! = object_getClass(dictionary["title"])
-        print(name)
+        // print(name)
 
-        print("title", title)
+       // print("title", title)
     }
     
     
