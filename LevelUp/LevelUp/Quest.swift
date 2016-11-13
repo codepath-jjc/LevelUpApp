@@ -16,7 +16,7 @@ let QuestKeys = [
 
 class Quest: NSObject {
     
-    static let tableName = "Questz018"
+    static let tableName = "Questz019"
     var objectId: String?
     var title: String?
     var notes: String?

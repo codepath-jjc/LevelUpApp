@@ -95,7 +95,8 @@ extension PFObject {
                 print("key", key, val)
                 let name: AnyClass! = object_getClass(val)
                 print("type?", name)
-                self.add(dictionary[key]! , forKey: key as! String)
+                //self.setValue(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
+                self.setValue(dictionary[key]! , forKey: key as! String)
                 
             }
         
