@@ -27,7 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Start parse
         Parse.initialize(with: config)
-        
+
+        if UserDefaults.standard.bool(forKey: "HasLaunched") {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let tabBarVC = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+            
+            window?.rootViewController = tabBarVC
+        } else {
+            UserDefaults.standard.setValue(true, forKey: "HasLaunched")
+        }
+
         return true
     }
 
