@@ -24,34 +24,10 @@ class ProfileViewController: UIViewController {
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        
-        fetchStuff()
+        reloadData()
         
     }
     
-    
-    func fetchStuff(){
-        let  gameScore = PFObject(className: Quest.tableName)
-        
-        gameScore.setValue("WASSA", forKey: "title")
-        
-        // gameScore["user"] = PFUser.current()
-        //chatField.text = ""
-        gameScore.saveInBackground {
-            (success: Bool, error: Error?) -> Void in
-            if (success) {
-                
-                print("HELLO WORKED")
-                // The object has been saved.
-                self.reloadData()
-            } else {
-                
-                print("HELLO failed")
-                
-                // There was a problem, check error.description
-            }
-        }                
-    }
     
     func reloadData() {
         
