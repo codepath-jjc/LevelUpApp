@@ -20,13 +20,13 @@ class ProfileViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-
+        
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
         
         
         fetchStuff()
-      
+        
     }
     
     
@@ -50,10 +50,9 @@ class ProfileViewController: UIViewController {
                 
                 // There was a problem, check error.description
             }
-        }
-        
-        
+        }                
     }
+    
     func reloadData() {
         
         LevelUpClient.sharedInstance.quests({ (quests:[Quest]) in
@@ -65,30 +64,30 @@ class ProfileViewController: UIViewController {
         }
         
     }
-
+    
 }
 
 
-    extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
+extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return quests.count + 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return quests.count + 1
+        if indexPath.row == 0 {
+            let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first  as! ActivityTableViewCell
+            return cell
+        } else {
+            let cell = Bundle.main.loadNibNamed("QuestTableViewCell", owner: self, options: nil)?.first  as! QuestTableViewCell
+            
+            cell.quest = quests[indexPath.row-1]
+            return cell
+            
         }
         
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            
-            if indexPath.row == 0 {
-                let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first  as! ActivityTableViewCell
-                return cell                                
-            } else {
-                let cell = Bundle.main.loadNibNamed("QuestTableViewCell", owner: self, options: nil)?.first  as! QuestTableViewCell
-                
-                cell.quest = quests[indexPath.row-1]
-                return cell
-                
-            }
-            
     }
-
+    
 }
 

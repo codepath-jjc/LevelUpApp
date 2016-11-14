@@ -13,9 +13,7 @@ class ModelBase: NSObject {
 
     
     class var tableName : String {return "ModelBase"}
-    class var ParseKeys: [String] { return [
-        "title"
-        ]}
+    class var ParseKeys: [String] { return []}
 
     
     var dictionary = [String: Any]()
@@ -63,11 +61,7 @@ class ModelBase: NSObject {
 extension PFObject {
     
     func setDictionary(_ dictionary: [String: Any]) {
-        for (key, val) in dictionary {
-            print("key", key, val)
-            let name: AnyClass! = object_getClass(val)
-            print("type?", name)
-            //self.setValue(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
+        for (key, _) in dictionary {          
             self.setValue(dictionary[key]! , forKey: key )
         }
     }

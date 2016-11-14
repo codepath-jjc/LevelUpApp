@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class NewQuestViewController: UIViewController  {
 
@@ -69,9 +70,63 @@ class NewQuestViewController: UIViewController  {
 extension NewQuestViewController:  UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
-        print("IMAGE")
+        
         dismiss(animated: true, completion: nil)
 
+        
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
+//        imageViewPicked.contentMode = .scaleAspectFit //3
+//        imageViewPicked.image = chosenImage //4
+        
+    
+        let imageData = UIImagePNGRepresentation(chosenImage)
+        let imageFile = PFFile(name:"image.png", data:imageData!)
+        
+        
+        var imgData: NSData = NSData(data: UIImageJPEGRepresentation((chosenImage), 1)!)
+     
+        var imageSize: Int = imgData.length
+        print("size of image in KB:  \(Double(imageSize) / 1024.0) ")
+        
+        
+        
+        var gameScore = PFObject(className: Quest.tableName)
+        
+        gameScore["title"] = "HELLO"
+        gameScore["imageFile"] = imageFile
+        
+        gameScore["user"] = PFUser.current()
+                
+        imageFile?.saveInBackground({
+            (succeeded: Bool, error: Error?) -> Void in
+            // Handle success or failure here ...
+            
+            if succeeded {
+                print("YESSS!")
+                gameScore.saveInBackground {
+                    (success: Bool, error: Error?) -> Void in
+                    if (success) {
+                        
+                        print("HELLO WORKED")
+                        // The object has been saved.
+                        //self.fetchMsgs()
+                    } else {
+                        
+                        print("HELLO failed")
+                        
+                        // There was a problem, check error.description
+                    }
+                }
+                
+            } else {
+                print("FAILL")
+            }
+            }, progressBlock: {
+                (percentDone: Int32) -> Void in
+                // Update your progress spinner here. percentDone will be between 0 and 100.
+                print(percentDone)
+        })
+        
     }
     
     

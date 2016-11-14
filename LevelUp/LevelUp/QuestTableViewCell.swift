@@ -15,7 +15,8 @@ class QuestTableViewCell: UITableViewCell {
     
     var quest:Quest! {
         didSet {
-            nameLabel.text = quest.title 
+            nameLabel.text = quest.title
+            
         }
     }
     
