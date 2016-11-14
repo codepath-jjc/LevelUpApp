@@ -57,11 +57,11 @@ class NewQuestViewController: UIViewController  {
         print("new quest", dictionary)
         print("new quest title", dictionary["title"])
         let newQuest = Quest(dictionary)
-        LevelUpClient.sharedInstance.saveQuest(newQuest, success: { (Quest) in
-            
-        }) { (error:Error?) in
-            
-        }
+        newQuest.save(success: { 
+                
+            }, failure: {
+                
+        })
     }
 
 }
@@ -69,16 +69,29 @@ class NewQuestViewController: UIViewController  {
 
 extension NewQuestViewController:  UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
         
-        dismiss(animated: true, completion: nil)
 
         
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
 //        imageViewPicked.contentMode = .scaleAspectFit //3
 //        imageViewPicked.image = chosenImage //4
         
+        
+        let dictionary = ["title": "WASSA2", "icon": chosenImage] as [String: Any]
+        let newQuest = Quest(dictionary)
+        newQuest.save(success: {
+            self.dismiss(animated: true, completion: nil)
+
+            }, failure: {
+                
+        })
+        
+        
     
+        
+        /*
         let imageData = UIImagePNGRepresentation(chosenImage)
         let imageFile = PFFile(name:"image.png", data:imageData!)
         
@@ -126,7 +139,7 @@ extension NewQuestViewController:  UIImagePickerControllerDelegate, UINavigation
                 // Update your progress spinner here. percentDone will be between 0 and 100.
                 print(percentDone)
         })
-        
+        */
     }
     
     

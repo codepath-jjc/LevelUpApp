@@ -11,23 +11,32 @@ import Parse
 
 class Quest: ModelBase {
     
-   override class var tableName : String {return "Quests003"}
+   override class var tableName : String {return "Quests004"}
    override  class var ParseKeys: [String] { return [
-        "title"
-    ]}    
+        "title",
+        "icon"
+    ]}
     
+    
+    // TODO: did set to change values in dictionary... so we can ues latest of pffile
+    // so edit doesnt quite work yet...
+    // MAYBE Whwat we need is
+    /*
+    // var dictioanry = [
+     "title": "Sample"
+      uiImage: UIImage()?????
+     ]
+    */
     var title: String?
     var notes: String?
     var icon: PFFile?
-    
     private var iconImage:UIImage?
-    
     var tags: [String]?
     var archived: Bool = false
     var frequency = 1
   
     // Override this:
-    override  func loadFromDictionary(){
+    override  func setVarsFromDictionary(){
         if let _title =  dictionary["title"] as? String  {
             title  = _title
         }
@@ -36,13 +45,19 @@ class Quest: ModelBase {
         // We always put it inside a PFFile
         if let _icon = dictionary["icon"] as? PFFile {
             icon = _icon
-        } else if let _image = dictionary["icon"] as? UIImage {
+        } else if let largeImage = dictionary["icon"] as? UIImage {
+            
+            let _image = resizeImage(image: largeImage)
+            
             let imageData = UIImagePNGRepresentation(_image)
             icon = PFFile(name:"image.png", data:imageData!)
             dictionary["icon"] = icon // kinda sketchy..
             iconImage = _image // since it wont be online, lets just set it
         }
     }
+    
+    
+    
     
     // Fetching the icon image:
     func fetchIcon(  success: @escaping (UIImage) -> (), failure: @escaping (Error)->() ) {
@@ -73,6 +88,9 @@ class Quest: ModelBase {
     // TODO: add progress.. call.. but for multiple images?
     override func save( success: @escaping () -> (), failure: @escaping () -> ()) {
         
+        
+        _parseObject?.setDictionary(dictionary)
+        
         // Maybe not save the image every time? unless different and not saved
         if let imageFile = icon {
             
@@ -92,8 +110,6 @@ class Quest: ModelBase {
             
         }
         
-        
-
     }
     
 }

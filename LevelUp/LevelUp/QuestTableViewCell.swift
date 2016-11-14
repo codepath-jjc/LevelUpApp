@@ -17,12 +17,25 @@ class QuestTableViewCell: UITableViewCell {
         didSet {
             nameLabel.text = quest.title
             
+            quest.fetchIcon(success: { (image: UIImage) in
+                self.iconImage.image = image
+                }, failure: { (error:Error) in
+                    
+            })
+            
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        if let quest = quest {
+            quest.fetchIcon(success: { (image: UIImage) in
+                self.iconImage.image = image
+                }, failure: { (error:Error) in
+                    
+            })
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
