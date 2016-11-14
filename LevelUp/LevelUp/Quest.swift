@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class Quest: ModelBase {
+class Quest: ModelWithImage {
     
    override class var tableName : String {return "Quests005"}
    override  class var ParseKeys: [String] { return [
@@ -31,8 +31,6 @@ class Quest: ModelBase {
     
     var title: String?
     var notes: String?
-    var icon: PFFile?
-    private var iconImage:UIImage?
     var tags: [String]?
     var archived: Bool = false
     var frequency = 1
@@ -47,19 +45,7 @@ class Quest: ModelBase {
             notes  = _notes
         }
     
-        // Depending in what format we are given the icon.
-        // We always put it inside a PFFile
-        if let _icon = dictionary["icon"] as? PFFile {
-            icon = _icon
-        } else if let largeImage = dictionary["icon"] as? UIImage {
-            
-            let _image = resizeImage(image: largeImage)
-            
-            let imageData = UIImagePNGRepresentation(_image)
-            icon = PFFile(name:"image.png", data:imageData!)
-            dictionary["icon"] = icon // kinda sketchy..
-            iconImage = _image // since it wont be online, lets just set it
-        }
+        super.setVarsFromDictionary()
     }
     
     

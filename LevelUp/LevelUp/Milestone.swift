@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class Milestone: ModelBase {
+class Milestone: ModelWithImage {
     
     override class var tableName : String {return "Milestones005"}
     override  class var ParseKeys: [String] { return [
@@ -22,7 +22,6 @@ class Milestone: ModelBase {
     var deadline: Date?
     
     var completed: Bool = false
-    var icon: PFFile?
     var title: String?
     var notes: String?
     

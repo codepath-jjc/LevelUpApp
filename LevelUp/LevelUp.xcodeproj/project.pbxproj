@@ -22,6 +22,7 @@
 		961754A01DD45BFB00080277 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617549F1DD45BFB00080277 /* ProfileViewController.swift */; };
 		961754A21DD45E0700080277 /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961754A11DD45E0700080277 /* Quest.swift */; };
 		961754A51DD5254400080277 /* LevelUpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961754A41DD5254400080277 /* LevelUpClient.swift */; };
+		962D0F441DDA8355003BE4ED /* ModelWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D0F431DDA8355003BE4ED /* ModelWithImage.swift */; };
 		964EB3B91DD67F710081CA30 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EB3B71DD67F710081CA30 /* ActivityTableViewCell.swift */; };
 		964EB3BA1DD67F710081CA30 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964EB3B81DD67F710081CA30 /* ActivityTableViewCell.xib */; };
 		968CB7041DD4571F002D565E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CB7031DD4571F002D565E /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 		9617549F1DD45BFB00080277 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		961754A11DD45E0700080277 /* Quest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		961754A41DD5254400080277 /* LevelUpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelUpClient.swift; sourceTree = "<group>"; };
+		962D0F431DDA8355003BE4ED /* ModelWithImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelWithImage.swift; sourceTree = "<group>"; };
 		964EB3B71DD67F710081CA30 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		964EB3B81DD67F710081CA30 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
 		968CB7001DD4571F002D565E /* LevelUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevelUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 				961754A11DD45E0700080277 /* Quest.swift */,
 				42F23E571DD564C800CB8FB1 /* Milestone.swift */,
 				960545071DD961EF008B9E81 /* ModelBase.swift */,
+				962D0F431DDA8355003BE4ED /* ModelWithImage.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				4212EFAF1DD7813D00440814 /* TabBarViewController.swift in Sources */,
 				42FE5E071DD6656900E63BFF /* WelcomeViewController.swift in Sources */,
 				42FE5E101DD777EB00E63BFF /* MilestoneViewController.swift in Sources */,
+				962D0F441DDA8355003BE4ED /* ModelWithImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
