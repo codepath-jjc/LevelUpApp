@@ -66,7 +66,7 @@ class Quest: ModelBase {
                 success(loadedIcon)
         } else {
             if let userImageFile = icon {
-                // TODO: make fxn:
+
                 userImageFile.getDataInBackground(block: { (imageData:Data?, error:Error?) in
                     
                     if error == nil {

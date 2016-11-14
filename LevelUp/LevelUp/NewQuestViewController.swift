@@ -16,16 +16,23 @@ class NewQuestViewController: UIViewController  {
     @IBOutlet weak var frequencyView: UIView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var createQuestButton: UIButton!
+    @IBOutlet weak var icon: UIImageView!
     var navigationDelegate: TabBarViewController?
     var hasPlaceholder = true
     var disabledButtonColor = UIColor(red:0.17, green:0.40, blue:0.23, alpha:1.0)
     var enabledButtonColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0)
     let imgPicker = UIImagePickerController()
 
+    var chosenImage: UIImage? {
+        didSet{
+            icon.isHidden = false
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        icon.isHidden = true
         let dashColor = UIColor(red:0.60, green:0.61, blue:0.61, alpha:1.0)
         titleTextField.attributedPlaceholder = NSAttributedString(string: "Music", attributes: [NSForegroundColorAttributeName: dashColor])
         titleTextField.delegate = self
@@ -53,9 +60,10 @@ class NewQuestViewController: UIViewController  {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let dictionary = ["title": titleTextField.text!, "notes": descriptionTextView.text] as [String: Any]
-        print("new quest", dictionary)
-        print("new quest title", dictionary["title"])
+        var dictionary = ["title": titleTextField.text!, "notes": descriptionTextView.text] as [String: Any]
+        if let chosenImage = chosenImage {
+            dictionary["icon"] = chosenImage
+        }
         let newQuest = Quest(dictionary)
         newQuest.save(success: { 
                 
@@ -71,75 +79,10 @@ extension NewQuestViewController:  UIImagePickerControllerDelegate, UINavigation
 
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+        chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         
-
-        
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
-//        imageViewPicked.contentMode = .scaleAspectFit //3
-//        imageViewPicked.image = chosenImage //4
-        
-        
-        let dictionary = ["title": "WASSA2", "icon": chosenImage] as [String: Any]
-        let newQuest = Quest(dictionary)
-        newQuest.save(success: {
-            self.dismiss(animated: true, completion: nil)
-
-            }, failure: {
-                
-        })
-        
-        
-    
-        
-        /*
-        let imageData = UIImagePNGRepresentation(chosenImage)
-        let imageFile = PFFile(name:"image.png", data:imageData!)
-        
-        
-        var imgData: NSData = NSData(data: UIImageJPEGRepresentation((chosenImage), 1)!)
-     
-        var imageSize: Int = imgData.length
-        print("size of image in KB:  \(Double(imageSize) / 1024.0) ")
-        
-        
-        
-        var gameScore = PFObject(className: Quest.tableName)
-        
-        gameScore["title"] = "HELLO"
-        gameScore["imageFile"] = imageFile
-        
-        gameScore["user"] = PFUser.current()
-                
-        imageFile?.saveInBackground({
-            (succeeded: Bool, error: Error?) -> Void in
-            // Handle success or failure here ...
-            
-            if succeeded {
-                print("YESSS!")
-                gameScore.saveInBackground {
-                    (success: Bool, error: Error?) -> Void in
-                    if (success) {
-                        
-                        print("HELLO WORKED")
-                        // The object has been saved.
-                        //self.fetchMsgs()
-                    } else {
-                        
-                        print("HELLO failed")
-                        
-                        // There was a problem, check error.description
-                    }
-                }
-                
-            } else {
-                print("FAILL")
-            }
-            }, progressBlock: {
-                (percentDone: Int32) -> Void in
-                // Update your progress spinner here. percentDone will be between 0 and 100.
-                print(percentDone)
-        })
-        */
+        icon.image = chosenImage
+        self.dismiss(animated: true, completion: nil)
     }
     
     
