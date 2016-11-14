@@ -31,7 +31,7 @@ class ModelBase: NSObject {
         _parseObject?.setDictionary(_dictionary)
         
         super.init()
-        loadFromDictionary(_dictionary)
+        loadFromDictionary()
     }
     
     
@@ -51,9 +51,28 @@ class ModelBase: NSObject {
     }
     
     
-    func loadFromDictionary(_ dictionary: [String: Any]){
-        
+    func loadFromDictionary(){}
+    
+    func save( success: @escaping () -> (), failure: @escaping () -> ()) {
+        // Do stuff here before saving like saving images..
+        // TODO: Maybe auto save files...
+        actualSave(success:success, failure:failure)
     }
+    
+    func actualSave( success: @escaping () -> (), failure: @escaping () -> ()) {
+        let pfQuest = PFObject(className: Quest.tableName)
+        
+        pfQuest.setDictionary(self.dictionary)
+        pfQuest.saveInBackground(block: {
+            (successStatus: Bool, error: Error?) -> () in
+            if (successStatus) {
+                success()
+            } else {
+                failure()
+            }
+        })
+    }
+    
     
 }
 
