@@ -15,6 +15,8 @@ class ProfileViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
     var quests = [Quest]()
     
+    let refreshControl = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,10 +26,19 @@ class ProfileViewController: UIViewController {
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        reloadData()
         
+        refreshControl.addTarget(self, action: #selector(ProfileViewController.refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
+        // add refresh control to table view
+        tableView.insertSubview(refreshControl, at: 0)
+        
+        
+        reloadData()
     }
     
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        self.reloadData()
+    }
     
     func reloadData() {
         
@@ -35,7 +46,11 @@ class ProfileViewController: UIViewController {
             // In the event this VC has a quest loaded already
             self.quests = quests
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+
         }) { (error:Error) in
+            // TODO: show error
+            self.refreshControl.endRefreshing()
             
         }
         

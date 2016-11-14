@@ -11,7 +11,7 @@ import Parse
 
 class Quest: ModelBase {
     
-   override class var tableName : String {return "Quests004"}
+   override class var tableName : String {return "Quests005"}
    override  class var ParseKeys: [String] { return [
         "title",
         "icon"
