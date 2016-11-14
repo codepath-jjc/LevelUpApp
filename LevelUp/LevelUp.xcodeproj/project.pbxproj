@@ -16,6 +16,7 @@
 		42FE5E101DD777EB00E63BFF /* MilestoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E0F1DD777EA00E63BFF /* MilestoneViewController.swift */; };
 		42FE5E121DD777FE00E63BFF /* ActivityTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E111DD777FE00E63BFF /* ActivityTimelineViewController.swift */; };
 		8EBDF8C9C91D15816A39D3CA /* Pods_LevelUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D0004153DD4E42E4AE2BC6 /* Pods_LevelUp.framework */; };
+		960545081DD961EF008B9E81 /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960545071DD961EF008B9E81 /* ModelBase.swift */; };
 		9617549C1DD459E900080277 /* QuestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617549A1DD459E900080277 /* QuestTableViewCell.swift */; };
 		9617549D1DD459E900080277 /* QuestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9617549B1DD459E900080277 /* QuestTableViewCell.xib */; };
 		961754A01DD45BFB00080277 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617549F1DD45BFB00080277 /* ProfileViewController.swift */; };
@@ -39,6 +40,7 @@
 		42FE5E0F1DD777EA00E63BFF /* MilestoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilestoneViewController.swift; sourceTree = "<group>"; };
 		42FE5E111DD777FE00E63BFF /* ActivityTimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTimelineViewController.swift; sourceTree = "<group>"; };
 		85D0004153DD4E42E4AE2BC6 /* Pods_LevelUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LevelUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		960545071DD961EF008B9E81 /* ModelBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelBase.swift; sourceTree = "<group>"; };
 		9617549A1DD459E900080277 /* QuestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestTableViewCell.swift; sourceTree = "<group>"; };
 		9617549B1DD459E900080277 /* QuestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestTableViewCell.xib; sourceTree = "<group>"; };
 		9617549F1DD45BFB00080277 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				961754A11DD45E0700080277 /* Quest.swift */,
 				42F23E571DD564C800CB8FB1 /* Milestone.swift */,
+				960545071DD961EF008B9E81 /* ModelBase.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				961754A21DD45E0700080277 /* Quest.swift in Sources */,
 				42FE5E121DD777FE00E63BFF /* ActivityTimelineViewController.swift in Sources */,
 				42FE5E0B1DD6749900E63BFF /* NewQuestViewController.swift in Sources */,
+				960545081DD961EF008B9E81 /* ModelBase.swift in Sources */,
 				42FE5E091DD6712200E63BFF /* TutorialViewController.swift in Sources */,
 				961754A01DD45BFB00080277 /* ProfileViewController.swift in Sources */,
 				42FE5E0E1DD68ADF00E63BFF /* Extensions.swift in Sources */,

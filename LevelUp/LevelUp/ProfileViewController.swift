@@ -31,9 +31,9 @@ class ProfileViewController: UIViewController {
     
     
     func fetchStuff(){
-        var gameScore = PFObject(className: Quest.tableName)
+        let  gameScore = PFObject(className: Quest.tableName)
         
-        gameScore["title"] = "WASSA"
+        gameScore.setValue("WASSA", forKey: "title")
         
         // gameScore["user"] = PFUser.current()
         //chatField.text = ""

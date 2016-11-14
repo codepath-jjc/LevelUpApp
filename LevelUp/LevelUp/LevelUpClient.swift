@@ -85,22 +85,4 @@ class LevelUpClient: NSObject {
     
 }
 
-extension PFObject {
-    
-    func setDictionary(_ dictionary: [String: Any]) {
-        
-        
-            print("SETTING__")
-            for (key, val) in dictionary {
-                print("key", key, val)
-                let name: AnyClass! = object_getClass(val)
-                print("type?", name)
-                //self.setValue(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
-                self.setValue(dictionary[key]! , forKey: key as! String)
-                
-            }
-        
-        print("---DONE SETTING__")
-    }
-    
-}
+
