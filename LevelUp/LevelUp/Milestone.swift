@@ -18,7 +18,9 @@ class Milestone: ModelBase {
         "completed"
         ]}
     var questId: String?
-    var date: Date?
+    var date: Date? // date end / start?
+    var deadline: Date?
+    
     var completed: Bool = false
     var icon: PFFile?
     var title: String?

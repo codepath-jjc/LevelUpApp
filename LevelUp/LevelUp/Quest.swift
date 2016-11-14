@@ -121,6 +121,9 @@ class Quest: ModelBase {
         }
     }
     
+    
+    
+    
  
     // TODO: add progress.. call.. but for multiple images?
     override func save( success: @escaping () -> (), failure: @escaping () -> ()) {

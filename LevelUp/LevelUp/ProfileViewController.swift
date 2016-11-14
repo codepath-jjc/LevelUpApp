@@ -42,9 +42,10 @@ class ProfileViewController: UIViewController {
     
     func reloadData() {
         
-         //Quest.all({ (quests:[Quest]) in
+         Quest.all({ (quests:[Quest]) in
         
-        LevelUpClient.sharedInstance.quests({ (quests:[Quest]) in
+                print(quests)
+        //LevelUpClient.sharedInstance.quests({ (quests:[Quest]) in
             // In the event this VC has a quest loaded already
             self.quests = quests
             self.tableView.reloadData()

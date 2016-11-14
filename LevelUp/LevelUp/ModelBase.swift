@@ -30,7 +30,7 @@ class ModelBase: NSObject {
     }
     
     
-    convenience init(parseObject: PFObject) {
+    required convenience init(parseObject: PFObject) {
         // Getting our values from our parse object
         var _dictionary = [String: Any]()
         
@@ -143,6 +143,29 @@ class ModelBase: NSObject {
     } 
     */
 
+    
+    
+    class func all<T: ModelBase>(_ success: @escaping ([T]) ->(), failure: @escaping (Error) -> ()) {
+        let questsQuery = PFQuery(className: T.tableName)
+        
+        questsQuery.findObjectsInBackground {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            
+            if let error = error {
+                failure(error)
+                return
+            }
+            
+            guard let objects = objects else {
+                success([])
+                return
+            }
+            
+            let models = objects.map{ T(parseObject: $0 as PFObject) }
+            success(models)
+        }
+    }
+    
 }
 
 
