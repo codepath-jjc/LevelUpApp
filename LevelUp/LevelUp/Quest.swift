@@ -14,7 +14,7 @@ class Quest: ModelWithImage {
    override class var tableName : String {return "Quests005"}
    override  class var ParseKeys: [String] { return [
         "title",
-        "icon",
+        "icon", // Kind of weird have to now this...
         "notes"
     ]}
     
@@ -82,59 +82,11 @@ class Quest: ModelWithImage {
             
     }
     
-    // Fetching the icon image:
-    func fetchIcon(  success: @escaping (UIImage) -> (), failure: @escaping (Error)->() ) {
-        
-        if let loadedIcon = iconImage {
-                success(loadedIcon)
-        } else {
-            if let userImageFile = icon {
-
-                userImageFile.getDataInBackground(block: { (imageData:Data?, error:Error?) in
-                    
-                    if error == nil {
-                        if let imageData = imageData {
-                            let image = UIImage(data:imageData)
-                            self.iconImage = image
-                            success((image)!)
-                        }
-                    } else {
-                        failure((error)!)
-                    }
-                    
-                })
-            }
-        }
-    }
+    
     
     
     
     
  
-    // TODO: add progress.. call.. but for multiple images?
-    override func save( success: @escaping () -> (), failure: @escaping () -> ()) {
-        
-        _parseObject?.setDictionary(dictionary)
-        
-        // Maybe not save the image every time? unless different and not saved
-        if let imageFile = icon {
-            
-            imageFile.saveInBackground({
-                (succeeded: Bool, error: Error?) -> Void in
-                // Handle success or failure here ...
-                if succeeded {
-                    self.actualSave(success: success, failure: failure)
-                } else {
-                    failure()
-                }
-                }, progressBlock: {
-                    (percentDone: Int32) -> Void in
-                    // Update your progress spinner here. percentDone will be between 0 and 100.
-                    print(percentDone)
-            })
-            
-        }
-        
-    }
     
 }

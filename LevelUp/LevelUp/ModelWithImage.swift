@@ -15,56 +15,31 @@ class ModelWithImage: ModelBase {
     var iconImage:UIImage?
 
     
-    // Maybe do this in UIImage extention
-    // XXX: todo fix this: with proper aspect ratio
-    func resizeImage(image:UIImage) -> UIImage
-    {
-        var actualHeight:Float = Float(image.size.height)
-        var actualWidth:Float = Float(image.size.width)
+    
+    // Fetching the icon image:
+    func fetchIcon(  success: @escaping (UIImage) -> (), failure: @escaping (Error)->() ) {
         
-        let maxHeight:Float = 180.0 //your choose height
-        let maxWidth:Float = 180.0  //your choose width
-        
-        var imgRatio:Float = actualWidth/actualHeight
-        let maxRatio:Float = maxWidth/maxHeight
-        
-        if (actualHeight > maxHeight) || (actualWidth > maxWidth)
-        {
-            if(imgRatio < maxRatio)
-            {
-                imgRatio = maxHeight / actualHeight;
-                actualWidth = imgRatio * actualWidth;
-                actualHeight = maxHeight;
-            }
-            else if(imgRatio > maxRatio)
-            {
-                imgRatio = maxWidth / actualWidth;
-                actualHeight = imgRatio * actualHeight;
-                actualWidth = maxWidth;
-            }
-            else
-            {
-                actualHeight = maxHeight;
-                actualWidth = maxWidth;
+        if let loadedIcon = iconImage {
+            success(loadedIcon)
+        } else {
+            if let userImageFile = icon {
+                
+                userImageFile.getDataInBackground(block: { (imageData:Data?, error:Error?) in
+                    
+                    if error == nil {
+                        if let imageData = imageData {
+                            let image = UIImage(data:imageData)
+                            self.iconImage = image
+                            success((image)!)
+                        }
+                    } else {
+                        failure((error)!)
+                    }
+                    
+                })
             }
         }
-        
-        
-        let rect:CGRect =
-            CGRect(x: 0, y: 0, width: Int(actualWidth), height: Int(actualHeight))
-        
-        
-        
-        UIGraphicsBeginImageContext(rect.size)
-        image.draw(in: rect)
-        
-        let img:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        let imageData:NSData = UIImageJPEGRepresentation(img, 1.0)! as NSData
-        UIGraphicsEndImageContext()
-        
-        return UIImage(data: imageData as Data)!
     }
-    
     
     
     override  func setVarsFromDictionary(){
@@ -76,13 +51,41 @@ class ModelWithImage: ModelBase {
             icon = _icon
         } else if let largeImage = dictionary["icon"] as? UIImage {
             
-            let _image = resizeImage(image: largeImage)
+            let _image = UIImage.resizeImageSize(image: largeImage)
             
             let imageData = UIImagePNGRepresentation(_image)
             icon = PFFile(name:"image.png", data:imageData!)
             dictionary["icon"] = icon // kinda sketchy..
             iconImage = _image // since it wont be online, lets just set it
         }
+    }
+    
+    
+    
+    // TODO: add progress.. call.. but for multiple images?
+    override func save( success: @escaping () -> (), failure: @escaping () -> ()) {
+        
+        _parseObject?.setDictionary(dictionary)
+        
+        // Maybe not save the image every time? unless different and not saved
+        if let imageFile = icon {
+            
+            imageFile.saveInBackground({
+                (succeeded: Bool, error: Error?) -> Void in
+                // Handle success or failure here ...
+                if succeeded {
+                    self.actualSave(success: success, failure: failure)
+                } else {
+                    failure()
+                }
+                }, progressBlock: {
+                    (percentDone: Int32) -> Void in
+                    // Update your progress spinner here. percentDone will be between 0 and 100.
+                    print(percentDone)
+            })
+            
+        }
+        
     }
     
     
