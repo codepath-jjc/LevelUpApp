@@ -11,6 +11,7 @@ import UIKit
 class MilestoneViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
 
+    @IBOutlet weak var questNameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +23,8 @@ class MilestoneViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func markCompletePressed(_ sender: UIButton) {
+    }
 
     /*
     // MARK: - Navigation

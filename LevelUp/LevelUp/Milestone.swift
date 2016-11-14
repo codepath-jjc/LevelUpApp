@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import Parse
 
 class Milestone: ModelBase {
+    
+    override class var tableName : String {return "Milestones005"}
+    override  class var ParseKeys: [String] { return [
+        "questId",
+        "notes",
+        "completed"
+        ]}
     var questId: String?
     var date: Date?
     var completed: Bool = false
-    var icon: URL?
+    var icon: PFFile?
     var title: String?
     var notes: String?
     
