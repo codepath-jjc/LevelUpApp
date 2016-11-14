@@ -14,7 +14,8 @@ class Quest: ModelBase {
    override class var tableName : String {return "Quests005"}
    override  class var ParseKeys: [String] { return [
         "title",
-        "icon"
+        "icon",
+        "notes"
     ]}
     
     
@@ -27,6 +28,7 @@ class Quest: ModelBase {
       uiImage: UIImage()?????
      ]
     */
+    
     var title: String?
     var notes: String?
     var icon: PFFile?
@@ -39,6 +41,10 @@ class Quest: ModelBase {
     override  func setVarsFromDictionary(){
         if let _title =  dictionary["title"] as? String  {
             title  = _title
+        }
+        
+        if let _notes =  dictionary["notes"] as? String  {
+            notes  = _notes
         }
     
         // Depending in what format we are given the icon.
@@ -57,7 +63,38 @@ class Quest: ModelBase {
     }
     
     
-    
+    func milestones(_ success: @escaping ([Milestone]) -> (), failure: @escaping (Error) -> ()) {
+        var milestones = [Milestone]()
+        
+        if let questId = objectId {
+            let query = PFQuery(className: Milestone.tableName)
+            query.whereKey("questId", equalTo: questId )
+            
+            
+            query.findObjectsInBackground {
+                (objects: [PFObject]?, error: Error?) -> Void in
+                if let error = error {
+                    failure(error)
+                } else {
+                    if let objects = objects {
+                        for object in objects {
+                            milestones.append(  Milestone(parseObject: object as PFObject))
+                        }
+                        success(milestones)
+                    } else {
+                        success(milestones)
+                    }
+                }
+            }
+            
+            
+            
+        } else {
+            success(milestones)
+                
+        }
+            
+    }
     
     // Fetching the icon image:
     func fetchIcon(  success: @escaping (UIImage) -> (), failure: @escaping (Error)->() ) {
@@ -87,7 +124,6 @@ class Quest: ModelBase {
  
     // TODO: add progress.. call.. but for multiple images?
     override func save( success: @escaping () -> (), failure: @escaping () -> ()) {
-        
         
         _parseObject?.setDictionary(dictionary)
         

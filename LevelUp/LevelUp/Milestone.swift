@@ -8,20 +8,14 @@
 
 import UIKit
 
-class Milestone: NSObject {
-    var objectId: String?
+class Milestone: ModelBase {
     var questId: String?
     var date: Date?
     var completed: Bool = false
     var icon: URL?
     var title: String?
     var notes: String?
-    var dictionary: NSDictionary?
     
-    init(_ dictionary: NSDictionary) {
-        
-        self.dictionary = dictionary
-        
-    }
+   
     
 }

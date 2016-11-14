@@ -10,19 +10,14 @@ import UIKit
 import Parse
 
 class ModelBase: NSObject {
-
     
     class var tableName : String {return "ModelBase"}
     class var ParseKeys: [String] { return []}
 
-    
     var dictionary = [String: Any]()
     var _parseObject: PFObject?
-    
     var objectId: String?
 
-    
-    
     
     init(_ _dictionary: [String: Any]) {
         
@@ -36,7 +31,6 @@ class ModelBase: NSObject {
     
     
     convenience init(parseObject: PFObject) {
-        
         // Getting our values from our parse object
         var _dictionary = [String: Any]()
         
@@ -45,9 +39,7 @@ class ModelBase: NSObject {
                 _dictionary[key] = value
             }
         }
-        
         self.init( _dictionary )
-        
     }
     
     
@@ -66,18 +58,14 @@ class ModelBase: NSObject {
         pfQuest.saveInBackground(block: {
             (successStatus: Bool, error: Error?) -> () in
             if (successStatus) {
+                self.objectId = pfQuest.objectId
+                print("--saved: objectId: \(self.objectId)")
                 success()
             } else {
                 failure()
             }
         })
     }
-    
-    func cleanupDic() {
-        // TODO: implement function to clean up dictionary to convert UIImage
-        // into PF File
-    }
-    
     
     // XXX: todo fix this: with proper aspect ratio
     func resizeImage(image:UIImage) -> UIImage
@@ -127,9 +115,34 @@ class ModelBase: NSObject {
         
         return UIImage(data: imageData as Data)!
     }
+    
+    
+    
+    /* // Figure out how to do this whout being specific to ModelBase
+     
+    class func all(_ success: @escaping ([ModelBase]) ->(), failure: @escaping (Error) -> ()){
+        var models  = [ModelBase]()
+        let questsQuery = PFQuery(className: ModelBase.tableName)
+        
+        questsQuery.findObjectsInBackground {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            
+            if let error = error {
+                failure(error)
+            } else {
+                if let objects = objects {
+                    for object in objects {
+                        models.append(  ModelBase(parseObject: object as PFObject))
+                    }
+                    success(models)
+                } else {
+                    success([])
+                }
+            }
+        }
+    } 
+    */
 
-    
-    
 }
 
 
