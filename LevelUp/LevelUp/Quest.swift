@@ -9,15 +9,12 @@
 import UIKit
 import Parse
 
-
-
 class Quest: ModelBase {
     
    override class var tableName : String {return "Quests001"}
    override  class var ParseKeys: [String] { return [
         "title"
-        ]}
-    
+    ]}    
     
     var title: String?
     var notes: String?

@@ -12,14 +12,11 @@ import Parse
 class ModelBase: NSObject {
 
     
-    
     class var tableName : String {return "ModelBase"}
-    
     class var ParseKeys: [String] { return [
         "title"
         ]}
 
-        
     
     var dictionary = [String: Any]()
     var _parseObject: PFObject?

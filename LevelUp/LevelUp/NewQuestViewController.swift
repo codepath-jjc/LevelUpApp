@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewQuestViewController: UIViewController {
+class NewQuestViewController: UIViewController  {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var selectImageView: UIView!
@@ -19,6 +19,8 @@ class NewQuestViewController: UIViewController {
     var hasPlaceholder = true
     var disabledButtonColor = UIColor(red:0.17, green:0.40, blue:0.23, alpha:1.0)
     var enabledButtonColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0)
+    let imgPicker = UIImagePickerController()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,15 @@ class NewQuestViewController: UIViewController {
         frequencyView.addDashedBorder(color: dashColor)
         descriptionTextView.addDashedBorder(color: dashColor)
         titleTextField.addDashedBorder(color: dashColor)
+
+        imgPicker.delegate = self
+        imgPicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+        imgPicker.allowsEditing = false
+
+    }
+    
+    @IBAction func onImagePickerPress(_ sender: UITapGestureRecognizer) {
+        present(imgPicker, animated: false, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,10 +61,26 @@ class NewQuestViewController: UIViewController {
         }) { (error:Error?) in
             
         }
-        // TODO save new quest
     }
 
 }
+
+
+extension NewQuestViewController:  UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+        print("IMAGE")
+        dismiss(animated: true, completion: nil)
+
+    }
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+
+}
+
 
 extension NewQuestViewController: UITextFieldDelegate {
     
