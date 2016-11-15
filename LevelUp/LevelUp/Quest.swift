@@ -11,7 +11,7 @@ import Parse
 
 class Quest: ModelWithImage {
     
-   override class var tableName : String {return "Quests005"}
+   override class var tableName : String {return "Quests006"}
     
     // TODO(Jason): figure out a way to infer these things somehow?
    override  class var ParseKeys: [String] { return [
