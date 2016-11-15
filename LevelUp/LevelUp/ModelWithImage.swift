@@ -61,6 +61,9 @@ class ModelWithImage: ModelBase {
     }
     
     
+    // XXX: TODO(Jason): Seems we dont have to worry about saving iamges first,
+    // the other call will take care of it for us.
+    
     
     // TODO: add progress.. call.. but for multiple images?
     override func save( success: @escaping () -> (), failure: @escaping () -> ()) {

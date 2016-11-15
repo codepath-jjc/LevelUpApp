@@ -12,6 +12,8 @@ import Parse
 class Quest: ModelWithImage {
     
    override class var tableName : String {return "Quests005"}
+    
+    // TODO(Jason): figure out a way to infer these things somehow?
    override  class var ParseKeys: [String] { return [
         "title",
         "icon", // Kind of weird have to now this...
@@ -56,7 +58,6 @@ class Quest: ModelWithImage {
             let query = PFQuery(className: Milestone.tableName)
             query.whereKey("questId", equalTo: questId )
             
-            
             query.findObjectsInBackground {
                 (objects: [PFObject]?, error: Error?) -> Void in
                 if let error = error {
@@ -73,8 +74,6 @@ class Quest: ModelWithImage {
                 }
             }
             
-            
-            
         } else {
             success(milestones)
                 
@@ -82,11 +81,5 @@ class Quest: ModelWithImage {
             
     }
     
-    
-    
-    
-    
-    
- 
     
 }

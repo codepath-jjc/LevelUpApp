@@ -9,6 +9,9 @@
 import UIKit
 import Parse
 
+
+// TODO: maybe just base it all off of Parse objects....
+
 class ModelBase: NSObject {
     
     class var tableName : String {return "ModelBase"}
@@ -46,11 +49,12 @@ class ModelBase: NSObject {
     func setVarsFromDictionary(){}
     
     func save( success: @escaping () -> (), failure: @escaping () -> ()) {
-        // Do stuff here before saving like saving images..
-        // TODO: Maybe auto save files...
+
+        // Do stuff here before saving..
         actualSave(success:success, failure:failure)
     }
     
+    // Maybe just do super.save
     func actualSave( success: @escaping () -> (), failure: @escaping () -> ()) {
         let pfQuest = PFObject(className: Quest.tableName)
         

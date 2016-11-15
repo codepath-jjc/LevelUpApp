@@ -25,6 +25,10 @@ class Milestone: ModelWithImage {
     var title: String?
     var notes: String?
     
+    //TODO(Jason): questId can actually be questObj: PFObject? and parse will take care of it
+    var questNice: Quest?
+    var quest: PFObject?
+    
    
     
 }
