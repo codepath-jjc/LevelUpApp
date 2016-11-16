@@ -17,12 +17,18 @@ class NewQuestViewController: UIViewController  {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var createQuestButton: UIButton!
     @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var pickerLabel: UILabel!
     var navigationDelegate: TabBarViewController?
     var hasPlaceholder = true
     var disabledButtonColor = UIColor(red:0.17, green:0.40, blue:0.23, alpha:1.0)
     var enabledButtonColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0)
     let imgPicker = UIImagePickerController()
 
+    let pickerValues = [ "Week", "Day"]
+    
+    @IBOutlet weak var frequencyPicker: UIPickerView!
+    
+    
     var chosenImage: UIImage? {
         didSet{
             icon.isHidden = false
@@ -31,6 +37,9 @@ class NewQuestViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        frequencyPicker.delegate = self
+        frequencyPicker.dataSource = self
         
         icon.isHidden = true
         let dashColor = UIColor(red:0.60, green:0.61, blue:0.61, alpha:1.0)
@@ -131,6 +140,29 @@ extension NewQuestViewController: UITextFieldDelegate {
     
 }
 
+
+extension NewQuestViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+       return pickerValues.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return pickerValues[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        pickerLabel.text = pickerValues[row]
+    }
+    
+}
 extension NewQuestViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {

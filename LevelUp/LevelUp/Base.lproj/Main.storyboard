@@ -228,7 +228,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbc-mB-cJQ">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weekly ⌄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MT-br-7wi">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Week ⌄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MT-br-7wi">
                                         <frame key="frameInset" minX="8" minY="12" width="98" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -255,6 +255,10 @@
                                     <segue destination="LjX-5f-E9x" kind="presentation" id="P9Y-1D-qdv"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NEg-tG-FGc">
+                                <frame key="frameInset" minY="7" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -287,8 +291,10 @@
                     <connections>
                         <outlet property="createQuestButton" destination="tJE-oc-HPh" id="ih3-BQ-ehI"/>
                         <outlet property="descriptionTextView" destination="Pz4-5Z-0Vd" id="phH-7w-N9R"/>
+                        <outlet property="frequencyPicker" destination="NEg-tG-FGc" id="hY9-7G-eBx"/>
                         <outlet property="frequencyView" destination="fbc-mB-cJQ" id="cFp-N5-kiW"/>
                         <outlet property="icon" destination="zvc-kN-mOT" id="HRk-1i-l3O"/>
+                        <outlet property="pickerLabel" destination="9MT-br-7wi" id="3kA-RH-l9D"/>
                         <outlet property="selectImageView" destination="TeL-Qc-aW6" id="kbe-Nd-fmV"/>
                         <outlet property="titleTextField" destination="v5z-Jp-prG" id="s3H-9M-bhb"/>
                     </connections>
