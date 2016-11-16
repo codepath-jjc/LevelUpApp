@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Parse
 
 extension UIView {
     
@@ -27,6 +28,22 @@ extension UIView {
         shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).cgPath
         
         layer.addSublayer(shapeLayer)
+    }
+    
+}
+
+extension PFObject {
+    
+    func setDictionary(_ dictionary: [String: Any]) {
+        for (key, _) in dictionary {
+            if let   val = dictionary[key] as? UIImage {
+                let imageData = UIImagePNGRepresentation(val)
+                let pfFile = PFFile(name:"image.png", data:imageData!)
+                self.setValue(pfFile , forKey: key )
+            } else {
+                self.setValue(dictionary[key]! , forKey: key )
+            }
+        }
     }
     
 }
@@ -68,11 +85,8 @@ extension UIImage {
             }
         }
         
-        
         let rect:CGRect =
             CGRect(x: 0, y: 0, width: Int(actualWidth), height: Int(actualHeight))
-        
-        
         
         UIGraphicsBeginImageContext(rect.size)
         image.draw(in: rect)
@@ -83,9 +97,6 @@ extension UIImage {
         
         return UIImage(data: imageData as Data)!
     }
-    
-    
-    
     
 }
 

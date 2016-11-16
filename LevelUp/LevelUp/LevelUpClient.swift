@@ -13,13 +13,27 @@ class LevelUpClient: NSObject {
 
     static let sharedInstance =  LevelUpClient()
     
+    func sync(model: AnyObject, success: @escaping () -> (), failure: @escaping (Error?) -> ()) {
+        let quest = model as? Quest
+        let milestone = model as? Milestone
+        
+        if let quest = quest {
+            
+        }
+        
+        if let milestone = milestone {
+            
+        }
+    }
     
-   
-    // Moved to Modelbase for now... 
+    func quests(success: @escaping ([Quest]) -> (), failure: @escaping (Error?) -> ()) {
+        
+    }
     
+    func milestones(success: @escaping ([Milestone]) -> (), failure: @escaping (Error?) -> ()) {
+        
+    }
 
-    
-    
 }
 
 

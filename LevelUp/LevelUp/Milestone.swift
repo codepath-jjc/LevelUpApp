@@ -9,26 +9,24 @@
 import UIKit
 import Parse
 
-class Milestone: ModelWithImage {
+class Milestone: NSObject {
     
-    override class var tableName : String {return "Milestones005"}
-    override  class var ParseKeys: [String] { return [
-        "questId",
-        "notes",
-        "completed"
-        ]}
+////    override class var tableName : String {return "Milestones005"}
+////    override  class var ParseKeys: [String] { return [
+////        "questId",
+////        "notes",
+////        "completed"
+////        ]}
+    
     var questId: String?
-    var date: Date? // date end / start?
-    var deadline: Date?
-    
-    var completed: Bool = false
     var title: String?
     var notes: String?
+    var deadline: Date?
+    var completed: Bool = false
+    var dictionary: NSDictionary!
     
-    //TODO(Jason): questId can actually be questObj: PFObject? and parse will take care of it
-    var questNice: Quest?
-    var quest: PFObject?
-    
-   
+    init(dictionary: NSDictionary) {
+        self.dictionary = dictionary
+    }
     
 }
