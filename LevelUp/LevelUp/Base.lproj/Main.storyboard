@@ -337,11 +337,12 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="S58-ci-iPd" id="pBp-49-yHT"/>
+                        <segue destination="lar-Ps-rYo" kind="presentation" identifier="showMilestone" id="rWu-OZ-Zgl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2139" y="50"/>
+            <point key="canvasLocation" x="2214" y="73"/>
         </scene>
         <!--Milestone View Controller-->
         <scene sceneID="Qgr-MU-Ba8">
@@ -395,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maA-f9-hRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="816"/>
+            <point key="canvasLocation" x="1995" y="851"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="c2U-oE-UMa">
@@ -599,4 +600,7 @@
             <point key="canvasLocation" x="2121" y="1473"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rWu-OZ-Zgl"/>
+    </inferredMetricsTieBreakers>
 </document>
