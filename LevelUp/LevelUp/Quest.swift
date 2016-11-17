@@ -9,77 +9,40 @@
 import UIKit
 import Parse
 
-class Quest: ModelWithImage {
+class Quest: NSObject {
     
-   override class var tableName : String {return "Quests006"}
-    
-    // TODO(Jason): figure out a way to infer these things somehow?
-   override  class var ParseKeys: [String] { return [
-        "title",
-        "icon", // Kind of weird have to now this...
-        "notes"
-    ]}
-    
-    
-    // TODO: did set to change values in dictionary... so we can ues latest of pffile
-    // so edit doesnt quite work yet...
-    // MAYBE Whwat we need is
-    /*
-    // var dictioanry = [
-     "title": "Sample"
-      uiImage: UIImage()?????
-     ]
-    */
-    
+    static let className = "Quest-Test"
+    var pfObject: PFObject?
     var title: String?
-    var notes: String?
-    var tags: [String]?
-    var archived: Bool = false
-    var frequency = 1
-  
-    // Override this:
-    override  func setVarsFromDictionary(){
-        if let _title =  dictionary["title"] as? String  {
-            title  = _title
+    var image: UIImage?
+    var dictionary: NSDictionary!
+    
+    init(pfObject: PFObject) {
+        self.pfObject = pfObject
+        
+        title = pfObject["title"] as? String
+        
+        dictionary = NSDictionary()
+        if let title = title {
+            dictionary.setValue(title, forKey: "title")
         }
         
-        if let _notes =  dictionary["notes"] as? String  {
-            notes  = _notes
-        }
-    
-        super.setVarsFromDictionary()
+        // TODO Load Image from PFObject
+//        let imageData = UIImagePNGRepresentation(image)
+//        let imageFile = PFFile(name:"image.png", data:imageData)
+//        
+//        var userPhoto = PFObject(className:"UserPhoto")
+//        userPhoto["imageName"] = "My trip to Hawaii!"
+//        userPhoto["imageFile"] = imageFile
+//        userPhoto.saveInBackground()
     }
     
-    
-    func milestones(_ success: @escaping ([Milestone]) -> (), failure: @escaping (Error) -> ()) {
-        var milestones = [Milestone]()
+    init(dictionary: NSDictionary) {
+        self.dictionary = dictionary
         
-        if let questId = objectId {
-            let query = PFQuery(className: Milestone.tableName)
-            query.whereKey("questId", equalTo: questId )
-            
-            query.findObjectsInBackground {
-                (objects: [PFObject]?, error: Error?) -> Void in
-                if let error = error {
-                    failure(error)
-                } else {
-                    if let objects = objects {
-                        for object in objects {
-                            milestones.append(  Milestone(parseObject: object as PFObject))
-                        }
-                        success(milestones)
-                    } else {
-                        success(milestones)
-                    }
-                }
-            }
-            
-        } else {
-            success(milestones)
-                
-        }
-            
+        title = dictionary["title"] as? String
+        image = dictionary["image"] as? UIImage
     }
-    
     
 }
+

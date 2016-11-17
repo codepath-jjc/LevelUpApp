@@ -69,15 +69,17 @@ class NewQuestViewController: UIViewController  {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        var dictionary = ["title": titleTextField.text!, "notes": descriptionTextView.text] as [String: Any]
+        var dictionary = ["title": titleTextField.text!, "notes": descriptionTextView.text] as NSDictionary
         if let chosenImage = chosenImage {
-            dictionary["icon"] = chosenImage
+            dictionary.setValue(chosenImage, forKey: "icon")
         }
-        let newQuest = Quest(dictionary)
-        newQuest.save(success: { 
-                
-            }, failure: {
-                
+        var newQuest = Quest(dictionary: dictionary)
+        LevelUpClient.sharedInstance.sync(quest: &newQuest, success: {
+            // TODO
+        }, failure: {
+            (error: Error?) -> () in
+            // TODO
+            print(error?.localizedDescription ?? "New Quest Error")
         })
     }
 

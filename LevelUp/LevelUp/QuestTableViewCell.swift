@@ -16,13 +16,7 @@ class QuestTableViewCell: UITableViewCell {
     var quest:Quest! {
         didSet {
             nameLabel.text = quest.title
-            
-            quest.fetchIcon(success: { (image: UIImage) in
-                self.iconImage.image = image
-                }, failure: { (error:Error) in
-                    
-            })
-            
+            iconImage = UIImageView(image: quest.image)
         }
     }
     
@@ -30,11 +24,8 @@ class QuestTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         if let quest = quest {
-            quest.fetchIcon(success: { (image: UIImage) in
-                self.iconImage.image = image
-                }, failure: { (error:Error) in
-                    
-            })
+            nameLabel.text = quest.title
+            iconImage = UIImageView(image: quest.image)
         }
     }
 
