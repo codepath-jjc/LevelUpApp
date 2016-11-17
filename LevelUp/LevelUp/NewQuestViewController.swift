@@ -73,12 +73,13 @@ class NewQuestViewController: UIViewController  {
         if let chosenImage = chosenImage {
             dictionary.setValue(chosenImage, forKey: "icon")
         }
-        let newQuest = Quest(dictionary: dictionary)
-        LevelUpClient.sharedInstance.sync(model: newQuest, success: {
-            
+        var newQuest = Quest(dictionary: dictionary)
+        LevelUpClient.sharedInstance.sync(quest: &newQuest, success: {
+            // TODO
         }, failure: {
             (error: Error?) -> () in
-            print(error?.localizedDescription)
+            // TODO
+            print(error?.localizedDescription ?? "New Quest Error")
         })
     }
 

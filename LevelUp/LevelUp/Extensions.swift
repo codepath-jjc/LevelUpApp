@@ -34,14 +34,17 @@ extension UIView {
 
 extension PFObject {
     
-    func setDictionary(_ dictionary: [String: Any]) {
-        for (key, _) in dictionary {
-            if let   val = dictionary[key] as? UIImage {
-                let imageData = UIImagePNGRepresentation(val)
+    func setDictionary(_ dictionary: NSDictionary) {
+        for (key, value) in dictionary {
+            if !(key is String) {
+                continue
+            }
+            if let image = value as? UIImage {
+                let imageData = UIImagePNGRepresentation(image)
                 let pfFile = PFFile(name:"image.png", data:imageData!)
-                self.setValue(pfFile , forKey: key )
+                self.setValue(pfFile , forKey: key as! String)
             } else {
-                self.setValue(dictionary[key]! , forKey: key )
+                self.setValue(value , forKey: key as! String )
             }
         }
     }

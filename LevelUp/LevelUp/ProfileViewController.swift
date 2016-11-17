@@ -28,9 +28,8 @@ class ProfileViewController: UIViewController {
         
         
         refreshControl.addTarget(self, action: #selector(ProfileViewController.refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
-        // add refresh control to table view
+        // Add refresh control to table view
         tableView.insertSubview(refreshControl, at: 0)
-        
         
         reloadData()
     }
@@ -47,11 +46,9 @@ class ProfileViewController: UIViewController {
             self.quests = quests
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
-
         }) { (error: Error?) in
             // TODO: show error
             self.refreshControl.endRefreshing()
-            
         }
         
     }

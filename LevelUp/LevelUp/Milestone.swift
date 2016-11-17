@@ -11,19 +11,19 @@ import Parse
 
 class Milestone: NSObject {
     
-////    override class var tableName : String {return "Milestones005"}
-////    override  class var ParseKeys: [String] { return [
-////        "questId",
-////        "notes",
-////        "completed"
-////        ]}
-    
+    static let className = "Milestone-Test"
+    var pfObject: PFObject?
+    var objectId: String?
     var questId: String?
     var title: String?
     var notes: String?
     var deadline: Date?
     var completed: Bool = false
     var dictionary: NSDictionary!
+    
+    init(pfObject: PFObject) {
+        self.pfObject = pfObject
+    }
     
     init(dictionary: NSDictionary) {
         self.dictionary = dictionary
