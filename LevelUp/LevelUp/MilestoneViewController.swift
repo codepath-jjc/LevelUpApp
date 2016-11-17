@@ -12,6 +12,11 @@ class MilestoneViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
 
     @IBOutlet weak var questNameLabel: UILabel!
+    var quest:Quest? {
+        didSet {
+            
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var navigationDelegate: TabBarViewController?
     var quests = [Quest]()
+    var selectedQuest:Quest?
     
     let refreshControl = UIRefreshControl()
 
@@ -59,15 +60,33 @@ class ProfileViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "showMilestone") {
+            
+           // let navigationController = segue.destination as! UINavigationController
+            
+          // let tweetDetailsVieController = navigationController.topViewController as! TweetDetailViewController
+          // tweetDetailsVieController.tweet  = selectedTweet
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MilestoneViewController") as! MilestoneViewController
+            nextViewController.quest = selectedQuest
+            self.present(nextViewController, animated:true, completion:nil)
+    
+        
+        }
+    }
 }
 
 
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        print("SELECTED ROW", indexPath.row);
+        selectedQuest = quests[indexPath.row]
+        performSegue(withIdentifier: "showMilestone", sender: self)
+    
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return quests.count + 1
     }
