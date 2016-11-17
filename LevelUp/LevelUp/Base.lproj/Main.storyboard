@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="bottom" id="G03-5K-JbN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Z0w-nF-Duf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAS-ki-pkT">
@@ -84,7 +84,7 @@
                         <viewControllerLayoutGuide type="bottom" id="CfM-Wp-mMM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BRm-LQ-AQi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quests" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrR-oM-5Jh">
@@ -156,7 +156,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Syu-r5-V6J"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eh5-ld-GOg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Quest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMp-h9-vCd">
@@ -317,7 +317,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S58-ci-iPd">
@@ -337,11 +337,12 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="S58-ci-iPd" id="pBp-49-yHT"/>
+                        <segue destination="lar-Ps-rYo" kind="presentation" identifier="showMilestone" id="rWu-OZ-Zgl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2122" y="139"/>
+            <point key="canvasLocation" x="2214" y="73"/>
         </scene>
         <!--Milestone View Controller-->
         <scene sceneID="Qgr-MU-Ba8">
@@ -352,7 +353,7 @@
                         <viewControllerLayoutGuide type="bottom" id="DLP-Sb-VWd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kmX-Pu-52B">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Milestone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jO3-fQ-EGd">
@@ -395,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maA-f9-hRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="816"/>
+            <point key="canvasLocation" x="1995" y="851"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="c2U-oE-UMa">
@@ -406,7 +407,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Drg-eJ-3cF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5Cf-ua-RgP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ESg-nN-hag">
@@ -543,6 +544,8 @@
                         <outlet property="milestoneButtonView" destination="6qZ-Ge-kT0" id="SOB-hT-wI3"/>
                         <outlet property="profileButtonView" destination="PMN-xn-reI" id="PQy-84-obk"/>
                         <outlet property="questButtonView" destination="oHq-1U-gA0" id="YWn-tt-ez9"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="showProfile" id="Rmn-GL-nVN"/>
+                        <segue destination="lar-Ps-rYo" kind="presentation" identifier="showMilestone" id="fgE-m3-jLM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vR-Am-6nF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -578,7 +581,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hRC-Kv-o5b"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ps0-9h-iNU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activity Timeline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKs-ei-uJX">
@@ -597,4 +600,7 @@
             <point key="canvasLocation" x="2121" y="1473"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rWu-OZ-Zgl"/>
+    </inferredMetricsTieBreakers>
 </document>
