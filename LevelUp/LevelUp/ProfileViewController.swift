@@ -26,7 +26,6 @@ class ProfileViewController: UIViewController {
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        
         refreshControl.addTarget(self, action: #selector(ProfileViewController.refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
         // Add refresh control to table view
         tableView.insertSubview(refreshControl, at: 0)
