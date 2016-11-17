@@ -14,7 +14,7 @@ class Quest: NSObject {
     static let className = "Quest-Test"
     var pfObject: PFObject?
     var title: String?
-    var icon: UIImage?
+    var image: UIImage?
     var dictionary: NSDictionary!
     
     init(pfObject: PFObject) {
@@ -26,44 +26,23 @@ class Quest: NSObject {
         if let title = title {
             dictionary.setValue(title, forKey: "title")
         }
+        
+        // TODO Load Image from PFObject
+//        let imageData = UIImagePNGRepresentation(image)
+//        let imageFile = PFFile(name:"image.png", data:imageData)
+//        
+//        var userPhoto = PFObject(className:"UserPhoto")
+//        userPhoto["imageName"] = "My trip to Hawaii!"
+//        userPhoto["imageFile"] = imageFile
+//        userPhoto.saveInBackground()
     }
     
     init(dictionary: NSDictionary) {
         self.dictionary = dictionary
         
         title = dictionary["title"] as? String
+        image = dictionary["image"] as? UIImage
     }
     
 }
-
-//class ModelWithImage: ModelBase {
-//
-//    var icon: PFFile?
-//    var iconImage:UIImage?
-//
-//
-//
-//    // Fetching the icon image:
-//    func fetchIcon(  success: @escaping (UIImage) -> (), failure: @escaping (Error)->() ) {
-//
-//        if let loadedIcon = iconImage {
-//            success(loadedIcon)
-//        } else {
-//            if let userImageFile = icon {
-//
-//                userImageFile.getDataInBackground(block: { (imageData:Data?, error:Error?) in
-//
-//                    if error == nil {
-//                        if let imageData = imageData {
-//                            let image = UIImage(data:imageData)
-//                            self.iconImage = image
-//                            success((image)!)
-//                        }
-//                    } else {
-//                        failure((error)!)
-//                    }
-//
-//                })
-//            }
-//        }
 

@@ -30,9 +30,7 @@ class LevelUpClient: NSObject {
         } else {
             // Create - since it must not exist on Parse
             var questPFObject = PFObject(className: Quest.className)
-            for (key, val) in quest.dictionary {
-                questPFObject[key as! String] = val
-            }
+            questPFObject.setDictionary(quest.dictionary)
             
             // Save
             questPFObject.saveInBackground {
@@ -65,9 +63,7 @@ class LevelUpClient: NSObject {
         } else {
             // Create - since it must not exist on Parse
             var milestonePFObject = PFObject(className: Milestone.className)
-            for (key, val) in milestone.dictionary {
-                milestonePFObject[key as! String] = val
-            }
+            milestonePFObject.setDictionary(milestone.dictionary)
             
             // Save
             milestonePFObject.saveInBackground {
