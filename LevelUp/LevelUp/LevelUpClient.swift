@@ -13,12 +13,39 @@ class LevelUpClient: NSObject {
 
     static let sharedInstance =  LevelUpClient()
     
+    
+    func fetchIcon( quest: Quest, success: @escaping (UIImage) -> (), failure: @escaping (Error)->() ) {
+        
+        if let loadedIcon = quest.image {
+            success(loadedIcon)
+        } else {
+            if let userImageFile = quest.imageFile {
+                
+                userImageFile.getDataInBackground(block: { (imageData:Data?, error:Error?) in
+                    
+                    if error == nil {
+                        if let imageData = imageData {
+                            let image = UIImage(data:imageData)
+                            quest.image = image
+                            success((image)!)
+                        }
+                    } else {
+                        failure((error)!)
+                    }
+                    
+                })
+            } 
+        }
+    }
+    
+    
+    
     // This is a mutating function - the input Quest and Milestone WILL be updated
     func sync(quest: inout Quest, success: @escaping () -> (), failure: @escaping (Error?) -> ()) {
         
         if let questPfObject = quest.pfObject {
             // Update the PFObject on the quest and save in background
-            questPfObject.setDictionary(quest.dictionary)
+            questPfObject.setDictionary(quest.dictionary )
             questPfObject.saveInBackground(block: {
                 (successStatus: Bool, error: Error?) -> Void in
                 if successStatus {
@@ -29,9 +56,12 @@ class LevelUpClient: NSObject {
             })
         } else {
             // Create - since it must not exist on Parse
-            var questPFObject = PFObject(className: Quest.className)
+            let questPFObject = PFObject(className: Quest.className)
             questPFObject.setDictionary(quest.dictionary)
             
+            
+            // XXX: this is not ideal since we will not get the progress indicator
+            // TODO(Jason): Implement save progressively
             // Save
             questPFObject.saveInBackground {
                 (successStatus: Bool, error: Error?) -> Void in
@@ -50,7 +80,7 @@ class LevelUpClient: NSObject {
         
         if let milestonePfObject = milestone.pfObject {
             // Update
-            milestonePfObject.setDictionary(milestone.dictionary)
+            milestonePfObject.setDictionary(milestone.dictionary )
             milestonePfObject.saveInBackground(block: {
                 (successStatus: Bool, error: Error?) -> Void in
                 if successStatus {
@@ -62,7 +92,7 @@ class LevelUpClient: NSObject {
 
         } else {
             // Create - since it must not exist on Parse
-            var milestonePFObject = PFObject(className: Milestone.className)
+            let milestonePFObject = PFObject(className: Milestone.className)
             milestonePFObject.setDictionary(milestone.dictionary)
             
             // Save
@@ -89,6 +119,8 @@ class LevelUpClient: NSObject {
     
     func quests(success: @escaping ([Quest]) -> (), failure: @escaping (Error?) -> ()) {
         let query = PFQuery(className: Quest.className)
+        
+        
         query.findObjectsInBackground(block: {
             (pfObjects: [PFObject]?, error: Error?) -> () in
             if let pfObjects = pfObjects {

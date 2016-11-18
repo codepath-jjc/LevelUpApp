@@ -16,7 +16,17 @@ class QuestTableViewCell: UITableViewCell {
     var quest:Quest! {
         didSet {
             nameLabel.text = quest.title
-            iconImage = UIImageView(image: quest.image)
+
+            LevelUpClient.sharedInstance.fetchIcon(quest: quest, success: { (image: UIImage) in
+                self.iconImage.image = image
+                }, failure: { (error:Error) in
+                    print("---")
+                    print("error", error.localizedDescription)
+                    print("---")
+            })
+
+            
+            
         }
     }
     

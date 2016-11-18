@@ -256,7 +256,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NEg-tG-FGc">
-                                <frame key="frameInset" minY="7" height="216"/>
+                                <frame key="frameInset" minX="-0.5" minY="7" height="101" maxX="0.5"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
@@ -306,7 +306,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="696.79999999999995" y="138.98050974512745"/>
+            <point key="canvasLocation" x="695.625" y="138.38028169014083"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="tne-QT-ifu">

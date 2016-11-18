@@ -11,20 +11,26 @@ import Parse
 
 class Quest: NSObject {
     
-    static let className = "Quest-Test"
+    static let className = "QuestTest3"
     var pfObject: PFObject?
     var title: String?
     var image: UIImage?
-    var dictionary: NSDictionary!
+    
+    var imageFile: PFFile?
+    var dictionary = [String: Any]()
     
     init(pfObject: PFObject) {
         self.pfObject = pfObject
         
-        title = pfObject["title"] as? String
+        title = pfObject.object(forKey: "title") as? String
         
-        dictionary = NSDictionary()
+        dictionary = [String: Any]()
         if let title = title {
-            dictionary.setValue(title, forKey: "title")
+            dictionary["title"] = title
+        }
+        
+        if let imageFile =  pfObject.object(forKey: "image") as? PFFile {
+            self.imageFile = imageFile
         }
         
         // TODO Load Image from PFObject
@@ -37,7 +43,7 @@ class Quest: NSObject {
 //        userPhoto.saveInBackground()
     }
     
-    init(dictionary: NSDictionary) {
+    init(dictionary: [String: Any]) {
         self.dictionary = dictionary
         
         title = dictionary["title"] as? String

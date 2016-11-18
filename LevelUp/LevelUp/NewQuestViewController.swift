@@ -69,9 +69,9 @@ class NewQuestViewController: UIViewController  {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        var dictionary = ["title": titleTextField.text!, "notes": descriptionTextView.text] as NSDictionary
+        var dictionary = ["title": titleTextField.text!, "notes": descriptionTextView.text] as [String : Any]
         if let chosenImage = chosenImage {
-            dictionary.setValue(chosenImage, forKey: "icon")
+            dictionary["image"] = chosenImage
         }
         var newQuest = Quest(dictionary: dictionary)
         LevelUpClient.sharedInstance.sync(quest: &newQuest, success: {

@@ -11,14 +11,14 @@ import Parse
 
 class Milestone: NSObject {
     
-    static let className = "Milestone-Test"
+    static let className = "MilestoneTest2"
     var pfObject: PFObject?
     var questId: String?
     var title: String?
     var notes: String?
     var deadline: Date?
     var completed: Bool?
-    var dictionary: NSDictionary!
+    var dictionary = [String: Any]()
     
     init(pfObject: PFObject) {
         self.pfObject = pfObject
@@ -27,21 +27,21 @@ class Milestone: NSObject {
         notes = pfObject["notes"] as? String
         completed = pfObject["completed"] as? Bool
         
-        dictionary = NSDictionary()
+        dictionary =  [String: Any]()
         if let title = title {
-            dictionary.setValue(title, forKey: "title")
+            dictionary["title"] = title
         }
         
         if let notes = notes {
-            dictionary.setValue(notes, forKey: "notes")
+            dictionary["notes"] = notes
         }
         
         if let completed = completed {
-            dictionary.setValue(completed, forKey: "completed")
+            dictionary["completed"] = completed
         }
     }
     
-    init(dictionary: NSDictionary) {
+    init(dictionary: [String: Any]) {
         self.dictionary = dictionary
         
         title = dictionary["title"] as? String
