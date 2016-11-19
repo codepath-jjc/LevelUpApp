@@ -40,6 +40,22 @@ class LevelUpClient: NSObject {
     }
     
     
+    func user() -> PFUser?{
+        let currentUser = PFUser.current()
+        
+        
+        if let currentUser = currentUser  {
+            
+            
+            currentUser.saveInBackground()
+            return currentUser
+            // Do stuff with the user
+            
+        }
+        
+        return nil
+    }
+    
     
     // This is a mutating function - the input Quest and Milestone WILL be updated
     func sync(quest: inout Quest, success: @escaping () -> (), failure: @escaping (Error?) -> ()) {
@@ -120,7 +136,7 @@ class LevelUpClient: NSObject {
     
     func quests(success: @escaping ([Quest]) -> (), failure: @escaping (Error?) -> ()) {
         let query = PFQuery(className: Quest.className)
-        
+        query.whereKey("user", equalTo: LevelUpClient.sharedInstance.user()!)
         
         query.findObjectsInBackground(block: {
             (pfObjects: [PFObject]?, error: Error?) -> () in
@@ -139,6 +155,8 @@ class LevelUpClient: NSObject {
     
     func milestones(success: @escaping ([Milestone]) -> (), failure: @escaping (Error?) -> ()) {
         let query = PFQuery(className: Milestone.className)
+        query.whereKey("user", equalTo: LevelUpClient.sharedInstance.user()!)
+
         query.findObjectsInBackground(block: {
             (pfObjects: [PFObject]?, error: Error?) -> () in
             if let pfObjects = pfObjects {

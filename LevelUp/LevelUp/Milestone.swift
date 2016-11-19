@@ -43,6 +43,9 @@ class Milestone: NSObject {
     
     init(dictionary: [String: Any]) {
         self.dictionary = dictionary
+        if let user =  LevelUpClient.sharedInstance.user() {
+            self.dictionary["user"] = user
+        }
         
         title = dictionary["title"] as? String
         notes = dictionary["notes"] as? String
