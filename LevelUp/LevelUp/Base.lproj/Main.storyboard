@@ -556,22 +556,22 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vR-Am-6nF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="egU-ac-iZ2">
+                <tapGestureRecognizer id="egU-ac-iZ2" userLabel="Profile Tap">
                     <connections>
                         <action selector="onChangeTab:" destination="LjX-5f-E9x" id="3dC-1V-KJs"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="gAX-VV-u4N">
+                <tapGestureRecognizer id="gAX-VV-u4N" userLabel="Milestone Tap">
                     <connections>
                         <action selector="onChangeTab:" destination="LjX-5f-E9x" id="S8f-VK-Z3K"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="rN1-Gb-xfJ">
+                <tapGestureRecognizer id="rN1-Gb-xfJ" userLabel="Activity Tap">
                     <connections>
                         <action selector="onChangeTab:" destination="LjX-5f-E9x" id="IJL-oC-s7M"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="hR3-Oq-xfK">
+                <tapGestureRecognizer id="hR3-Oq-xfK" userLabel="Quest Tap">
                     <connections>
                         <action selector="onChangeTab:" destination="LjX-5f-E9x" id="DlI-3E-QZj"/>
                     </connections>
@@ -608,6 +608,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rWu-OZ-Zgl"/>
+        <segue reference="fgE-m3-jLM"/>
     </inferredMetricsTieBreakers>
 </document>
