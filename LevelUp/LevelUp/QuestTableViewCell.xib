@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -37,14 +38,33 @@
                             <constraint firstItem="8Ov-iu-2zp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="J2Y-YK-SUY" secondAttribute="top" constant="24" id="M4n-Md-IbN"/>
                             <constraint firstItem="Nld-Q5-lET" firstAttribute="centerY" secondItem="8Ov-iu-2zp" secondAttribute="centerY" id="QaR-qf-rEW"/>
                             <constraint firstItem="8Ov-iu-2zp" firstAttribute="centerY" secondItem="J2Y-YK-SUY" secondAttribute="centerY" id="Re7-m5-Nme"/>
-                            <constraint firstAttribute="width" constant="150" id="k7j-B7-zcg"/>
                             <constraint firstItem="Nld-Q5-lET" firstAttribute="leading" secondItem="8Ov-iu-2zp" secondAttribute="trailing" constant="10" id="tVa-De-xAo"/>
                             <constraint firstAttribute="trailing" secondItem="Nld-Q5-lET" secondAttribute="trailing" constant="10" id="zz7-AV-xff"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PWj-vN-bsm">
+                        <frame key="frameInset" minX="25" minY="3" width="133" height="26"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Quests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctc-Sj-FYW">
+                                <frame key="frameInset" minX="33" minY="3" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ctc-Sj-FYW" firstAttribute="top" secondItem="PWj-vN-bsm" secondAttribute="top" id="J1s-bb-vZo"/>
+                            <constraint firstItem="ctc-Sj-FYW" firstAttribute="leading" secondItem="PWj-vN-bsm" secondAttribute="leading" constant="10" id="Klz-Mj-5SX"/>
+                            <constraint firstAttribute="trailing" secondItem="ctc-Sj-FYW" secondAttribute="trailing" constant="10" id="eJC-OP-mFb"/>
+                            <constraint firstAttribute="height" constant="26" id="l9c-WK-OPm"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstItem="PWj-vN-bsm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="25" id="6fP-c4-dr9"/>
+                    <constraint firstItem="PWj-vN-bsm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Bc6-1Q-qKO"/>
                     <constraint firstAttribute="bottom" secondItem="J2Y-YK-SUY" secondAttribute="bottom" constant="4" id="W1N-pq-pSw"/>
                     <constraint firstItem="J2Y-YK-SUY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="hxH-3D-oeD"/>
                     <constraint firstAttribute="trailing" secondItem="J2Y-YK-SUY" secondAttribute="trailing" constant="20" id="u4K-6N-kMa"/>
@@ -55,6 +75,8 @@
                 <outlet property="iconImage" destination="8Ov-iu-2zp" id="XQU-lk-UDt"/>
                 <outlet property="nameLabel" destination="Nld-Q5-lET" id="fIt-bh-v9k"/>
                 <outlet property="questHolder" destination="J2Y-YK-SUY" id="Qrm-O4-QH0"/>
+                <outlet property="questsHeader" destination="ctc-Sj-FYW" id="3yt-P8-VV9"/>
+                <outlet property="questsHeaderHolder" destination="PWj-vN-bsm" id="hC4-oT-hAq"/>
             </connections>
             <point key="canvasLocation" x="34" y="135"/>
         </tableViewCell>

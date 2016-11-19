@@ -103,14 +103,10 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 0 {
         } else {
             let cell2 = cell as! QuestTableViewCell
-           
             cell2.layoutIfNeeded()
             cell2.questHolder.addDashedBorder()
-
         }
-        
-
-        
+            
         // cell.separatorInset = UIEdgeInsets.zero
         // cell.layoutMargins = UIEdgeInsets.zero
     }
@@ -129,7 +125,12 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             cell.iconImage.layer.masksToBounds = true
             cell.iconImage.layer.cornerRadius = 10
             cell.backgroundColor = AppColors.BrandPrimaryBackgroundColor
-            // cell.questHolder.backgroundColor  = UIColor.blue
+            
+            if (indexPath.row > 1){
+                cell.questsHeaderHolder.isHidden = true
+            } else {
+                cell.questsHeaderHolder.isHidden = false
+            }
             return cell
             
         }

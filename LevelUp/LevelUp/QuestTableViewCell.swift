@@ -13,6 +13,8 @@ class QuestTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var iconImage: UIImageView!
     
+    @IBOutlet weak var questsHeaderHolder: UIView!
+    @IBOutlet weak var questsHeader: UILabel!
     @IBOutlet weak var questHolder: UIView!
     var quest:Quest! {
         didSet {
@@ -21,17 +23,11 @@ class QuestTableViewCell: UITableViewCell {
             LevelUpClient.sharedInstance.fetchIcon(quest: quest, success: { (image: UIImage) in
                 self.iconImage.image = image
                 }, failure: { (error:Error) in
-                    print("---")
                     print("error", error.localizedDescription)
-                    print("---")
             })
 
-            
-            
         }
     }
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,19 +37,14 @@ class QuestTableViewCell: UITableViewCell {
             iconImage = UIImageView(image: quest.image)
         }
         
+        questsHeaderHolder.backgroundColor = AppColors.BrandPrimaryBackgroundColor
         
-
-        
-        
+        questsHeader.textColor = AppColors.SecondaryTextColor
         
     }
-
-    
-    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
