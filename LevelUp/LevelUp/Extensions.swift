@@ -12,7 +12,7 @@ import Parse
 
 extension UIView {
     
-    func addDashedBorder(color: UIColor, width: CGFloat = 2.0) {
+    func addDashedBorder(color: UIColor = AppColors.SecondaryTextColor, width: CGFloat = 2.0) {
         
         let shapeLayer: CAShapeLayer = CAShapeLayer()
         let frameSize = frame.size

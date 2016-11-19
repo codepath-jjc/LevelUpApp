@@ -88,6 +88,19 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         return quests.count + 1
     }
     
+  
+        // TRYING TO MAKE ROW FULL WIDTH???
+    override func viewDidLayoutSubviews() {
+        
+        self.tableView.separatorInset = UIEdgeInsets.zero
+        self.tableView.layoutMargins = UIEdgeInsets.zero
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
@@ -103,6 +116,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             cell.iconImage.layer.masksToBounds = true
             cell.iconImage.layer.cornerRadius = 10
             cell.backgroundColor = AppColors.BrandPrimaryBackgroundColor
+            cell.questHolder.addDashedBorder()
             return cell
             
         }

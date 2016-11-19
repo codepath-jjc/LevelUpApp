@@ -13,6 +13,7 @@ class QuestTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var iconImage: UIImageView!
     
+    @IBOutlet weak var questHolder: UIView!
     var quest:Quest! {
         didSet {
             nameLabel.text = quest.title
