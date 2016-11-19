@@ -31,6 +31,8 @@ class QuestTableViewCell: UITableViewCell {
         }
     }
     
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -38,8 +40,17 @@ class QuestTableViewCell: UITableViewCell {
             nameLabel.text = quest.title
             iconImage = UIImageView(image: quest.image)
         }
+        
+        
+
+        
+        
+        
     }
 
+    
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

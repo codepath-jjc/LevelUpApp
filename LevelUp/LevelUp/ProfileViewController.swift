@@ -95,11 +95,24 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         self.tableView.separatorInset = UIEdgeInsets.zero
         self.tableView.layoutMargins = UIEdgeInsets.zero
     }
+    
+
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         
-        cell.separatorInset = UIEdgeInsets.zero
-        cell.layoutMargins = UIEdgeInsets.zero
+        if indexPath.row == 0 {
+        } else {
+            let cell2 = cell as! QuestTableViewCell
+           
+            cell2.layoutIfNeeded()
+            cell2.questHolder.addDashedBorder()
+
+        }
+        
+
+        
+        // cell.separatorInset = UIEdgeInsets.zero
+        // cell.layoutMargins = UIEdgeInsets.zero
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -116,7 +129,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             cell.iconImage.layer.masksToBounds = true
             cell.iconImage.layer.cornerRadius = 10
             cell.backgroundColor = AppColors.BrandPrimaryBackgroundColor
-            cell.questHolder.addDashedBorder()
+            // cell.questHolder.backgroundColor  = UIColor.blue
             return cell
             
         }

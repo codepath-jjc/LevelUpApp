@@ -11,10 +11,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="125"/>
+                <frame key="frameInset" width="320" height="125.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J2Y-YK-SUY">
+                    <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="752" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J2Y-YK-SUY">
                         <frame key="frameInset" minX="30" minY="14" width="260" height="107"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Ov-iu-2zp">
@@ -24,30 +24,30 @@
                                     <constraint firstAttribute="width" constant="60" id="iNR-8m-mbB"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nld-Q5-lET">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nld-Q5-lET">
                                 <frame key="frameInset" minX="85" minY="41.5" width="54" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.27843137254901962" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8Ov-iu-2zp" firstAttribute="leading" secondItem="J2Y-YK-SUY" secondAttribute="leading" constant="15" id="DMo-lO-Cdg"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8Ov-iu-2zp" secondAttribute="bottom" constant="24" id="IW3-mt-1oU"/>
                             <constraint firstItem="8Ov-iu-2zp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="J2Y-YK-SUY" secondAttribute="top" constant="24" id="M4n-Md-IbN"/>
                             <constraint firstItem="Nld-Q5-lET" firstAttribute="centerY" secondItem="8Ov-iu-2zp" secondAttribute="centerY" id="QaR-qf-rEW"/>
                             <constraint firstItem="8Ov-iu-2zp" firstAttribute="centerY" secondItem="J2Y-YK-SUY" secondAttribute="centerY" id="Re7-m5-Nme"/>
+                            <constraint firstAttribute="width" constant="150" id="k7j-B7-zcg"/>
                             <constraint firstItem="Nld-Q5-lET" firstAttribute="leading" secondItem="8Ov-iu-2zp" secondAttribute="trailing" constant="10" id="tVa-De-xAo"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Nld-Q5-lET" secondAttribute="trailing" constant="10" id="zz7-AV-xff"/>
+                            <constraint firstAttribute="trailing" secondItem="Nld-Q5-lET" secondAttribute="trailing" constant="10" id="zz7-AV-xff"/>
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.14117647058823529" green="0.12156862745098039" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="J2Y-YK-SUY" secondAttribute="bottom" constant="4" id="W1N-pq-pSw"/>
-                    <constraint firstAttribute="trailing" secondItem="J2Y-YK-SUY" secondAttribute="trailing" constant="20" id="cX6-nU-52K"/>
                     <constraint firstItem="J2Y-YK-SUY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="hxH-3D-oeD"/>
+                    <constraint firstAttribute="trailing" secondItem="J2Y-YK-SUY" secondAttribute="trailing" constant="20" id="u4K-6N-kMa"/>
                     <constraint firstItem="J2Y-YK-SUY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="uf0-1q-73e"/>
                 </constraints>
             </tableViewCellContentView>
