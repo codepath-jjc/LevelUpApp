@@ -19,6 +19,7 @@ class LevelUpClient: NSObject {
         if let loadedIcon = quest.image {
             success(loadedIcon)
         } else {
+            // XXX: if this is not defined, it should go to an else but that doesnt work in swift?..
             if let userImageFile = quest.imageFile {
                 
                 userImageFile.getDataInBackground(block: { (imageData:Data?, error:Error?) in
