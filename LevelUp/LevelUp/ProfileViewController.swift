@@ -31,6 +31,9 @@ class ProfileViewController: UIViewController {
         // Add refresh control to table view
         tableView.insertSubview(refreshControl, at: 0)
         
+        self.tableView.backgroundColor =  AppColors.BrandPrimaryBackgroundColor
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+
         reloadData()
     }
     
@@ -89,11 +92,17 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         
         if indexPath.row == 0 {
             let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first  as! ActivityTableViewCell
+            cell.backgroundColor = AppColors.BrandPrimaryBackgroundColor
+            cell.titleLabel.textColor = AppColors.SecondaryTextColor
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("QuestTableViewCell", owner: self, options: nil)?.first  as! QuestTableViewCell
             
             cell.quest = quests[indexPath.row-1]
+            cell.nameLabel.textColor =  AppColors.SecondaryTextColor
+            cell.iconImage.layer.masksToBounds = true
+            cell.iconImage.layer.cornerRadius = 10
+            cell.backgroundColor = AppColors.BrandPrimaryBackgroundColor
             return cell
             
         }

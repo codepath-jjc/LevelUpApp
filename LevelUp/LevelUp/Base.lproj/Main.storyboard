@@ -257,7 +257,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NEg-tG-FGc">
-                                <frame key="frameInset" minX="-1" minY="7" height="101" maxX="1"/>
+                                <frame key="frameInset" minX="-0.5" minY="7" height="101" maxX="0.5"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
