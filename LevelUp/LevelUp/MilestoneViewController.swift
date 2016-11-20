@@ -11,6 +11,7 @@ import UIKit
 class MilestoneViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
 
+    @IBOutlet weak var frequencyLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var chooseImageLabel: UILabel!
@@ -23,15 +24,16 @@ class MilestoneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        notesTextView.addDashedBorder()
+        
+        doneButton.layer.borderWidth = 1.0
+        doneButton.layer.cornerRadius = 5.0
+        doneButton.layer.borderColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0).cgColor
     }
     
     @IBAction func onDone(_ sender: Any) {
+        // TODO create milestone
+        navigationDelegate?.page = Page.profile
     }
     
     @IBAction func onCancel(_ sender: Any) {
