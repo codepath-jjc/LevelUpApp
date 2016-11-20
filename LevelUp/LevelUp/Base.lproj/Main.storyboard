@@ -450,15 +450,17 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmN-TD-RwZ">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="53" id="615-Mz-jRd"/>
-                                                    <constraint firstAttribute="height" constant="72" id="J7E-OB-kHe"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" red="0.46274509800000002" green="0.44705882349999998" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity" translatesAutoresizingMaskIntoConstraints="NO" id="tED-Bd-DoJ"/>
                                         </subviews>
                                         <gestureRecognizers/>
                                         <constraints>
+                                            <constraint firstItem="HmN-TD-RwZ" firstAttribute="top" secondItem="tED-Bd-DoJ" secondAttribute="bottom" constant="6" id="Aw3-sU-2X8"/>
+                                            <constraint firstItem="tED-Bd-DoJ" firstAttribute="centerX" secondItem="nBm-ps-ogH" secondAttribute="centerX" id="e9i-XU-fjw"/>
                                             <constraint firstItem="HmN-TD-RwZ" firstAttribute="centerX" secondItem="nBm-ps-ogH" secondAttribute="centerX" id="eam-g1-OAj"/>
                                         </constraints>
                                         <connections>
@@ -469,16 +471,20 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kf-Nb-k7K">
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="72" id="VDZ-8W-TaP"/>
                                                     <constraint firstAttribute="width" constant="53" id="eaB-xp-LUT"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.46274509800000002" green="0.44705882349999998" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="quest" translatesAutoresizingMaskIntoConstraints="NO" id="Uyn-aA-eVe">
+                                                <frame key="frameInset" minX="23" minY="20" width="31" height="31"/>
+                                            </imageView>
                                         </subviews>
                                         <gestureRecognizers/>
                                         <constraints>
+                                            <constraint firstItem="0kf-Nb-k7K" firstAttribute="top" secondItem="Uyn-aA-eVe" secondAttribute="bottom" constant="6" id="Dm1-Nu-kDF"/>
+                                            <constraint firstItem="Uyn-aA-eVe" firstAttribute="centerX" secondItem="oHq-1U-gA0" secondAttribute="centerX" id="U1g-Lv-iw4"/>
                                             <constraint firstItem="0kf-Nb-k7K" firstAttribute="centerX" secondItem="oHq-1U-gA0" secondAttribute="centerX" id="yTH-In-QF0"/>
                                         </constraints>
                                         <connections>
@@ -608,8 +614,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="activity" width="28" height="28"/>
         <image name="milestones" width="31" height="31"/>
         <image name="profile" width="31" height="31"/>
+        <image name="quest" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fgE-m3-jLM"/>
