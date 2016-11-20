@@ -28,6 +28,7 @@
 		968CB7091DD4571F002D565E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968CB7071DD4571F002D565E /* Main.storyboard */; };
 		968CB70B1DD4571F002D565E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 968CB70A1DD4571F002D565E /* Assets.xcassets */; };
 		968CB70E1DD4571F002D565E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968CB70C1DD4571F002D565E /* LaunchScreen.storyboard */; };
+		96EAA7901DE1386000A582C4 /* ActiivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EAA78F1DE1386000A582C4 /* ActiivityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		968CB70A1DD4571F002D565E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		968CB70D1DD4571F002D565E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		968CB70F1DD4571F002D565E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96EAA78F1DE1386000A582C4 /* ActiivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiivityView.swift; sourceTree = "<group>"; };
 		C98740D3F5870BAF99ED43AF /* Pods-LevelUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-LevelUp/Pods-LevelUp.release.xcconfig"; sourceTree = "<group>"; };
 		D161F0C0F2C0C56B63FB7D4A /* Pods-LevelUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LevelUp/Pods-LevelUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 				9617549B1DD459E900080277 /* QuestTableViewCell.xib */,
 				964EB3B71DD67F710081CA30 /* ActivityTableViewCell.swift */,
 				964EB3B81DD67F710081CA30 /* ActivityTableViewCell.xib */,
+				96EAA78F1DE1386000A582C4 /* ActiivityView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				4212EFAF1DD7813D00440814 /* TabBarViewController.swift in Sources */,
 				42FE5E071DD6656900E63BFF /* WelcomeViewController.swift in Sources */,
 				42FE5E101DD777EB00E63BFF /* MilestoneViewController.swift in Sources */,
+				96EAA7901DE1386000A582C4 /* ActiivityView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

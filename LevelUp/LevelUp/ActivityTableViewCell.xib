@@ -20,8 +20,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZP2-n0-rbj">
-                        <color key="backgroundColor" red="0.12340273039999999" green="0.92422290559999998" blue="0.57171480259999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZP2-n0-rbj" customClass="ActiivityView" customModule="LevelUp" customModuleProvider="target">
                         <constraints>
                             <constraint firstAttribute="height" constant="84.5" id="kAi-QY-oM5"/>
                         </constraints>
