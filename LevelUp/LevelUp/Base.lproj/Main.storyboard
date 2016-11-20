@@ -424,21 +424,22 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PMN-xn-reI">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykg-39-GG1">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykg-39-GG1">
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="72" id="av8-ie-p5t"/>
                                                     <constraint firstAttribute="width" constant="53" id="e6N-6R-ssY"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
-                                                <color key="textColor" red="0.21567074744099371" green="0.50768849206349209" blue="0.29324619062567797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" red="0.46274509803921571" green="0.44705882352941179" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="qu5-mK-DBP"/>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.79607843137254897" green="0.79607843137254897" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="ykg-39-GG1" secondAttribute="bottom" constant="10" id="0hm-m7-ZVH"/>
                                             <constraint firstItem="ykg-39-GG1" firstAttribute="centerX" secondItem="PMN-xn-reI" secondAttribute="centerX" id="8eP-k7-331"/>
-                                            <constraint firstItem="ykg-39-GG1" firstAttribute="centerY" secondItem="PMN-xn-reI" secondAttribute="centerY" id="OI8-N2-H9o"/>
+                                            <constraint firstItem="ykg-39-GG1" firstAttribute="top" secondItem="qu5-mK-DBP" secondAttribute="bottom" constant="6" id="MEK-mW-FGB"/>
+                                            <constraint firstItem="qu5-mK-DBP" firstAttribute="centerX" secondItem="PMN-xn-reI" secondAttribute="centerX" id="b8F-19-awp"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="egU-ac-iZ2" appends="YES" id="FWC-VM-ZmL"/>
@@ -446,17 +447,16 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBm-ps-ogH">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmN-TD-RwZ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmN-TD-RwZ">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="53" id="615-Mz-jRd"/>
                                                     <constraint firstAttribute="height" constant="72" id="J7E-OB-kHe"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
-                                                <color key="textColor" red="0.2156707474" green="0.5076884921" blue="0.29324619060000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" red="0.46274509800000002" green="0.44705882349999998" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.79607843137254897" green="0.79607843137254897" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="HmN-TD-RwZ" firstAttribute="centerX" secondItem="nBm-ps-ogH" secondAttribute="centerX" id="eam-g1-OAj"/>
@@ -467,17 +467,16 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHq-1U-gA0">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kf-Nb-k7K">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kf-Nb-k7K">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="72" id="VDZ-8W-TaP"/>
                                                     <constraint firstAttribute="width" constant="53" id="eaB-xp-LUT"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
-                                                <color key="textColor" red="0.2156707474" green="0.5076884921" blue="0.29324619060000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.46274509800000002" green="0.44705882349999998" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.79607843137254897" green="0.79607843137254897" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="0kf-Nb-k7K" firstAttribute="centerX" secondItem="oHq-1U-gA0" secondAttribute="centerX" id="yTH-In-QF0"/>
@@ -488,27 +487,28 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6qZ-Ge-kT0">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUV-dO-KDC">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milestone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUV-dO-KDC">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="53" id="84c-Qa-wHY"/>
-                                                    <constraint firstAttribute="height" constant="72" id="Jyk-wR-Mh8"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
-                                                <color key="textColor" red="0.2156707474" green="0.5076884921" blue="0.29324619060000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" red="0.46274509803921571" green="0.44705882352941179" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="milestones" translatesAutoresizingMaskIntoConstraints="NO" id="5Q0-aT-paA"/>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.79607843137254897" green="0.79607843137254897" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <constraints>
+                                            <constraint firstItem="5Q0-aT-paA" firstAttribute="centerX" secondItem="6qZ-Ge-kT0" secondAttribute="centerX" id="I2e-Es-1UG"/>
                                             <constraint firstItem="vUV-dO-KDC" firstAttribute="centerX" secondItem="6qZ-Ge-kT0" secondAttribute="centerX" id="IwM-mG-n6h"/>
+                                            <constraint firstItem="vUV-dO-KDC" firstAttribute="top" secondItem="5Q0-aT-paA" secondAttribute="bottom" constant="6" id="oB1-vX-evM"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="gAX-VV-u4N" appends="YES" id="pBR-S1-sai"/>
                                         </connections>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.51541584494673176" green="0.51887501169134076" blue="0.51887501169134076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.15294117647058825" green="0.13725490196078433" blue="0.12941176470588237" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="nBm-ps-ogH" firstAttribute="leading" secondItem="6qZ-Ge-kT0" secondAttribute="trailing" constant="2" id="09z-yD-6z7"/>
                                     <constraint firstItem="6qZ-Ge-kT0" firstAttribute="leading" secondItem="PMN-xn-reI" secondAttribute="trailing" constant="2" id="2TN-BX-d0b"/>
@@ -577,7 +577,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1421.5999999999999" y="138.98050974512745"/>
+            <point key="canvasLocation" x="1421.25" y="138.38028169014083"/>
         </scene>
         <!--Activity Timeline View Controller-->
         <scene sceneID="Zsr-x4-PLy">
@@ -607,6 +607,10 @@
             <point key="canvasLocation" x="2121" y="1473"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="milestones" width="31" height="31"/>
+        <image name="profile" width="31" height="31"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fgE-m3-jLM"/>
     </inferredMetricsTieBreakers>

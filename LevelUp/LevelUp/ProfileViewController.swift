@@ -110,6 +110,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         // cell.separatorInset = UIEdgeInsets.zero
         // cell.layoutMargins = UIEdgeInsets.zero
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
