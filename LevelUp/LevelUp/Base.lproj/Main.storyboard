@@ -423,6 +423,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose an Image" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4e-7j-tjk">
                                 <rect key="frame" x="30" y="95" width="65" height="65"/>
                                 <color key="backgroundColor" red="0.35960234788359791" green="0.35960234788359791" blue="0.35960234788359791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="TBf-QZ-gE7"/>
                                     <constraint firstAttribute="width" constant="65" id="gcf-ey-XLD"/>
@@ -430,6 +431,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.75149842923280419" green="0.75149842923280419" blue="0.75149842923280419" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4kA-iG-fc4" appends="YES" id="1xA-YL-YlK"/>
+                                </connections>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Notes" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OJO-Fg-xiq">
                                 <rect key="frame" x="20" y="190" width="335" height="130"/>
@@ -493,6 +497,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maA-f9-hRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4kA-iG-fc4">
+                    <connections>
+                        <action selector="onChooseImage:" destination="lar-Ps-rYo" id="N0P-pZ-ZIi"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1994.4000000000001" y="850.52473763118451"/>
         </scene>
