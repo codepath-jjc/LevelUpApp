@@ -11,6 +11,9 @@ import UIKit
 class MilestoneViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
 
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var notesTextView: UITextView!
+    @IBOutlet weak var chooseImageLabel: UILabel!
     @IBOutlet weak var questNameLabel: UILabel!
     var quest:Quest? {
         didSet {
@@ -28,17 +31,12 @@ class MilestoneViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func markCompletePressed(_ sender: UIButton) {
+    @IBAction func onDone(_ sender: Any) {
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func onCancel(_ sender: Any) {
+        navigationDelegate?.page = Page.profile
     }
-    */
+    
 
 }
