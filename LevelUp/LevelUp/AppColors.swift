@@ -12,6 +12,9 @@ class AppColors: NSObject {
 
     static let BrandPrimaryBackgroundColor = UIColor(red:0.19, green:0.16, blue:0.15, alpha:1.0)
     
+    // BDBDBD
+    static let PrimaryTextColor = UIColor(red:0.74, green:0.74, blue:0.74, alpha:1.0)
+    
     // 898584
     static let SecondaryTextColor = UIColor(red:0.54, green:0.52, blue:0.52, alpha:1.0)
     // 61FF9E

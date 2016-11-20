@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="125.5"/>
+                <frame key="frameInset" width="320" height="125"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="752" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J2Y-YK-SUY">
@@ -27,7 +27,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nld-Q5-lET">
                                 <frame key="frameInset" minX="85" minY="41.5" width="54" height="24"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.27843137254901962" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -46,8 +46,8 @@
                         <frame key="frameInset" minX="25" minY="3" width="133" height="26"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Quests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctc-Sj-FYW">
-                                <frame key="frameInset" minX="33" minY="3" width="55" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <frame key="frameInset" minX="33" minY="3" width="56" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -55,7 +55,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ctc-Sj-FYW" firstAttribute="top" secondItem="PWj-vN-bsm" secondAttribute="top" id="J1s-bb-vZo"/>
-                            <constraint firstItem="ctc-Sj-FYW" firstAttribute="leading" secondItem="PWj-vN-bsm" secondAttribute="leading" constant="10" id="Klz-Mj-5SX"/>
+                            <constraint firstItem="ctc-Sj-FYW" firstAttribute="leading" secondItem="PWj-vN-bsm" secondAttribute="leading" constant="5" id="Klz-Mj-5SX"/>
                             <constraint firstAttribute="trailing" secondItem="ctc-Sj-FYW" secondAttribute="trailing" constant="10" id="eJC-OP-mFb"/>
                             <constraint firstAttribute="height" constant="26" id="l9c-WK-OPm"/>
                         </constraints>
@@ -64,7 +64,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="PWj-vN-bsm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="25" id="6fP-c4-dr9"/>
-                    <constraint firstItem="PWj-vN-bsm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Bc6-1Q-qKO"/>
+                    <constraint firstItem="PWj-vN-bsm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="Bc6-1Q-qKO"/>
                     <constraint firstAttribute="bottom" secondItem="J2Y-YK-SUY" secondAttribute="bottom" constant="4" id="W1N-pq-pSw"/>
                     <constraint firstItem="J2Y-YK-SUY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="hxH-3D-oeD"/>
                     <constraint firstAttribute="trailing" secondItem="J2Y-YK-SUY" secondAttribute="trailing" constant="20" id="u4K-6N-kMa"/>
@@ -77,6 +77,7 @@
                 <outlet property="questHolder" destination="J2Y-YK-SUY" id="Qrm-O4-QH0"/>
                 <outlet property="questsHeader" destination="ctc-Sj-FYW" id="3yt-P8-VV9"/>
                 <outlet property="questsHeaderHolder" destination="PWj-vN-bsm" id="hC4-oT-hAq"/>
+                <outlet property="topHolderConstraint" destination="uf0-1q-73e" id="q0P-0C-Qkb"/>
             </connections>
             <point key="canvasLocation" x="34" y="135"/>
         </tableViewCell>

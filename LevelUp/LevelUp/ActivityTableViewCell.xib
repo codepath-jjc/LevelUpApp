@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkd-iJ-66C">
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -30,7 +30,7 @@
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="ZP2-n0-rbj" secondAttribute="bottom" constant="10" id="Ayi-zI-P0K"/>
                     <constraint firstItem="ZP2-n0-rbj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="BYl-eJ-3vu"/>
-                    <constraint firstItem="pkd-iJ-66C" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="13" id="TeK-fi-92h"/>
+                    <constraint firstItem="pkd-iJ-66C" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="25" id="TeK-fi-92h"/>
                     <constraint firstItem="pkd-iJ-66C" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="dMZ-ev-XWG"/>
                     <constraint firstItem="ZP2-n0-rbj" firstAttribute="top" secondItem="pkd-iJ-66C" secondAttribute="bottom" constant="8" id="hGD-8Z-pDK"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ZP2-n0-rbj" secondAttribute="trailing" constant="12" id="yWw-d5-KdA"/>

@@ -10,6 +10,7 @@ import UIKit
 
 class QuestTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var topHolderConstraint: NSLayoutConstraint!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var iconImage: UIImageView!
     
@@ -40,9 +41,20 @@ class QuestTableViewCell: UITableViewCell {
         questsHeaderHolder.backgroundColor = AppColors.BrandPrimaryBackgroundColor
         
         questsHeader.textColor = AppColors.SecondaryTextColor
-        
+     
+    }
+
+    func isTopCell() {
+        questsHeader.textColor = AppColors.PrimaryTextColor
+        topHolderConstraint.constant = 25
+        questsHeaderHolder.isHidden = false
     }
     
+    func isNoptCell(){
+        topHolderConstraint.constant = 8
+        questsHeaderHolder.isHidden = true
+
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
