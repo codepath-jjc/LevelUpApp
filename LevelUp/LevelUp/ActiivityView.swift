@@ -11,6 +11,8 @@ import UIKit
 class ActiivityView: UIView {
 
     
+    var cols = 7
+    var height = 6
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         //initSubviews()
@@ -27,11 +29,16 @@ class ActiivityView: UIView {
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
  
+        let green  = AppColors.PrimaryAccentColor
         
-        // Get the Graphics Context
-        var path = UIBezierPath(ovalIn: rect)
-        UIColor.green.setFill()
-        path.fill()
+        let rectangle = CGRect(x: 0, y: 0, width: 10, height: 10.0)
+        green.setFill()
+        UIRectFill(rectangle)
+        
+        let rectangle2 = CGRect(x: 20, y: 0, width: 10, height: 10.0)
+        green.setFill()
+        UIRectFill(rectangle2)
+        
     }
 
 }
