@@ -72,20 +72,23 @@ class TabBarViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        profileViewController.navigationDelegate = self
         viewControllers.append(profileViewController)
 
         milestoneViewController = storyboard.instantiateViewController(withIdentifier: "MilestoneViewController") as! MilestoneViewController
+        milestoneViewController.navigationDelegate = self
         viewControllers.append(milestoneViewController)
         
         activityTimelineViewController = storyboard.instantiateViewController(withIdentifier: "ActivityTimelineViewController") as! ActivityTimelineViewController
+        activityTimelineViewController.navigationDelegate = self
         viewControllers.append(activityTimelineViewController)
         
         newQuestViewController = storyboard.instantiateViewController(withIdentifier: "NewQuestViewController") as! NewQuestViewController
+        newQuestViewController.navigationDelegate = self
         viewControllers.append(newQuestViewController)
 
         page = Page.profile
         setSelected(image: profileImage, text: profileLabel)
-
     }
 
     
@@ -118,14 +121,12 @@ class TabBarViewController: UIViewController {
         if tabButton == profileButtonView {
             page = Page.profile
             setSelected(image: profileImage, text: profileLabel)
-
         } else if tabButton == milestoneButtonView {
             page = Page.milestone
             setSelected(image: milestoneImage, text: milestoneLabel)
         } else if tabButton == activityTimelineButtonView {
             page = Page.activityTimeline
             setSelected(image: activityImage, text: activityLabel)
-
         } else if tabButton == questButtonView {
             page = Page.quest
             setSelected(image: questImage, text: questLabel)
