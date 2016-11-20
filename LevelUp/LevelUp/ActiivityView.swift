@@ -31,6 +31,13 @@ class ActiivityView: UIView {
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
  
+        
+        // DEBUG
+        
+        //UIColor.white.setFill()
+       // UIRectFill(rect)
+        // DEBUG
+        
         let green  = AppColors.PrimaryAccentColor
         
         let margin = CGFloat(10)
@@ -39,7 +46,7 @@ class ActiivityView: UIView {
         
         let marginDouble = margin *  CGFloat(2); // 10 on each
         let fullWidth =  (rect.width - marginDouble ) / CGFloat( cols);
-        let fullHeight =  (rect.height - marginDouble ) / CGFloat( cols);
+        let fullHeight =  (rect.height - margin ) / CGFloat( rows);
         
         let height = fullHeight - spacer
         let width = fullWidth - spacer
@@ -48,7 +55,7 @@ class ActiivityView: UIView {
             for c in 0...cols-1 {
                 
                 let x = margin +  fullWidth * CGFloat(c)
-                let y = fullHeight * CGFloat(r)
+                let y = margin + fullHeight * CGFloat(r)
                 let rectangle = CGRect(x: x, y: y, width: width, height: height)
                 green.setFill()
                 UIRectFill(rectangle)
