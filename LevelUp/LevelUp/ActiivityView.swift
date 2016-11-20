@@ -33,19 +33,21 @@ class ActiivityView: UIView {
  
         let green  = AppColors.PrimaryAccentColor
         
-        
-        let remainingWidth = CGFloat(20); // 10 on each
-        let fullWidth =  (rect.width - remainingWidth ) / CGFloat( cols);
-        
-        let height = CGFloat(20);
+        let margin = CGFloat(10)
         let spacer = CGFloat(8)
-        let fullHeight = height + CGFloat(spacer)
-        let width = fullWidth - CGFloat(spacer)
+
         
-        for r in 0...rows {
-            for c in 0...cols {
+        let marginDouble = margin *  CGFloat(2); // 10 on each
+        let fullWidth =  (rect.width - marginDouble ) / CGFloat( cols);
+        let fullHeight =  (rect.height - marginDouble ) / CGFloat( cols);
+        
+        let height = fullHeight - spacer
+        let width = fullWidth - spacer
+        
+        for r in 0...rows-1 {
+            for c in 0...cols-1 {
                 
-                let x = fullWidth * CGFloat(c)
+                let x = margin +  fullWidth * CGFloat(c)
                 let y = fullHeight * CGFloat(r)
                 let rectangle = CGRect(x: x, y: y, width: width, height: height)
                 green.setFill()

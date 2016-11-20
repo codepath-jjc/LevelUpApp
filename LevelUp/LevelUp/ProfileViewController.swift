@@ -116,6 +116,8 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 0 {
             let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first  as! ActivityTableViewCell
             cell.backgroundColor = AppColors.BrandPrimaryBackgroundColor
+            //cell.backgroundColor = UIColor.white
+            
             cell.titleLabel.textColor = AppColors.PrimaryTextColor
             return cell
         } else {
