@@ -19,6 +19,7 @@ class LevelUpClient: NSObject {
         if let loadedIcon = quest.image {
             success(loadedIcon)
         } else {
+            // XXX: if this is not defined, it should go to an else but that doesnt work in swift?..
             if let userImageFile = quest.imageFile {
                 
                 userImageFile.getDataInBackground(block: { (imageData:Data?, error:Error?) in
@@ -38,6 +39,22 @@ class LevelUpClient: NSObject {
         }
     }
     
+    
+    func user() -> PFUser?{
+        let currentUser = PFUser.current()
+        
+        
+        if let currentUser = currentUser  {
+            
+            
+            currentUser.saveInBackground()
+            return currentUser
+            // Do stuff with the user
+            
+        }
+        
+        return nil
+    }
     
     
     // This is a mutating function - the input Quest and Milestone WILL be updated
@@ -119,7 +136,7 @@ class LevelUpClient: NSObject {
     
     func quests(success: @escaping ([Quest]) -> (), failure: @escaping (Error?) -> ()) {
         let query = PFQuery(className: Quest.className)
-        
+        query.whereKey("user", equalTo: LevelUpClient.sharedInstance.user()!)
         
         query.findObjectsInBackground(block: {
             (pfObjects: [PFObject]?, error: Error?) -> () in
@@ -138,6 +155,8 @@ class LevelUpClient: NSObject {
     
     func milestones(success: @escaping ([Milestone]) -> (), failure: @escaping (Error?) -> ()) {
         let query = PFQuery(className: Milestone.className)
+        query.whereKey("user", equalTo: LevelUpClient.sharedInstance.user()!)
+
         query.findObjectsInBackground(block: {
             (pfObjects: [PFObject]?, error: Error?) -> () in
             if let pfObjects = pfObjects {

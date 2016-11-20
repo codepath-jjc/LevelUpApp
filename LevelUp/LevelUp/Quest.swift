@@ -44,10 +44,15 @@ class Quest: NSObject {
     }
     
     init(dictionary: [String: Any]) {
-        self.dictionary = dictionary
         
+        
+        self.dictionary = dictionary
+        if let user =  LevelUpClient.sharedInstance.user() {
+            self.dictionary["user"] = user
+        }
         title = dictionary["title"] as? String
         image = dictionary["image"] as? UIImage
+        
     }
     
 }

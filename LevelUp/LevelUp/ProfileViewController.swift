@@ -31,6 +31,9 @@ class ProfileViewController: UIViewController {
         // Add refresh control to table view
         tableView.insertSubview(refreshControl, at: 0)
         
+        self.tableView.backgroundColor =  AppColors.BrandPrimaryBackgroundColor
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+
         reloadData()
     }
     
@@ -85,15 +88,51 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         return quests.count + 1
     }
     
+  
+        // TRYING TO MAKE ROW FULL WIDTH???
+    override func viewDidLayoutSubviews() {
+        
+        self.tableView.separatorInset = UIEdgeInsets.zero
+        self.tableView.layoutMargins = UIEdgeInsets.zero
+    }
+    
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        
+        if indexPath.row == 0 {
+        } else {
+            let cell2 = cell as! QuestTableViewCell
+            cell2.layoutIfNeeded()
+            cell2.questHolder.addDashedBorder()
+        }
+            
+        // cell.separatorInset = UIEdgeInsets.zero
+        // cell.layoutMargins = UIEdgeInsets.zero
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
             let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first  as! ActivityTableViewCell
+            cell.backgroundColor = AppColors.BrandPrimaryBackgroundColor
+            cell.titleLabel.textColor = AppColors.PrimaryTextColor
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("QuestTableViewCell", owner: self, options: nil)?.first  as! QuestTableViewCell
             
             cell.quest = quests[indexPath.row-1]
+            cell.nameLabel.textColor =  AppColors.SecondaryTextColor
+            cell.iconImage.layer.masksToBounds = true
+            cell.iconImage.layer.cornerRadius = 10
+            cell.backgroundColor = AppColors.BrandPrimaryBackgroundColor
+            
+            if (indexPath.row > 1){
+                cell.isNoptCell()
+            } else {
+                cell.isTopCell()
+
+            }
             return cell
             
         }
