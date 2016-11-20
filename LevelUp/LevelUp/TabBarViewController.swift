@@ -33,7 +33,6 @@ class TabBarViewController: UIViewController {
     @IBOutlet weak var milestoneButtonView: UIView!
     @IBOutlet weak var activityTimelineButtonView: UIView!
     
-    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileLabel: UILabel!
     
@@ -53,6 +52,21 @@ class TabBarViewController: UIViewController {
     var viewControllers = [UIViewController]()
     var page: Page! {
         willSet {
+            unselectAll()
+            
+            switch newValue.rawValue {
+            case Page.profile.rawValue:
+                setSelected(image: profileImage, text: profileLabel)
+            case Page.milestone.rawValue:
+                setSelected(image: milestoneImage, text: milestoneLabel)
+            case Page.activityTimeline.rawValue:
+                setSelected(image: activityImage, text: activityLabel)
+            case Page.quest.rawValue:
+                setSelected(image: questImage, text: questLabel)
+            default:
+                break
+            }
+            
             if page != nil {
                 contentView.subviews.first?.removeFromSuperview()
                 childViewControllers.first?.removeFromParentViewController()
@@ -117,19 +131,14 @@ class TabBarViewController: UIViewController {
     @IBAction func onChangeTab(_ sender: UITapGestureRecognizer) {
         let tabButton = sender.view
         
-        unselectAll()
         if tabButton == profileButtonView {
             page = Page.profile
-            setSelected(image: profileImage, text: profileLabel)
         } else if tabButton == milestoneButtonView {
             page = Page.milestone
-            setSelected(image: milestoneImage, text: milestoneLabel)
         } else if tabButton == activityTimelineButtonView {
             page = Page.activityTimeline
-            setSelected(image: activityImage, text: activityLabel)
         } else if tabButton == questButtonView {
             page = Page.quest
-            setSelected(image: questImage, text: questLabel)
         }
         
     }
