@@ -37,6 +37,7 @@ class MilestoneViewController: UIViewController {
     }
     
     @IBAction func onCancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
         navigationDelegate?.page = Page.profile
     }
     
