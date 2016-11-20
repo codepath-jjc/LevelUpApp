@@ -16,8 +16,8 @@ class MilestoneViewController: UIViewController {
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var chooseImageLabel: UILabel!
     @IBOutlet weak var questNameTableView: UITableView!
-    
     var hasPlaceholder = true
+    var quests = [Quest]()
     var quest:Quest? {
         didSet {
             
@@ -25,6 +25,16 @@ class MilestoneViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        LevelUpClient.sharedInstance.quests(success: {
+            (quests: [Quest]) -> () in
+            self.quests = quests
+            self.questNameTableView.reloadData()
+        }, failure: {
+            (error: Error?) -> () in
+            // TODO
+        })
+        questNameTableView.register(UITableViewCell.self, forCellReuseIdentifier: "QuestNameCell")
 
         notesTextView.addDashedBorder()
         
@@ -36,6 +46,7 @@ class MilestoneViewController: UIViewController {
         doneButton.layer.borderColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0).cgColor
         
         notesTextView.delegate = self
+        questNameTableView.dataSource = self
     }
     
     @IBAction func onChooseImage(_ sender: UITapGestureRecognizer) {
@@ -52,6 +63,22 @@ class MilestoneViewController: UIViewController {
         navigationDelegate?.page = Page.profile
     }
 
+}
+
+extension MilestoneViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "QuestNameCell", for: indexPath)
+        cell.backgroundColor = UIColor(red:0.16, green:0.16, blue:0.16, alpha:1.0)
+        cell.textLabel?.textColor = UIColor(red:0.73, green:0.73, blue:0.73, alpha:1.0)
+        cell.textLabel?.text = quests[indexPath.row].title
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return quests.count
+    }
 }
 
 extension MilestoneViewController: UITextViewDelegate {
