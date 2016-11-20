@@ -432,10 +432,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Notes" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OJO-Fg-xiq">
-                                <rect key="frame" x="20" y="175" width="335" height="100"/>
+                                <rect key="frame" x="20" y="175" width="335" height="130"/>
                                 <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="WyB-vW-HHa"/>
+                                    <constraint firstAttribute="height" constant="130" id="WyB-vW-HHa"/>
                                 </constraints>
                                 <color key="textColor" red="0.60392156860000001" green="0.61176470589999998" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -447,19 +447,35 @@
                                 <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frequency:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9en-KR-FAa">
+                                <rect key="frame" x="20" y="335" width="109.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qzt-Rb-qLD">
+                                <rect key="frame" x="149.5" y="340" width="50" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yAf-XA-368" firstAttribute="centerY" secondItem="JRy-7S-KRx" secondAttribute="centerY" id="0Cb-ai-ost"/>
                             <constraint firstItem="JRy-7S-KRx" firstAttribute="leading" secondItem="kmX-Pu-52B" secondAttribute="leading" constant="20" id="2m4-iw-hmH"/>
                             <constraint firstItem="JjN-py-LTU" firstAttribute="top" secondItem="jO3-fQ-EGd" secondAttribute="bottom" constant="20" id="7nn-0P-vsi"/>
+                            <constraint firstItem="9en-KR-FAa" firstAttribute="top" secondItem="OJO-Fg-xiq" secondAttribute="bottom" constant="30" id="8Nv-Wq-vXP"/>
+                            <constraint firstItem="9en-KR-FAa" firstAttribute="leading" secondItem="kmX-Pu-52B" secondAttribute="leading" constant="20" id="BkE-dw-zmR"/>
                             <constraint firstItem="DLP-Sb-VWd" firstAttribute="top" secondItem="yAf-XA-368" secondAttribute="bottom" constant="20" id="FVu-Mb-BpZ"/>
                             <constraint firstItem="L4e-7j-tjk" firstAttribute="leading" secondItem="kmX-Pu-52B" secondAttribute="leading" constant="30" id="IYd-2x-A8S"/>
                             <constraint firstItem="JjN-py-LTU" firstAttribute="leading" secondItem="L4e-7j-tjk" secondAttribute="trailing" constant="20" id="Kge-kB-IJD"/>
                             <constraint firstAttribute="trailing" secondItem="yAf-XA-368" secondAttribute="trailing" constant="20" id="Ngq-by-ZMp"/>
                             <constraint firstItem="Sx0-KV-FXF" firstAttribute="leading" secondItem="L4e-7j-tjk" secondAttribute="trailing" constant="20" id="Ses-JM-lPE"/>
+                            <constraint firstItem="Qzt-Rb-qLD" firstAttribute="leading" secondItem="9en-KR-FAa" secondAttribute="trailing" constant="20" id="Tvf-ON-Enu"/>
                             <constraint firstItem="Sx0-KV-FXF" firstAttribute="top" secondItem="JjN-py-LTU" secondAttribute="bottom" constant="10" id="aNl-ts-kp0"/>
                             <constraint firstItem="jO3-fQ-EGd" firstAttribute="top" secondItem="Tk6-zB-g0r" secondAttribute="bottom" constant="20" id="cIh-Bj-F9M"/>
+                            <constraint firstItem="Qzt-Rb-qLD" firstAttribute="centerY" secondItem="9en-KR-FAa" secondAttribute="centerY" id="g4I-Bh-nGY"/>
                             <constraint firstItem="L4e-7j-tjk" firstAttribute="top" secondItem="jO3-fQ-EGd" secondAttribute="bottom" constant="20" id="hS4-1Z-GRj"/>
                             <constraint firstItem="OJO-Fg-xiq" firstAttribute="leading" secondItem="kmX-Pu-52B" secondAttribute="leading" constant="20" id="jVi-Og-wOs"/>
                             <constraint firstItem="OJO-Fg-xiq" firstAttribute="top" secondItem="L4e-7j-tjk" secondAttribute="bottom" constant="15" id="kkh-JY-w8f"/>
@@ -471,6 +487,7 @@
                     <connections>
                         <outlet property="chooseImageLabel" destination="L4e-7j-tjk" id="SgL-FS-WYk"/>
                         <outlet property="doneButton" destination="yAf-XA-368" id="QPq-is-Lz3"/>
+                        <outlet property="frequencyLabel" destination="Qzt-Rb-qLD" id="P0E-xx-UUY"/>
                         <outlet property="notesTextView" destination="OJO-Fg-xiq" id="JIL-80-sJs"/>
                         <outlet property="questNameLabel" destination="Sx0-KV-FXF" id="Yie-VS-Nca"/>
                     </connections>
