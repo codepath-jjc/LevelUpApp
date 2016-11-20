@@ -12,7 +12,7 @@ class ActiivityView: UIView {
 
     
     var cols = 7
-    var height = 6
+    var rows = 6
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         //initSubviews()
@@ -31,13 +31,28 @@ class ActiivityView: UIView {
  
         let green  = AppColors.PrimaryAccentColor
         
-        let rectangle = CGRect(x: 0, y: 0, width: 10, height: 10.0)
-        green.setFill()
-        UIRectFill(rectangle)
         
-        let rectangle2 = CGRect(x: 20, y: 0, width: 10, height: 10.0)
-        green.setFill()
-        UIRectFill(rectangle2)
+        
+        var remainingWidth = CGFloat(20); // 10 on each
+        var fullWidth =  (rect.width - remainingWidth ) / CGFloat( cols);
+        
+        var height = CGFloat(20);
+        var fullHeight = height + CGFloat(3)
+        var width = fullWidth - CGFloat(3)
+        
+        for r in 0...rows {
+            for c in 0...cols {
+                
+                let x = fullWidth * CGFloat(c)
+                let y = fullHeight * CGFloat(r)
+                let rectangle = CGRect(x: x, y: y, width: width, height: height)
+                green.setFill()
+                UIRectFill(rectangle)
+        
+                
+            }
+        }
+        
         
     }
 
