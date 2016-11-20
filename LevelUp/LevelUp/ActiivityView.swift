@@ -16,13 +16,15 @@ class ActiivityView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         //initSubviews()
-    self.backgroundColor = UIColor.clear
+        // Clear the background otherwise it is black
+        self.backgroundColor = UIColor.clear
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         //initSubviews()
-    self.backgroundColor = UIColor.clear
+        // Clear the background otherwise it is black
+        self.backgroundColor = UIColor.clear
     }
     
     // Only override draw() if you perform custom drawing.
@@ -32,13 +34,13 @@ class ActiivityView: UIView {
         let green  = AppColors.PrimaryAccentColor
         
         
+        let remainingWidth = CGFloat(20); // 10 on each
+        let fullWidth =  (rect.width - remainingWidth ) / CGFloat( cols);
         
-        var remainingWidth = CGFloat(20); // 10 on each
-        var fullWidth =  (rect.width - remainingWidth ) / CGFloat( cols);
-        
-        var height = CGFloat(20);
-        var fullHeight = height + CGFloat(3)
-        var width = fullWidth - CGFloat(3)
+        let height = CGFloat(20);
+        let spacer = CGFloat(8)
+        let fullHeight = height + CGFloat(spacer)
+        let width = fullWidth - CGFloat(spacer)
         
         for r in 0...rows {
             for c in 0...cols {
