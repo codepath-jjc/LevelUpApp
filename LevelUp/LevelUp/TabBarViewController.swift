@@ -130,7 +130,6 @@ class TabBarViewController: UIViewController {
         } else if tabButton == questButtonView {
             page = Page.quest
             setSelected(image: questImage, text: questLabel)
-
         }
         
     }

@@ -26,10 +26,17 @@ class MilestoneViewController: UIViewController {
 
         notesTextView.addDashedBorder()
         
+        chooseImageLabel.clipsToBounds = true
+        chooseImageLabel.layer.cornerRadius = 5.0
+        
         doneButton.layer.borderWidth = 1.0
         doneButton.layer.cornerRadius = 5.0
         doneButton.layer.borderColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0).cgColor
     }
+    
+    @IBAction func onChooseImage(_ sender: UITapGestureRecognizer) {
+    }
+
     
     @IBAction func onDone(_ sender: Any) {
         // TODO create milestone
@@ -40,6 +47,5 @@ class MilestoneViewController: UIViewController {
         dismiss(animated: true, completion: nil)
         navigationDelegate?.page = Page.profile
     }
-    
 
 }
