@@ -28,7 +28,7 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="ZP2-n0-rbj" secondAttribute="bottom" constant="10" id="Ayi-zI-P0K"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ZP2-n0-rbj" secondAttribute="bottom" id="Ayi-zI-P0K"/>
                     <constraint firstItem="ZP2-n0-rbj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="BYl-eJ-3vu"/>
                     <constraint firstItem="pkd-iJ-66C" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="25" id="TeK-fi-92h"/>
                     <constraint firstItem="pkd-iJ-66C" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="dMZ-ev-XWG"/>
