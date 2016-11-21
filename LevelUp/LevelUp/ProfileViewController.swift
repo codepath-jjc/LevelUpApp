@@ -135,6 +135,22 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (UITableViewRowAction, IndexPath) in
+            //TODO: edit the row at indexPath here
+        }
+        editAction.backgroundColor = UIColor.blue
+        
+        
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (UITableViewRowAction, IndexPath) in
+            //TODO: Delete the row at indexPath here
+        }
+        deleteAction.backgroundColor = UIColor.red
+        
+        return [editAction,deleteAction]
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             print("DELETE")
@@ -147,6 +163,9 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             print("NONE")
         }
 
+        // http://stackoverflow.com/questions/36315746/uitableviewrowaction-with-image-swift
+        // http://swiftdeveloperblog.com/uitableviewrowaction-example-in-swift/
+        // http://stackoverflow.com/questions/19164188/custom-edit-view-in-uitableviewcell-while-swipe-left-objective-c-or-swift
     }
     
 }
