@@ -139,12 +139,14 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (UITableViewRowAction, IndexPath) in
             //TODO: edit the row at indexPath here
+            print("EDIT CALLED!")
         }
         editAction.backgroundColor = UIColor.blue
         
         
         let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (UITableViewRowAction, IndexPath) in
             //TODO: Delete the row at indexPath here
+            print("DELETE CALLED!")
         }
         deleteAction.backgroundColor = UIColor.red
         // http://stackoverflow.com/questions/37999727/swift-3-error-cannot-call-value-of-non-function-type-uitableview
