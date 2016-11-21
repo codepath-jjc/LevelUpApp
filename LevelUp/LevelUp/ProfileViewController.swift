@@ -135,5 +135,19 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            print("DELETE")
+        }
+        if editingStyle == .insert {
+            print("INSERT")
+        }
+        
+        if editingStyle == .none {
+            print("NONE")
+        }
+
+    }
+    
 }
 
