@@ -45,7 +45,6 @@ class Quest: NSObject {
     
     init(dictionary: [String: Any]) {
         
-        
         self.dictionary = dictionary
         if let user =  LevelUpClient.sharedInstance.user() {
             self.dictionary["user"] = user
@@ -53,6 +52,12 @@ class Quest: NSObject {
         title = dictionary["title"] as? String
         image = dictionary["image"] as? UIImage
         
+    }
+    
+    // Returns the upcoming milestone for this quest
+    func upcomingMilestone() -> Milestone? {
+        // TODO
+        return Milestone(dictionary: [String:Any]())
     }
     
 }

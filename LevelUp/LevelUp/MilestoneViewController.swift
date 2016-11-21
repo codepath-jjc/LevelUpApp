@@ -47,14 +47,33 @@ class MilestoneViewController: UIViewController {
         
         notesTextView.delegate = self
         questNameTableView.dataSource = self
+        questNameTableView.delegate = self
     }
     
     @IBAction func onChooseImage(_ sender: UITapGestureRecognizer) {
+        let imagePickerVC = UIImagePickerController()
+        imagePickerVC.delegate = self
+        imagePickerVC.allowsEditing = true
+        imagePickerVC.sourceType = .photoLibrary
+        
+        present(imagePickerVC, animated: true, completion: nil)
     }
 
     
     @IBAction func onDone(_ sender: Any) {
-        // TODO create milestone
+        let milestone = quest?.upcomingMilestone()
+        milestone?.completed = true
+        
+        if var milestone = milestone {
+            LevelUpClient.sharedInstance.sync(milestone: &milestone, success: {
+                () -> () in
+                // TODO
+            }, failure: {
+                (error: Error?) -> () in
+                // TODO
+            })
+        }
+
         navigationDelegate?.page = Page.profile
     }
     
@@ -63,6 +82,27 @@ class MilestoneViewController: UIViewController {
         navigationDelegate?.page = Page.profile
     }
 
+}
+
+extension MilestoneViewController: UINavigationControllerDelegate {
+    
+}
+
+extension MilestoneViewController: UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        // TODO
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+extension MilestoneViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        quest = quests[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension MilestoneViewController: UITableViewDataSource {
