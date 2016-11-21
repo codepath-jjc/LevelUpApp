@@ -19,8 +19,8 @@ class ActiivityView: UIView {
         }
     }
     
-    var cols = 0
-    var rows = 0
+    var cols = 0 // 7
+    var rows = 0 // 6
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
