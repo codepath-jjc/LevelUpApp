@@ -37,6 +37,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="activityDisplay" destination="ZP2-n0-rbj" id="BWq-qK-0z9"/>
                 <outlet property="titleLabel" destination="pkd-iJ-66C" id="JeT-7g-2ks"/>
             </connections>
             <point key="canvasLocation" x="34" y="124"/>
