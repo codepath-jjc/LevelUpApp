@@ -10,9 +10,18 @@ import UIKit
 
 class ActiivityView: UIView {
 
+    var matrix = [[Bool]]() {
+        didSet{
+            if matrix.count > 0 {
+                rows = matrix.count
+                cols = matrix[0].count
+            }
+        }
+    }
     
-    var cols = 7
-    var rows = 6
+    var cols = 0
+    var rows = 0
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         //initSubviews()
@@ -30,15 +39,15 @@ class ActiivityView: UIView {
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
- 
-        
-        // DEBUG
-        
+        // Help debug the draw rect area:
+        // HELPER DEBUG
         //UIColor.white.setFill()
        // UIRectFill(rect)
-        // DEBUG
+        // HELPER DEBUG
         
         let green  = AppColors.PrimaryAccentColor
+        let grey = AppColors.ThirdGrey
+        //green.withAlphaComponent(<#T##alpha: CGFloat##CGFloat#>)
         
         let margin = CGFloat(10)
         let spacer = CGFloat(8)
@@ -51,20 +60,22 @@ class ActiivityView: UIView {
         let height = fullHeight - spacer
         let width = fullWidth - spacer
         
-        for r in 0...rows-1 {
-            for c in 0...cols-1 {
+        for r in 0..<rows {
+            for c in 0..<cols {
                 
                 let x = margin +  fullWidth * CGFloat(c)
                 let y = margin + fullHeight * CGFloat(r)
                 let rectangle = CGRect(x: x, y: y, width: width, height: height)
-                green.setFill()
+                if matrix[r][c] {
+                    green.setFill()
+                } else {
+                    grey.setFill()
+                }
                 UIRectFill(rectangle)
         
                 
             }
         }
-        
-        
     }
 
 }
