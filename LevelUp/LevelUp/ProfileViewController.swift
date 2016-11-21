@@ -74,6 +74,8 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row > 0 {
             selectedQuest = quests[indexPath.row-1]
             performSegue(withIdentifier: "showMilestone", sender: self)
