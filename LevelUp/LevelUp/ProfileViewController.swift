@@ -147,9 +147,11 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             //TODO: Delete the row at indexPath here
         }
         deleteAction.backgroundColor = UIColor.red
-        
+        // http://stackoverflow.com/questions/37999727/swift-3-error-cannot-call-value-of-non-function-type-uitableview
         return [editAction,deleteAction]
     }
+    
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
