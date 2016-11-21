@@ -11,8 +11,21 @@ import UIKit
 class ActiivityView: UIView {
 
     
-    var cols = 7
-    var rows = 6
+    
+    var arr = [[Bool]]() {
+        didSet{
+            if arr.count > 0 {
+                rows = arr.count
+                cols = arr[0].count
+            }
+            
+        }
+    }
+    var cols = 0
+    var rows = 0
+    
+    
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         //initSubviews()
@@ -51,8 +64,8 @@ class ActiivityView: UIView {
         let height = fullHeight - spacer
         let width = fullWidth - spacer
         
-        for r in 0...rows-1 {
-            for c in 0...cols-1 {
+        for r in 0..<rows {
+            for c in 0..<cols {
                 
                 let x = margin +  fullWidth * CGFloat(c)
                 let y = margin + fullHeight * CGFloat(r)

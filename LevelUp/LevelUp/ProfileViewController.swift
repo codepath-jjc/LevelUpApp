@@ -59,10 +59,6 @@ class ProfileViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "showMilestone") {
             
-           // let navigationController = segue.destination as! UINavigationController
-            
-          // let tweetDetailsVieController = navigationController.topViewController as! TweetDetailViewController
-          // tweetDetailsVieController.tweet  = selectedTweet
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MilestoneViewController") as! MilestoneViewController
@@ -99,16 +95,12 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        
-        if indexPath.row == 0 {
-        } else {
+        if indexPath.row != 0 {
             let cell2 = cell as! QuestTableViewCell
             cell2.layoutIfNeeded()
             cell2.questHolder.addDashedBorder()
         }
-            
-        // cell.separatorInset = UIEdgeInsets.zero
-        // cell.layoutMargins = UIEdgeInsets.zero
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
