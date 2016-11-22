@@ -59,10 +59,6 @@ class ProfileViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "showMilestone") {
             
-           // let navigationController = segue.destination as! UINavigationController
-            
-          // let tweetDetailsVieController = navigationController.topViewController as! TweetDetailViewController
-          // tweetDetailsVieController.tweet  = selectedTweet
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MilestoneViewController") as! MilestoneViewController
@@ -78,6 +74,8 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row > 0 {
             selectedQuest = quests[indexPath.row-1]
             performSegue(withIdentifier: "showMilestone", sender: self)
@@ -99,16 +97,12 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        
-        if indexPath.row == 0 {
-        } else {
+        if indexPath.row != 0 {
             let cell2 = cell as! QuestTableViewCell
             cell2.layoutIfNeeded()
             cell2.questHolder.addDashedBorder()
         }
-            
-        // cell.separatorInset = UIEdgeInsets.zero
-        // cell.layoutMargins = UIEdgeInsets.zero
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -139,6 +133,43 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (UITableViewRowAction, IndexPath) in
+            //TODO: edit the row at indexPath here
+            print("EDIT CALLED!")
+        }
+        editAction.backgroundColor = UIColor.blue
+        
+        
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (UITableViewRowAction, IndexPath) in
+            //TODO: Delete the row at indexPath here
+            print("DELETE CALLED!")
+        }
+        deleteAction.backgroundColor = UIColor.red
+        // http://stackoverflow.com/questions/37999727/swift-3-error-cannot-call-value-of-non-function-type-uitableview
+        return [editAction,deleteAction]
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            print("DELETE")
+        }
+        if editingStyle == .insert {
+            print("INSERT")
+        }
+        
+        if editingStyle == .none {
+            print("NONE")
+        }
+
+        // http://stackoverflow.com/questions/36315746/uitableviewrowaction-with-image-swift
+        // http://swiftdeveloperblog.com/uitableviewrowaction-example-in-swift/
+        // http://stackoverflow.com/questions/19164188/custom-edit-view-in-uitableviewcell-while-swipe-left-objective-c-or-swift
     }
     
 }
