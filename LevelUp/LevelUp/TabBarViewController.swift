@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 enum Page: Int {
     case profile, milestone, activityTimeline, quest
@@ -144,4 +145,12 @@ class TabBarViewController: UIViewController {
     }
     
     
+}
+
+extension TabBarViewController: UNUserNotificationCenterDelegate {
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        //
+    }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class MilestoneViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
@@ -16,6 +17,7 @@ class MilestoneViewController: UIViewController {
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var chooseImageLabel: UILabel!
     @IBOutlet weak var questNameTableView: UITableView!
+    var imageView = UIImageView()
     var hasPlaceholder = true
     var quests = [Quest]()
     var quest:Quest? {
@@ -48,6 +50,31 @@ class MilestoneViewController: UIViewController {
         notesTextView.delegate = self
         questNameTableView.dataSource = self
         questNameTableView.delegate = self
+     
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.delegate = navigationDelegate
+            
+            center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+                // Enable or disable features based on authorization
+                let content = UNMutableNotificationContent()
+                content.title = "hello!"
+                content.body = "message body"
+                content.sound = UNNotificationSound.default() // Deliver the notification in five seconds.
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger) // Schedule the notification.
+                center.add(request)
+            }
+            
+            let content = UNMutableNotificationContent()
+            content.title = "hello!"
+            content.body = "message body"
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10.0, repeats: false)
+            let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger) // Schedule the notification.
+            center.add(request)
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     @IBAction func onChooseImage(_ sender: UITapGestureRecognizer) {
@@ -92,6 +119,26 @@ extension MilestoneViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // TODO
+        imageView.frame = chooseImageLabel.frame
+        imageView.contentMode = .scaleAspectFill
+        
+        imageView.image = info[UIImagePickerControllerEditedImage] as! UIImage
+        UIGraphicsBeginImageContext(imageView.frame.size)
+        imageView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let thumbnail = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        imageView.image = thumbnail
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 5.0
+        chooseImageLabel.isHidden = true
+        
+        imageView.isUserInteractionEnabled = true
+        let gestureRecognizer = UITapGestureRecognizer()
+        gestureRecognizer.addTarget(self, action: #selector(onChooseImage))
+        imageView.addGestureRecognizer(gestureRecognizer)
+        view.addSubview(imageView)
+        
         dismiss(animated: true, completion: nil)
     }
     
