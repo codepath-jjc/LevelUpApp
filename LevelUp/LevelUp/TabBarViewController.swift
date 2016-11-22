@@ -104,6 +104,17 @@ class TabBarViewController: UIViewController {
 
         page = Page.profile
         setSelected(image: profileImage, text: profileLabel)
+        
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().delegate = self
+            
+            // Just an example of how to use notifications
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            let request = Notifications.schedule(title: "Running Time!", body: "Yo you should be running and stuff", trigger: trigger)
+            // You can bookmark the request if you need it again maybe?
+        } else {
+            // Fallback on earlier versions
+        }
     }
 
     
@@ -151,6 +162,6 @@ extension TabBarViewController: UNUserNotificationCenterDelegate {
     
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        //
+        // TODO Display UI for a notification delivered while the app is open
     }
 }
