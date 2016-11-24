@@ -178,10 +178,11 @@
                                     <color key="titleColor" red="0.55696084878266638" green="0.56511137131075928" blue="0.57251153951428291" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Music" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v5z-Jp-prG">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v5z-Jp-prG">
                                 <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="p0e-Ke-vPg"/>
+                                    <constraint firstAttribute="width" constant="200" id="ZRC-85-4D3"/>
+                                    <constraint firstAttribute="height" constant="40" id="zMY-WM-3Pm"/>
                                 </constraints>
                                 <color key="textColor" red="0.60392156862745094" green="0.61176470588235299" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -247,16 +248,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZ6-nr-and">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdw-5t-Bdn">
-                                        <frame key="frameInset" minX="14" width="34" height="21"/>
+                                        <frame key="frameInset" minX="14" minY="-7" width="34" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <color key="textColor" red="0.62518989359999999" green="0.63433887479999995" blue="0.64264558140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="19" id="jbp-QR-g9P"/>
+                                    <constraint firstAttribute="height" constant="12" id="jbp-QR-g9P"/>
                                     <constraint firstAttribute="width" constant="62" id="w6O-Jr-aIn"/>
                                 </constraints>
                             </view>
@@ -272,7 +273,6 @@
                         <constraints>
                             <constraint firstItem="Syu-r5-V6J" firstAttribute="top" secondItem="tJE-oc-HPh" secondAttribute="bottom" constant="20" id="9sb-Im-Okr"/>
                             <constraint firstItem="UZ6-nr-and" firstAttribute="top" secondItem="v5z-Jp-prG" secondAttribute="top" id="AMB-Yf-aTB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="v5z-Jp-prG" secondAttribute="trailing" constant="4" id="IEo-iz-dWY"/>
                             <constraint firstItem="WMp-h9-vCd" firstAttribute="centerX" secondItem="eh5-ld-GOg" secondAttribute="centerX" id="Ipk-Hx-je9"/>
                             <constraint firstItem="v5z-Jp-prG" firstAttribute="top" secondItem="WMp-h9-vCd" secondAttribute="bottom" constant="20" id="a7e-Lh-SM2"/>
                             <constraint firstItem="WMp-h9-vCd" firstAttribute="top" secondItem="9yR-5E-q9F" secondAttribute="bottom" constant="8" id="bf8-GF-wxA"/>
@@ -292,6 +292,7 @@
                         <outlet property="pickerLabel" destination="9MT-br-7wi" id="3kA-RH-l9D"/>
                         <outlet property="selectImageView" destination="TeL-Qc-aW6" id="kbe-Nd-fmV"/>
                         <outlet property="titleTextField" destination="v5z-Jp-prG" id="s3H-9M-bhb"/>
+                        <outlet property="titleWidthLayout" destination="ZRC-85-4D3" id="Y5X-u5-Cjt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHw-Ik-Vav" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -430,7 +431,7 @@
                                         <rect key="frame" x="0.0" y="28" width="185" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5EK-Rs-qgf" id="9fs-85-n0o">
-                                            <frame key="frameInset" width="185" height="43.5"/>
+                                            <frame key="frameInset" width="185" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

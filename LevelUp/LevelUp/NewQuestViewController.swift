@@ -28,6 +28,7 @@ class NewQuestViewController: UIViewController  {
     
     @IBOutlet weak var frequencyPicker: UIPickerView!
     
+    @IBOutlet weak var titleWidthLayout: NSLayoutConstraint!
     
     var chosenImage: UIImage? {
         didSet{
@@ -38,12 +39,16 @@ class NewQuestViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        titleWidthLayout.constant = self.view.frame.size.width * 0.85
+
+        titleTextField.setNeedsLayout()
+        titleTextField.layoutIfNeeded()
         frequencyPicker.delegate = self
         frequencyPicker.dataSource = self
         
         icon.isHidden = true
         let dashColor = UIColor(red:0.60, green:0.61, blue:0.61, alpha:1.0)
-        titleTextField.attributedPlaceholder = NSAttributedString(string: "Music", attributes: [NSForegroundColorAttributeName: dashColor])
+        titleTextField.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSForegroundColorAttributeName: dashColor])
         titleTextField.delegate = self
         
         descriptionTextView.delegate = self
