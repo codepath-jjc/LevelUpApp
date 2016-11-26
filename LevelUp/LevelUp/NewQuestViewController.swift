@@ -23,8 +23,8 @@ class NewQuestViewController: UIViewController  {
     var enabledButtonColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0)
     let imgPicker = UIImagePickerController()
 
-    let pickerValues = [ "Week", "Day"]
-    
+    let pickerValues = [ "Day", "Week"]
+    var selectedFrequency = "Day"
     @IBOutlet weak var descWidth: NSLayoutConstraint!
     
     @IBOutlet weak var frequencyPicker: UIPickerView!
@@ -88,7 +88,7 @@ class NewQuestViewController: UIViewController  {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        var dictionary = ["title": titleTextField.text!, "notes": descriptionTextView.text] as [String : Any]
+        var dictionary = ["title": titleTextField.text!, "notes": descriptionTextView.text, "frequency": selectedFrequency] as [String : Any]
         if let chosenImage = chosenImage {
             dictionary["image"] = chosenImage
         }
@@ -180,7 +180,7 @@ extension NewQuestViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-       // pickerLabel.text = pickerValues[row]
+       selectedFrequency =   pickerValues[row]
     }
     
 }
