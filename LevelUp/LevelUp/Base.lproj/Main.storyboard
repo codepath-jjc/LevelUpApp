@@ -185,15 +185,17 @@
                                     <constraint firstAttribute="height" constant="40" id="zMY-WM-3Pm"/>
                                 </constraints>
                                 <color key="textColor" red="0.60392156862745094" green="0.61176470588235299" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="continue"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Goal / Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pz4-5Z-0Vd">
-                                <frame key="frameInset" minX="20" minY="190" width="280" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pz4-5Z-0Vd">
                                 <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="a2c-3C-8NJ"/>
+                                    <constraint firstAttribute="width" constant="200" id="z7z-RO-1k8"/>
+                                </constraints>
                                 <color key="textColor" red="0.60392156862745094" green="0.61176470588235299" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="done"/>
                             </textView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TeL-Qc-aW6">
@@ -261,21 +263,33 @@
                                     <constraint firstAttribute="width" constant="62" id="w6O-Jr-aIn"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYN-ZZ-URS">
-                                <frame key="frameInset" minX="48" minY="166" width="88" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.68439117677863859" green="0.69440650499525258" blue="0.70349980093560271" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2o-2m-0C6">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYN-ZZ-URS">
+                                        <frame key="frameInset" minY="1" width="62" height="14"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="0.68439117677863859" green="0.69440650499525258" blue="0.70349980093560271" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="jNt-yJ-WER"/>
+                                    <constraint firstAttribute="height" constant="15" id="jz6-hO-Kl2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Pz4-5Z-0Vd" firstAttribute="leading" secondItem="eh5-ld-GOg" secondAttribute="leadingMargin" constant="4" id="7i9-cE-z8L"/>
                             <constraint firstItem="Syu-r5-V6J" firstAttribute="top" secondItem="tJE-oc-HPh" secondAttribute="bottom" constant="20" id="9sb-Im-Okr"/>
                             <constraint firstItem="UZ6-nr-and" firstAttribute="top" secondItem="v5z-Jp-prG" secondAttribute="top" id="AMB-Yf-aTB"/>
                             <constraint firstItem="WMp-h9-vCd" firstAttribute="centerX" secondItem="eh5-ld-GOg" secondAttribute="centerX" id="Ipk-Hx-je9"/>
+                            <constraint firstItem="N2o-2m-0C6" firstAttribute="top" secondItem="Pz4-5Z-0Vd" secondAttribute="top" id="OdN-mG-A1R"/>
+                            <constraint firstItem="Pz4-5Z-0Vd" firstAttribute="top" secondItem="v5z-Jp-prG" secondAttribute="bottom" constant="8" id="QBr-sU-avF"/>
                             <constraint firstItem="v5z-Jp-prG" firstAttribute="top" secondItem="WMp-h9-vCd" secondAttribute="bottom" constant="20" id="a7e-Lh-SM2"/>
                             <constraint firstItem="WMp-h9-vCd" firstAttribute="top" secondItem="9yR-5E-q9F" secondAttribute="bottom" constant="8" id="bf8-GF-wxA"/>
+                            <constraint firstItem="N2o-2m-0C6" firstAttribute="leading" secondItem="eh5-ld-GOg" secondAttribute="leadingMargin" constant="17" id="e3z-BF-ShX"/>
                             <constraint firstItem="v5z-Jp-prG" firstAttribute="leading" secondItem="eh5-ld-GOg" secondAttribute="leadingMargin" constant="4" id="hEZ-dQ-cV2"/>
                             <constraint firstItem="fsW-5x-Ylf" firstAttribute="leading" secondItem="eh5-ld-GOg" secondAttribute="leadingMargin" constant="4" id="hJu-bp-HG9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tJE-oc-HPh" secondAttribute="trailing" constant="4" id="lmv-2b-Z45"/>
@@ -285,6 +299,7 @@
                     </view>
                     <connections>
                         <outlet property="createQuestButton" destination="tJE-oc-HPh" id="ih3-BQ-ehI"/>
+                        <outlet property="descWidth" destination="z7z-RO-1k8" id="i9Z-dK-bon"/>
                         <outlet property="descriptionTextView" destination="Pz4-5Z-0Vd" id="phH-7w-N9R"/>
                         <outlet property="frequencyPicker" destination="NEg-tG-FGc" id="hY9-7G-eBx"/>
                         <outlet property="frequencyView" destination="fbc-mB-cJQ" id="cFp-N5-kiW"/>

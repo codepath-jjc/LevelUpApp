@@ -26,6 +26,8 @@ class NewQuestViewController: UIViewController  {
 
     let pickerValues = [ "Week", "Day"]
     
+    @IBOutlet weak var descWidth: NSLayoutConstraint!
+    
     @IBOutlet weak var frequencyPicker: UIPickerView!
     
     @IBOutlet weak var titleWidthLayout: NSLayoutConstraint!
@@ -39,10 +41,20 @@ class NewQuestViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        // For some reason the right edge is off...?
         titleWidthLayout.constant = self.view.frame.size.width * 0.85
 
         titleTextField.setNeedsLayout()
         titleTextField.layoutIfNeeded()
+        
+        //
+        descWidth.constant = self.view.frame.size.width * 0.85
+        
+        descriptionTextView.setNeedsLayout()
+        descriptionTextView.layoutIfNeeded()
+        
+        //
         frequencyPicker.delegate = self
         frequencyPicker.dataSource = self
         
@@ -50,6 +62,9 @@ class NewQuestViewController: UIViewController  {
         let dashColor = UIColor(red:0.60, green:0.61, blue:0.61, alpha:1.0)
         titleTextField.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSForegroundColorAttributeName: dashColor])
         titleTextField.delegate = self
+        
+        
+        
         
         descriptionTextView.delegate = self
         
