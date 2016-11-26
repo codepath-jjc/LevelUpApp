@@ -13,7 +13,6 @@ class NewQuestViewController: UIViewController  {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var selectImageView: UIView!
-    @IBOutlet weak var frequencyView: UIView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var createQuestButton: UIButton!
     @IBOutlet weak var icon: UIImageView!
@@ -73,7 +72,7 @@ class NewQuestViewController: UIViewController  {
         createQuestButton.layer.borderColor = disabledButtonColor.cgColor
         
         selectImageView.addDashedBorder(color: dashColor)
-        frequencyView.addDashedBorder(color: dashColor)
+      
         descriptionTextView.addDashedBorder(color: dashColor)
         titleTextField.addDashedBorder(color: dashColor)
 
@@ -181,7 +180,7 @@ extension NewQuestViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        pickerLabel.text = pickerValues[row]
+       // pickerLabel.text = pickerValues[row]
     }
     
 }
