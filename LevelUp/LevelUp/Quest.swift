@@ -11,13 +11,15 @@ import Parse
 
 class Quest: NSObject {
     
-    static let className = "QuestTest3"
+    static let className = "QuestTest4"
     var pfObject: PFObject?
     var title: String?
     var image: UIImage?
     
     var imageFile: PFFile?
     var dictionary = [String: Any]()
+    
+    var frequency: String?
     
     init(pfObject: PFObject) {
         self.pfObject = pfObject
@@ -32,6 +34,13 @@ class Quest: NSObject {
         if let imageFile =  pfObject.object(forKey: "image") as? PFFile {
             self.imageFile = imageFile
         }
+        
+        frequency = pfObject.object(forKey: "frequency") as? String
+        
+        if let frequency = frequency {
+            dictionary["title"] = frequency
+        }
+        
         
         // TODO Load Image from PFObject
 //        let imageData = UIImagePNGRepresentation(image)
@@ -49,6 +58,8 @@ class Quest: NSObject {
         if let user =  LevelUpClient.sharedInstance.user() {
             self.dictionary["user"] = user
         }
+        
+        frequency = dictionary["frequency"] as? String
         title = dictionary["title"] as? String
         image = dictionary["image"] as? UIImage
         
