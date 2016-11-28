@@ -195,20 +195,20 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="done"/>
                             </textView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TeL-Qc-aW6">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TeL-Qc-aW6">
                                 <frame key="frameInset" minX="20" minY="175" width="280" height="60"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zvc-kN-mOT" userLabel="icon">
-                                        <frame key="frameInset" minX="150" width="59" height="47"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Image ▷" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjY-i5-azY">
-                                        <frame key="frameInset" minX="-1" minY="12" width="209" height="21"/>
+                                        <frame key="frameInset" minX="8" minY="20" width="209" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.60392156862745094" green="0.61176470588235299" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zvc-kN-mOT" userLabel="icon">
+                                        <frame key="frameInset" minX="158" minY="8" width="59" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
@@ -290,7 +290,7 @@
                             <constraint firstItem="lrW-OL-gkK" firstAttribute="leading" secondItem="eh5-ld-GOg" secondAttribute="leadingMargin" constant="4" id="KG3-DR-hse"/>
                             <constraint firstItem="N2o-2m-0C6" firstAttribute="top" secondItem="Pz4-5Z-0Vd" secondAttribute="top" id="OdN-mG-A1R"/>
                             <constraint firstItem="Pz4-5Z-0Vd" firstAttribute="top" secondItem="v5z-Jp-prG" secondAttribute="bottom" constant="8" id="QBr-sU-avF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TeL-Qc-aW6" secondAttribute="trailing" constant="4" id="Xdc-l2-ntJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TeL-Qc-aW6" secondAttribute="trailing" constant="12" id="Xdc-l2-ntJ"/>
                             <constraint firstItem="v5z-Jp-prG" firstAttribute="top" secondItem="WMp-h9-vCd" secondAttribute="bottom" constant="20" id="a7e-Lh-SM2"/>
                             <constraint firstItem="WMp-h9-vCd" firstAttribute="top" secondItem="9yR-5E-q9F" secondAttribute="bottom" constant="8" id="bf8-GF-wxA"/>
                             <constraint firstItem="lrW-OL-gkK" firstAttribute="top" secondItem="TeL-Qc-aW6" secondAttribute="bottom" constant="20" id="cxB-OM-HnQ"/>
