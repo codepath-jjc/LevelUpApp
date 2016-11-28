@@ -40,6 +40,7 @@ class NewQuestViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        frequencyPicker.backgroundColor = AppColors.BrandPrimaryBackgroundColor
         
         // For some reason the right edge is off...?
         titleWidthLayout.constant = self.view.frame.size.width * 0.85
@@ -180,10 +181,18 @@ extension NewQuestViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
+        
        selectedFrequency =   pickerValues[row]
     }
-    
+
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        
+        return NSAttributedString(string: pickerValues[row], attributes: [NSForegroundColorAttributeName: AppColors.PrimaryTextColor])
+
+    }
 }
+
+
 extension NewQuestViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
