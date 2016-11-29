@@ -85,7 +85,7 @@ class NewQuestViewController: UIViewController  {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        var dictionary = ["frequency": "\(frequency.rawValue)", "title": titleTextField.text ?? "", "notes": descriptionTextView.text] as [String: Any]
+        var dictionary = ["frequency": frequency.rawValue, "title": titleTextField.text ?? "", "notes": descriptionTextView.text] as [String: Any]
         if let chosenImage = chosenImage {
             dictionary["image"] = chosenImage
         }

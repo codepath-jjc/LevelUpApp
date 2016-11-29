@@ -19,12 +19,17 @@ class MilestoneViewController: UIViewController {
     @IBOutlet weak var questNameTableView: UITableView!
     var imageView = UIImageView()
     var hasPlaceholder = true
-    var quests = [Quest]()
-    var quest:Quest? {
+    var quests = [Quest]() {
         didSet {
-            
+            quest = quests.first
         }
     }
+    var quest:Quest? {
+        didSet {
+            milestone = quest?.upcomingMilestone()
+        }
+    }
+    var milestone:Milestone?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,7 +68,6 @@ class MilestoneViewController: UIViewController {
 
     
     @IBAction func onDone(_ sender: Any) {
-        let milestone = quest?.upcomingMilestone()
         milestone?.completed = true
         
         if var milestone = milestone {

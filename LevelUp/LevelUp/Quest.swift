@@ -36,7 +36,7 @@ class Quest: NSObject {
         
         let frequencyInt = pfObject.object(forKey: "frequency") as? Int
         if let frequencyInt = frequencyInt {
-            dictionary["frequency"] = "\(frequencyInt)"
+            dictionary["frequency"] = Frequency(rawValue: frequencyInt)
         }
         
         
@@ -79,6 +79,12 @@ class Quest: NSObject {
         formatter.dateFormat = "dd.MM.yy"
         let milestoneTitle = (title ?? "") + formatter.string(from: date)
         var milestone = Milestone(dictionary: ["title": milestoneTitle, "completed": false])
+        if #available(iOS 10.0, *) {
+            // Just an example of how to use notifications
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            let request = Notifications.schedule(title: milestoneTitle, body: "Yo there should be milestone details here", trigger: trigger)
+            // You can bookmark the request if you need it again maybe?
+        }
         if frequency == .daily {
             if #available(iOS 10.0, *) {                
                 // Just an example of how to use notifications
@@ -87,6 +93,12 @@ class Quest: NSObject {
                 // You can bookmark the request if you need it again maybe?
             }
         } else {
+            if #available(iOS 10.0, *) {
+                // Just an example of how to use notifications
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+                let request = Notifications.schedule(title: milestoneTitle, body: "Yo there should be milestone details here", trigger: trigger)
+                // You can bookmark the request if you need it again maybe?
+            }
         }
         
         LevelUpClient.sharedInstance.sync(milestone: &milestone, success: {
