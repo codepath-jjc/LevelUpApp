@@ -40,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
+        
         if UserDefaults.standard.bool(forKey: "HasLaunched") {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let tabBarVC = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
