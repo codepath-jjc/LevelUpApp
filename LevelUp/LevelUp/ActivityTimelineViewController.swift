@@ -28,7 +28,8 @@ class ActivityTimelineViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(ActivityTimelineViewController.refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
         // Add refresh control to table view
         tableView.insertSubview(refreshControl, at: 0)
-        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+
         
         
     }
