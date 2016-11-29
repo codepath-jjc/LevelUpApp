@@ -17,19 +17,18 @@ class NewQuestViewController: UIViewController  {
     @IBOutlet weak var createQuestButton: UIButton!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var pickerLabel: UILabel!
+    @IBOutlet weak var descWidth: NSLayoutConstraint!
+    @IBOutlet weak var frequencyPicker: UIPickerView!
+    @IBOutlet weak var titleWidthLayout: NSLayoutConstraint!
+    
     var navigationDelegate: TabBarViewController?
     var hasPlaceholder = true
     var disabledButtonColor = UIColor(red:0.17, green:0.40, blue:0.23, alpha:1.0)
     var enabledButtonColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0)
     let imgPicker = UIImagePickerController()
-
+    
     let pickerValues = [ "Day", "Week"]
     var selectedFrequency = "Day"
-    @IBOutlet weak var descWidth: NSLayoutConstraint!
-    
-    @IBOutlet weak var frequencyPicker: UIPickerView!
-    
-    @IBOutlet weak var titleWidthLayout: NSLayoutConstraint!
     
     var chosenImage: UIImage? {
         didSet{
@@ -63,9 +62,6 @@ class NewQuestViewController: UIViewController  {
         titleTextField.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSForegroundColorAttributeName: dashColor])
         titleTextField.delegate = self
         
-        
-        
-        
         descriptionTextView.delegate = self
         
         createQuestButton.layer.borderWidth = 1.0
@@ -85,6 +81,14 @@ class NewQuestViewController: UIViewController  {
     
     @IBAction func onImagePickerPress(_ sender: UITapGestureRecognizer) {
         present(imgPicker, animated: false, completion: nil)
+    }
+    
+    @IBAction func onCancelPress(_ sender: Any) {
+        if let navigationDelegate = navigationDelegate {
+            navigationDelegate.page = Page.profile
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -175,20 +179,15 @@ extension NewQuestViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
         return pickerValues[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        
        selectedFrequency =   pickerValues[row]
     }
 
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        
         return NSAttributedString(string: pickerValues[row], attributes: [NSForegroundColorAttributeName: AppColors.PrimaryTextColor])
-
     }
 }
 
