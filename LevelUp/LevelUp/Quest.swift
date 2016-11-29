@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import UserNotifications
 
 class Quest: NSObject {
     
@@ -35,8 +36,7 @@ class Quest: NSObject {
         
         let frequencyInt = pfObject.object(forKey: "frequency") as? Int
         if let frequencyInt = frequencyInt {
-            frequency = Frequency(rawValue: frequencyInt)
-            dictionary["frequency"] = frequency
+            dictionary["frequency"] = "\(frequencyInt)"
         }
         
         
@@ -71,6 +71,30 @@ class Quest: NSObject {
     func upcomingMilestone() -> Milestone? {
         // TODO
         return Milestone(dictionary: [String:Any]())
+    }
+    
+    func createMilestones(frequency: Frequency) {
+        let date = Date(timeIntervalSinceNow: 0)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yy"
+        let milestoneTitle = (title ?? "") + formatter.string(from: date)
+        var milestone = Milestone(dictionary: ["title": milestoneTitle, "completed": false])
+        if frequency == .daily {
+            if #available(iOS 10.0, *) {                
+                // Just an example of how to use notifications
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                let request = Notifications.schedule(title: milestoneTitle, body: "Yo there should be milestone details here", trigger: trigger)
+                // You can bookmark the request if you need it again maybe?
+            }
+        } else {
+        }
+        
+        LevelUpClient.sharedInstance.sync(milestone: &milestone, success: {
+            
+        }, failure: {
+            (error: Error?) -> () in
+            print(error?.localizedDescription ?? "Error syncing milestone")
+        })
     }
     
 }
