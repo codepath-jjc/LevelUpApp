@@ -11,6 +11,7 @@ import UIKit
 class ActivityTimelineViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
 
+    var _milestones = [Milestone]()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +21,44 @@ class ActivityTimelineViewController: UIViewController {
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
         // Do any additional setup after loading the view.
+        reloadData()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    func reloadData() {
+        
+    /*    LevelUpClient.sharedInstance.quests(success: { (quests:[Quest]) in
+            // In the event this VC has a quest loaded already
+            self.quests = quests
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }) { (error: Error?) in
+            // TODO: show error
+            self.refreshControl.endRefreshing()
+        }
+        
+ 
+ */
+        
+        LevelUpClient.sharedInstance.milestones(success: { (milestones: [Milestone]) in
+            
+            self._milestones = milestones
+            self.tableView.reloadData()
+            
+        }) { (error:Error?) in
+            
+        }
+    }
+
+    
     
 
     /*
@@ -46,7 +79,7 @@ extension ActivityTimelineViewController: UITableViewDataSource, UITableViewDele
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return self._milestones.count
     }
     
     
@@ -56,6 +89,8 @@ extension ActivityTimelineViewController: UITableViewDataSource, UITableViewDele
         let cell = Bundle.main.loadNibNamed("ActivityTimelienTableViewCell", owner: self, options: nil)?.first  as! ActivityTimelienTableViewCell
             
        
+        var milestone = _milestones[indexPath.row]
+        cell.categoryLabel.text = milestone.title
         cell.numberLabel.text = "#\(indexPath.row+1)"
         return cell
         
