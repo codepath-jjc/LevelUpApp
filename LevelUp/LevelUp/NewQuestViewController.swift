@@ -86,9 +86,9 @@ class NewQuestViewController: UIViewController  {
     @IBAction func onCancelPress(_ sender: Any) {
         if let navigationDelegate = navigationDelegate {
             navigationDelegate.page = Page.profile
+        } else {
+            dismiss(animated: true, completion: nil)
         }
-        
-        dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
