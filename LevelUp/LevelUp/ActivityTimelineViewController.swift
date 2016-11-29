@@ -11,6 +11,7 @@ import UIKit
 class ActivityTimelineViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
