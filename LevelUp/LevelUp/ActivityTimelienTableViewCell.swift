@@ -25,8 +25,8 @@ class ActivityTimelienTableViewCell: UITableViewCell {
         dateLabel.textColor = AppColors.PrimaryTextColor
         numberLabel.textColor = AppColors.PrimaryTextColor
         
-        viewHolder.layer.cornerRadius = 8.0
-        viewHolder.clipsToBounds = true
+        mainImage.layer.cornerRadius = 20.0
+        mainImage.clipsToBounds = true
         
         viewHolder.backgroundColor = AppColors.BrandPrimaryBackgroundColor
 
