@@ -10,7 +10,6 @@ import UIKit
 
 class ActivityTimelienTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var viewHolder: UIView!
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -28,7 +27,7 @@ class ActivityTimelienTableViewCell: UITableViewCell {
         mainImage.layer.cornerRadius = 20.0
         mainImage.clipsToBounds = true
         
-        viewHolder.backgroundColor = AppColors.BrandPrimaryBackgroundColor
+        //viewHolder.backgroundColor = AppColors.BrandPrimaryBackgroundColor
 
         //mainImage.image.setAlpha(CGFloat(0.4))
     }

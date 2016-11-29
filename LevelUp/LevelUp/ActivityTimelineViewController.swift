@@ -103,7 +103,7 @@ extension ActivityTimelineViewController: UITableViewDataSource, UITableViewDele
        // cell.categoryLabel.text = milestone.title
         cell.categoryLabel.text = "Music"
         cell.numberLabel.text = "#\(indexPath.row+1)"
-        cell.imageView?.image = #imageLiteral(resourceName: "placeholder").setAlpha(value: 0.25)
+        cell.imageView?.image = #imageLiteral(resourceName: "placeholder").setAlpha(value: 0.14)
         return cell
         
         
