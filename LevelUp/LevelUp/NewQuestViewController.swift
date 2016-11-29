@@ -61,6 +61,7 @@ class NewQuestViewController: UIViewController  {
         imgPicker.allowsEditing = false
 
         frequencySegmentControl.addTarget(self, action: #selector(frequencyChanged), for: .valueChanged)
+        frequencySegmentControl.tintColor = AppColors.PrimaryAccentColor
     }
     
     func frequencyChanged() {

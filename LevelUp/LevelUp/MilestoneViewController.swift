@@ -26,6 +26,11 @@ class MilestoneViewController: UIViewController {
     }
     var quest:Quest? {
         didSet {
+            let index = quests.indexOf(quest: quest)
+            if index != -1 {
+                let indexPath = IndexPath(row: index, section: 0)
+                questNameTableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+            }
             milestone = quest?.upcomingMilestone()
         }
     }

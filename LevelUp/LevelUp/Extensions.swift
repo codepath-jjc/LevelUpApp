@@ -104,3 +104,16 @@ extension UIImage {
     
 }
 
+extension Array where Element:Quest {
+    
+    func indexOf(quest: Quest?) -> Int {
+        if quest == nil { return -1 }
+        
+        for (i, item) in self.enumerated() {
+            if ((item as Quest).title == quest!.title ?? "") {
+                return i
+            }
+        }
+        return -1
+    }
+}
