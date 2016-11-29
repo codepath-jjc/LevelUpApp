@@ -10,6 +10,7 @@ import UIKit
 
 class ActivityTimelineViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
+    let refreshControl = UIRefreshControl()
 
     var _milestones = [Milestone]()
     @IBOutlet weak var tableView: UITableView!
@@ -24,6 +25,12 @@ class ActivityTimelineViewController: UIViewController {
         reloadData()
         
         tableView.backgroundColor = AppColors.BrandPrimaryBackgroundColor
+        refreshControl.addTarget(self, action: #selector(ActivityTimelineViewController.refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
+        // Add refresh control to table view
+        tableView.insertSubview(refreshControl, at: 0)
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,20 +39,31 @@ class ActivityTimelineViewController: UIViewController {
     }
     
     
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        self.reloadData()
+    }
+    
+    
     
     func reloadData() {
 
-        /*
+        
 
         LevelUpClient.sharedInstance.milestones(success: { (milestones: [Milestone]) in
-            
-            self._milestones = milestones
+         
+            // TODO: JASON add back            
+            //self._milestones = milestones
+            self.refreshControl.endRefreshing()
             self.tableView.reloadData()
-            
+
+
         }) { (error:Error?) in
-            
+            self.refreshControl.endRefreshing()
+            self.tableView.reloadData()
+
+
         }
-         */
+        
     }
 
     
