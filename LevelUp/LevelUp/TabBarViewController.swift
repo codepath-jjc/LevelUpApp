@@ -107,13 +107,6 @@ class TabBarViewController: UIViewController {
         
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
-            
-            // Just an example of how to use notifications
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-            let request = Notifications.schedule(title: "Running Time!", body: "Yo you should be running and stuff", trigger: trigger)
-            // You can bookmark the request if you need it again maybe?
-        } else {
-            // Fallback on earlier versions
         }
     }
 
