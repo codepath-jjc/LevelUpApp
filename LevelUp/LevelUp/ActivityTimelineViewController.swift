@@ -14,6 +14,9 @@ class ActivityTimelineViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -33,5 +36,31 @@ class ActivityTimelineViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+}
+
+
+
+extension ActivityTimelineViewController: UITableViewDataSource, UITableViewDelegate {
+    
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+ 
+        let cell = Bundle.main.loadNibNamed("ActivityTimelienTableViewCell", owner: self, options: nil)?.first  as! ActivityTimelienTableViewCell
+            
+       
+        cell.numberLabel.text = "#\(indexPath.row)"
+        return cell
+        
+        
+    }
+    
+   
 
 }
