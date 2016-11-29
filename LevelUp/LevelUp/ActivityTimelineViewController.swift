@@ -23,7 +23,7 @@ class ActivityTimelineViewController: UIViewController {
         // Do any additional setup after loading the view.
         reloadData()
         
-        
+        tableView.backgroundColor = AppColors.BrandPrimaryBackgroundColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,20 +34,9 @@ class ActivityTimelineViewController: UIViewController {
     
     
     func reloadData() {
-        
-    /*    LevelUpClient.sharedInstance.quests(success: { (quests:[Quest]) in
-            // In the event this VC has a quest loaded already
-            self.quests = quests
-            self.tableView.reloadData()
-            self.refreshControl.endRefreshing()
-        }) { (error: Error?) in
-            // TODO: show error
-            self.refreshControl.endRefreshing()
-        }
-        
- 
- */
-        
+
+        /*
+
         LevelUpClient.sharedInstance.milestones(success: { (milestones: [Milestone]) in
             
             self._milestones = milestones
@@ -56,6 +45,7 @@ class ActivityTimelineViewController: UIViewController {
         }) { (error:Error?) in
             
         }
+         */
     }
 
     
@@ -79,7 +69,8 @@ extension ActivityTimelineViewController: UITableViewDataSource, UITableViewDele
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self._milestones.count
+       // return self._milestones.count
+        return 2
     }
     
     
@@ -89,8 +80,9 @@ extension ActivityTimelineViewController: UITableViewDataSource, UITableViewDele
         let cell = Bundle.main.loadNibNamed("ActivityTimelienTableViewCell", owner: self, options: nil)?.first  as! ActivityTimelienTableViewCell
             
        
-        var milestone = _milestones[indexPath.row]
-        cell.categoryLabel.text = milestone.title
+        //let milestone = _milestones[indexPath.row]
+       // cell.categoryLabel.text = milestone.title
+        cell.categoryLabel.text = "Music"
         cell.numberLabel.text = "#\(indexPath.row+1)"
         return cell
         

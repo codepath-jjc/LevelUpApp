@@ -17,6 +17,13 @@ class ActivityTimelienTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.backgroundColor = AppColors.BrandPrimaryBackgroundColor
+        
+        categoryLabel.textColor = AppColors.PrimaryTextColor
+        dateLabel.textColor = AppColors.PrimaryTextColor
+        numberLabel.textColor = AppColors.PrimaryTextColor
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
