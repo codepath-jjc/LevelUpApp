@@ -30,7 +30,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LRM-YF-pDq"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LRM-YF-pDq">
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="uO2-QI-81H"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="LRM-YF-pDq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2WN-IQ-Not"/>

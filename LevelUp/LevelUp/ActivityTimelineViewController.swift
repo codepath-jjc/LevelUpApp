@@ -17,7 +17,8 @@ class ActivityTimelineViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-
+        tableView.estimatedRowHeight = 120
+        tableView.rowHeight = UITableViewAutomaticDimension
         // Do any additional setup after loading the view.
     }
 
@@ -55,7 +56,7 @@ extension ActivityTimelineViewController: UITableViewDataSource, UITableViewDele
         let cell = Bundle.main.loadNibNamed("ActivityTimelienTableViewCell", owner: self, options: nil)?.first  as! ActivityTimelienTableViewCell
             
        
-        cell.numberLabel.text = "#\(indexPath.row)"
+        cell.numberLabel.text = "#\(indexPath.row+1)"
         return cell
         
         
