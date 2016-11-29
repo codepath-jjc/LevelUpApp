@@ -15,11 +15,9 @@ class Quest: NSObject {
     var pfObject: PFObject?
     var title: String?
     var image: UIImage?
-    
     var imageFile: PFFile?
+    var frequency: Frequency?
     var dictionary = [String: Any]()
-    
-    var frequency: String?
     
     init(pfObject: PFObject) {
         self.pfObject = pfObject
@@ -35,10 +33,10 @@ class Quest: NSObject {
             self.imageFile = imageFile
         }
         
-        frequency = pfObject.object(forKey: "frequency") as? String
-        
-        if let frequency = frequency {
-            dictionary["title"] = frequency
+        let frequencyInt = pfObject.object(forKey: "frequency") as? Int
+        if let frequencyInt = frequencyInt {
+            frequency = Frequency(rawValue: frequencyInt)
+            dictionary["frequency"] = frequency
         }
         
         
@@ -59,7 +57,11 @@ class Quest: NSObject {
             self.dictionary["user"] = user
         }
         
-        frequency = dictionary["frequency"] as? String
+        let frequencyInt = dictionary["frequency"] as? Int
+        if let frequencyInt = frequencyInt {
+            frequency = Frequency(rawValue: frequencyInt)
+        }
+        
         title = dictionary["title"] as? String
         image = dictionary["image"] as? UIImage
         

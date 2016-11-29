@@ -332,6 +332,7 @@
                     <connections>
                         <outlet property="createQuestButton" destination="tJE-oc-HPh" id="ih3-BQ-ehI"/>
                         <outlet property="descriptionTextView" destination="Pz4-5Z-0Vd" id="phH-7w-N9R"/>
+                        <outlet property="frequencySegmentControl" destination="rwv-Sd-aET" id="lfS-YY-t1B"/>
                         <outlet property="icon" destination="zvc-kN-mOT" id="HRk-1i-l3O"/>
                         <outlet property="selectImageView" destination="TeL-Qc-aW6" id="kbe-Nd-fmV"/>
                         <outlet property="titleTextField" destination="v5z-Jp-prG" id="s3H-9M-bhb"/>

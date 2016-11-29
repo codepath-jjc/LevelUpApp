@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4212EFAF1DD7813D00440814 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212EFAE1DD7813D00440814 /* TabBarViewController.swift */; };
 		424A49851DE404AB00427B20 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A49841DE404AB00427B20 /* Notifications.swift */; };
+		428B624A1DED450A00101ED3 /* Frequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428B62491DED450A00101ED3 /* Frequency.swift */; };
 		42F23E581DD564C800CB8FB1 /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F23E571DD564C800CB8FB1 /* Milestone.swift */; };
 		42FE5E071DD6656900E63BFF /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E061DD6656900E63BFF /* WelcomeViewController.swift */; };
 		42FE5E091DD6712200E63BFF /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E081DD6712100E63BFF /* TutorialViewController.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		4212EFAE1DD7813D00440814 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		424A49841DE404AB00427B20 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		428B62491DED450A00101ED3 /* Frequency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frequency.swift; sourceTree = "<group>"; };
 		42F23E571DD564C800CB8FB1 /* Milestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
 		42FE5E061DD6656900E63BFF /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		42FE5E081DD6712100E63BFF /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				961754A11DD45E0700080277 /* Quest.swift */,
 				42F23E571DD564C800CB8FB1 /* Milestone.swift */,
 				424A49841DE404AB00427B20 /* Notifications.swift */,
+				428B62491DED450A00101ED3 /* Frequency.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				9617549C1DD459E900080277 /* QuestTableViewCell.swift in Sources */,
 				4212EFAF1DD7813D00440814 /* TabBarViewController.swift in Sources */,
 				424A49851DE404AB00427B20 /* Notifications.swift in Sources */,
+				428B624A1DED450A00101ED3 /* Frequency.swift in Sources */,
 				42FE5E071DD6656900E63BFF /* WelcomeViewController.swift in Sources */,
 				42FE5E101DD777EB00E63BFF /* MilestoneViewController.swift in Sources */,
 				96EAA7901DE1386000A582C4 /* ActiivityView.swift in Sources */,

@@ -11,6 +11,7 @@ import Parse
 
 class NewQuestViewController: UIViewController  {
 
+    @IBOutlet weak var frequencySegmentControl: UISegmentedControl!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var selectImageView: UIView!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -21,6 +22,7 @@ class NewQuestViewController: UIViewController  {
     var hasPlaceholder = true
     var disabledButtonColor = UIColor(red:0.17, green:0.40, blue:0.23, alpha:1.0)
     var enabledButtonColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0)
+    var frequency = Frequency.daily
     let imgPicker = UIImagePickerController()
     
     var chosenImage: UIImage? {
@@ -58,6 +60,15 @@ class NewQuestViewController: UIViewController  {
         imgPicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
         imgPicker.allowsEditing = false
 
+        frequencySegmentControl.addTarget(self, action: #selector(frequencyChanged), for: .valueChanged)
+    }
+    
+    func frequencyChanged() {
+        if frequencySegmentControl.selectedSegmentIndex == 0 {
+            frequency = .daily
+        } else {
+            frequency = .weekly
+        }
     }
     
     @IBAction func onImagePickerPress(_ sender: UITapGestureRecognizer) {
@@ -74,18 +85,18 @@ class NewQuestViewController: UIViewController  {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-//        var dictionary = ["frequency": selectedFrequency, "title": titleTextField.text!, "notes": descriptionTextView.text] as [String : Any]
-//        if let chosenImage = chosenImage {
-//            dictionary["image"] = chosenImage
-//        }
-//        var newQuest = Quest(dictionary: dictionary)
-//        LevelUpClient.sharedInstance.sync(quest: &newQuest, success: {
-//            // TODO
-//        }, failure: {
-//            (error: Error?) -> () in
-//            // TODO
-//            print(error?.localizedDescription ?? "New Quest Error")
-//        })
+        var dictionary = ["frequency": frequency.rawValue, "title": titleTextField.text ?? "", "notes": descriptionTextView.text] as [String: Any]
+        if let chosenImage = chosenImage {
+            dictionary["image"] = chosenImage
+        }
+        var newQuest = Quest(dictionary: dictionary)
+        LevelUpClient.sharedInstance.sync(quest: &newQuest, success: {
+            // TODO
+        }, failure: {
+            (error: Error?) -> () in
+            // TODO
+            print(error?.localizedDescription ?? "New Quest Error")
+        })
     }
 
 }
