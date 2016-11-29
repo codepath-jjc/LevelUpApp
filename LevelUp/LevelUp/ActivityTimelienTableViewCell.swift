@@ -10,6 +10,7 @@ import UIKit
 
 class ActivityTimelienTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var viewHolder: UIView!
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -24,6 +25,12 @@ class ActivityTimelienTableViewCell: UITableViewCell {
         dateLabel.textColor = AppColors.PrimaryTextColor
         numberLabel.textColor = AppColors.PrimaryTextColor
         
+        viewHolder.layer.cornerRadius = 8.0
+        viewHolder.clipsToBounds = true
+        
+        viewHolder.backgroundColor = AppColors.BrandPrimaryBackgroundColor
+
+        //mainImage.image.setAlpha(CGFloat(0.4))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,4 +39,17 @@ class ActivityTimelienTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+}
+
+extension UIImage{
+    
+    func setAlpha(value:CGFloat)->UIImage
+    {
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        draw(at: CGPoint.zero, blendMode: .normal, alpha: value)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+        
+    }
 }
