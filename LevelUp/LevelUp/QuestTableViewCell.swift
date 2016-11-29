@@ -13,10 +13,10 @@ class QuestTableViewCell: UITableViewCell {
     @IBOutlet weak var topHolderConstraint: NSLayoutConstraint!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var iconImage: UIImageView!
-    
     @IBOutlet weak var questsHeaderHolder: UIView!
     @IBOutlet weak var questsHeader: UILabel!
     @IBOutlet weak var questHolder: UIView!
+    
     var quest:Quest! {
         didSet {
             nameLabel.text = quest.title
@@ -39,9 +39,11 @@ class QuestTableViewCell: UITableViewCell {
         }
         
         questsHeaderHolder.backgroundColor = AppColors.BrandPrimaryBackgroundColor
-        
         questsHeader.textColor = AppColors.SecondaryTextColor
      
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = AppColors.BrandPrimaryBackgroundColor
+        selectedBackgroundView = bgColorView
     }
 
     func isTopCell() {
