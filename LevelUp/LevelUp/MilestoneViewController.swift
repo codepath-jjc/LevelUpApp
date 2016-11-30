@@ -36,14 +36,16 @@ class MilestoneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        LevelUpClient.sharedInstance.quests(success: {
-            (quests: [Quest]) -> () in
-            self.quest = quests.first
-            self.questNameTableView.reloadData()
-        }, failure: {
-            (error: Error?) -> () in
-            // TODO
-        })
+        if quest == nil {
+            LevelUpClient.sharedInstance.quests(success: {
+                (quests: [Quest]) -> () in
+                self.quest = quests.first
+                self.questNameTableView.reloadData()
+            }, failure: {
+                (error: Error?) -> () in
+                // TODO
+            })
+        }
         questNameTableView.register(UITableViewCell.self, forCellReuseIdentifier: "QuestNameCell")
 
         notesTextView.addDashedBorder()
