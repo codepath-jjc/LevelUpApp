@@ -37,11 +37,33 @@ class WelcomeViewController: UIViewController {
             self.view.addSubview(playerController.view)
             playerController.view.frame = self.view.frame
             playerController.showsPlaybackControls = false
+          //  player.addObserver(self, forKeyPath: "actionAtItemEnd", options: [], context: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying),
+                                                         name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                                         object: player.currentItem)
+
+        
+        
             player.play()
     
         
         //showQuestInfo
     }
+    
+    func playerDidFinishPlaying(note:NSNotification){
+        print("finished")
+        self.performSegue(withIdentifier: "showQuestInfo", sender: self)
+    }
+    
+    
+    /*
+    func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutableRawPointer) {
+        if keyPath == "actionAtItemEnd"{
+            //
+            print("FINISH")
+        }
+    }*/
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
