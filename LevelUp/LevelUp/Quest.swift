@@ -73,16 +73,37 @@ class Quest: NSObject {
     }
     
     // Returns the upcoming milestone for this quest
-    func upcomingMilestone() -> Milestone? {
-        // TODO
-        return Milestone(dictionary: [String:Any]())
+    func upcomingMilestone(success: @escaping (Milestone) -> (), failure: @escaping (Error?) -> ()) {
+        LevelUpClient.sharedInstance.milestones(success: {
+            (milestones: [Milestone]) -> () in
+            var upcomingMilestone: Milestone?
+            // TODO Refactor
+            for milestone in milestones {
+                if milestone.questId == self.pfObject?.objectId {
+                    if upcomingMilestone != nil  && milestone.deadline != nil {
+                        let comparison = upcomingMilestone!.deadline?.compare(milestone.deadline!)
+                        if comparison == ComparisonResult.orderedDescending {
+                            upcomingMilestone = milestone
+                        }
+                    }
+                    upcomingMilestone = milestone
+                }
+            }
+            if let upcomingMilestone = upcomingMilestone {
+                success(upcomingMilestone)
+            }
+        }, failure: {
+            (error: Error?) -> () in
+            failure(error)
+            print(error?.localizedDescription ?? "Error loading upcoming milestones")
+        })
     }
     
     func createMilestones(frequency: Frequency) {
         let date = Date(timeIntervalSinceNow: 0)
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yy"
-        let milestoneTitle = "\(title) - \(formatter.string(from: date))"
+        let milestoneTitle = "\(title ?? "") - \(formatter.string(from: date))"
         var milestone = Milestone(dictionary: ["title": milestoneTitle, "completed": false])
         if #available(iOS 10.0, *) {
             // Just an example of how to use notifications

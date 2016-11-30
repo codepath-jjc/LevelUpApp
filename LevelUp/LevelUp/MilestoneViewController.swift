@@ -19,19 +19,17 @@ class MilestoneViewController: UIViewController {
     @IBOutlet weak var questNameTableView: UITableView!
     var imageView = UIImageView()
     var hasPlaceholder = true
-    var quests = [Quest]() {
-        didSet {
-            quest = quests.first
-        }
-    }
+    var quests = [Quest]()
     var quest:Quest? {
         didSet {
-            let index = quests.indexOf(quest: quest)
-            if index != -1 {
-//                let indexPath = IndexPath(row: index, section: 0)
-//                questNameTableView.scrollToRow(at: indexPath, at: .middle, animated: true)
-            }
-            milestone = quest?.upcomingMilestone()
+            let _ = quest?.upcomingMilestone(success: {
+                (upcomingMilestone: Milestone) -> () in
+                self.milestone = upcomingMilestone
+            }, failure: {
+                (error: Error?) -> () in
+                //
+            })
+            quests = [quest!]
         }
     }
     var milestone:Milestone?
@@ -40,7 +38,7 @@ class MilestoneViewController: UIViewController {
 
         LevelUpClient.sharedInstance.quests(success: {
             (quests: [Quest]) -> () in
-            self.quests = quests
+            self.quest = quests.first
             self.questNameTableView.reloadData()
         }, failure: {
             (error: Error?) -> () in
