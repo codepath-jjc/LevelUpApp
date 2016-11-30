@@ -46,8 +46,7 @@ extension PFObject {
                 self.setValue(pfFile , forKey: key )
             } else if let frequency = value as? Frequency {
                 self.setValue(frequency.rawValue, forKey: key)
-            }
-            else {
+            } else {
                 self.setValue(value , forKey: key )
             }
         }

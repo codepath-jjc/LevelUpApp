@@ -18,7 +18,11 @@ class Quest: NSObject {
     var image: UIImage?
     var imageFile: PFFile?
     var frequency: Frequency?
-    var archived: Bool!
+    var archived: Bool! {
+        didSet {
+            dictionary["archived"] = archived
+        }
+    }
     var dictionary = [String: Any]()
     
     init(pfObject: PFObject) {
