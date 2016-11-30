@@ -77,7 +77,7 @@ class Quest: NSObject {
         let date = Date(timeIntervalSinceNow: 0)
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yy"
-        let milestoneTitle = (title ?? "") + formatter.string(from: date)
+        let milestoneTitle = "\(title) - \(formatter.string(from: date))"
         var milestone = Milestone(dictionary: ["title": milestoneTitle, "completed": false])
         if #available(iOS 10.0, *) {
             // Just an example of how to use notifications

@@ -11,7 +11,6 @@ import UIKit
 class ActivityTimelineViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
     let refreshControl = UIRefreshControl()
-
     var _milestones = [Milestone]()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {

@@ -145,9 +145,15 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         editAction.backgroundColor = UIColor.blue
         
         
-        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (UITableViewRowAction, IndexPath) in
-            //TODO: Delete the row at indexPath here
-            print("DELETE CALLED!")
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") {
+            (UITableViewRowAction, IndexPath) in
+            let cell = tableView.cellForRow(at: indexPath) as! QuestTableViewCell
+            let quest = cell.quest
+            let index = self.quests.indexOf(quest: quest)
+            
+            quest?.pfObject?.deleteInBackground()
+            self.quests.remove(at: index)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
         deleteAction.backgroundColor = UIColor.red
         // http://stackoverflow.com/questions/37999727/swift-3-error-cannot-call-value-of-non-function-type-uitableview
