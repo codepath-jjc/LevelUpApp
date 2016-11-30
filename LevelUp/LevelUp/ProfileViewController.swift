@@ -67,8 +67,6 @@ class ProfileViewController: UIViewController {
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MilestoneViewController") as! MilestoneViewController
             nextViewController.quest = selectedQuest
             self.present(nextViewController, animated:true, completion:nil)
-    
-        
         }
     }
 }

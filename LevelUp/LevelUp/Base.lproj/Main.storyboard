@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hg7-pW-BKo">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hg7-pW-BKo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -711,6 +711,8 @@
                         <outlet property="questButtonView" destination="oHq-1U-gA0" id="YWn-tt-ez9"/>
                         <outlet property="questImage" destination="Uyn-aA-eVe" id="Wsh-nt-aKx"/>
                         <outlet property="questLabel" destination="0kf-Nb-k7K" id="e6x-IS-ie2"/>
+                        <outlet property="tabBarHeightConstraint" destination="4Er-Z9-2g2" id="CMr-r9-1hH"/>
+                        <outlet property="tabBarView" destination="aKe-fc-4mf" id="Y6c-yI-By4"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="showProfile" id="Rmn-GL-nVN"/>
                         <segue destination="lar-Ps-rYo" kind="presentation" identifier="showMilestone" id="fgE-m3-jLM"/>
                     </connections>
@@ -789,6 +791,6 @@
         <image name="quest" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rWu-OZ-Zgl"/>
+        <segue reference="fgE-m3-jLM"/>
     </inferredMetricsTieBreakers>
 </document>

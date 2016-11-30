@@ -28,6 +28,8 @@ enum Page: Int {
 
 class TabBarViewController: UIViewController {
     
+    @IBOutlet weak var tabBarView: UIView!
+    @IBOutlet weak var tabBarHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var profileButtonView: UIView!
     @IBOutlet weak var questButtonView: UIView!
@@ -51,6 +53,7 @@ class TabBarViewController: UIViewController {
     var activityTimelineViewController: ActivityTimelineViewController!
     var newQuestViewController: NewQuestViewController!
     var viewControllers = [UIViewController]()
+    var originalTabBarHeight: CGFloat!
     var page: Page! {
         willSet {
             unselectAll()
@@ -80,6 +83,18 @@ class TabBarViewController: UIViewController {
             vc.didMove(toParentViewController: self)
         }
     }
+    var tabBarHidden: Bool = false {
+        didSet {
+            
+            if tabBarHidden {
+                tabBarHeightConstraint.constant = 0
+                tabBarView.isHidden = true
+            } else {
+                tabBarHeightConstraint.constant = originalTabBarHeight
+                tabBarView.isHidden = false
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,11 +120,12 @@ class TabBarViewController: UIViewController {
         page = Page.profile
         setSelected(image: profileImage, text: profileLabel)
         
+        originalTabBarHeight = tabBarHeightConstraint.constant
+        
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
         }
     }
-
     
     func unselect(image: UIImageView, text: UILabel){
         colorImage(image: image, color: AppColors.SecondaryTextColor)
