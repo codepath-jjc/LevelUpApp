@@ -21,22 +21,25 @@ class WelcomeViewController: UIViewController {
         
        // NSURL(f)
         
-        let url = URL(string: Bundle.main.path(forResource: "intro2", ofType: "mp4")!)
+        let fileURL = NSURL(fileURLWithPath:  Bundle.main.path(forResource: "intro2", ofType: "mp4")!)
+        //let url = URL(string: Bundle.main.path(forResource: "intro2", ofType: "mp4")!)
+        
         //let fileURL = NSURL(string: "/Users/jasonbautista/playground/LevelUpApp/LevelUp/LevelUp/intro2.mp4")
         
         
         
         
-            let player = AVPlayer(url: url! )
+            let player = AVPlayer(url: fileURL as URL )
             let playerController = AVPlayerViewController()
             
             playerController.player = player
             self.addChildViewController(playerController)
             self.view.addSubview(playerController.view)
             playerController.view.frame = self.view.frame
-            
+            playerController.showsPlaybackControls = false
             player.play()
     
+        
         //showQuestInfo
     }
     
