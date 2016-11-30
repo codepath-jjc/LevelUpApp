@@ -86,13 +86,14 @@ class ActivityTimelineViewController: UIViewController {
 
 extension ActivityTimelineViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        // return self._milestones.count
         return 2
     }
-    
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
  
@@ -100,13 +101,8 @@ extension ActivityTimelineViewController: UITableViewDataSource, UITableViewDele
             
        
         //let milestone = _milestones[indexPath.row]
-       // cell.categoryLabel.text = milestone.title
-        cell.categoryLabel.text = "Music"
-        cell.numberLabel.text = "#\(indexPath.row+1)"
-        cell.imageView?.image = #imageLiteral(resourceName: "placeholder").setAlpha(value: 0.14)
+        cell.milestone = Milestone.init(dictionary: ["title": "Music"])
         return cell
-        
-        
     }
     
    
