@@ -91,6 +91,9 @@ class NewQuestViewController: UIViewController  {
             dictionary["image"] = chosenImage
         }
         var newQuest = Quest(dictionary: dictionary)
+        let profileVC = segue.destination as? ProfileViewController
+        profileVC?.quests.append(newQuest)
+        
         LevelUpClient.sharedInstance.sync(quest: &newQuest, success: {
             // TODO
             newQuest.createMilestones(frequency: self.frequency)

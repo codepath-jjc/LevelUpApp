@@ -52,6 +52,7 @@ class ProfileViewController: UIViewController {
         }) { (error: Error?) in
             // TODO: show error
             self.refreshControl.endRefreshing()
+            print(error?.localizedDescription ?? "Failed Reloading Data")
         }
         
     }
