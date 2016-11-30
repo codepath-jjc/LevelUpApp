@@ -62,7 +62,7 @@ class LevelUpClient: NSObject {
         
         if let questPfObject = quest.pfObject {
             // Update the PFObject on the quest and save in background
-            questPfObject.setDictionary(quest.dictionary )
+            questPfObject.setDictionary(quest.dictionary)
             questPfObject.saveInBackground(block: {
                 (successStatus: Bool, error: Error?) -> Void in
                 if successStatus {

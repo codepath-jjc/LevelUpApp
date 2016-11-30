@@ -46,7 +46,9 @@ class ProfileViewController: UIViewController {
         
         LevelUpClient.sharedInstance.quests(success: { (quests:[Quest]) in
             // In the event this VC has a quest loaded already
-            self.quests = quests
+            self.quests = quests.filter({ (quest: Quest) -> Bool in
+                quest.archived == false
+            })
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
         }) { (error: Error?) in
@@ -145,13 +147,19 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         editAction.backgroundColor = UIColor.blue
         
         
-        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") {
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Archive") {
             (UITableViewRowAction, IndexPath) in
             let cell = tableView.cellForRow(at: indexPath) as! QuestTableViewCell
-            let quest = cell.quest
+            var quest = cell.quest
             let index = self.quests.indexOf(quest: quest)
             
-            quest?.pfObject?.deleteInBackground()
+            quest?.archived = true
+            LevelUpClient.sharedInstance.sync(quest: &quest!, success: {
+                
+            }, failure: {
+                (error: Error?) -> () in
+                print(error?.localizedDescription ?? "Error occurred archiving quest")
+            })
             self.quests.remove(at: index)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -159,8 +167,6 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         // http://stackoverflow.com/questions/37999727/swift-3-error-cannot-call-value-of-non-function-type-uitableview
         return [editAction,deleteAction]
     }
-    
-    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

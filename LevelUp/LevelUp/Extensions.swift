@@ -44,7 +44,10 @@ extension PFObject {
                 let imageData = UIImagePNGRepresentation(image)
                 let pfFile = PFFile(name:"image.png", data:imageData!)
                 self.setValue(pfFile , forKey: key )
-            } else {
+            } else if let frequency = value as? Frequency {
+                self.setValue(frequency.rawValue, forKey: key)
+            }
+            else {
                 self.setValue(value , forKey: key )
             }
         }

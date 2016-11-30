@@ -12,12 +12,13 @@ import UserNotifications
 
 class Quest: NSObject {
     
-    static let className = "QuestTest6"
+    static let className = "QuestTest8"
     var pfObject: PFObject?
     var title: String?
     var image: UIImage?
     var imageFile: PFFile?
     var frequency: Frequency?
+    var archived: Bool!
     var dictionary = [String: Any]()
     
     init(pfObject: PFObject) {
@@ -39,7 +40,7 @@ class Quest: NSObject {
             dictionary["frequency"] = Frequency(rawValue: frequencyInt)
         }
         
-        
+        archived = pfObject.object(forKey: "archived") as? Bool ?? false
         // TODO Load Image from PFObject
 //        let imageData = UIImagePNGRepresentation(image)
 //        let imageFile = PFFile(name:"image.png", data:imageData)
@@ -64,7 +65,7 @@ class Quest: NSObject {
         
         title = dictionary["title"] as? String
         image = dictionary["image"] as? UIImage
-        
+        archived = (dictionary["archived"] as? Bool) ?? false
     }
     
     // Returns the upcoming milestone for this quest
