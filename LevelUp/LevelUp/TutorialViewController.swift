@@ -15,10 +15,12 @@ class TutorialViewController: UIViewController {
     @IBOutlet weak var createQuestButton: UIButton!
     @IBOutlet weak var descLabel: UILabel!
     
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var createQuestBtn: UIButton!
     var snapBehaviour:UISnapBehavior!
     var animator:UIDynamicAnimator!
 
+    @IBOutlet weak var centerConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,16 @@ class TutorialViewController: UIViewController {
         print(xConstraint.constant)
         descLabel.layoutIfNeeded()
         descLabel.setNeedsLayout()
+        
+        
         snapBehaviour = UISnapBehavior(item: descLabel, snapTo: CGPoint(x: xConstraint.constant, y: yConstraint.constant))
+        
+        
+        snapBehaviour = UISnapBehavior(item: descLabel, snapTo: CGPoint(x: descLabel.bounds.maxX, y: descLabel.bounds.maxY))
+        
+    //snapBehaviour = UISnapBehavior(item: descLabel, snapTo:        descLabel.bounds.origin)
+        
+        
         print(xConstraint.constant)
 
         snapBehaviour.damping = 0.3

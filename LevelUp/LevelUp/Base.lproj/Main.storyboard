@@ -99,9 +99,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="centerConstraint" destination="Gco-uj-CeF" id="Bm7-fn-e71"/>
                         <outlet property="createQuestBtn" destination="5gR-QM-TE6" id="XG5-ta-8PF"/>
                         <outlet property="createQuestButton" destination="5gR-QM-TE6" id="J0x-iU-UUV"/>
                         <outlet property="descLabel" destination="cE6-dT-TIK" id="K0h-RP-yht"/>
+                        <outlet property="topConstraint" destination="Cy5-MN-Flq" id="17h-fa-QtM"/>
                         <outlet property="xConstraint" destination="wgD-kt-aIy" id="4A2-Je-3S7"/>
                         <outlet property="yConstraint" destination="x5d-hr-2X6" id="ENN-ma-Orv"/>
                     </connections>
@@ -216,7 +218,7 @@
                                 <color key="textColor" red="0.61801398049735778" green="0.6270579498925668" blue="0.63526931235692241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rwv-Sd-aET">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rwv-Sd-aET">
                                 <rect key="frame" x="141.5" y="357" width="203.5" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="eoG-yF-4bj"/>
