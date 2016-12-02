@@ -90,9 +90,11 @@ class NewQuestViewController: UIViewController  {
         if let chosenImage = chosenImage {
             dictionary["image"] = chosenImage
         }
+        
         var newQuest = Quest(dictionary: dictionary)
-        let profileVC = segue.destination as? ProfileViewController
-        profileVC?.quests.append(newQuest)
+        navigationDelegate?.profileViewController.quests.insert(newQuest, at: 0)
+        // Reloading will result in the image missing due to timing
+        navigationDelegate?.profileViewController.loadInitially = false
         
         LevelUpClient.sharedInstance.sync(quest: &newQuest, success: {
             // TODO

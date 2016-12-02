@@ -18,6 +18,7 @@ class Quest: NSObject {
     var image: UIImage?
     var imageFile: PFFile?
     var frequency: Frequency?
+    var notes: String?
     var archived: Bool! {
         didSet {
             dictionary["archived"] = archived
@@ -44,15 +45,12 @@ class Quest: NSObject {
             dictionary["frequency"] = Frequency(rawValue: frequencyInt)
         }
         
+        notes = pfObject.object(forKey: "notes") as? String
+        if let notes = notes {
+            dictionary["notes"] = notes
+        }
+        
         archived = pfObject.object(forKey: "archived") as? Bool ?? false
-        // TODO Load Image from PFObject
-//        let imageData = UIImagePNGRepresentation(image)
-//        let imageFile = PFFile(name:"image.png", data:imageData)
-//        
-//        var userPhoto = PFObject(className:"UserPhoto")
-//        userPhoto["imageName"] = "My trip to Hawaii!"
-//        userPhoto["imageFile"] = imageFile
-//        userPhoto.saveInBackground()
     }
     
     init(dictionary: [String: Any]) {
@@ -68,6 +66,7 @@ class Quest: NSObject {
         }
         
         title = dictionary["title"] as? String
+        notes = dictionary["notes"] as? String
         image = dictionary["image"] as? UIImage
         archived = (dictionary["archived"] as? Bool) ?? false
     }
@@ -105,24 +104,18 @@ class Quest: NSObject {
         formatter.dateFormat = "dd.MM.yy"
         let milestoneTitle = "\(title ?? "") - \(formatter.string(from: date))"
         var milestone = Milestone(dictionary: ["title": milestoneTitle, "completed": false])
-        if #available(iOS 10.0, *) {
-            // Just an example of how to use notifications
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-            let request = Notifications.schedule(title: milestoneTitle, body: "Yo there should be milestone details here", trigger: trigger)
-            // You can bookmark the request if you need it again maybe?
-        }
         if frequency == .daily {
             if #available(iOS 10.0, *) {                
                 // Just an example of how to use notifications
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                let request = Notifications.schedule(title: milestoneTitle, body: "Yo there should be milestone details here", trigger: trigger)
+                let request = Notifications.schedule(title: milestoneTitle, body: notes ?? "Practice!!", trigger: trigger)
                 // You can bookmark the request if you need it again maybe?
             }
         } else {
             if #available(iOS 10.0, *) {
                 // Just an example of how to use notifications
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-                let request = Notifications.schedule(title: milestoneTitle, body: "Yo there should be milestone details here", trigger: trigger)
+                let request = Notifications.schedule(title: milestoneTitle, body: notes ?? "Practice!", trigger: trigger)
                 // You can bookmark the request if you need it again maybe?
             }
         }

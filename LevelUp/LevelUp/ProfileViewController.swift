@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
     var quests = [Quest]()
     var selectedQuest:Quest?
+    var loadInitially = true
     
     let refreshControl = UIRefreshControl()
 
@@ -34,7 +35,9 @@ class ProfileViewController: UIViewController {
         self.tableView.backgroundColor =  AppColors.BrandPrimaryBackgroundColor
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
 
-        reloadData()
+        if loadInitially {
+            reloadData()
+        }
     }
     
     
@@ -43,7 +46,6 @@ class ProfileViewController: UIViewController {
     }
     
     func reloadData() {
-        
         LevelUpClient.sharedInstance.quests(success: { (quests:[Quest]) in
             // In the event this VC has a quest loaded already
             self.quests = quests.filter({ (quest: Quest) -> Bool in
@@ -119,10 +121,6 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = Bundle.main.loadNibNamed("QuestTableViewCell", owner: self, options: nil)?.first  as! QuestTableViewCell
             
             cell.quest = quests[indexPath.row-1]
-            cell.nameLabel.textColor =  AppColors.SecondaryTextColor
-            cell.iconImage.layer.masksToBounds = true
-            cell.iconImage.layer.cornerRadius = 10
-            cell.backgroundColor = AppColors.BrandPrimaryBackgroundColor
             
             if (indexPath.row > 1){
                 cell.isNoptCell()

@@ -40,6 +40,10 @@ class QuestTableViewCell: UITableViewCell {
         
         questsHeaderHolder.backgroundColor = AppColors.BrandPrimaryBackgroundColor
         questsHeader.textColor = AppColors.SecondaryTextColor
+        nameLabel.textColor =  AppColors.SecondaryTextColor
+        iconImage.layer.masksToBounds = true
+        iconImage.layer.cornerRadius = 10
+        backgroundColor = AppColors.BrandPrimaryBackgroundColor
      
         let bgColorView = UIView()
         bgColorView.backgroundColor = AppColors.BrandPrimaryBackgroundColor
