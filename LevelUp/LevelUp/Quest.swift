@@ -104,19 +104,21 @@ class Quest: NSObject {
         formatter.dateFormat = "dd.MM.yy"
         let milestoneTitle = "\(title ?? "") - \(formatter.string(from: date))"
         var milestone = Milestone(dictionary: ["title": milestoneTitle, "completed": false])
+        let calendar = Calendar.current
         if frequency == .daily {
-            if #available(iOS 10.0, *) {                
-                // Just an example of how to use notifications
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                let request = Notifications.schedule(title: milestoneTitle, body: notes ?? "Practice!!", trigger: trigger)
-                // You can bookmark the request if you need it again maybe?
+            if #available(iOS 10.0, *) {
+                var dateComponents = calendar.dateComponents([.month, .day, .minute, .second], from: Date())
+                dateComponents.second = dateComponents.second! + 4
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+                _ = Notifications.schedule(title: milestoneTitle, body: notes ?? "Practice!!", trigger: trigger, identifier: pfObject?.objectId ?? "")
             }
         } else {
             if #available(iOS 10.0, *) {
-                // Just an example of how to use notifications
+                var dateComponents = DateComponents()
+                dateComponents.hour = 8
+                dateComponents.day = dateComponents.day! + 7
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-                let request = Notifications.schedule(title: milestoneTitle, body: notes ?? "Practice!", trigger: trigger)
-                // You can bookmark the request if you need it again maybe?
+                _ = Notifications.schedule(title: milestoneTitle, body: notes ?? "Practice!", trigger: trigger, identifier: pfObject?.objectId ?? "")
             }
         }
         

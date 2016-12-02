@@ -15,7 +15,6 @@ class ProfileViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
     var quests = [Quest]()
     var selectedQuest:Quest?
-    var loadInitially = true
     
     let refreshControl = UIRefreshControl()
 
@@ -35,9 +34,7 @@ class ProfileViewController: UIViewController {
         self.tableView.backgroundColor =  AppColors.BrandPrimaryBackgroundColor
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
 
-        if loadInitially {
-            reloadData()
-        }
+        reloadData()
     }
     
     

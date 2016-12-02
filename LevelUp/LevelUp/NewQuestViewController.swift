@@ -93,8 +93,6 @@ class NewQuestViewController: UIViewController  {
         
         var newQuest = Quest(dictionary: dictionary)
         navigationDelegate?.profileViewController.quests.insert(newQuest, at: 0)
-        // Reloading will result in the image missing due to timing
-        navigationDelegate?.profileViewController.loadInitially = false
         
         LevelUpClient.sharedInstance.sync(quest: &newQuest, success: {
             // TODO
