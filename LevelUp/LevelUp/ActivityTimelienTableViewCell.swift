@@ -14,13 +14,21 @@ class ActivityTimelienTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var activityDisplay: ActiivityView!
     
     var milestone: Milestone! {
         didSet {
             // Setup the milestone info here
             categoryLabel.text = milestone.title
             numberLabel.text = "1"
-            imageView?.image = #imageLiteral(resourceName: "placeholder").setAlpha(value: 0.12)
+            mainImage.image = #imageLiteral(resourceName: "placeholder").setAlpha(value: 0.12)
+            
+            activityDisplay.matrix = [
+                [true, true, false, true, true, true, true],
+                [true, false, false, true, true, false, true],
+                [true, false, false, true, false, false, false],
+                [true, false, false, false, true, false, true]
+            ]
         }
     }
 
