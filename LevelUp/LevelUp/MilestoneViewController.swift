@@ -29,7 +29,14 @@ class MilestoneViewController: UIViewController {
                 (error: Error?) -> () in
                 //
             })
-            quests = [quest!]
+            // Error here?
+            if quest == nil {
+                quests = []
+            } else {
+                quests = [quest!]
+            }
+            
+            
         }
     }
     var milestone:Milestone?

@@ -12,7 +12,7 @@ import UserNotifications
 
 class Quest: NSObject {
     
-    static let className = "QuestTest8"
+    static let className = "QuestTest10"
     var pfObject: PFObject?
     var title: String?
     var image: UIImage?

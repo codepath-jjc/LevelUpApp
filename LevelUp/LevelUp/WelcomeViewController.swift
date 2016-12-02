@@ -7,17 +7,67 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var startButton: UIButton!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        startButton.layer.borderWidth = 1.0
-        startButton.layer.cornerRadius = 5.0
-        startButton.layer.borderColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0).cgColor
+        
+        
+       // NSURL(f)
+        
+        let fileURL = NSURL(fileURLWithPath:  Bundle.main.path(forResource: "intro2", ofType: "mp4")!)
+        //let url = URL(string: Bundle.main.path(forResource: "intro2", ofType: "mp4")!)
+        
+        //let fileURL = NSURL(string: "/Users/jasonbautista/playground/LevelUpApp/LevelUp/LevelUp/intro2.mp4")
+        
+        
+        
+        
+            let player = AVPlayer(url: fileURL as URL )
+            let playerController = AVPlayerViewController()
+            
+            playerController.player = player
+            self.addChildViewController(playerController)
+            self.view.addSubview(playerController.view)
+            playerController.view.frame = self.view.frame
+            playerController.showsPlaybackControls = false
+          //  player.addObserver(self, forKeyPath: "actionAtItemEnd", options: [], context: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying),
+                                                         name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                                         object: player.currentItem)
+
+        
+        
+            player.play()
+    
+        
+        //showQuestInfo
+    }
+    
+    func playerDidFinishPlaying(note:NSNotification){
+        print("finished")
+        self.performSegue(withIdentifier: "showQuestInfo", sender: self)
+    }
+    
+    
+    /*
+    func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutableRawPointer) {
+        if keyPath == "actionAtItemEnd"{
+            //
+            print("FINISH")
+        }
+    }*/
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
     }
 
 }

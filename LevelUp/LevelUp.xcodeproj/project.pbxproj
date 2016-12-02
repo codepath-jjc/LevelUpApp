@@ -25,6 +25,9 @@
 		961754A51DD5254400080277 /* LevelUpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961754A41DD5254400080277 /* LevelUpClient.swift */; };
 		964EB3B91DD67F710081CA30 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EB3B71DD67F710081CA30 /* ActivityTableViewCell.swift */; };
 		964EB3BA1DD67F710081CA30 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964EB3B81DD67F710081CA30 /* ActivityTableViewCell.xib */; };
+		965823C81DEEC9B5004F22CF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965823C61DEEC9B5004F22CF /* AVFoundation.framework */; };
+		965823C91DEEC9B5004F22CF /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965823C71DEEC9B5004F22CF /* AVKit.framework */; };
+		965823CA1DEECD62004F22CF /* intro2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 965823C51DEEC810004F22CF /* intro2.mp4 */; };
 		966688481DE068B300259542 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966688471DE068B300259542 /* AppColors.swift */; };
 		968CB7041DD4571F002D565E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CB7031DD4571F002D565E /* AppDelegate.swift */; };
 		968CB7091DD4571F002D565E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968CB7071DD4571F002D565E /* Main.storyboard */; };
@@ -54,6 +57,9 @@
 		961754A41DD5254400080277 /* LevelUpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelUpClient.swift; sourceTree = "<group>"; };
 		964EB3B71DD67F710081CA30 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		964EB3B81DD67F710081CA30 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
+		965823C51DEEC810004F22CF /* intro2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro2.mp4; sourceTree = "<group>"; };
+		965823C61DEEC9B5004F22CF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		965823C71DEEC9B5004F22CF /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		966688471DE068B300259542 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		968CB7001DD4571F002D565E /* LevelUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevelUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		968CB7031DD4571F002D565E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				965823C81DEEC9B5004F22CF /* AVFoundation.framework in Frameworks */,
+				965823C91DEEC9B5004F22CF /* AVKit.framework in Frameworks */,
 				8EBDF8C9C91D15816A39D3CA /* Pods_LevelUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +91,8 @@
 		04BE540BB2259697039076A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				965823C61DEEC9B5004F22CF /* AVFoundation.framework */,
+				965823C71DEEC9B5004F22CF /* AVKit.framework */,
 				85D0004153DD4E42E4AE2BC6 /* Pods_LevelUp.framework */,
 			);
 			name = Frameworks;
@@ -180,6 +190,7 @@
 				961754961DD458A600080277 /* View Controllers */,
 				961754951DD458A000080277 /* Views */,
 				968CB7031DD4571F002D565E /* AppDelegate.swift */,
+				965823C51DEEC810004F22CF /* intro2.mp4 */,
 				968CB7071DD4571F002D565E /* Main.storyboard */,
 				968CB70A1DD4571F002D565E /* Assets.xcassets */,
 				968CB70C1DD4571F002D565E /* LaunchScreen.storyboard */,
@@ -251,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				965823CA1DEECD62004F22CF /* intro2.mp4 in Resources */,
 				9617549D1DD459E900080277 /* QuestTableViewCell.xib in Resources */,
 				968CB70E1DD4571F002D565E /* LaunchScreen.storyboard in Resources */,
 				964EB3BA1DD67F710081CA30 /* ActivityTableViewCell.xib in Resources */,
