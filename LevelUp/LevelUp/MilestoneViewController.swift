@@ -69,6 +69,11 @@ class MilestoneViewController: UIViewController {
         questNameTableView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationDelegate?.tabBarHidden = true
+    }
+    
     @IBAction func onChooseImage(_ sender: UITapGestureRecognizer) {
         let imagePickerVC = UIImagePickerController()
         imagePickerVC.delegate = self
@@ -96,8 +101,11 @@ class MilestoneViewController: UIViewController {
     }
     
     @IBAction func onCancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-        navigationDelegate?.page = Page.profile
+        if let navDelegate = navigationDelegate {
+            navDelegate.page = Page.profile
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
 
 }

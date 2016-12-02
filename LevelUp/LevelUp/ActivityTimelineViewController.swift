@@ -27,9 +27,6 @@ class ActivityTimelineViewController: UIViewController {
         // Add refresh control to table view
         tableView.insertSubview(refreshControl, at: 0)
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

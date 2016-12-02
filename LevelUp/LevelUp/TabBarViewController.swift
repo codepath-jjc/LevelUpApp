@@ -57,6 +57,7 @@ class TabBarViewController: UIViewController {
     var page: Page! {
         willSet {
             unselectAll()
+            tabBarHidden = false
             
             switch newValue.rawValue {
             case Page.profile.rawValue:
@@ -99,6 +100,8 @@ class TabBarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        originalTabBarHeight = tabBarHeightConstraint.constant
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
@@ -119,9 +122,7 @@ class TabBarViewController: UIViewController {
 
         page = Page.profile
         setSelected(image: profileImage, text: profileLabel)
-        
-        originalTabBarHeight = tabBarHeightConstraint.constant
-        
+                
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
         }

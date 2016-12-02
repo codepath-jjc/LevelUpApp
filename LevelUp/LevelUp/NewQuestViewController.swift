@@ -64,6 +64,11 @@ class NewQuestViewController: UIViewController  {
         frequencySegmentControl.tintColor = AppColors.PrimaryAccentColor
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationDelegate?.tabBarHidden = true
+    }
+    
     func frequencyChanged() {
         if frequencySegmentControl.selectedSegmentIndex == 0 {
             frequency = .daily
