@@ -18,8 +18,7 @@ class ActivityTimelineViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.estimatedRowHeight = 120
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = 240
         // Do any additional setup after loading the view.
         reloadData()
         
