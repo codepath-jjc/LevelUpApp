@@ -104,21 +104,28 @@ class Quest: NSObject {
         formatter.dateFormat = "dd.MM.yy"
         let milestoneTitle = "\(title ?? "") - \(formatter.string(from: date))"
         var milestone = Milestone(dictionary: ["title": milestoneTitle, "completed": false])
+        
+        var alertNotes = notes ?? ""
+        if alertNotes.isEmpty {
+            alertNotes = "Try working on \(title ?? "") today :)"
+        }
+        
         let calendar = Calendar.current
         if frequency == .daily {
             if #available(iOS 10.0, *) {
-                var dateComponents = calendar.dateComponents([.month, .day, .minute, .second], from: Date())
-                dateComponents.second = dateComponents.second! + 4
+                var dateComponents = calendar.dateComponents([.month, .day, .hour, .minute], from: Date())
+                dateComponents.day = dateComponents.day! + 1
+                dateComponents.hour = 17
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-                _ = Notifications.schedule(title: milestoneTitle, body: notes ?? "Practice!!", trigger: trigger, identifier: pfObject?.objectId ?? "")
+                _ = Notifications.schedule(title: milestoneTitle, body: alertNotes, trigger: trigger, identifier: pfObject?.objectId ?? "")
             }
         } else {
             if #available(iOS 10.0, *) {
-                var dateComponents = DateComponents()
-                dateComponents.hour = 8
+                var dateComponents = calendar.dateComponents([.month, .day, .hour, .minute], from: Date())
                 dateComponents.day = dateComponents.day! + 7
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-                _ = Notifications.schedule(title: milestoneTitle, body: notes ?? "Practice!", trigger: trigger, identifier: pfObject?.objectId ?? "")
+                dateComponents.hour = 17
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+                _ = Notifications.schedule(title: milestoneTitle, body: alertNotes, trigger: trigger, identifier: pfObject?.objectId ?? "")
             }
         }
         
