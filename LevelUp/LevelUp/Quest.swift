@@ -98,7 +98,7 @@ class Quest: NSObject {
         })
     }
     
-    func createMilestones(frequency: Frequency) {
+    func createMilestones() {
         let date = Date(timeIntervalSinceNow: 0)
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yy"

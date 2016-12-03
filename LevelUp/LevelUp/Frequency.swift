@@ -10,4 +10,13 @@ import Foundation
 
 enum Frequency: Int {
     case daily, weekly
+    
+    func simpleDescription() -> String {
+        switch self {
+        case .daily:
+            return "Daily"
+        case .weekly:
+            return "Weekly"
+        }
+    }
 }

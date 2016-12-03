@@ -101,7 +101,7 @@ class NewQuestViewController: UIViewController  {
         
         LevelUpClient.sharedInstance.sync(quest: &newQuest, success: {
             // TODO
-            newQuest.createMilestones(frequency: self.frequency)
+            newQuest.createMilestones()
         }, failure: {
             (error: Error?) -> () in
             // TODO

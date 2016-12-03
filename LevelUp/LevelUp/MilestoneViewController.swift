@@ -35,8 +35,6 @@ class MilestoneViewController: UIViewController {
             } else {
                 quests = [quest!]
             }
-            
-            
         }
     }
     var milestone:Milestone?
@@ -47,6 +45,7 @@ class MilestoneViewController: UIViewController {
             LevelUpClient.sharedInstance.quests(success: {
                 (quests: [Quest]) -> () in
                 self.quest = quests.first
+                self.frequencyLabel.text = self.quest?.frequency?.simpleDescription() ?? "sometimes"
                 self.questNameTableView.reloadData()
             }, failure: {
                 (error: Error?) -> () in
@@ -83,9 +82,9 @@ class MilestoneViewController: UIViewController {
         present(imagePickerVC, animated: true, completion: nil)
     }
 
-    
     @IBAction func onDone(_ sender: Any) {
         milestone?.completed = true
+        quest?.createMilestones()
         
         if var milestone = milestone {
             LevelUpClient.sharedInstance.sync(milestone: &milestone, success: {
@@ -94,6 +93,7 @@ class MilestoneViewController: UIViewController {
             }, failure: {
                 (error: Error?) -> () in
                 // TODO
+                print(error?.localizedDescription ?? "Error syncing milestone on Done action")
             })
         }
 
