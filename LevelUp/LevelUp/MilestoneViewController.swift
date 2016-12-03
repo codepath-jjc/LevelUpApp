@@ -87,6 +87,10 @@ class MilestoneViewController: UIViewController {
         quest?.createMilestones()
         
         if var milestone = milestone {
+            if #available(iOS 10.0, *) {
+                Notifications.removePendingRequests(withIdentifiers: [quest?.pfObject?.objectId ?? ""])
+                milestone.completedDate = Date()
+            }
             LevelUpClient.sharedInstance.sync(milestone: &milestone, success: {
                 () -> () in
                 // TODO

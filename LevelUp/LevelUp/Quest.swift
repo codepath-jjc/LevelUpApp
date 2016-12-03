@@ -99,6 +99,7 @@ class Quest: NSObject {
     }
     
     func createMilestones() {
+        
         let date = Date(timeIntervalSinceNow: 0)
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yy"
@@ -111,19 +112,22 @@ class Quest: NSObject {
         }
         
         let calendar = Calendar.current
+        var dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: Date())
+        dateComponents.hour = 17
+
         if frequency == .daily {
             if #available(iOS 10.0, *) {
-                var dateComponents = calendar.dateComponents([.month, .day, .hour, .minute], from: Date())
                 dateComponents.day = dateComponents.day! + 1
-                dateComponents.hour = 17
+                milestone.deadline = calendar.date(from: dateComponents)
+                
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
                 _ = Notifications.schedule(title: milestoneTitle, body: alertNotes, trigger: trigger, identifier: pfObject?.objectId ?? "")
             }
         } else {
             if #available(iOS 10.0, *) {
-                var dateComponents = calendar.dateComponents([.month, .day, .hour, .minute], from: Date())
                 dateComponents.day = dateComponents.day! + 7
-                dateComponents.hour = 17
+                milestone.deadline = calendar.date(from: dateComponents)
+
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
                 _ = Notifications.schedule(title: milestoneTitle, body: alertNotes, trigger: trigger, identifier: pfObject?.objectId ?? "")
             }

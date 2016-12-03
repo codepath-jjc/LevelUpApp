@@ -19,6 +19,7 @@ class Milestone: NSObject {
     var notes: String?
     var deadline: Date?
     var completed: Bool?
+    var completedDate: Date?
     var dictionary = [String: Any]()
     
     init(pfObject: PFObject) {
