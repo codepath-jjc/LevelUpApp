@@ -18,7 +18,6 @@ class SelectableImageView: UIView {
         didSet {
             labelView.isHidden = true
             imageView.image = image
-            imageView.layer.cornerRadius = 5.0
             imageView.isHidden = false
         }
     }
@@ -35,10 +34,15 @@ class SelectableImageView: UIView {
     
     func initSubviews() {
         Bundle.main.loadNibNamed("SelectableImageView", owner: self, options: nil)
+        layer.cornerRadius = 10
+
         contentView.frame = bounds
         
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
         contentView.addGestureRecognizer(recognizer)
+        
+        contentView.addSubview(imageView)
+        contentView.addSubview(labelView)
         
         addSubview(contentView)
     }
