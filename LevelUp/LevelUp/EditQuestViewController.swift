@@ -14,23 +14,26 @@ class EditQuestViewController: UIViewController {
     @IBOutlet weak var frequencySegmentControl: UISegmentedControl!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var icon: UIImageView!
-    var quest: Quest!
+    var quest: Quest! {
+        didSet {
+            view.layoutIfNeeded()
+            
+            titleTextField.text = quest.title
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func onCancelTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onSaveTapped(_ sender: Any) {
+        // TODO
     }
     
 
