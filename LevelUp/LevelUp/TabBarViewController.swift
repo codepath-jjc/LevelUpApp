@@ -48,6 +48,20 @@ class TabBarViewController: UIViewController {
     @IBOutlet weak var questImage: UIImageView!
     @IBOutlet weak var questLabel: UILabel!
     
+    
+    // COSNTRAINTS
+    
+    // 80 - > 0
+    @IBOutlet weak var tabBarBottomConstraint: NSLayoutConstraint!
+    
+    // 6
+    @IBOutlet weak var questBaslineConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var activityBaslineConstraint: NSLayoutConstraint!
+    @IBOutlet weak var milestoneBaslineConstraint: NSLayoutConstraint!
+    @IBOutlet weak var profileBaslineConstraint: NSLayoutConstraint!
+    // CONSTRAINTS
+    
     var profileViewController: ProfileViewController!
     var milestoneViewController: MilestoneViewController!
     var activityTimelineViewController: ActivityTimelineViewController!

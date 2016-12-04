@@ -796,19 +796,24 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityBaslineConstraint" destination="Aw3-sU-2X8" id="TrB-Dj-f9N"/>
                         <outlet property="activityImage" destination="tED-Bd-DoJ" id="Y3B-82-ZNZ"/>
                         <outlet property="activityLabel" destination="HmN-TD-RwZ" id="gLq-RT-Zz4"/>
                         <outlet property="activityTimelineButtonView" destination="nBm-ps-ogH" id="hlh-lr-Lxr"/>
                         <outlet property="contentView" destination="ESg-nN-hag" id="PPu-L6-4xK"/>
+                        <outlet property="milestoneBaslineConstraint" destination="oB1-vX-evM" id="tEn-hx-uZz"/>
                         <outlet property="milestoneButtonView" destination="6qZ-Ge-kT0" id="SOB-hT-wI3"/>
                         <outlet property="milestoneImage" destination="5Q0-aT-paA" id="ALz-RN-yIB"/>
                         <outlet property="milestoneLabel" destination="vUV-dO-KDC" id="nWM-hk-szQ"/>
+                        <outlet property="profileBaslineConstraint" destination="MEK-mW-FGB" id="tAF-FQ-nVS"/>
                         <outlet property="profileButtonView" destination="PMN-xn-reI" id="PQy-84-obk"/>
                         <outlet property="profileImage" destination="qu5-mK-DBP" id="csg-sc-G2n"/>
                         <outlet property="profileLabel" destination="ykg-39-GG1" id="I3h-WC-1Yj"/>
+                        <outlet property="questBaslineConstraint" destination="Dm1-Nu-kDF" id="TWb-nm-nA5"/>
                         <outlet property="questButtonView" destination="oHq-1U-gA0" id="YWn-tt-ez9"/>
                         <outlet property="questImage" destination="Uyn-aA-eVe" id="Wsh-nt-aKx"/>
                         <outlet property="questLabel" destination="0kf-Nb-k7K" id="e6x-IS-ie2"/>
+                        <outlet property="tabBarBottomConstraint" destination="jXz-U0-V9Y" id="ymz-Tw-xma"/>
                         <outlet property="tabBarHeightConstraint" destination="4Er-Z9-2g2" id="CMr-r9-1hH"/>
                         <outlet property="tabBarView" destination="aKe-fc-4mf" id="Y6c-yI-By4"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="showProfile" id="Rmn-GL-nVN"/>
@@ -889,6 +894,6 @@
         <image name="quest" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rWu-OZ-Zgl"/>
+        <segue reference="fgE-m3-jLM"/>
     </inferredMetricsTieBreakers>
 </document>
