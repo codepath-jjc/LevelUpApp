@@ -13,13 +13,13 @@ class EditQuestViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var frequencySegmentControl: UISegmentedControl!
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var icon: SelectableImageView!
     var quest: Quest! {
         didSet {
             view.layoutIfNeeded()
             
             titleTextField.text = quest.title
-            descriptionTextView.text = quest.description
+            descriptionTextView.text = quest.notes
             if quest.frequency == Frequency.daily {
                 frequencySegmentControl.selectedSegmentIndex = 0
             } else {
@@ -32,9 +32,22 @@ class EditQuestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        icon.layer.cornerRadius = 20
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        view.addGestureRecognizer(gestureRecognizer)
+        
+        icon.layer.cornerRadius = 10
         titleTextField.addDashedBorder()
         descriptionTextView.addDashedBorder()
+        
+        titleTextField.delegate = self
+        descriptionTextView.delegate = self
+        
+        icon.delegate = self
+    }
+    
+    func onTap() {
+        titleTextField.endEditing(true)
+        descriptionTextView.endEditing(true)
     }
     
     @IBAction func onCancelTapped(_ sender: Any) {
@@ -42,8 +55,43 @@ class EditQuestViewController: UIViewController {
     }
     
     @IBAction func onSaveTapped(_ sender: Any) {
-        // TODO
+        quest.title = titleTextField.text
+        quest.notes = descriptionTextView.text
+        quest.frequency = Frequency(rawValue: frequencySegmentControl.selectedSegmentIndex)
+        var inQuest: Quest = quest
+        LevelUpClient.sharedInstance.sync(quest: &inQuest, success: {
+            () -> () in
+            //
+        }, failure: {
+            (error: Error?) -> () in
+            print(error?.localizedDescription ?? "Error syncing quest")
+        })
+    }
+
+}
+
+extension EditQuestViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let isEmpty = textField.text?.isEmpty ?? false
+        if !isEmpty {
+            descriptionTextView.becomeFirstResponder()
+        }
+        
+        return false
     }
     
+}
 
+extension EditQuestViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
 }

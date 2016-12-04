@@ -11,6 +11,8 @@
 		424A49851DE404AB00427B20 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A49841DE404AB00427B20 /* Notifications.swift */; };
 		428B624A1DED450A00101ED3 /* Frequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428B62491DED450A00101ED3 /* Frequency.swift */; };
 		428B624C1DF48EDB00101ED3 /* EditQuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428B624B1DF48EDB00101ED3 /* EditQuestViewController.swift */; };
+		428B624E1DF4A64A00101ED3 /* SelectableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428B624D1DF4A64A00101ED3 /* SelectableImageView.swift */; };
+		428B62501DF4A67E00101ED3 /* SelectableImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 428B624F1DF4A67E00101ED3 /* SelectableImageView.xib */; };
 		42F23E581DD564C800CB8FB1 /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F23E571DD564C800CB8FB1 /* Milestone.swift */; };
 		42FE5E071DD6656900E63BFF /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E061DD6656900E63BFF /* WelcomeViewController.swift */; };
 		42FE5E091DD6712200E63BFF /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E081DD6712100E63BFF /* TutorialViewController.swift */; };
@@ -44,6 +46,8 @@
 		424A49841DE404AB00427B20 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		428B62491DED450A00101ED3 /* Frequency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frequency.swift; sourceTree = "<group>"; };
 		428B624B1DF48EDB00101ED3 /* EditQuestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditQuestViewController.swift; sourceTree = "<group>"; };
+		428B624D1DF4A64A00101ED3 /* SelectableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableImageView.swift; sourceTree = "<group>"; };
+		428B624F1DF4A67E00101ED3 /* SelectableImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectableImageView.xib; sourceTree = "<group>"; };
 		42F23E571DD564C800CB8FB1 /* Milestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
 		42FE5E061DD6656900E63BFF /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		42FE5E081DD6712100E63BFF /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				96EAA78F1DE1386000A582C4 /* ActivityView.swift */,
 				96AD22021DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.swift */,
 				96AD22031DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.xib */,
+				428B624D1DF4A64A00101ED3 /* SelectableImageView.swift */,
+				428B624F1DF4A67E00101ED3 /* SelectableImageView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 			files = (
 				965823CA1DEECD62004F22CF /* intro2.mp4 in Resources */,
 				9617549D1DD459E900080277 /* QuestTableViewCell.xib in Resources */,
+				428B62501DF4A67E00101ED3 /* SelectableImageView.xib in Resources */,
 				968CB70E1DD4571F002D565E /* LaunchScreen.storyboard in Resources */,
 				964EB3BA1DD67F710081CA30 /* ActivityTableViewCell.xib in Resources */,
 				96AD22051DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.xib in Resources */,
@@ -336,6 +343,7 @@
 				966688481DE068B300259542 /* AppColors.swift in Sources */,
 				42FE5E0B1DD6749900E63BFF /* NewQuestViewController.swift in Sources */,
 				96AD22041DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.swift in Sources */,
+				428B624E1DF4A64A00101ED3 /* SelectableImageView.swift in Sources */,
 				42FE5E091DD6712200E63BFF /* TutorialViewController.swift in Sources */,
 				961754A01DD45BFB00080277 /* ProfileViewController.swift in Sources */,
 				42FE5E0E1DD68ADF00E63BFF /* Extensions.swift in Sources */,
