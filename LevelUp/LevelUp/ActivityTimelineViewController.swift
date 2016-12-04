@@ -26,7 +26,7 @@ class ActivityTimelineViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(ActivityTimelineViewController.refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
         // Add refresh control to table view
         tableView.insertSubview(refreshControl, at: 0)
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,11 +39,7 @@ class ActivityTimelineViewController: UIViewController {
         self.reloadData()
     }
     
-    
-    
     func reloadData() {
-
-        
 
         LevelUpClient.sharedInstance.milestones(success: { (milestones: [Milestone]) in
          
@@ -62,19 +58,6 @@ class ActivityTimelineViewController: UIViewController {
         
     }
 
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 
@@ -92,7 +75,7 @@ extension ActivityTimelineViewController: UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
  
-        let cell = Bundle.main.loadNibNamed("ActivityTimelienTableViewCell", owner: self, options: nil)?.first  as! ActivityTimelienTableViewCell
+        let cell = Bundle.main.loadNibNamed("ActivityTimelineTableViewCell", owner: self, options: nil)?.first  as! ActivityTimelineTableViewCell
             
        
         //let milestone = _milestones[indexPath.row]

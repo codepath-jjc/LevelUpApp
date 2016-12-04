@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActivityTimelienTableViewCell: UITableViewCell {
+class ActivityTimelineTableViewCell: UITableViewCell {
 
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!

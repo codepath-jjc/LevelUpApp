@@ -45,8 +45,8 @@ class MilestoneViewController: UIViewController {
             LevelUpClient.sharedInstance.quests(success: {
                 (quests: [Quest]) -> () in
                 self.quest = quests.first
-                self.frequencyLabel.text = self.quest?.frequency?.simpleDescription() ?? "sometimes"
                 self.questNameTableView.reloadData()
+                self.frequencyLabel.text = self.quest?.frequency?.simpleDescription() ?? "sometimes"
             }, failure: {
                 (error: Error?) -> () in
                 // TODO

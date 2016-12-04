@@ -14,11 +14,27 @@ class Quest: NSObject {
     
     static let className = "QuestTest10"
     var pfObject: PFObject?
-    var title: String?
-    var image: UIImage?
     var imageFile: PFFile?
-    var frequency: Frequency?
-    var notes: String?
+    var title: String? {
+        didSet {
+            dictionary["title"] = title
+        }
+    }
+    var image: UIImage? {
+        didSet {
+            dictionary["image"] = image
+        }
+    }
+    var frequency: Frequency? {
+        didSet {
+            dictionary["frequency"] = frequency?.rawValue
+        }
+    }
+    var notes: String? {
+        didSet {
+            dictionary["notes"] = notes
+        }
+    }
     var archived: Bool! {
         didSet {
             dictionary["archived"] = archived
@@ -31,26 +47,24 @@ class Quest: NSObject {
         
         title = pfObject.object(forKey: "title") as? String
         
-        dictionary = [String: Any]()
-        if let title = title {
-            dictionary["title"] = title
-        }
-        
         if let imageFile =  pfObject.object(forKey: "image") as? PFFile {
             self.imageFile = imageFile
         }
         
         let frequencyInt = pfObject.object(forKey: "frequency") as? Int
         if let frequencyInt = frequencyInt {
-            dictionary["frequency"] = Frequency(rawValue: frequencyInt)
+            frequency = Frequency(rawValue: frequencyInt)
         }
         
         notes = pfObject.object(forKey: "notes") as? String
-        if let notes = notes {
-            dictionary["notes"] = notes
-        }
-        
         archived = pfObject.object(forKey: "archived") as? Bool ?? false
+
+        // Update dictionary since DidSet will not be called in initalizer
+        dictionary["title"] = title
+        dictionary["image"] = image
+        dictionary["frequency"] = frequency
+        dictionary["notes"] = notes
+        dictionary["archived"] = archived
     }
     
     init(dictionary: [String: Any]) {
