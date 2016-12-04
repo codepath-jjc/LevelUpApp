@@ -28,9 +28,7 @@ class TutorialViewController: UIViewController {
         createQuestButton.layer.borderWidth = 1.0
         createQuestButton.layer.cornerRadius = 5.0
         createQuestButton.layer.borderColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0).cgColor
-        
-        
-        
+                        
         
         animator = UIDynamicAnimator(referenceView: self.view)
         print(xConstraint.constant)
