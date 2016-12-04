@@ -582,7 +582,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="done"/>
                             </textView>
-                            <view contentMode="scaleToFill" restorationIdentifier="SelectableImageView" translatesAutoresizingMaskIntoConstraints="NO" id="tVJ-jA-KHD" customClass="SelectableImageView" customModule="LevelUp" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SelectableImageView" translatesAutoresizingMaskIntoConstraints="NO" id="tVJ-jA-KHD" customClass="SelectableImageView" customModule="LevelUp" customModuleProvider="target">
                                 <rect key="frame" x="30" y="95" width="66" height="66"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
