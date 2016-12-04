@@ -134,7 +134,12 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (UITableViewRowAction, IndexPath) in
             //TODO: edit the row at indexPath here
-            print("EDIT CALLED!")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let editVC = storyboard.instantiateViewController(withIdentifier: "EditQuestViewController") as! EditQuestViewController
+            
+            let cell = tableView.cellForRow(at: indexPath) as! QuestTableViewCell
+            editVC.quest = cell.quest
+            self.present(editVC, animated: true, completion: nil)
         }
         editAction.backgroundColor = UIColor.blue
         

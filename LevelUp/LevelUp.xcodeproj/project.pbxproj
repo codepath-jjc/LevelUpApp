@@ -10,6 +10,7 @@
 		4212EFAF1DD7813D00440814 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212EFAE1DD7813D00440814 /* TabBarViewController.swift */; };
 		424A49851DE404AB00427B20 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A49841DE404AB00427B20 /* Notifications.swift */; };
 		428B624A1DED450A00101ED3 /* Frequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428B62491DED450A00101ED3 /* Frequency.swift */; };
+		428B624C1DF48EDB00101ED3 /* EditQuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428B624B1DF48EDB00101ED3 /* EditQuestViewController.swift */; };
 		42F23E581DD564C800CB8FB1 /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F23E571DD564C800CB8FB1 /* Milestone.swift */; };
 		42FE5E071DD6656900E63BFF /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E061DD6656900E63BFF /* WelcomeViewController.swift */; };
 		42FE5E091DD6712200E63BFF /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5E081DD6712100E63BFF /* TutorialViewController.swift */; };
@@ -42,6 +43,7 @@
 		4212EFAE1DD7813D00440814 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		424A49841DE404AB00427B20 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		428B62491DED450A00101ED3 /* Frequency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frequency.swift; sourceTree = "<group>"; };
+		428B624B1DF48EDB00101ED3 /* EditQuestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditQuestViewController.swift; sourceTree = "<group>"; };
 		42F23E571DD564C800CB8FB1 /* Milestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
 		42FE5E061DD6656900E63BFF /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		42FE5E081DD6712100E63BFF /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				42FE5E0F1DD777EA00E63BFF /* MilestoneViewController.swift */,
 				42FE5E111DD777FE00E63BFF /* ActivityTimelineViewController.swift */,
 				4212EFAE1DD7813D00440814 /* TabBarViewController.swift */,
+				428B624B1DF48EDB00101ED3 /* EditQuestViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				42FE5E0E1DD68ADF00E63BFF /* Extensions.swift in Sources */,
 				968CB7041DD4571F002D565E /* AppDelegate.swift in Sources */,
 				964EB3B91DD67F710081CA30 /* ActivityTableViewCell.swift in Sources */,
+				428B624C1DF48EDB00101ED3 /* EditQuestViewController.swift in Sources */,
 				961754A51DD5254400080277 /* LevelUpClient.swift in Sources */,
 				9617549C1DD459E900080277 /* QuestTableViewCell.swift in Sources */,
 				4212EFAF1DD7813D00440814 /* TabBarViewController.swift in Sources */,

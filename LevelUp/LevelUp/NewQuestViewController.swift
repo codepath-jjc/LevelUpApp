@@ -41,6 +41,9 @@ class NewQuestViewController: UIViewController  {
         descriptionTextView.layoutIfNeeded()
         
         icon.isHidden = true
+        icon.layer.masksToBounds = true
+        icon.layer.cornerRadius = 10
+        
         let dashColor = UIColor(red:0.60, green:0.61, blue:0.61, alpha:1.0)
         titleTextField.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSForegroundColorAttributeName: dashColor])
         titleTextField.delegate = self
