@@ -82,10 +82,6 @@ class TutorialViewController: UIViewController {
         */
         
         
-        
-      
-        
-        
         //        topConstraint.constant = 0
         UIView.animate(withDuration: Double(0.30), delay: 0.0, options: .curveEaseInOut,  animations: {
             // self.createQuestBottomConstraint.constant = 35

@@ -16,6 +16,11 @@ class ProfileViewController: UIViewController {
     var quests = [Quest]()
     var selectedQuest:Quest?
     
+    @IBOutlet weak var headerTitle: UILabel!
+    
+    @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableFromTopConstraint: NSLayoutConstraint!
+    
     let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {

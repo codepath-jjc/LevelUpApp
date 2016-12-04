@@ -336,13 +336,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="headerTitle" destination="jSU-ew-NPi" id="lzE-nE-ccc"/>
+                        <outlet property="headerTopConstraint" destination="fjs-bh-GWM" id="zxZ-ft-r1i"/>
+                        <outlet property="tableFromTopConstraint" destination="4AN-kJ-vq8" id="kTt-UW-g2L"/>
                         <outlet property="tableView" destination="S58-ci-iPd" id="pBp-49-yHT"/>
                         <segue destination="lar-Ps-rYo" kind="presentation" identifier="showMilestone" id="rWu-OZ-Zgl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2212.5" y="72.887323943661968"/>
+            <point key="canvasLocation" x="2212" y="68"/>
         </scene>
         <!--Edit Quest View Controller-->
         <scene sceneID="3lR-Fg-AcX">
@@ -886,6 +889,6 @@
         <image name="quest" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fgE-m3-jLM"/>
+        <segue reference="rWu-OZ-Zgl"/>
     </inferredMetricsTieBreakers>
 </document>
