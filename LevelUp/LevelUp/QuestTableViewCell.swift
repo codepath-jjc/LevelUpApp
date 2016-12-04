@@ -20,6 +20,7 @@ class QuestTableViewCell: UITableViewCell {
     
     @IBOutlet weak var questTextLeftConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var contentLabel: UILabel!
     var quest:Quest! {
         didSet {
             nameLabel.text = quest.title
@@ -52,6 +53,8 @@ class QuestTableViewCell: UITableViewCell {
         bgColorView.backgroundColor = AppColors.BrandPrimaryBackgroundColor
         selectedBackgroundView = bgColorView
     }
+    
+    
 
     func isTopCell() {
         questsHeader.textColor = AppColors.PrimaryTextColor

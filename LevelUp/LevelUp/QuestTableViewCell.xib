@@ -75,6 +75,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="contentLabel" destination="Nld-Q5-lET" id="phs-d2-gSK"/>
                 <outlet property="iconImage" destination="8Ov-iu-2zp" id="XQU-lk-UDt"/>
                 <outlet property="nameLabel" destination="Nld-Q5-lET" id="fIt-bh-v9k"/>
                 <outlet property="questHolder" destination="J2Y-YK-SUY" id="Qrm-O4-QH0"/>
