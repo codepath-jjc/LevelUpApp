@@ -35,7 +35,7 @@
 		968CB70E1DD4571F002D565E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968CB70C1DD4571F002D565E /* LaunchScreen.storyboard */; };
 		96AD22041DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AD22021DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.swift */; };
 		96AD22051DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96AD22031DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.xib */; };
-		96EAA7901DE1386000A582C4 /* ActiivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EAA78F1DE1386000A582C4 /* ActiivityView.swift */; };
+		96EAA7901DE1386000A582C4 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EAA78F1DE1386000A582C4 /* ActivityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +69,7 @@
 		968CB70F1DD4571F002D565E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96AD22021DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTimelineTableViewCell.swift; sourceTree = "<group>"; };
 		96AD22031DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityTimelineTableViewCell.xib; sourceTree = "<group>"; };
-		96EAA78F1DE1386000A582C4 /* ActiivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiivityView.swift; sourceTree = "<group>"; };
+		96EAA78F1DE1386000A582C4 /* ActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		C98740D3F5870BAF99ED43AF /* Pods-LevelUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-LevelUp/Pods-LevelUp.release.xcconfig"; sourceTree = "<group>"; };
 		D161F0C0F2C0C56B63FB7D4A /* Pods-LevelUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LevelUp/Pods-LevelUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,7 +123,7 @@
 				9617549B1DD459E900080277 /* QuestTableViewCell.xib */,
 				964EB3B71DD67F710081CA30 /* ActivityTableViewCell.swift */,
 				964EB3B81DD67F710081CA30 /* ActivityTableViewCell.xib */,
-				96EAA78F1DE1386000A582C4 /* ActiivityView.swift */,
+				96EAA78F1DE1386000A582C4 /* ActivityView.swift */,
 				96AD22021DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.swift */,
 				96AD22031DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.xib */,
 			);
@@ -345,7 +345,7 @@
 				428B624A1DED450A00101ED3 /* Frequency.swift in Sources */,
 				42FE5E071DD6656900E63BFF /* WelcomeViewController.swift in Sources */,
 				42FE5E101DD777EB00E63BFF /* MilestoneViewController.swift in Sources */,
-				96EAA7901DE1386000A582C4 /* ActiivityView.swift in Sources */,
+				96EAA7901DE1386000A582C4 /* ActivityView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

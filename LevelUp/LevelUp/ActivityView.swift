@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActiivityView: UIView {
+class ActivityView: UIView {
 
     var matrix = [[Bool]]() {
         didSet{
@@ -72,8 +72,6 @@ class ActiivityView: UIView {
                     grey.setFill()
                 }
                 UIRectFill(rectangle)
-        
-                
             }
         }
     }

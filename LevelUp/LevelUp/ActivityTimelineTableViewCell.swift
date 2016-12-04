@@ -14,7 +14,7 @@ class ActivityTimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
-    @IBOutlet weak var activityDisplay: ActiivityView!
+    @IBOutlet weak var activityDisplay: ActivityView!
     
     var milestone: Milestone! {
         didSet {

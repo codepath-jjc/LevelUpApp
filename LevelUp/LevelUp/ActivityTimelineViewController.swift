@@ -52,15 +52,11 @@ class ActivityTimelineViewController: UIViewController {
         }) { (error:Error?) in
             self.refreshControl.endRefreshing()
             self.tableView.reloadData()
-
-
         }
         
     }
 
 }
-
-
 
 extension ActivityTimelineViewController: UITableViewDataSource, UITableViewDelegate {
     

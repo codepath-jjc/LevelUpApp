@@ -10,7 +10,7 @@ import UIKit
 
 class ActivityTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var activityDisplay: ActiivityView!
+    @IBOutlet weak var activityDisplay: ActivityView!
     @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
