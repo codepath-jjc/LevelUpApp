@@ -64,13 +64,8 @@ extension SelectableImageView: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        imageView.image = info[UIImagePickerControllerEditedImage] as! UIImage
-        UIGraphicsBeginImageContext(imageView.frame.size)
-        imageView.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let thumbnail = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        image = thumbnail
+        image = info[UIImagePickerControllerEditedImage] as! UIImage
+
         delegate?.dismiss(animated: true, completion: nil)
     }
     
