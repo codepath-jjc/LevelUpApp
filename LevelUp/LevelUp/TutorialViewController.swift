@@ -23,6 +23,7 @@ class TutorialViewController: UIViewController {
     @IBOutlet weak var createQuestbottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var centerConstraint: NSLayoutConstraint!
     
+    var alreadyAppeared = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,8 +36,21 @@ class TutorialViewController: UIViewController {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("prep")
+
+        
+        self.createQuestBtn.alpha = 0
+        self.createQuestbottomConstraint.constant = -20
+        self.view.layoutIfNeeded()
+    }
     override func viewDidAppear(_ animated: Bool) {
         
+        if alreadyAppeared  {
+         //   return
+        }
+        //alreadyAppeared = true
+       
         /*
         animator = UIDynamicAnimator(referenceView: self.view)
         print(xConstraint.constant)
@@ -68,16 +82,12 @@ class TutorialViewController: UIViewController {
         */
         
         
-        print("prep")
         
-        
-        self.createQuestBtn.alpha = 0
-        self.createQuestbottomConstraint.constant = -20
-        self.view.layoutIfNeeded()
+      
         
         
         //        topConstraint.constant = 0
-        UIView.animate(withDuration: Double(0.3), delay: 0.2, options: .curveEaseInOut,  animations: {
+        UIView.animate(withDuration: Double(0.30), delay: 0.0, options: .curveEaseInOut,  animations: {
             // self.createQuestBottomConstraint.constant = 35
             //self.createQuestBottomConstraint.
             print("animating")
