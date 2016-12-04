@@ -37,7 +37,7 @@ class TutorialViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        
+        /*
         animator = UIDynamicAnimator(referenceView: self.view)
         print(xConstraint.constant)
         descLabel.layoutIfNeeded()
@@ -65,11 +65,13 @@ class TutorialViewController: UIViewController {
         snapBehaviour.damping = 0.3
         animator.addBehavior(snapBehaviour)
         
+        */
         
         
         print("prep")
         
         
+        self.createQuestBtn.alpha = 0
         self.createQuestbottomConstraint.constant = -20
         self.view.layoutIfNeeded()
         
@@ -79,7 +81,7 @@ class TutorialViewController: UIViewController {
             // self.createQuestBottomConstraint.constant = 35
             //self.createQuestBottomConstraint.
             print("animating")
-            
+            self.createQuestBtn.alpha = 1
             self.createQuestbottomConstraint.constant = 35
             
             self.view.layoutIfNeeded()
