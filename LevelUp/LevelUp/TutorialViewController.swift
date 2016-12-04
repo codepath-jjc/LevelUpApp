@@ -20,6 +20,7 @@ class TutorialViewController: UIViewController {
     var snapBehaviour:UISnapBehavior!
     var animator:UIDynamicAnimator!
 
+    @IBOutlet weak var createQuestbottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var centerConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -49,5 +50,28 @@ class TutorialViewController: UIViewController {
         snapBehaviour.damping = 0.3
         animator.addBehavior(snapBehaviour)
     }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("prep")
+        
+        self.createQuestbottomConstraint.constant = -30
+        self.view.layoutIfNeeded()
+        
+        
+        //        topConstraint.constant = 0
+        UIView.animate(withDuration: Double(2.5), animations: {
+            // self.createQuestBottomConstraint.constant = 35
+            //self.createQuestBottomConstraint.
+            print("animating")
+            
+            self.createQuestbottomConstraint.constant = 35
+            
+            self.view.layoutIfNeeded()
+        })
+        
+        
+    }
+    
 
 }
