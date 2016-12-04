@@ -9,28 +9,46 @@
 import UIKit
 
 enum CalendarStates {
-    case completed, pending, overdue, today, empty
+    case empty, completed, pending
 }
 
 class CalendarView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+    
+    var cols = 7
+    var rows = 6
+    var matrix: [[CalendarStates]] = []
     
     var milestones = [Milestone]() {
         didSet{
+            
             // Compute the matrix from the milestone dates
+            var gregorian = Calendar(identifier: .gregorian)
+            gregorian.firstWeekday = 1
+            gregorian.minimumDaysInFirstWeek = 1
+            
+            // Set the matrix to be empty by default
+            for r in 0..<rows {
+                matrix.append([CalendarStates]())
+                for _ in 0..<cols {
+                    matrix[r].append(.empty)
+                }
+            }
+            
+            // Set each milestone
+            for m in milestones {
+                
+                
+                // Get the type and date
+                let type: CalendarStates = m.completed ?? false ? .completed : .pending
+                let date: Date? = m.completedDate ?? m.deadline ?? Date()
+            
+                let weekday = gregorian.component(.weekday, from: date!)
+                let weekOfMonth = gregorian.component(.weekOfMonth, from: date!)
+            
+                matrix[weekOfMonth - 1][weekday - 1] = type
+            }
         }
     }
-    
-    var cols = 0
-    var rows = 0
-    var matrix: [[CalendarStates]] = []
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -52,6 +70,7 @@ class CalendarView: UIView {
         
         let green  = AppColors.PrimaryAccentColor
         let grey = AppColors.ThirdGrey
+        let textColor = AppColors.PrimaryTextColor
         
         let margin = CGFloat(10)
         let spacer = CGFloat(8)
@@ -72,16 +91,17 @@ class CalendarView: UIView {
                 
                 // Need to have multiple styles here
                 switch matrix[r][c] {
-                case .completed, .overdue, .pending, .today:
+                case .pending:
+                    textColor.setFill()
+                case .completed:
                     green.setFill()
                 case .empty:
                     grey.setFill()
                 }
                 UIRectFill(rectangle)
-                
-                
             }
         }
     }
     
 }
+

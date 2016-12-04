@@ -14,7 +14,7 @@ class ActivityTimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
-    @IBOutlet weak var activityDisplay: ActivityView!
+    @IBOutlet weak var activityDisplay: CalendarView!
     
     var milestone: Milestone! {
         didSet {
@@ -22,13 +22,7 @@ class ActivityTimelineTableViewCell: UITableViewCell {
             categoryLabel.text = milestone.title
             numberLabel.text = "1"
             mainImage.image = #imageLiteral(resourceName: "placeholder").setAlpha(value: 0.12)
-            
-            activityDisplay.matrix = [
-                [true, true, false, true, true, true, true],
-                [true, false, false, true, true, false, true],
-                [true, false, false, true, false, false, false],
-                [true, false, false, false, true, false, true]
-            ]
+            activityDisplay.milestones = [milestone]
         }
     }
 
