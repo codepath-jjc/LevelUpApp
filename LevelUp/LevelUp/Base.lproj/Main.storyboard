@@ -102,6 +102,7 @@
                         <outlet property="centerConstraint" destination="Gco-uj-CeF" id="Bm7-fn-e71"/>
                         <outlet property="createQuestBtn" destination="5gR-QM-TE6" id="XG5-ta-8PF"/>
                         <outlet property="createQuestButton" destination="5gR-QM-TE6" id="J0x-iU-UUV"/>
+                        <outlet property="createQuestbottomConstraint" destination="her-Vh-POy" id="56l-cg-Qsr"/>
                         <outlet property="descLabel" destination="cE6-dT-TIK" id="K0h-RP-yht"/>
                         <outlet property="topConstraint" destination="Cy5-MN-Flq" id="17h-fa-QtM"/>
                         <outlet property="xConstraint" destination="wgD-kt-aIy" id="4A2-Je-3S7"/>

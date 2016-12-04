@@ -20,6 +20,7 @@ class TutorialViewController: UIViewController {
     var snapBehaviour:UISnapBehavior!
     var animator:UIDynamicAnimator!
 
+    @IBOutlet weak var createQuestbottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var centerConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -30,24 +31,64 @@ class TutorialViewController: UIViewController {
         createQuestButton.layer.borderColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0).cgColor
                         
         
+        
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        /*
         animator = UIDynamicAnimator(referenceView: self.view)
         print(xConstraint.constant)
         descLabel.layoutIfNeeded()
         descLabel.setNeedsLayout()
         
         
-        snapBehaviour = UISnapBehavior(item: descLabel, snapTo: CGPoint(x: xConstraint.constant, y: yConstraint.constant))
+       // snapBehaviour = UISnapBehavior(item: descLabel, snapTo: CGPoint(x: xConstraint.constant, y: yConstraint.constant))
         
         
-        snapBehaviour = UISnapBehavior(item: descLabel, snapTo: CGPoint(x: descLabel.bounds.maxX, y: descLabel.bounds.maxY))
+        snapBehaviour = UISnapBehavior(item: descLabel, snapTo: CGPoint(x: descLabel.bounds.maxX , y: descLabel.bounds.maxY + descLabel.frame.height/2))
         
-    //snapBehaviour = UISnapBehavior(item: descLabel, snapTo:        descLabel.bounds.origin)
+        //snapBehaviour = UISnapBehavior(item: descLabel, snapTo:        descLabel.bounds.origin)
         
-        
-        print(xConstraint.constant)
+        snapBehaviour.action = {
+                print("behaviour ")
+                self.xConstraint.constant = 0
+                self.yConstraint.constant = 0
+                self.descLabel.layoutIfNeeded()
+                self.descLabel.setNeedsLayout()
 
+        }
+    
+        print(xConstraint.constant)
+        
         snapBehaviour.damping = 0.3
         animator.addBehavior(snapBehaviour)
+        
+        */
+        
+        
+        print("prep")
+        
+        
+        self.createQuestBtn.alpha = 0
+        self.createQuestbottomConstraint.constant = -20
+        self.view.layoutIfNeeded()
+        
+        
+        //        topConstraint.constant = 0
+        UIView.animate(withDuration: Double(0.3), delay: 0.2, options: .curveEaseInOut,  animations: {
+            // self.createQuestBottomConstraint.constant = 35
+            //self.createQuestBottomConstraint.
+            print("animating")
+            self.createQuestBtn.alpha = 1
+            self.createQuestbottomConstraint.constant = 35
+            
+            self.view.layoutIfNeeded()
+        })
+        
+        
     }
+    
 
 }
