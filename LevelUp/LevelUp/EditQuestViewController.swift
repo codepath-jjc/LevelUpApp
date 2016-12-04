@@ -19,13 +19,22 @@ class EditQuestViewController: UIViewController {
             view.layoutIfNeeded()
             
             titleTextField.text = quest.title
+            descriptionTextView.text = quest.description
+            if quest.frequency == Frequency.daily {
+                frequencySegmentControl.selectedSegmentIndex = 0
+            } else {
+                frequencySegmentControl.selectedSegmentIndex = 1
+            }
+            icon.image = quest.image
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        icon.layer.cornerRadius = 20
+        titleTextField.addDashedBorder()
+        descriptionTextView.addDashedBorder()
     }
     
     @IBAction func onCancelTapped(_ sender: Any) {
