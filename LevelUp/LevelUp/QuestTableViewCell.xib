@@ -78,6 +78,8 @@
                 <outlet property="iconImage" destination="8Ov-iu-2zp" id="XQU-lk-UDt"/>
                 <outlet property="nameLabel" destination="Nld-Q5-lET" id="fIt-bh-v9k"/>
                 <outlet property="questHolder" destination="J2Y-YK-SUY" id="Qrm-O4-QH0"/>
+                <outlet property="questTextLeftConstraint" destination="Klz-Mj-5SX" id="trK-ch-xbA"/>
+                <outlet property="questTextTopConstraint" destination="Bc6-1Q-qKO" id="jFV-TT-h6r"/>
                 <outlet property="questsHeader" destination="ctc-Sj-FYW" id="3yt-P8-VV9"/>
                 <outlet property="questsHeaderHolder" destination="PWj-vN-bsm" id="hC4-oT-hAq"/>
                 <outlet property="topHolderConstraint" destination="uf0-1q-73e" id="q0P-0C-Qkb"/>

@@ -16,6 +16,9 @@ class QuestTableViewCell: UITableViewCell {
     @IBOutlet weak var questsHeaderHolder: UIView!
     @IBOutlet weak var questsHeader: UILabel!
     @IBOutlet weak var questHolder: UIView!
+    @IBOutlet weak var questTextTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var questTextLeftConstraint: NSLayoutConstraint!
     
     var quest:Quest! {
         didSet {
