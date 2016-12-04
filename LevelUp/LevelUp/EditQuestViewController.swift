@@ -35,7 +35,6 @@ class EditQuestViewController: UIViewController {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
         view.addGestureRecognizer(gestureRecognizer)
         
-        icon.layer.cornerRadius = 10
         titleTextField.addDashedBorder()
         descriptionTextView.addDashedBorder()
         

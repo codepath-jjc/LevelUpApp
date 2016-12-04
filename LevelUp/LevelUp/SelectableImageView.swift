@@ -34,8 +34,7 @@ class SelectableImageView: UIView {
     }
     
     func initSubviews() {
-        let nib = UINib(nibName: "SelectableImageView", bundle: nil)
-        nib.instantiate(withOwner: self, options: nil)
+        Bundle.main.loadNibNamed("SelectableImageView", owner: self, options: nil)
         contentView.frame = bounds
         
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))

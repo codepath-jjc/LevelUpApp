@@ -406,7 +406,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="done"/>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7cI-GJ-83y">
-                                <rect key="frame" x="346" y="120" width="9" height="35"/>
+                                <rect key="frame" x="106" y="120" width="249" height="35"/>
                                 <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="d4T-rP-lnP"/>
@@ -448,7 +448,7 @@
                                 </segments>
                                 <color key="tintColor" red="0.2718017063" green="1" blue="0.36533936649999998" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v1w-ZR-fnz" customClass="SelectableImageView" customModule="LevelUp" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="v1w-ZR-fnz" customClass="SelectableImageView" customModule="LevelUp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="90" width="66" height="66"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -468,6 +468,7 @@
                             <constraint firstItem="7li-ar-6dI" firstAttribute="leading" secondItem="61A-mT-IZM" secondAttribute="leading" constant="20" id="GM0-a1-vmf"/>
                             <constraint firstItem="v1w-ZR-fnz" firstAttribute="leading" secondItem="61A-mT-IZM" secondAttribute="leading" constant="20" id="JE2-7S-vav"/>
                             <constraint firstItem="5Rs-XB-j5n" firstAttribute="top" secondItem="hHh-62-vTa" secondAttribute="bottom" constant="5" id="JX1-GF-fgN"/>
+                            <constraint firstItem="7cI-GJ-83y" firstAttribute="leading" secondItem="v1w-ZR-fnz" secondAttribute="trailing" constant="20" id="K9J-4o-OSG"/>
                             <constraint firstAttribute="trailing" secondItem="5Rs-XB-j5n" secondAttribute="trailing" constant="20" id="OmB-GH-epd"/>
                             <constraint firstItem="5TQ-td-7xg" firstAttribute="leading" secondItem="61A-mT-IZM" secondAttribute="leading" constant="30" id="VBJ-Xi-wkf"/>
                             <constraint firstAttribute="trailing" secondItem="yTd-Kb-xfV" secondAttribute="trailing" constant="20" id="Vnz-Q4-TRA"/>
@@ -487,6 +488,7 @@
                     <connections>
                         <outlet property="descriptionTextView" destination="5Rs-XB-j5n" id="ZyS-sM-KDq"/>
                         <outlet property="frequencySegmentControl" destination="yTd-Kb-xfV" id="4gT-Mh-zWi"/>
+                        <outlet property="icon" destination="v1w-ZR-fnz" id="lhV-dS-Gkm"/>
                         <outlet property="titleTextField" destination="7cI-GJ-83y" id="Fec-WN-b4o"/>
                     </connections>
                 </viewController>
