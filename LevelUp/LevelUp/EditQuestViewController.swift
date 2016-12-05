@@ -56,6 +56,7 @@ class EditQuestViewController: UIViewController {
     @IBAction func onSaveTapped(_ sender: Any) {
         quest.title = titleTextField.text
         quest.notes = descriptionTextView.text
+        quest.image = icon.image
         quest.frequency = Frequency(rawValue: frequencySegmentControl.selectedSegmentIndex)
         var inQuest: Quest = quest
         LevelUpClient.sharedInstance.sync(quest: &inQuest, success: {
@@ -65,6 +66,8 @@ class EditQuestViewController: UIViewController {
             (error: Error?) -> () in
             print(error?.localizedDescription ?? "Error syncing quest")
         })
+        
+        dismiss(animated: true, completion: nil)
     }
 
 }
