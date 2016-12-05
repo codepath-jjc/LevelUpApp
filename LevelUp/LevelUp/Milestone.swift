@@ -14,19 +14,54 @@ class Milestone: NSObject {
     
     static let className = "MilestoneTest10"
     var pfObject: PFObject?
-    var questId: String?
-    var title: String?
-    var notes: String?
-    var deadline: Date?
-    var completed: Bool?
-    var completedDate: Date?
+    var imageFile: PFFile?
+    var questId: String? {
+        didSet {
+            dictionary["questId"] = questId
+        }
+    }
+    var title: String? {
+        didSet {
+            dictionary["title"] = title
+        }
+    }
+    var image: UIImage? {
+        didSet {
+            dictionary["image"] = image
+        }
+    }
+    var notes: String? {
+        didSet {
+            dictionary["notes"] = notes
+        }
+    }
+    var deadline: Date? {
+        didSet {
+            dictionary["deadline"] = deadline
+        }
+    }
+    var completed: Bool? {
+        didSet {
+            dictionary["completed"] = completed
+        }
+    }
+    var completedDate: Date? {
+        didSet {
+            dictionary["completedDate"] = completedDate
+        }
+    }
     var dictionary = [String: Any]()
     
     init(pfObject: PFObject) {
         self.pfObject = pfObject
         
+        if let imageFile =  pfObject.object(forKey: "image") as? PFFile {
+            self.imageFile = imageFile
+        }
+
         title = pfObject["title"] as? String
         notes = pfObject["notes"] as? String
+        questId = pfObject["questId"] as? String
         completed = pfObject["completed"] as? Bool
         
         dictionary =  [String: Any]()
@@ -41,6 +76,12 @@ class Milestone: NSObject {
         if let completed = completed {
             dictionary["completed"] = completed
         }
+        
+        if let questId = questId {
+            dictionary["questId"] = questId
+        }
+        
+        image = dictionary["image"] as? UIImage
     }
     
     init(dictionary: [String: Any]) {
@@ -51,6 +92,7 @@ class Milestone: NSObject {
         
         title = dictionary["title"] as? String
         notes = dictionary["notes"] as? String
+        questId = dictionary["questId"] as? String
         completed = dictionary["completed"] as? Bool
     }
     

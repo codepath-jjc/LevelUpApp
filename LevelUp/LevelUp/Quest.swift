@@ -90,7 +90,6 @@ class Quest: NSObject {
         LevelUpClient.sharedInstance.milestones(success: {
             (milestones: [Milestone]) -> () in
             var upcomingMilestone: Milestone?
-            // TODO Refactor
             for milestone in milestones {
                 if milestone.questId == self.pfObject?.objectId {
                     if upcomingMilestone != nil  && milestone.deadline != nil {
@@ -118,7 +117,7 @@ class Quest: NSObject {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yy"
         let milestoneTitle = "\(title ?? "") - \(formatter.string(from: date))"
-        var milestone = Milestone(dictionary: ["title": milestoneTitle, "completed": false])
+        var milestone = Milestone(dictionary: ["title": milestoneTitle, "completed": false, "questId": pfObject?.objectId ?? ""])
         
         var alertNotes = notes ?? ""
         if alertNotes.isEmpty {

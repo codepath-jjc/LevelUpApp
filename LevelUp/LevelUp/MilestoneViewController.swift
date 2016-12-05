@@ -17,15 +17,30 @@ class MilestoneViewController: UIViewController {
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var icon: SelectableImageView!
     @IBOutlet weak var questNameTableView: UITableView!
+    var hasPlaceholder = true
     var quests = [Quest]()
-    var quest:Quest? {
+    var milestone: Milestone? {
+        didSet {
+            view.layoutIfNeeded()
+            
+            if let image = milestone?.image {
+                icon.image = image
+            }
+            if let notes = milestone?.notes {
+                if !notes.isEmpty {
+                    notesTextView.text = milestone?.notes
+                }
+            }
+        }
+    }
+    var quest: Quest? {
         didSet {
             let _ = quest?.upcomingMilestone(success: {
                 (upcomingMilestone: Milestone) -> () in
                 self.milestone = upcomingMilestone
             }, failure: {
                 (error: Error?) -> () in
-                //
+                print(error?.localizedDescription ?? "Error getting upcoming milestone")
             })
             // Error here?
             if quest == nil {
@@ -35,7 +50,6 @@ class MilestoneViewController: UIViewController {
             }
         }
     }
-    var milestone:Milestone?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,6 +86,10 @@ class MilestoneViewController: UIViewController {
 
     @IBAction func onDone(_ sender: Any) {
         milestone?.completed = true
+        
+        if let image = icon.image {
+            milestone?.image = image
+        }
         quest?.createMilestones()
         
         if var milestone = milestone {
@@ -127,6 +145,13 @@ extension MilestoneViewController: UITableViewDataSource {
 }
 
 extension MilestoneViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if hasPlaceholder {
+            textView.text = ""
+            hasPlaceholder = false
+        }
+    }
     
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
