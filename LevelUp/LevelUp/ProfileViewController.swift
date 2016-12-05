@@ -43,9 +43,39 @@ class ProfileViewController: UIViewController {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableFromTopConstraint.constant = 60
+        self.headerTopConstraint.constant = 0
+        self.headerTitle.alpha = 0
+        self.tableView.alpha = 0.3
+        self.view.layoutIfNeeded()
+    }
+    
+    var loadedBefore = false
+    override func viewDidAppear(_ animated: Bool) {
+        
+        var durationTime = 0.5
+        var delay = 0.2
+        if(loadedBefore) {
+            durationTime = 0.15
+            delay = 0.0
+        }
+        loadedBefore = true
+        UIView.animate(withDuration: durationTime, delay: delay, options: .curveEaseOut,  animations: {
+            //self.questBaslineConstraint.constant = 6
+            self.headerTopConstraint.constant = 20
+            self.headerTitle.alpha = 1
+            self.tableView.alpha = 1
+            self.tableFromTopConstraint.constant = 20
+            self.view.layoutIfNeeded()
+        })
+    }
+    
     func refreshControlAction(refreshControl: UIRefreshControl) {
         self.reloadData()
     }
+    
+    
     
     func reloadData() {
         LevelUpClient.sharedInstance.quests(success: { (quests:[Quest]) in

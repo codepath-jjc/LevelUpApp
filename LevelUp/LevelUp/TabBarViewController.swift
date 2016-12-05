@@ -144,21 +144,7 @@ class TabBarViewController: UIViewController {
     }
     
     
-    /*
- 
-     // 80 - > 0
-     @IBOutlet weak var tabBarBottomConstraint: NSLayoutConstraint!
-     
-     // 6
-     @IBOutlet weak var questBaslineConstraint: NSLayoutConstraint!
-     
-     @IBOutlet weak var activityBaslineConstraint: NSLayoutConstraint!
-     @IBOutlet weak var milestoneBaslineConstraint: NSLayoutConstraint!
-     @IBOutlet weak var profileBaslineConstraint: NSLayoutConstraint!
-     
-     
-    */
-    
+  
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarBottomConstraint.constant = -80
@@ -264,7 +250,7 @@ class TabBarViewController: UIViewController {
         })
         
         
-        // TODO: SHOULD BE  a set timeout animating text color doesnt work :( 
+        // TODO: SHOULD BE  a set timeout animating text color doesnt work :(
         UIView.animate(withDuration: 0.3, delay: 1, options: .curveEaseOut,  animations: {
             text.textColor = AppColors.PrimaryAccentColor
         })
