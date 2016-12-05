@@ -167,7 +167,10 @@ class TabBarViewController: UIViewController {
         self.milestoneBaslineConstraint.constant = -50
         self.profileBaslineConstraint.constant = -50
         
-        
+        self.questLabel.alpha = 0
+        self.activityLabel.alpha = 0
+        self.milestoneLabel.alpha = 0
+        self.profileLabel.alpha = 0
         self.view.layoutIfNeeded()
 
         
@@ -178,45 +181,50 @@ class TabBarViewController: UIViewController {
 
         var start = 0.3
         UIView.animate(withDuration: start, delay: 0.0, options: .curveEaseInOut,  animations: {
-            
             print("animating tab bar ")
-            
             self.tabBarBottomConstraint.constant = 0
             self.view.layoutIfNeeded()
-            
             self.questBaslineConstraint.constant = -50
-            
-          
-            
-            
         })
         
-        
-        UIView.animate(withDuration: 0.2, delay: start, options: .curveEaseInOut,  animations: {
-            self.questBaslineConstraint.constant = 6
-            self.questButtonView.alpha = 1
-            self.view.layoutIfNeeded()
-        })
         // Stack animations a little bit
+        
+        UIView.animate(withDuration: 0.15, delay: start, options: .curveEaseOut,  animations: {
+            self.questBaslineConstraint.constant = 6
+            self.view.layoutIfNeeded()
+        })
+        
         start += 0.05
-        UIView.animate(withDuration: 0.2, delay: start, options: .curveEaseInOut,  animations: {
+        UIView.animate(withDuration: 0.15, delay: start, options: .curveEaseOut,  animations: {
             self.activityBaslineConstraint.constant = 6
-                    self.view.layoutIfNeeded()
+            self.questLabel.alpha = 1
+
+            self.view.layoutIfNeeded()
         })
         
         start += 0.05
-        UIView.animate(withDuration: 0.2, delay: start, options: .curveEaseInOut,  animations: {
+        UIView.animate(withDuration: 0.15, delay: start, options: .curveEaseOut,  animations: {
             self.milestoneBaslineConstraint.constant = 6
+            self.activityLabel.alpha = 1
             self.view.layoutIfNeeded()
         })
         
         start += 0.05
-        UIView.animate(withDuration: 0.2, delay: start, options: .curveEaseInOut,  animations: {
+        UIView.animate(withDuration: 0.15, delay: start, options: .curveEaseOut,  animations: {
             self.profileBaslineConstraint.constant = 6
+            self.milestoneLabel.alpha = 1
+            self.view.layoutIfNeeded()
+        })
+        
+        start += 0.05
+        UIView.animate(withDuration: 0.15, delay: start, options: .curveEaseOut,  animations: {
+            self.profileLabel.alpha = 1
             self.view.layoutIfNeeded()
         })
         
         
+        // Consider: 
+        // http://commandshift.co.uk/blog/2014/04/01/stop-nesting-animation-blocks/
     }
     
     
