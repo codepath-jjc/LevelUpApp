@@ -142,6 +142,84 @@ class TabBarViewController: UIViewController {
         }
     }
     
+    
+    /*
+ 
+     // 80 - > 0
+     @IBOutlet weak var tabBarBottomConstraint: NSLayoutConstraint!
+     
+     // 6
+     @IBOutlet weak var questBaslineConstraint: NSLayoutConstraint!
+     
+     @IBOutlet weak var activityBaslineConstraint: NSLayoutConstraint!
+     @IBOutlet weak var milestoneBaslineConstraint: NSLayoutConstraint!
+     @IBOutlet weak var profileBaslineConstraint: NSLayoutConstraint!
+     
+     
+    */
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarBottomConstraint.constant = -80
+        
+        self.questBaslineConstraint.constant = -50
+        self.activityBaslineConstraint.constant = -50
+        self.milestoneBaslineConstraint.constant = -50
+        self.profileBaslineConstraint.constant = -50
+        
+        
+        self.view.layoutIfNeeded()
+
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+
+        var start = 0.3
+        UIView.animate(withDuration: start, delay: 0.0, options: .curveEaseInOut,  animations: {
+            
+            print("animating tab bar ")
+            
+            self.tabBarBottomConstraint.constant = 0
+            self.view.layoutIfNeeded()
+            
+            self.questBaslineConstraint.constant = -50
+            
+          
+            
+            
+        })
+        
+        
+        UIView.animate(withDuration: 0.2, delay: start, options: .curveEaseInOut,  animations: {
+            self.questBaslineConstraint.constant = 6
+            self.questButtonView.alpha = 1
+            self.view.layoutIfNeeded()
+        })
+        // Stack animations a little bit
+        start += 0.05
+        UIView.animate(withDuration: 0.2, delay: start, options: .curveEaseInOut,  animations: {
+            self.activityBaslineConstraint.constant = 6
+                    self.view.layoutIfNeeded()
+        })
+        
+        start += 0.05
+        UIView.animate(withDuration: 0.2, delay: start, options: .curveEaseInOut,  animations: {
+            self.milestoneBaslineConstraint.constant = 6
+            self.view.layoutIfNeeded()
+        })
+        
+        start += 0.05
+        UIView.animate(withDuration: 0.2, delay: start, options: .curveEaseInOut,  animations: {
+            self.profileBaslineConstraint.constant = 6
+            self.view.layoutIfNeeded()
+        })
+        
+        
+    }
+    
+    
     func unselect(image: UIImageView, text: UILabel){
         colorImage(image: image, color: AppColors.SecondaryTextColor)
         text.textColor = AppColors.SecondaryTextColor
