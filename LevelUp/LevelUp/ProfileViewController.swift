@@ -57,7 +57,7 @@ class ProfileViewController: UIViewController {
         var durationTime = 0.5
         var delay = 0.2
         if(loadedBefore) {
-            durationTime = 0.15
+            durationTime = 0.2
             delay = 0.0
         }
         loadedBefore = true
