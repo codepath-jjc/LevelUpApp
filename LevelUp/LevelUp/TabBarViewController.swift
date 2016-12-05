@@ -135,21 +135,128 @@ class TabBarViewController: UIViewController {
         viewControllers.append(newQuestViewController)
 
         page = Page.profile
-        setSelected(image: profileImage, text: profileLabel)
-                
+        self.unselectAll()
+        //(image: self.profileImage, text: self.profileLabel)
+
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
         }
     }
+    
+    
+  
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarBottomConstraint.constant = -80
+        
+        self.questBaslineConstraint.constant = -50
+        self.activityBaslineConstraint.constant = -50
+        self.milestoneBaslineConstraint.constant = -50
+        self.profileBaslineConstraint.constant = -50
+        
+        self.questLabel.alpha = 0
+        self.activityLabel.alpha = 0
+        self.milestoneLabel.alpha = 0
+        self.profileLabel.alpha = 0
+        self.view.layoutIfNeeded()
+
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+
+        var start = 0.3
+        UIView.animate(withDuration: start, delay: 0.0, options: .curveEaseInOut,  animations: {
+            print("animating tab bar ")
+            self.tabBarBottomConstraint.constant = 0
+            self.view.layoutIfNeeded()
+            self.questBaslineConstraint.constant = -50
+        })
+        
+        // Stack animations a little bit
+        
+        UIView.animate(withDuration: 0.15, delay: start, options: .curveEaseOut,  animations: {
+            self.questBaslineConstraint.constant = 6
+            self.view.layoutIfNeeded()
+        })
+        
+        start += 0.05
+        UIView.animate(withDuration: 0.15, delay: start, options: .curveEaseOut,  animations: {
+            self.activityBaslineConstraint.constant = 6
+            self.questLabel.alpha = 1
+
+            self.view.layoutIfNeeded()
+        })
+        
+        start += 0.05
+        UIView.animate(withDuration: 0.15, delay: start, options: .curveEaseOut,  animations: {
+            self.milestoneBaslineConstraint.constant = 6
+            self.activityLabel.alpha = 1
+            self.view.layoutIfNeeded()
+        })
+        
+        start += 0.05
+        UIView.animate(withDuration: 0.15, delay: start, options: .curveEaseOut,  animations: {
+            self.profileBaslineConstraint.constant = 6
+            self.milestoneLabel.alpha = 1
+            self.view.layoutIfNeeded()
+        })
+        
+        start += 0.05
+        UIView.animate(withDuration: 0.15, delay: start, options: .curveEaseOut,  animations: {
+            self.profileLabel.alpha = 1
+            self.view.layoutIfNeeded()
+        })
+        
+        
+        
+        start += 0.08
+        UIView.animate(withDuration: 0.15, delay: start, options: .curveEaseOut,  animations: {
+            self.setSelected(image: self.profileImage, text: self.profileLabel)
+            self.view.layoutIfNeeded()
+        })
+
+        
+        
+        // Consider: 
+        // http://commandshift.co.uk/blog/2014/04/01/stop-nesting-animation-blocks/
+    }
+    
     
     func unselect(image: UIImageView, text: UILabel){
         colorImage(image: image, color: AppColors.SecondaryTextColor)
         text.textColor = AppColors.SecondaryTextColor
     }
     
+    
     func setSelected(image: UIImageView, text: UILabel){
-        colorImage(image: image, color: AppColors.PrimaryAccentColor)
-        text.textColor = AppColors.PrimaryAccentColor
+        let width = image.frame.size.width
+        let height = image.frame.size.height
+        
+        // TODO: animate width constraint, etc
+        UIView.animate(withDuration: 0.12, delay: 0.0, options: .curveEaseInOut,  animations: {
+            image.frame.size.width = width * 1.08
+            image.frame.size.height = height * 1.08
+
+            self.view.layoutIfNeeded()
+        })
+        
+        UIView.animate(withDuration: 0.12, delay: 0.12, options: .curveEaseOut,  animations: {
+            image.frame.size.width = width
+            image.frame.size.height = height
+            self.colorImage(image: image, color: AppColors.PrimaryAccentColor)
+            self.view.layoutIfNeeded()
+        })
+        
+        
+        // TODO: SHOULD BE  a set timeout animating text color doesnt work :(
+        UIView.animate(withDuration: 0.3, delay: 1, options: .curveEaseOut,  animations: {
+            text.textColor = AppColors.PrimaryAccentColor
+        })
+        
+
+        
     }
     
     func unselectAll(){
