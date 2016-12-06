@@ -51,6 +51,7 @@ class ProfileViewController: UIViewController {
         self.view.layoutIfNeeded()
     }
     
+    
     var loadedBefore = false
     override func viewDidAppear(_ animated: Bool) {
         

@@ -102,11 +102,17 @@ class TabBarViewController: UIViewController {
         didSet {
             
             if tabBarHidden {
-                tabBarHeightConstraint.constant = 0
-                tabBarView.isHidden = true
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut,  animations: {
+                    self.tabBarHeightConstraint.constant = 0
+                    self.tabBarBottomConstraint.constant = -80
+                })
+              // tabBarView.isHidden = true
             } else {
-                tabBarHeightConstraint.constant = originalTabBarHeight
-                tabBarView.isHidden = false
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut,  animations: {
+                self.tabBarHeightConstraint.constant = self.originalTabBarHeight
+                    self.tabBarBottomConstraint.constant = 0
+                });
+                //tabBarView.isHidden = false
             }
         }
     }
@@ -250,11 +256,16 @@ class TabBarViewController: UIViewController {
         })
         
         
-        // TODO: SHOULD BE  a set timeout animating text color doesnt work :(
-        UIView.animate(withDuration: 0.3, delay: 1, options: .curveEaseOut,  animations: {
-            text.textColor = AppColors.PrimaryAccentColor
-        })
+        // animation doesnt work with normal:
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            text.textColor = AppColors.PrimaryAccentColor
+
+        }
+        
+        
+        
+      
 
         
     }
