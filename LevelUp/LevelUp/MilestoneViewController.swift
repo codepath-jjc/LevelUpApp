@@ -35,19 +35,19 @@ class MilestoneViewController: UIViewController {
     }
     var quest: Quest? {
         didSet {
-            let _ = quest?.upcomingMilestone(success: {
+            guard quest != nil else { return }
+            
+            view.layoutIfNeeded()
+
+            let _ = quest!.upcomingMilestone(success: {
                 (upcomingMilestone: Milestone) -> () in
                 self.milestone = upcomingMilestone
             }, failure: {
                 (error: Error?) -> () in
                 print(error?.localizedDescription ?? "Error getting upcoming milestone")
             })
-            // Error here?
-            if quest == nil {
-                quests = []
-            } else {
-                quests = [quest!]
-            }
+            
+            frequencyLabel.text = quest!.frequency?.simpleDescription()
         }
     }
     override func viewDidLoad() {
