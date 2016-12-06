@@ -102,17 +102,35 @@ class TabBarViewController: UIViewController {
         didSet {
             
             if tabBarHidden {
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut,  animations: {
+            
+                /*
+                UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut,  animations: {
+                    //self.tabBarHeightConstraint.constant = 0
                     self.tabBarHeightConstraint.constant = 0
-                    self.tabBarBottomConstraint.constant = -80
+
                 })
-              // tabBarView.isHidden = true
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.tabBarView.isHidden = true
+                }*/
+ 
+                tabBarHeightConstraint.constant = 0
+                tabBarView.isHidden = true
+                
             } else {
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut,  animations: {
+            
+                /*
+                UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut,  animations: {
                 self.tabBarHeightConstraint.constant = self.originalTabBarHeight
-                    self.tabBarBottomConstraint.constant = 0
+                    // self.tabBarBottomConstraint.constant = 0
+                    self.tabBarHeightConstraint.constant = self.originalTabBarHeight
                 });
-                //tabBarView.isHidden = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.tabBarView.isHidden = false
+                }
+                */
+                tabBarHeightConstraint.constant = originalTabBarHeight
+                tabBarView.isHidden = false
             }
         }
     }
