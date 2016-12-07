@@ -40,12 +40,15 @@ class CalendarView: UIView {
                 
                 // Get the type and date
                 let type: CalendarStates = m.completed ?? false ? .completed : .pending
-                let date: Date? = m.completedDate ?? m.deadline ?? Date()
+                let date: Date? = m.completedDate ?? m.deadline
+                
+                if let date = date {
             
-                let weekday = gregorian.component(.weekday, from: date!)
-                let weekOfMonth = gregorian.component(.weekOfMonth, from: date!)
+                    let weekday = gregorian.component(.weekday, from: date)
+                    let weekOfMonth = gregorian.component(.weekOfMonth, from: date)
             
-                matrix[weekOfMonth - 1][weekday - 1] = type
+                    matrix[weekOfMonth - 1][weekday - 1] = type
+                }
             }
         }
     }

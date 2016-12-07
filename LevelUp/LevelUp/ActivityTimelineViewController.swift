@@ -44,7 +44,7 @@ class ActivityTimelineViewController: UIViewController {
         LevelUpClient.sharedInstance.milestones(success: { (milestones: [Milestone]) in
          
             // TODO: JASON add back            
-            //self._milestones = milestones
+            self._milestones = milestones
             self.refreshControl.endRefreshing()
             self.tableView.reloadData()
 
@@ -65,17 +65,14 @@ extension ActivityTimelineViewController: UITableViewDataSource, UITableViewDele
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       // return self._milestones.count
-        return 2
+        return self._milestones.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
  
         let cell = Bundle.main.loadNibNamed("ActivityTimelineTableViewCell", owner: self, options: nil)?.first  as! ActivityTimelineTableViewCell
-            
-       
-        //let milestone = _milestones[indexPath.row]
-        cell.milestone = Milestone.init(dictionary: ["title": "Music"])
+                   
+        cell.milestone = _milestones[indexPath.row]
         return cell
     }
     
