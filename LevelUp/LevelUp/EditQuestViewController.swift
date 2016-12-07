@@ -28,6 +28,15 @@ class EditQuestViewController: UIViewController {
                 frequencySegmentControl.selectedSegmentIndex = 1
             }
             icon.image = quest.image
+            
+            if let dueTime = quest.dueTime {
+                dueTimePicker.date = dueTime
+            } else {
+                let calendar = Calendar.current
+                var dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: Date())
+                dateComponents.hour = 17
+                dueTimePicker.date = calendar.date(from: dateComponents)!
+            }
         }
     }
     
@@ -44,6 +53,8 @@ class EditQuestViewController: UIViewController {
         descriptionTextView.delegate = self
         
         icon.delegate = self
+
+        dueTimePicker.setValue(UIColor(red:0.62, green:0.63, blue:0.64, alpha:1.0), forKeyPath: "textColor")
     }
     
     func onTap() {

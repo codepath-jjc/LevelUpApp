@@ -40,6 +40,12 @@ class Quest: NSObject {
             dictionary["archived"] = archived
         }
     }
+    // Time of Day to Set Reminders
+    var dueTime: Date? {
+        didSet {
+            dictionary["dueTime"] = dueTime
+        }
+    }
     var dictionary = [String: Any]()
     
     init(pfObject: PFObject) {
@@ -58,6 +64,7 @@ class Quest: NSObject {
         
         notes = pfObject.object(forKey: "notes") as? String
         archived = pfObject.object(forKey: "archived") as? Bool ?? false
+        dueTime = pfObject.object(forKey: "dueTime") as? Date
 
         // Update dictionary since DidSet will not be called in initalizer
         dictionary["title"] = title
@@ -65,6 +72,7 @@ class Quest: NSObject {
         dictionary["frequency"] = frequency
         dictionary["notes"] = notes
         dictionary["archived"] = archived
+        dictionary["dueTime"] = dueTime
     }
     
     init(dictionary: [String: Any]) {
@@ -83,6 +91,7 @@ class Quest: NSObject {
         notes = dictionary["notes"] as? String
         image = dictionary["image"] as? UIImage
         archived = (dictionary["archived"] as? Bool) ?? false
+        dueTime = dictionary["dueTime"] as? Date
     }
     
     // Returns the upcoming milestone for this quest
@@ -125,8 +134,8 @@ class Quest: NSObject {
         }
         
         let calendar = Calendar.current
-        var dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: Date())
-        dateComponents.hour = 17
+        let dateToUse = dueTime ?? Date()
+        var dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: dateToUse)
 
         if frequency == .daily {
             if #available(iOS 10.0, *) {

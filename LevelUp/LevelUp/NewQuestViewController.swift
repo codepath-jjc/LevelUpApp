@@ -20,6 +20,8 @@ class NewQuestViewController: UIViewController  {
     @IBOutlet weak var icon: SelectableImageView!
     
     var navigationDelegate: TabBarViewController?
+    var originalTimePickerHeight: CGFloat?
+    var isExpandedTimePicker = false
     var hasPlaceholder = true
     var disabledButtonColor = UIColor(red:0.17, green:0.40, blue:0.23, alpha:1.0)
     var enabledButtonColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0)
@@ -53,10 +55,28 @@ class NewQuestViewController: UIViewController  {
         icon.delegate = self
         
         let calendar = Calendar.current
-        var dateComponents = calendar.dateComponents([.hour, .minute], from: Date())
+        var dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: Date())
         dateComponents.hour = 17
         dueTimePicker.setValue(UIColor(red:0.62, green:0.63, blue:0.64, alpha:1.0), forKeyPath: "textColor")
         dueTimePicker.date = calendar.date(from: dateComponents)!
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTimePickerTap))
+        tapRecognizer.delegate = self
+        dueTimePicker.isUserInteractionEnabled = true
+        dueTimePicker.addGestureRecognizer(tapRecognizer)
+        
+        originalTimePickerHeight = dueTimeHeightConstraint.constant
+    }
+    
+    func onTimePickerTap() {
+        if isExpandedTimePicker {
+            dueTimeHeightConstraint.constant = originalTimePickerHeight!
+            isExpandedTimePicker = false
+        } else {
+            dueTimeHeightConstraint.constant = 100
+            isExpandedTimePicker = true
+        }
+        dueTimePicker.setNeedsUpdateConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,7 +102,7 @@ class NewQuestViewController: UIViewController  {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        var dictionary = ["frequency": frequency.rawValue, "title": titleTextField.text ?? "", "notes": descriptionTextView.text, "archived": false] as [String: Any]
+        var dictionary = ["frequency": frequency.rawValue, "title": titleTextField.text ?? "", "notes": descriptionTextView.text, "archived": false, "dueTime": dueTimePicker.date] as [String: Any]
         if let chosenImage = icon.image {
             dictionary["image"] = chosenImage
         }
@@ -165,5 +185,11 @@ extension NewQuestViewController: UITextViewDelegate {
             textView.text = "Goals/Description"
             hasPlaceholder = true
         }
+    }
+}
+
+extension NewQuestViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
