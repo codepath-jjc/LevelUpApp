@@ -200,7 +200,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             editVC.quest = questCell.quest
             self.present(editVC, animated: true, completion: nil)
         }
-        editAction.backgroundColor = UIColor.blue
+        editAction.backgroundColor =  UIColor(red:0.61, green:0.55, blue:0.38, alpha:1.0) //  UIColor.blue
         
         let deleteAction = UITableViewRowAction(style: .normal, title: "Archive") {
             (UITableViewRowAction, IndexPath) in
@@ -218,7 +218,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             self.quests.remove(at: index)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        deleteAction.backgroundColor = UIColor.red
+        deleteAction.backgroundColor = UIColor(red:0.28, green:0.15, blue:0.11, alpha:1.0) // UIColor.red
         // http://stackoverflow.com/questions/37999727/swift-3-error-cannot-call-value-of-non-function-type-uitableview
         return [editAction,deleteAction]
     }
