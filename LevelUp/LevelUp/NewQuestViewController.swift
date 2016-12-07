@@ -51,6 +51,12 @@ class NewQuestViewController: UIViewController  {
         frequencySegmentControl.tintColor = AppColors.PrimaryAccentColor
         
         icon.delegate = self
+        
+        let calendar = Calendar.current
+        var dateComponents = calendar.dateComponents([.hour, .minute], from: Date())
+        dateComponents.hour = 17
+        dueTimePicker.setValue(UIColor(red:0.62, green:0.63, blue:0.64, alpha:1.0), forKeyPath: "textColor")
+        dueTimePicker.date = calendar.date(from: dateComponents)!
     }
     
     override func viewWillAppear(_ animated: Bool) {
