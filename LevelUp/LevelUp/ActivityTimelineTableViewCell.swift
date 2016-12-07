@@ -19,6 +19,8 @@ class ActivityTimelineTableViewCell: UITableViewCell {
     var milestone: Milestone! {
         didSet {
             // Setup the milestone info here
+            dateLabel.text = ""
+            numberLabel.text = ""
             categoryLabel.text = milestone.title
             if let date = milestone.deadline {
                 let formatter = DateFormatter()
