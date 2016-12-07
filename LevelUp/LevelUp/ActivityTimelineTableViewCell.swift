@@ -20,7 +20,11 @@ class ActivityTimelineTableViewCell: UITableViewCell {
         didSet {
             // Setup the milestone info here
             categoryLabel.text = milestone.title
-            numberLabel.text = "1"
+            if let date = milestone.deadline {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "dd.MM.yy"
+                dateLabel.text = formatter.string(from: date)
+            }
             mainImage.image = #imageLiteral(resourceName: "placeholder").setAlpha(value: 0.12)
         }
     }
@@ -28,6 +32,7 @@ class ActivityTimelineTableViewCell: UITableViewCell {
     var related: [Milestone] = [] {
         didSet {
             activityDisplay.milestones = related
+            numberLabel.text = String(related.count)
         }
     }
 
