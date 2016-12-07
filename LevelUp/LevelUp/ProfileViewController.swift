@@ -146,8 +146,8 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 0 {
             let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first  as! ActivityTableViewCell
             cell.backgroundColor = AppColors.BrandPrimaryBackgroundColor
-            
             cell.titleLabel.textColor = AppColors.PrimaryTextColor
+            
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("QuestTableViewCell", owner: self, options: nil)?.first  as! QuestTableViewCell
@@ -160,29 +160,29 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.isTopCell()
 
             }
-            return cell
             
+            return cell
         }
         
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let cell = tableView.cellForRow(at: indexPath)
         
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (UITableViewRowAction, IndexPath) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let editVC = storyboard.instantiateViewController(withIdentifier: "EditQuestViewController") as! EditQuestViewController
             
-            let cell = tableView.cellForRow(at: indexPath) as! QuestTableViewCell
-            editVC.quest = cell.quest
+            let questCell = cell as! QuestTableViewCell
+            editVC.quest = questCell.quest
             self.present(editVC, animated: true, completion: nil)
         }
         editAction.backgroundColor = UIColor.blue
         
-        
         let deleteAction = UITableViewRowAction(style: .normal, title: "Archive") {
             (UITableViewRowAction, IndexPath) in
-            let cell = tableView.cellForRow(at: indexPath) as! QuestTableViewCell
-            var quest = cell.quest
+            let questCell = cell as! QuestTableViewCell
+            var quest = questCell.quest
             let index = self.quests.indexOf(quest: quest)
             
             quest?.archived = true

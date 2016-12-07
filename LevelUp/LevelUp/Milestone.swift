@@ -63,6 +63,8 @@ class Milestone: NSObject {
         notes = pfObject["notes"] as? String
         questId = pfObject["questId"] as? String
         completed = pfObject["completed"] as? Bool
+        completedDate = pfObject["completedDate"] as? Date
+        deadline = pfObject["deadline"] as? Date
         
         dictionary =  [String: Any]()
         if let title = title {
@@ -94,6 +96,8 @@ class Milestone: NSObject {
         notes = dictionary["notes"] as? String
         questId = dictionary["questId"] as? String
         completed = dictionary["completed"] as? Bool
+        deadline = dictionary["deadline"] as? Date
+        completedDate = dictionary["completedDate"] as? Date
     }
     
 }

@@ -48,6 +48,10 @@ class MilestoneViewController: UIViewController {
             })
             
             frequencyLabel.text = quest!.frequency?.simpleDescription()
+            
+            if !quests.contains(quest!) {
+                quests.append(quest!)
+            }
         }
     }
     override func viewDidLoad() {
@@ -56,9 +60,11 @@ class MilestoneViewController: UIViewController {
         if quest == nil {
             LevelUpClient.sharedInstance.quests(success: {
                 (quests: [Quest]) -> () in
-                self.quest = quests.first
+                self.quests = quests.filter({ (quest: Quest) -> Bool in
+                    quest.archived == false
+                })
+                self.quest = self.quests.first
                 self.questNameTableView.reloadData()
-                self.frequencyLabel.text = self.quest?.frequency?.simpleDescription() ?? "sometimes"
             }, failure: {
                 (error: Error?) -> () in
                 // TODO
@@ -90,7 +96,7 @@ class MilestoneViewController: UIViewController {
         if let image = icon.image {
             milestone?.image = image
         }
-        quest?.createMilestones()
+        quest?.createMilestone()
         
         if var milestone = milestone {
             if #available(iOS 10.0, *) {

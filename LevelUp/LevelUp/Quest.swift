@@ -111,7 +111,7 @@ class Quest: NSObject {
         })
     }
     
-    func createMilestones() {
+    func createMilestone() {
         
         let date = Date(timeIntervalSinceNow: 0)
         let formatter = DateFormatter()
