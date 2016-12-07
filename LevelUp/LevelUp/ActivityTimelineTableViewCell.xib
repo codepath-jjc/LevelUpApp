@@ -11,18 +11,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="320" id="KGk-i7-Jjw" customClass="ActivityTimelineTableViewCell" customModule="LevelUp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="260" id="KGk-i7-Jjw" customClass="ActivityTimelineTableViewCell" customModule="LevelUp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+            <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="239"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="259"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LRM-YF-pDq">
-                        <rect key="frame" x="8" y="8" width="304" height="223.5"/>
+                        <rect key="frame" x="8" y="8" width="304" height="243.5"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/30/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nV-0p-ST7">
-                        <rect key="frame" x="204" y="190.5" width="88" height="21"/>
+                        <rect key="frame" x="204" y="210.5" width="88" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -34,18 +34,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWn-cd-pDb" customClass="CalendarView" customModule="LevelUp" customModuleProvider="target">
-                        <rect key="frame" x="28" y="59" width="264" height="121.5"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <rect key="frame" x="28" y="59" width="264" height="141.5"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGx-Ae-iZT">
-                        <rect key="frame" x="28" y="190.5" width="46" height="21"/>
+                        <rect key="frame" x="28" y="210.5" width="46" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="kGx-Ae-iZT" firstAttribute="top" secondItem="XWn-cd-pDb" secondAttribute="bottom" constant="10" id="3Zo-p7-PdW"/>
                     <constraint firstItem="LRM-YF-pDq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="4Vk-bd-ZUO"/>
                     <constraint firstItem="LRM-YF-pDq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="7CP-Yt-Ayt"/>
                     <constraint firstItem="kGx-Ae-iZT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="CY3-Yq-K8T"/>
@@ -54,6 +52,8 @@
                     <constraint firstItem="MtK-xi-wZz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="KgV-8U-DfK"/>
                     <constraint firstAttribute="bottomMargin" secondItem="9nV-0p-ST7" secondAttribute="bottom" constant="20" id="Zst-ep-YfE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="XWn-cd-pDb" secondAttribute="trailing" constant="20" id="bDp-DD-HgB"/>
+                    <constraint firstItem="9nV-0p-ST7" firstAttribute="top" secondItem="XWn-cd-pDb" secondAttribute="bottom" constant="10" id="cXA-r2-Okz"/>
+                    <constraint firstItem="kGx-Ae-iZT" firstAttribute="top" secondItem="XWn-cd-pDb" secondAttribute="bottom" constant="10" id="f7T-jZ-vIj"/>
                     <constraint firstItem="XWn-cd-pDb" firstAttribute="top" secondItem="MtK-xi-wZz" secondAttribute="bottom" constant="10" id="gmR-Pi-Mmh"/>
                     <constraint firstItem="XWn-cd-pDb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="mUv-Wk-Bz7"/>
                     <constraint firstAttribute="bottomMargin" secondItem="kGx-Ae-iZT" secondAttribute="bottom" constant="20" id="shc-xi-o4J"/>
