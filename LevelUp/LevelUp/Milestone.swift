@@ -12,7 +12,7 @@ import UserNotifications
 
 class Milestone: NSObject {
     
-    static let className = "MilestoneTest10"
+    static let className = "MilestoneTest11"
     var pfObject: PFObject?
     var imageFile: PFFile?
     var questId: String? {

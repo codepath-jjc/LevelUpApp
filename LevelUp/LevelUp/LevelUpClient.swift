@@ -35,7 +35,10 @@ class LevelUpClient: NSObject {
                     }
                     
                 })
-            } 
+            }
+            if quest.imageFile == nil {
+                success(Quest.images[quest.imageFallback!]!)
+            }
         }
     }
     

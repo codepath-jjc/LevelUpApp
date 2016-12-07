@@ -13,7 +13,8 @@ import EventKit
 
 class Quest: NSObject {
     
-    static let className = "QuestTest10"
+    static let className = "QuestTest13"
+    static let images = [UIImage(named: "0001"), UIImage(named: "0002"), UIImage(named: "0003") , UIImage(named: "0004"), UIImage(named: "0006"), UIImage(named: "0007")]
     var pfObject: PFObject?
     var imageFile: PFFile?
     var title: String? {
@@ -47,6 +48,16 @@ class Quest: NSObject {
             dictionary["dueTime"] = dueTime
         }
     }
+    
+
+    var imageFallback: Int? {
+        didSet {
+            dictionary["imageFallback"] = imageFallback
+        }
+    }
+    
+    
+    
     var dictionary = [String: Any]()
     
     init(pfObject: PFObject) {
@@ -56,6 +67,8 @@ class Quest: NSObject {
         
         if let imageFile =  pfObject.object(forKey: "image") as? PFFile {
             self.imageFile = imageFile
+        } else {
+            
         }
         
         let frequencyInt = pfObject.object(forKey: "frequency") as? Int
@@ -66,8 +79,11 @@ class Quest: NSObject {
         notes = pfObject.object(forKey: "notes") as? String
         archived = pfObject.object(forKey: "archived") as? Bool ?? false
         dueTime = pfObject.object(forKey: "dueTime") as? Date
-
+        imageFallback = pfObject.object(forKey: "imageFallback") as? Int
+        
+        
         // Update dictionary since DidSet will not be called in initalizer
+        dictionary["imageFallback"] = imageFallback
         dictionary["title"] = title
         dictionary["image"] = image
         dictionary["frequency"] = frequency
@@ -88,9 +104,12 @@ class Quest: NSObject {
             frequency = Frequency(rawValue: frequencyInt)
         }
         
+        
         title = dictionary["title"] as? String
         notes = dictionary["notes"] as? String
         image = dictionary["image"] as? UIImage
+        imageFallback = Int(arc4random_uniform(7) )
+        self.dictionary["imageFallback"] = imageFallback
         archived = (dictionary["archived"] as? Bool) ?? false
         dueTime = dictionary["dueTime"] as? Date
     }
