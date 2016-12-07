@@ -12,13 +12,15 @@ class ActivityTableViewCell: UITableViewCell {
 
     @IBOutlet weak var activityDisplay: CalendarView!
     @IBOutlet weak var titleLabel: UILabel!
+    
+    var milestones: [Milestone] = [] {
+        didSet {
+            activityDisplay.milestones = milestones
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-//        activityDisplay.matrix = [
-//            [true, true, false],
-//            [true, false, false]
-//        ]
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
