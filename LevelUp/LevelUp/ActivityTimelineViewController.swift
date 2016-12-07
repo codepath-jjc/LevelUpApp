@@ -71,8 +71,11 @@ extension ActivityTimelineViewController: UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
  
         let cell = Bundle.main.loadNibNamed("ActivityTimelineTableViewCell", owner: self, options: nil)?.first  as! ActivityTimelineTableViewCell
-                   
+        
+        
         cell.milestone = _milestones[indexPath.row]
+        cell.related = _milestones.filter({$0.questId == cell.milestone.questId})
+        
         return cell
     }
     

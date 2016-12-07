@@ -22,7 +22,12 @@ class ActivityTimelineTableViewCell: UITableViewCell {
             categoryLabel.text = milestone.title
             numberLabel.text = "1"
             mainImage.image = #imageLiteral(resourceName: "placeholder").setAlpha(value: 0.12)
-            activityDisplay.milestones = [milestone]
+        }
+    }
+    
+    var related: [Milestone] = [] {
+        didSet {
+            activityDisplay.milestones = related
         }
     }
 
