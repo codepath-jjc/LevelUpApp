@@ -582,7 +582,7 @@
                                         <rect key="frame" x="0.0" y="28" width="239" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5EK-Rs-qgf" id="9fs-85-n0o">
-                                            <rect key="frame" x="0.0" y="0.0" width="239" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="239" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -639,11 +639,43 @@
                         <outlet property="icon" destination="tVJ-jA-KHD" id="RB0-IP-lB7"/>
                         <outlet property="notesTextView" destination="OJO-Fg-xiq" id="JIL-80-sJs"/>
                         <outlet property="questNameTableView" destination="8oT-H1-iFH" id="msZ-04-7ED"/>
+                        <segue destination="6Tx-gP-dpz" kind="show" identifier="showPoints" id="7sq-0f-6J9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maA-f9-hRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1994.4000000000001" y="850.52473763118451"/>
+        </scene>
+        <!--Points View Controller-->
+        <scene sceneID="rSo-cj-GGX">
+            <objects>
+                <viewController id="6Tx-gP-dpz" customClass="PointsViewController" customModule="LevelUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oVI-W5-RHd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jg1-em-EVl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d8s-bJ-a57">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJm-cB-gwD">
+                                <rect key="frame" x="128" y="302" width="118" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" red="0.12549019610000001" green="0.92549019610000005" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.76260544480000003" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="pointsLabel" destination="fJm-cB-gwD" id="pz0-it-UQq"/>
+                        <segue destination="lar-Ps-rYo" kind="show" identifier="showMilestoneScreen" id="GqE-Mm-R9t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJb-if-BNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2982" y="829"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="c2U-oE-UMa">
@@ -906,6 +938,6 @@
         <image name="quest" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fgE-m3-jLM"/>
+        <segue reference="GqE-Mm-R9t"/>
     </inferredMetricsTieBreakers>
 </document>
