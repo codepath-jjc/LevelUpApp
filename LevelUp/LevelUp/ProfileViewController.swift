@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var navigationDelegate: TabBarViewController?
     var quests = [Quest]()
+    var milestones = [Milestone]()
     var selectedQuest:Quest?
     
     @IBOutlet weak var headerTitle: UILabel!
@@ -92,6 +93,18 @@ class ProfileViewController: UIViewController {
             print(error?.localizedDescription ?? "Failed Reloading Data")
         }
         
+        LevelUpClient.sharedInstance.milestones(success: {
+            (milestones:[Milestone]) in
+            // In the event this VC has a quest loaded already
+            self.milestones = milestones
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }) { (error: Error?) in
+            // TODO: show error
+            self.refreshControl.endRefreshing()
+            print(error?.localizedDescription ?? "Failed Reloading Data")
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -147,6 +160,8 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first  as! ActivityTableViewCell
             cell.backgroundColor = AppColors.BrandPrimaryBackgroundColor
             cell.titleLabel.textColor = AppColors.PrimaryTextColor
+            
+            cell.milestones = milestones
             
             return cell
         } else {
