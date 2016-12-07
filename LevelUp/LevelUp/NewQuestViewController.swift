@@ -12,6 +12,8 @@ import Parse
 class NewQuestViewController: UIViewController  {
 
     @IBOutlet weak var frequencySegmentControl: UISegmentedControl!
+    @IBOutlet weak var dueTimePicker: UIDatePicker!
+    @IBOutlet weak var dueTimeHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var createQuestButton: UIButton!

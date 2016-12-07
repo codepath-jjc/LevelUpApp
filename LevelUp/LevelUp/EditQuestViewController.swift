@@ -10,6 +10,8 @@ import UIKit
 
 class EditQuestViewController: UIViewController {
     
+    @IBOutlet weak var dueTimeHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var dueTimePicker: UIDatePicker!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var frequencySegmentControl: UISegmentedControl!
     @IBOutlet weak var descriptionTextView: UITextView!
