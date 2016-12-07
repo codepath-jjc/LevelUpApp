@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import UserNotifications
+import EventKit
 
 class Quest: NSObject {
     
@@ -125,7 +126,7 @@ class Quest: NSObject {
         let date = Date(timeIntervalSinceNow: 0)
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yy"
-        let milestoneTitle = "\(title ?? "") - \(formatter.string(from: date))"
+        var milestoneTitle = "\(title ?? "") - "
         var milestone = Milestone(dictionary: ["title": milestoneTitle, "completed": false, "questId": pfObject?.objectId ?? ""])
         
         var alertNotes = notes ?? ""
@@ -136,11 +137,13 @@ class Quest: NSObject {
         let calendar = Calendar.current
         let dateToUse = dueTime ?? Date()
         var dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: dateToUse)
-
+        
         if frequency == .daily {
             if #available(iOS 10.0, *) {
                 dateComponents.day = dateComponents.day! + 1
                 milestone.deadline = calendar.date(from: dateComponents)
+                milestoneTitle += "\(formatter.string(from: milestone.deadline!))"
+                milestone.title = milestoneTitle
                 
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
                 _ = Notifications.schedule(title: milestoneTitle, body: alertNotes, trigger: trigger, identifier: pfObject?.objectId ?? "")
@@ -149,11 +152,16 @@ class Quest: NSObject {
             if #available(iOS 10.0, *) {
                 dateComponents.day = dateComponents.day! + 7
                 milestone.deadline = calendar.date(from: dateComponents)
+                milestoneTitle += "\(formatter.string(from: milestone.deadline!))"
+                milestone.title = milestoneTitle
 
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
                 _ = Notifications.schedule(title: milestoneTitle, body: alertNotes, trigger: trigger, identifier: pfObject?.objectId ?? "")
             }
         }
+        
+        Events.save(title: milestoneTitle, date: milestone.deadline!)
+
         
         LevelUpClient.sharedInstance.sync(milestone: &milestone, success: {
             

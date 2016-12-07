@@ -16,6 +16,8 @@ class EditQuestViewController: UIViewController {
     @IBOutlet weak var frequencySegmentControl: UISegmentedControl!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var icon: SelectableImageView!
+    var originalTimePickerHeight: CGFloat!
+    var isExpandedTimePicker = false
     var quest: Quest! {
         didSet {
             view.layoutIfNeeded()
@@ -55,6 +57,23 @@ class EditQuestViewController: UIViewController {
         icon.delegate = self
 
         dueTimePicker.setValue(UIColor(red:0.62, green:0.63, blue:0.64, alpha:1.0), forKeyPath: "textColor")
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTimePickerTap))
+        tapRecognizer.delegate = self
+        dueTimePicker.isUserInteractionEnabled = true
+        dueTimePicker.addGestureRecognizer(tapRecognizer)
+        
+        originalTimePickerHeight = dueTimeHeightConstraint.constant
+    }
+    
+    func onTimePickerTap() {
+        if isExpandedTimePicker {
+            dueTimeHeightConstraint.constant = originalTimePickerHeight
+            isExpandedTimePicker = false
+        } else {
+            dueTimeHeightConstraint.constant = 100
+            isExpandedTimePicker = true
+        }
+        dueTimePicker.setNeedsUpdateConstraints()
     }
     
     func onTap() {
@@ -71,6 +90,8 @@ class EditQuestViewController: UIViewController {
         quest.notes = descriptionTextView.text
         quest.image = icon.image
         quest.frequency = Frequency(rawValue: frequencySegmentControl.selectedSegmentIndex)
+        quest.dueTime = dueTimePicker.date
+        
         var inQuest: Quest = quest
         LevelUpClient.sharedInstance.sync(quest: &inQuest, success: {
             () -> () in
@@ -109,4 +130,10 @@ extension EditQuestViewController: UITextViewDelegate {
         return true
     }
     
+}
+
+extension EditQuestViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
 }

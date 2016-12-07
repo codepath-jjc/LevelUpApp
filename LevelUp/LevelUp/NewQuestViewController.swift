@@ -20,7 +20,7 @@ class NewQuestViewController: UIViewController  {
     @IBOutlet weak var icon: SelectableImageView!
     
     var navigationDelegate: TabBarViewController?
-    var originalTimePickerHeight: CGFloat?
+    var originalTimePickerHeight: CGFloat!
     var isExpandedTimePicker = false
     var hasPlaceholder = true
     var disabledButtonColor = UIColor(red:0.17, green:0.40, blue:0.23, alpha:1.0)
@@ -66,17 +66,23 @@ class NewQuestViewController: UIViewController  {
         dueTimePicker.addGestureRecognizer(tapRecognizer)
         
         originalTimePickerHeight = dueTimeHeightConstraint.constant
+        
+        Events.requestAccess()
+        
+        if #available(iOS 10.0, *) {
+            Notifications.requestAccess()
+        }
+        
     }
     
     func onTimePickerTap() {
         if isExpandedTimePicker {
-            dueTimeHeightConstraint.constant = originalTimePickerHeight!
+            dueTimeHeightConstraint.constant = originalTimePickerHeight
             isExpandedTimePicker = false
         } else {
             dueTimeHeightConstraint.constant = 100
             isExpandedTimePicker = true
         }
-        dueTimePicker.setNeedsUpdateConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {

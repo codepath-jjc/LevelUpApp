@@ -14,7 +14,7 @@ class Notifications: NSObject {
     @available(iOS 10.0, *)
     class func schedule(title: String, body: String, trigger: UNNotificationTrigger, identifier: String = "") -> UNNotificationRequest  {
 
-        authorize()
+        requestAccess()
         
         let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
@@ -36,7 +36,7 @@ class Notifications: NSObject {
     }
     
     @available(iOS 10.0, *)
-    class func authorize() {
+    class func requestAccess() {
         let center = UNUserNotificationCenter.current()
         
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in

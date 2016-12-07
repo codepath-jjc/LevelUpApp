@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4212EFAF1DD7813D00440814 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212EFAE1DD7813D00440814 /* TabBarViewController.swift */; };
+		4245D82F1DF7E108007B0F69 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245D82E1DF7E108007B0F69 /* Events.swift */; };
 		424A49851DE404AB00427B20 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A49841DE404AB00427B20 /* Notifications.swift */; };
 		428B624A1DED450A00101ED3 /* Frequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428B62491DED450A00101ED3 /* Frequency.swift */; };
 		428B624C1DF48EDB00101ED3 /* EditQuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428B624B1DF48EDB00101ED3 /* EditQuestViewController.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		4212EFAE1DD7813D00440814 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		4245D82E1DF7E108007B0F69 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		424A49841DE404AB00427B20 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		428B62491DED450A00101ED3 /* Frequency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frequency.swift; sourceTree = "<group>"; };
 		428B624B1DF48EDB00101ED3 /* EditQuestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditQuestViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				42F23E571DD564C800CB8FB1 /* Milestone.swift */,
 				424A49841DE404AB00427B20 /* Notifications.swift */,
 				428B62491DED450A00101ED3 /* Frequency.swift */,
+				4245D82E1DF7E108007B0F69 /* Events.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				966688481DE068B300259542 /* AppColors.swift in Sources */,
 				42FE5E0B1DD6749900E63BFF /* NewQuestViewController.swift in Sources */,
 				960A38831DF7C2DA0031CDCB /* PointsViewController.swift in Sources */,
+				4245D82F1DF7E108007B0F69 /* Events.swift in Sources */,
 				96AD22041DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.swift in Sources */,
 				428B624E1DF4A64A00101ED3 /* SelectableImageView.swift in Sources */,
 				42FE5E091DD6712200E63BFF /* TutorialViewController.swift in Sources */,
