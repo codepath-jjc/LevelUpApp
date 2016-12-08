@@ -156,10 +156,10 @@
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="continue"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pz4-5Z-0Vd">
-                                <rect key="frame" x="20" y="216" width="335" height="50"/>
+                                <rect key="frame" x="20" y="206" width="335" height="70"/>
                                 <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="PBd-BW-nhF"/>
+                                    <constraint firstAttribute="height" constant="70" id="PBd-BW-nhF"/>
                                 </constraints>
                                 <color key="textColor" red="0.60392156862745094" green="0.61176470588235299" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -180,7 +180,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rwv-Sd-aET">
-                                <rect key="frame" x="132" y="282" width="213" height="31"/>
+                                <rect key="frame" x="132" y="292" width="213" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="eoG-yF-4bj"/>
                                 </constraints>
@@ -209,7 +209,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Happens:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrW-OL-gkK">
-                                <rect key="frame" x="20" y="286" width="82" height="23"/>
+                                <rect key="frame" x="20" y="296" width="82" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.61801398049735778" green="0.6270579498925668" blue="0.63526931235692241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -223,7 +223,7 @@
                                 </constraints>
                             </view>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="atc-xm-qoE">
-                                <rect key="frame" x="124" y="337" width="231" height="40"/>
+                                <rect key="frame" x="124" y="347" width="231" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="QFo-bY-p8a"/>
                                 </constraints>
@@ -232,7 +232,7 @@
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Start Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgg-wY-hTV">
-                                <rect key="frame" x="20" y="344" width="94" height="23"/>
+                                <rect key="frame" x="20" y="354" width="94" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.6180139805" green="0.62705794989999997" blue="0.63526931239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -267,7 +267,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="tJE-oc-HPh" secondAttribute="trailing" constant="4" id="lmv-2b-Z45"/>
                             <constraint firstItem="atc-xm-qoE" firstAttribute="leading" secondItem="Tgg-wY-hTV" secondAttribute="trailing" constant="10" id="qez-0v-41j"/>
                             <constraint firstItem="Syu-r5-V6J" firstAttribute="top" secondItem="fsW-5x-Ylf" secondAttribute="bottom" constant="21" id="rD9-p1-7LG"/>
-                            <constraint firstItem="Pz4-5Z-0Vd" firstAttribute="top" secondItem="vYN-ZZ-URS" secondAttribute="bottom" constant="20" id="sdd-nc-URg"/>
+                            <constraint firstItem="Pz4-5Z-0Vd" firstAttribute="top" secondItem="vYN-ZZ-URS" secondAttribute="bottom" constant="10" id="sdd-nc-URg"/>
                             <constraint firstItem="Fdw-5t-Bdn" firstAttribute="leading" secondItem="82H-29-m3E" secondAttribute="trailing" constant="20" id="sxD-o6-IWb"/>
                             <constraint firstItem="82H-29-m3E" firstAttribute="leading" secondItem="eh5-ld-GOg" secondAttribute="leading" constant="20" id="u3X-Lx-MfB"/>
                         </constraints>
