@@ -33,6 +33,7 @@ class MilestoneViewController: UIViewController {
     var isExpanded = false
     var hasPlaceholder = true
     var quests = [Quest]()
+    var filteredQuests = [Quest]()
     var milestone: Milestone? {
         didSet {
             view.layoutIfNeeded()
@@ -84,11 +85,14 @@ class MilestoneViewController: UIViewController {
                     quest.archived == false
                 })
                 self.quest = self.quests.first
+                self.filteredQuests = self.quests
                 self.questNameTableView.reloadData()
             }, failure: {
                 (error: Error?) -> () in
                 // TODO
             })
+        } else {
+            self.filteredQuests = [quest!]
         }
         questNameTableView.register(UITableViewCell.self, forCellReuseIdentifier: "QuestNameCell")
 
@@ -102,6 +106,7 @@ class MilestoneViewController: UIViewController {
         questNameTableView.dataSource = self
         questNameTableView.delegate = self
         questNameTableView.separatorColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0)
+        questNameTableView.tableFooterView = UIView(frame: .zero)
         
         icon.delegate = self
         
@@ -204,13 +209,18 @@ extension MilestoneViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         quest = quests[indexPath.row]
         if isExpanded {
-            tableViewHeightConstraint.constant = originalTableViewHeight
+            UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
+                self.tableViewHeightConstraint.constant = self.originalTableViewHeight
+            }, completion: nil)
             isExpanded = false
+            filteredQuests = [quest!]
         } else {
             tableViewHeightConstraint.constant = 100
             isExpanded = true
+            filteredQuests = quests
         }
         tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadData()
     }
 }
 
@@ -220,13 +230,13 @@ extension MilestoneViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestNameCell", for: indexPath)
         cell.backgroundColor = UIColor(red:0.16, green:0.16, blue:0.16, alpha:1.0)
         cell.textLabel?.textColor = UIColor(red:0.73, green:0.73, blue:0.73, alpha:1.0)
-        cell.textLabel?.text = quests[indexPath.row].title
+        cell.textLabel?.text = filteredQuests[indexPath.row].title
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return quests.count
+        return filteredQuests.count
     }
 }
 
