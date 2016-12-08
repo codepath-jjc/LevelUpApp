@@ -179,9 +179,7 @@ class MilestoneViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying),
                                                name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
                                                object: player.currentItem)
-        
-        
-        
+                
         player.play()
         
         
@@ -200,11 +198,13 @@ class MilestoneViewController: UIViewController {
             self.pointsHolder.backgroundColor = UIColor(white: 0, alpha: 0.95)
         })
         
+        // Update timer:
+        self.pointsLabel.text = "Power Level: \( LevelUpClient.sharedInstance.getPoints())"
+
+        
         let points = LevelUpClient.sharedInstance.getPoints() + 24
         LevelUpClient.sharedInstance.addPoints(points: 24)
-        print(points)
         
-        pointsLabel.text = "Power Level: \(points)"
         
         // Aniamte points in
         self.pointsLabel.setNeedsLayout()
@@ -216,12 +216,6 @@ class MilestoneViewController: UIViewController {
         }
         
         
-        
-        
-        
-        
-        
-        
         animator = UIDynamicAnimator(referenceView: self.view)
         snapBehaviour = UISnapBehavior(item: pointsLabel, snapTo: CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2 - lastPosition))
         snapBehaviour.action = {
@@ -230,6 +224,11 @@ class MilestoneViewController: UIViewController {
         snapBehaviour.damping = 0.15
         animator.addBehavior(snapBehaviour)
 
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+
+            self.pointsLabel.text = "Power Level: \(points)"
+        }
+        
         UIView.animate(withDuration: 0.3, delay: 0.13, options: .curveEaseOut,  animations: {
             self.pointsHolder.alpha = 1
         })
