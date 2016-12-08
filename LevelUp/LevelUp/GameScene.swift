@@ -47,11 +47,12 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         // Our score board!
         let points = LevelUpClient.__points
         scoreLabel = SKLabelNode(text: "Power Level: \(points)")
-        scoreLabel.position = CGPoint(x: 50, y: self.frame.size.height - 60)
+        
         scoreLabel.fontSize = 30
         scoreLabel.fontName = "AmericanTypewriter-Bold"
         
         backgroundLayer?.addChild(scoreLabel)
+        scoreLabel.position = CGPoint(x: 20  + scoreLabel.frame.width/2, y: self.frame.size.height - 60)
 
      
         
