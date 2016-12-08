@@ -12,6 +12,8 @@ import Parse
 class LevelUpClient: NSObject {
 
     static let sharedInstance =  LevelUpClient()
+    static var cachedQuests: [Quest]?
+    static var cachedMilestones: [Milestone]?
     static var __points = 1
     
     func fetchIcon( quest: Quest, success: @escaping (UIImage) -> (), failure: @escaping (Error)->() ) {
@@ -171,8 +173,10 @@ class LevelUpClient: NSObject {
                     quests.append(Quest(pfObject: pfObject))
                 }
                 
+                LevelUpClient.cachedQuests = quests
                 success(quests)
             } else {
+                
                 failure(error)
             }
         })
@@ -187,9 +191,14 @@ class LevelUpClient: NSObject {
             if let pfObjects = pfObjects {
                 var milestones = [Milestone]()
                 for pfObject in pfObjects {
-                    milestones.append(Milestone(pfObject: pfObject))
+                    let milestone = Milestone(pfObject: pfObject)
+                    if let id = milestone.questId {
+                        milestone.quest = LevelUpClient.cachedQuests?.find(questId: id)
+                    }
+                    milestones.append(milestone)
                 }
                 
+                LevelUpClient.cachedMilestones = milestones
                 success(milestones)
             } else {
                 failure(error)

@@ -15,6 +15,7 @@ class Milestone: NSObject {
     static let className = "MilestoneTest11"
     var pfObject: PFObject?
     var imageFile: PFFile?
+    var quest: Quest?
     var questId: String? {
         didSet {
             dictionary["questId"] = questId
@@ -98,6 +99,8 @@ class Milestone: NSObject {
         completed = dictionary["completed"] as? Bool
         deadline = dictionary["deadline"] as? Date
         completedDate = dictionary["completedDate"] as? Date
+        quest = dictionary["quest"] as? Quest
+        self.dictionary.removeValue(forKey: "quest")
     }
     
 }

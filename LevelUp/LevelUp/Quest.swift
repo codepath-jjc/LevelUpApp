@@ -17,6 +17,7 @@ class Quest: NSObject {
     static let images = [UIImage(named: "0000"), UIImage(named: "0001"), UIImage(named: "0002"), UIImage(named: "0003") , UIImage(named: "0004"), UIImage(named: "0006"), UIImage(named: "0007"), UIImage(named: "0008")]
     var pfObject: PFObject?
     var imageFile: PFFile?
+    var milestone: Milestone?
     var title: String? {
         didSet {
             dictionary["title"] = title
@@ -112,6 +113,8 @@ class Quest: NSObject {
         self.dictionary["imageFallback"] = imageFallback
         archived = (dictionary["archived"] as? Bool) ?? false
         dueTime = dictionary["dueTime"] as? Date
+        milestone = dictionary["milestone"] as? Milestone
+        self.dictionary.removeValue(forKey: "milestone")
     }
     
     // Returns the upcoming milestone for this quest
@@ -146,7 +149,7 @@ class Quest: NSObject {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, yyyy"
         var milestoneTitle = "\(title ?? "") - "
-        var milestone = Milestone(dictionary: ["title": milestoneTitle, "completed": false, "questId": pfObject?.objectId ?? ""])
+        var milestone = Milestone(dictionary: ["title": milestoneTitle, "completed": false, "questId": pfObject?.objectId ?? "", "quest": self])
         
         var alertNotes = notes ?? ""
         if alertNotes.isEmpty {

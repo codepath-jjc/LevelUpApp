@@ -118,4 +118,17 @@ extension Array where Element:Quest {
         }
         return -1
     }
+    
+    func find(questId: String?) -> Quest? {
+        if questId == nil { return nil }
+        
+        for item in self {
+            let quest = item as Quest
+            if (quest.pfObject?.objectId == questId) {
+                return quest
+            }
+        }
+        
+        return nil
+    }
 }
