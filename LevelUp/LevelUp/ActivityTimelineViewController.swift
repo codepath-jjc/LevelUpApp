@@ -20,6 +20,7 @@ class ActivityTimelineViewController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = 260
         // Do any additional setup after loading the view.
+        
         reloadData()
         
         tableView.backgroundColor = AppColors.BrandPrimaryBackgroundColor
