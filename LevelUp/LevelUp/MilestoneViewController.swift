@@ -12,6 +12,11 @@ import UserNotifications
 class MilestoneViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
 
+    @IBOutlet weak var pointsLabel: UILabel!
+    
+    @IBOutlet weak var pointsHolder: UIView!
+    
+    
     @IBOutlet weak var frequencyLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var notesTextView: UITextView!
@@ -54,6 +59,8 @@ class MilestoneViewController: UIViewController {
             }
         }
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -87,6 +94,7 @@ class MilestoneViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        pointsHolder.isHidden = true
         navigationDelegate?.tabBarHidden = true
     }
 
@@ -113,7 +121,24 @@ class MilestoneViewController: UIViewController {
             })
         }
 
-        navigationDelegate?.page = Page.profile
+        
+        
+        pointsHolder.isHidden = false
+        
+        let points = LevelUpClient.sharedInstance.getPoints() + 24
+        LevelUpClient.sharedInstance.addPoints(points: 24)
+        print(points)
+        
+        pointsLabel.text = "Points: \(points)"
+        
+            
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
+            //text.textColor = AppColors.PrimaryAccentColor
+            self.navigationDelegate?.page = Page.profile
+            
+        }
+        
+        
     }
     
     @IBAction func onCancel(_ sender: Any) {

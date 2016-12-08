@@ -37,7 +37,16 @@ class LevelUpClient: NSObject {
                 })
             }
             if quest.imageFile == nil {
-                success(Quest.images[quest.imageFallback!]!)
+                var imageIndex = 0
+                if quest.imageFallback == nil {
+                
+                } else {
+                    imageIndex = quest.imageFallback!
+                }
+                if let image = Quest.images[imageIndex] {
+                    success(image)
+                }
+                
             }
         }
     }
@@ -49,8 +58,9 @@ class LevelUpClient: NSObject {
         
         if let currentUser = currentUser  {
             
-            
+            currentUser.setValue(0, forKey: "points")
             currentUser.saveInBackground()
+            
             return currentUser
             // Do stuff with the user
             
@@ -59,6 +69,16 @@ class LevelUpClient: NSObject {
         return nil
     }
     
+    func getPoints() -> Int {
+        
+        return LevelUpClient.sharedInstance.user()!["points"] as! Int
+    }
+    
+    
+    func addPoints(points: Int){
+         LevelUpClient.sharedInstance.user()!.incrementKey("points", byAmount: points as NSNumber)
+         LevelUpClient.sharedInstance.user()!.saveInBackground()
+    }
     
     // This is a mutating function - the input Quest and Milestone WILL be updated
     func sync(quest: inout Quest, success: @escaping () -> (), failure: @escaping (Error?) -> ()) {

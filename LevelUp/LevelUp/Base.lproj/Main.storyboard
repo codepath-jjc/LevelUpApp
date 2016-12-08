@@ -582,7 +582,7 @@
                                         <rect key="frame" x="0.0" y="28" width="239" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5EK-Rs-qgf" id="9fs-85-n0o">
-                                            <rect key="frame" x="0.0" y="0.0" width="239" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="239" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -605,6 +605,20 @@
                                     <constraint firstAttribute="width" constant="66" id="77J-6J-F0Z"/>
                                     <constraint firstAttribute="height" constant="66" id="99i-hP-EaF"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mag-dS-52T">
+                                <rect key="frame" x="20" y="217" width="322" height="207"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vB1-ja-Zt1">
+                                        <rect key="frame" x="104" y="86" width="114" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="29"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -638,6 +652,8 @@
                         <outlet property="frequencyLabel" destination="Qzt-Rb-qLD" id="P0E-xx-UUY"/>
                         <outlet property="icon" destination="tVJ-jA-KHD" id="RB0-IP-lB7"/>
                         <outlet property="notesTextView" destination="OJO-Fg-xiq" id="JIL-80-sJs"/>
+                        <outlet property="pointsHolder" destination="mag-dS-52T" id="pOs-hR-b6Z"/>
+                        <outlet property="pointsLabel" destination="vB1-ja-Zt1" id="A4M-fP-pCC"/>
                         <outlet property="questNameTableView" destination="8oT-H1-iFH" id="msZ-04-7ED"/>
                         <segue destination="6Tx-gP-dpz" kind="show" identifier="showPoints" id="7sq-0f-6J9"/>
                     </connections>
