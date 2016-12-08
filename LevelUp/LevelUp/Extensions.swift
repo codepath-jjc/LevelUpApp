@@ -132,3 +132,10 @@ extension Array where Element:Quest {
         return nil
     }
 }
+
+
+
+//
+
+
+

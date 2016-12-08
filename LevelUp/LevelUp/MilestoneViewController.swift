@@ -224,6 +224,80 @@ class MilestoneViewController: UIViewController {
         snapBehaviour.damping = 0.15
         animator.addBehavior(snapBehaviour)
 
+        
+        // SO GHETTO
+        
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            
+            self.pointsLabel.text = "Power Level: \(points-22)"
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            
+            self.pointsLabel.text = "Power Level: \(points-20)"
+        }
+        
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            
+            self.pointsLabel.text = "Power Level: \(points-18)"
+        }
+        
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            
+            self.pointsLabel.text = "Power Level: \(points-16)"
+        }
+        
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            
+            self.pointsLabel.text = "Power Level: \(points-14)"
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            
+            self.pointsLabel.text = "Power Level: \(points-12)"
+        }
+        
+     
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            
+            self.pointsLabel.text = "Power Level: \(points-10)"
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+            
+            self.pointsLabel.text = "Power Level: \(points-8)"
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
+            
+            self.pointsLabel.text = "Power Level: \(points-6)"
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
+            
+            self.pointsLabel.text = "Power Level: \(points-4)"
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
+            
+            self.pointsLabel.text = "Power Level: \(points-2)"
+        }
+        
+        
+        
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
 
             self.pointsLabel.text = "Power Level: \(points)"
