@@ -212,12 +212,13 @@ class MilestoneViewController: UIViewController {
 extension MilestoneViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        quest = quests[indexPath.row]
         if isExpanded {
             UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
                 self.tableViewHeightConstraint.constant = self.originalTableViewHeight
             }, completion: nil)
             isExpanded = false
+            
+            quest = quests[indexPath.row]
             filteredQuests = [quest!]
         } else {
             tableViewHeightConstraint.constant = 100
@@ -235,7 +236,11 @@ extension MilestoneViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestNameCell", for: indexPath)
         cell.backgroundColor = UIColor(red:0.16, green:0.16, blue:0.16, alpha:1.0)
         cell.textLabel?.textColor = UIColor(red:0.73, green:0.73, blue:0.73, alpha:1.0)
-        cell.textLabel?.text = filteredQuests[indexPath.row].title
+        var caret = ""
+        if !isExpanded {
+            caret = " ⌄"
+        }
+        cell.textLabel?.text = filteredQuests[indexPath.row].title! + caret
         
         return cell
     }

@@ -120,6 +120,7 @@ class NewQuestViewController: UIViewController  {
         
         var newQuest = Quest(dictionary: dictionary)
         navigationDelegate?.profileViewController.quests.insert(newQuest, at: 0)
+        LevelUpClient.cachedQuests?.insert(newQuest, at: 0)
         
         LevelUpClient.sharedInstance.sync(quest: &newQuest, success: {
             // TODO

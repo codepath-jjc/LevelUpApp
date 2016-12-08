@@ -43,8 +43,9 @@ class ProfileViewController: UIViewController {
         if let cachedQuests = LevelUpClient.cachedQuests {
             quests = cachedQuests
             tableView.reloadData()
+        } else {
+            reloadData()
         }
-        reloadData()
     }
     
     
@@ -54,8 +55,6 @@ class ProfileViewController: UIViewController {
         self.headerTitle.alpha = 0
         self.tableView.alpha = 0.3
         self.view.layoutIfNeeded()
-        
-        reloadData()
     }
     
     
@@ -90,7 +89,7 @@ class ProfileViewController: UIViewController {
             // In the event this VC has a quest loaded already
             self.quests = quests.filter({ (quest: Quest) -> Bool in
                 quest.archived == false
-            })
+            }).reversed()
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
         }) { (error: Error?) in

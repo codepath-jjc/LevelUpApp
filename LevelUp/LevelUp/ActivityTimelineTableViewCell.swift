@@ -28,7 +28,8 @@ class ActivityTimelineTableViewCell: UITableViewCell {
                 dateLabel.text = formatter.string(from: date)
             }
             
-            mainImage.image = milestone.image ?? milestone.quest?.image
+            mainImage.image = milestone.image ?? milestone.quest?.image ?? Quest.images[Int(arc4random_uniform(7))]
+            mainImage.alpha = 0.1
         }
     }
     
