@@ -314,7 +314,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.18891268968582153" green="0.16088712215423584" blue="0.14810806512832642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="S58-ci-iPd" firstAttribute="top" secondItem="jSU-ew-NPi" secondAttribute="bottom" constant="20" id="4AN-kJ-vq8"/>
                             <constraint firstItem="S58-ci-iPd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4l0-bN-aAk"/>
@@ -582,7 +582,7 @@
                                         <rect key="frame" x="0.0" y="28" width="249" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5EK-Rs-qgf" id="9fs-85-n0o">
-                                            <rect key="frame" x="0.0" y="0.0" width="249" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="249" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -926,7 +926,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.18891268968582153" green="0.16088712215423584" blue="0.14810806512832642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="uOa-rp-Bzs" firstAttribute="leading" secondItem="Ps0-9h-iNU" secondAttribute="leading" id="82G-PM-WcS"/>
                             <constraint firstItem="ZKs-ei-uJX" firstAttribute="top" secondItem="Si9-mU-cl6" secondAttribute="bottom" constant="20" id="Ba4-zN-21W"/>
