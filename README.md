@@ -13,6 +13,10 @@ progress on your goals and habits with helpful reminders and beautiful visualiza
 * Activity timeline showing goals completed in a timeline fashion with pictures
 * Quest edit page allowing users to edit/delete their quest/goal
 
+Final:
+- default images 
+- points
+- intro video 
 **Wireframe**
 
 Link to clickable mockup: https://projects.invisionapp.com/share/5N9A11JJT#/screens
