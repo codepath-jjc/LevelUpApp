@@ -12,7 +12,7 @@ import Parse
 class LevelUpClient: NSObject {
 
     static let sharedInstance =  LevelUpClient()
-    
+    static var __points = 1
     
     func fetchIcon( quest: Quest, success: @escaping (UIImage) -> (), failure: @escaping (Error)->() ) {
         
@@ -70,14 +70,16 @@ class LevelUpClient: NSObject {
     }
     
     func getPoints() -> Int {
-        
-        return LevelUpClient.sharedInstance.user()!["points"] as! Int
+        return LevelUpClient.__points
+     //   try? LevelUpClient.sharedInstance.user()!.fetch()
+       // return LevelUpClient.sharedInstance.user()!["points"] as! Int
     }
     
     
     func addPoints(points: Int){
-         LevelUpClient.sharedInstance.user()!.incrementKey("points", byAmount: points as NSNumber)
-         LevelUpClient.sharedInstance.user()!.saveInBackground()
+        LevelUpClient.__points += points
+        // LevelUpClient.sharedInstance.user()!.incrementKey("points", byAmount: points as NSNumber)
+         // LevelUpClient.sharedInstance.user()!.saveInBackground()
     }
     
     // This is a mutating function - the input Quest and Milestone WILL be updated
