@@ -23,4 +23,10 @@ class AppColors: NSObject {
     // 3D3634 
     static let ThirdGrey = UIColor(red:0.24, green:0.21, blue:0.20, alpha:1.0)
     
+    // 052811
+    static let DarkGreen = UIColor(red:0.02, green:0.16, blue:0.07, alpha:1.0)
+
+
+    
+    
 }

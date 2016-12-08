@@ -16,6 +16,13 @@ class MilestoneViewController: UIViewController {
     
     @IBOutlet weak var pointsHolder: UIView!
     
+    // points crap
+    
+    var lastPosition:CGFloat = -10
+    
+    var snapBehaviour:UISnapBehavior!
+    var animator:UIDynamicAnimator!
+    
     
     @IBOutlet weak var frequencyLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
@@ -95,7 +102,10 @@ class MilestoneViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         pointsHolder.isHidden = true
+        pointsLabel.textColor = AppColors.PrimaryAccentColor
         navigationDelegate?.tabBarHidden = true
+        
+        
     }
 
     @IBAction func onDone(_ sender: Any) {
@@ -121,9 +131,21 @@ class MilestoneViewController: UIViewController {
             })
         }
 
-        
-        
+        pointsHolder.backgroundColor = AppColors.DarkGreen
+        pointsHolder.alpha = 0.0
         pointsHolder.isHidden = false
+        
+        pointsHolder.setNeedsLayout()
+        
+        UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseOut,  animations: {
+            self.pointsHolder.alpha = 1
+        })
+        
+        UIView.animate(withDuration: 0.9, delay: 0.0, options: .curveEaseOut,  animations: {
+            self.pointsHolder.backgroundColor =          UIColor(white: 0, alpha: 0.95)
+        })
+        
+    
         
         let points = LevelUpClient.sharedInstance.getPoints() + 24
         LevelUpClient.sharedInstance.addPoints(points: 24)
@@ -131,8 +153,31 @@ class MilestoneViewController: UIViewController {
         
         pointsLabel.text = "Points: \(points)"
         
-            
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
+        
+        
+        // Aniamte points in
+        self.pointsLabel.setNeedsLayout()
+
+        
+        if lastPosition == -10  {
+            lastPosition = 30
+        } else {
+            lastPosition = -10
+        }
+        
+        animator = UIDynamicAnimator(referenceView: self.view)
+        snapBehaviour = UISnapBehavior(item: pointsLabel, snapTo: CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2 - lastPosition))
+        snapBehaviour.action = {
+            print("behaviour ")
+            //self.pointsLabel.setNeedsLayout()
+        }
+        snapBehaviour.damping = 0.15
+        animator.addBehavior(snapBehaviour)
+
+        
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             //text.textColor = AppColors.PrimaryAccentColor
             self.navigationDelegate?.page = Page.profile
             
