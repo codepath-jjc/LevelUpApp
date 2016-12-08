@@ -44,3 +44,6 @@ class GameScene: SKScene {
     
     
 }
+
+// sprites 
+// movement
