@@ -24,12 +24,13 @@ class MilestoneViewController: UIViewController {
     var snapBehaviour:UISnapBehavior!
     var animator:UIDynamicAnimator!
     
-    
     @IBOutlet weak var frequencyLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var icon: SelectableImageView!
     @IBOutlet weak var questNameTableView: UITableView!
+    var originalTableViewHeight: CGFloat!
+    var isExpanded = false
     var hasPlaceholder = true
     var quests = [Quest]()
     var milestone: Milestone? {
@@ -73,7 +74,6 @@ class MilestoneViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -101,8 +101,11 @@ class MilestoneViewController: UIViewController {
         notesTextView.delegate = self
         questNameTableView.dataSource = self
         questNameTableView.delegate = self
+        questNameTableView.separatorColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0)
         
         icon.delegate = self
+        
+        originalTableViewHeight = tableViewHeightConstraint.constant
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,8 +113,6 @@ class MilestoneViewController: UIViewController {
         pointsHolder.isHidden = true
         pointsLabel.textColor = AppColors.PrimaryAccentColor
         navigationDelegate?.tabBarHidden = true
-        
-        
     }
 
     @IBAction func onDone(_ sender: Any) {
@@ -151,19 +152,14 @@ class MilestoneViewController: UIViewController {
             self.pointsHolder.backgroundColor = UIColor(white: 0, alpha: 0.95)
         })
         
-    
-        
         let points = LevelUpClient.sharedInstance.getPoints() + 24
         LevelUpClient.sharedInstance.addPoints(points: 24)
         print(points)
         
         pointsLabel.text = "Power Level: \(points)"
         
-        
-        
         // Aniamte points in
         self.pointsLabel.setNeedsLayout()
-
         
         if lastPosition ==  15  {
             lastPosition = 30
@@ -189,7 +185,6 @@ class MilestoneViewController: UIViewController {
             } else {
                 self.dismiss(animated: true, completion: nil)
             }
-            
         }
         
     }
@@ -208,6 +203,13 @@ extension MilestoneViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         quest = quests[indexPath.row]
+        if isExpanded {
+            tableViewHeightConstraint.constant = originalTableViewHeight
+            isExpanded = false
+        } else {
+            tableViewHeightConstraint.constant = 100
+            isExpanded = true
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
