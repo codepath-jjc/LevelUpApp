@@ -48,7 +48,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         let points = LevelUpClient.__points
         scoreLabel = SKLabelNode(text: "Power Level: \(points)")
         
-        scoreLabel.fontSize = 30
+        scoreLabel.fontColor = AppColors.PrimaryAccentColor
+        scoreLabel.fontSize = 20
+        scoreLabel.name = "score"
         scoreLabel.fontName = "AmericanTypewriter-Bold"
         
         backgroundLayer?.addChild(scoreLabel)
@@ -113,9 +115,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
 
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let location = touches.first!.location(in: self)
+
         print("TOUCH")
         
-        //closedDelegate?.closedPressed?()
         
         
         /////////
@@ -132,15 +135,20 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         player.run(SKAction.repeatForever(morphAniamtion))
         
         
+        if scoreLabel.contains(location) {
+            closedDelegate?.closedPressed?()
+
+        }
         
         ///////////////
-        let location = touches.first!.location(in: self)
         
         backgroundLayer?.enumerateChildNodes(withName: "player") { node, stop in
             
+            
+           
             if node.contains(location) && node.isHidden == false {
                 print("TOUCH PET")
-                self.shakeScreen()
+              //  self.shakeScreen()
              //   node.isHidden = true
                 self.flare?.isHidden = false
                 
