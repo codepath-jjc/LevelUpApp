@@ -9,11 +9,21 @@
 import UIKit
 import SpriteKit
 
+
+
+@objc protocol  GameSceneControllerCellDelegate  {
+    @objc optional func closedPressed()
+    
+}
+
+
 class GameScene: SKScene , SKPhysicsContactDelegate{
     
     
     var backgroundLayer: SKSpriteNode?
 
+    var closedDelegate: GameSceneControllerCellDelegate?
+    
     let flare = SKEmitterNode(fileNamed: "Flare")
     
     var playerDirection:CGFloat = 1.0
@@ -71,6 +81,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("TOUCH")
+        
+        closedDelegate?.closedPressed?()
         
         let location = touches.first!.location(in: self)
         

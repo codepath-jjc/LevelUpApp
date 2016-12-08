@@ -11,6 +11,8 @@ import UIKit
 import SpriteKit
 
 
+
+
 class PetViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -19,6 +21,7 @@ class PetViewController: UIViewController {
         
         let skView = SKView(frame: self.view.frame)
         let scene = GameScene(size: view.bounds.size)
+        scene.closedDelegate = self
         skView.presentScene(scene)
         view.addSubview(skView)
         
@@ -48,4 +51,12 @@ class PetViewController: UIViewController {
     }
     */
 
+}
+
+
+extension PetViewController: GameSceneControllerCellDelegate{
+    func closedPressed() {
+        print(" YAY GO BACK TO SEGUEEE")
+        //dismiss(animated: true, completion: nil)
+    }
 }
