@@ -12,6 +12,8 @@ import Parse
 class LevelUpClient: NSObject {
 
     static let sharedInstance =  LevelUpClient()
+    
+    
     static var cachedQuests: [Quest]? {
         didSet {
             guard cachedQuests != nil else {return}

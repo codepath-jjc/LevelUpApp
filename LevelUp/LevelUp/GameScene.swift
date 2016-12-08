@@ -29,10 +29,12 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     
     var playerDirection:CGFloat = 1.0
     var playerSpeed:CGFloat = 5.0
-   
+    let MAX_POOP = 10
     // 1
     let atlas = SKTextureAtlas(named: "lilmonsters.atlas")
 
+    //
+    var poops = 0
     let player = SKSpriteNode(imageNamed: "petbase.png")
     let morphaAlas = SKTextureAtlas(named: "morph.atlas")
 
@@ -87,10 +89,54 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         player.addChild(flare!)
        player.zPosition = 2
         
+        
+        // POOPS on timer
+        
+
+        // POOP TIMER
+        let wait = SKAction.wait(forDuration: 4.0) //change countdown speed here
+        let block = SKAction.run({
+            [unowned self] in
+                print("POOP TIMER")
+                self.addPoop()
+            
+        })
+        let sequence = SKAction.sequence([wait,block])
+        
+        run(SKAction.repeatForever(sequence), withKey: "countdown")
+        
+        
+        
     }
     
+    func addPoop(){
+   
+        if (poops > MAX_POOP) {
+            return
+        }
+        poops += 1
+
+        self.shakeScreen()
+
+        // ADD POOP
+        let poop = SKSpriteNode(imageNamed: "poop.png")
+        poop.name = "poop"
+        let poopX =  random(min: size.width * 0.2, max:  size.width * 0.8)
+        let poopY =  random(min: size.height * 0.1, max:  size.height * 0.45)
+        
+        poop.position = CGPoint(x: poopX, y: poopY)
+        
+        backgroundLayer?.addChild(poop)
+
+    }
     
+    func random(min: CGFloat, max: CGFloat) -> CGFloat {
+        return random() * (max - min) + min
+    }
     
+    func random() -> CGFloat {
+        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+    }
     override func update(_ currentTime: TimeInterval) {
         
         
@@ -107,7 +153,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     }
     
     
-    fileprivate func shakeScreen(_ duration:Float = 0.3) {
+    fileprivate func shakeScreen(_ duration:Float = 0.45) {
         let shakeAction = GameScene.shake(self.backgroundLayer!.position, duration: duration);
         self.backgroundLayer!.run(shakeAction);
     }
@@ -121,19 +167,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         
         
         
-        /////////
-        let m1 = morphaAlas.textureNamed("morph1.png")
-        let m2 = morphaAlas.textureNamed("morph2.png")
-        
-        
-        let textures = [m1, m2]
-        
-        
-        
-        let morphAniamtion = SKAction.animate(with: textures, timePerFrame: 0.15)
-        
-        player.run(SKAction.repeatForever(morphAniamtion))
-        
+       
         
         if scoreLabel.contains(location) {
             closedDelegate?.closedPressed?()
@@ -142,28 +176,50 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         
         ///////////////
         
-        backgroundLayer?.enumerateChildNodes(withName: "player") { node, stop in
+    
+        if  player.contains(location) {
+            print("TOUCH PET")
+            
+            // TRANFORM:
             
             
-           
+            /////////
+            let m1 = morphaAlas.textureNamed("morph1.png")
+            let m2 = morphaAlas.textureNamed("morph2.png")
+            
+            
+            let textures = [m1, m2]
+            
+            
+            
+            let morphAniamtion = SKAction.animate(with: textures, timePerFrame: 0.15)
+            
+            player.run(SKAction.repeatForever(morphAniamtion))
+        
+            
+            
+            //  self.shakeScreen()
+            //   node.isHidden = true
+            self.flare?.isHidden = false
+            
+            
+            let ballAction = SKAction.wait(forDuration: TimeInterval(2.0));
+            self.run(ballAction, completion: { () -> Void in
+                //self.resetEverything()
+                print("action ran")
+                self.flare?.isHidden = true
+                
+            });
+            
+        }
+        
+        // loop over POOP
+        backgroundLayer?.enumerateChildNodes(withName: "poop") { node, stop in
+            
             if node.contains(location) && node.isHidden == false {
-                print("TOUCH PET")
-              //  self.shakeScreen()
-             //   node.isHidden = true
-                self.flare?.isHidden = false
-                
-                
-                
-                let ballAction = SKAction.wait(forDuration: TimeInterval(2.0));
-                self.run(ballAction, completion: { () -> Void in
-                    //self.resetEverything()
-                        print("action ran")
-                    self.flare?.isHidden = true
-
-                });
-                
-                
-               // stop.memory = true
+                node.isHidden = true
+                self.poops -= 1
+                node.removeFromParent()
             }
         }
 
