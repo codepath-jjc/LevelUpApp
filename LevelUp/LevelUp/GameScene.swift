@@ -60,7 +60,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         scoreLabel.fontName = "AmericanTypewriter-Bold"
         
         backgroundLayer?.addChild(scoreLabel)
-        scoreLabel.position = CGPoint(x: 20  + scoreLabel.frame.width/2, y: self.frame.size.height - 60)
+        scoreLabel.position = CGPoint(x: 20  + scoreLabel.frame.width/2, y: self.frame.size.height - (10 +  scoreLabel.frame.height ))
 
         // Back btn
         backBtn = SKLabelNode(text: "Back")
@@ -72,7 +72,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         
         backgroundLayer?.addChild(backBtn)
         
-        backBtn.position = CGPoint(x: 20  + backBtn.frame.width/2, y: 60)
+        backBtn.position = CGPoint(x: 20  + backBtn.frame.width/2, y: 70)
 
         
         //
