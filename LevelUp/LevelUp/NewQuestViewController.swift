@@ -22,7 +22,6 @@ class NewQuestViewController: UIViewController  {
     var navigationDelegate: TabBarViewController?
     var originalTimePickerHeight: CGFloat!
     var isExpandedTimePicker = false
-    var hasPlaceholder = true
     var disabledButtonColor = UIColor(red:0.17, green:0.40, blue:0.23, alpha:1.0)
     var enabledButtonColor = UIColor(red:0.38, green:0.90, blue:0.52, alpha:1.0)
     var frequency = Frequency.daily
@@ -168,14 +167,6 @@ extension NewQuestViewController: UITextFieldDelegate {
 
 extension NewQuestViewController: UITextViewDelegate {
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        // Remove placeholder
-        if hasPlaceholder {
-            textView.text = ""
-            hasPlaceholder = false
-        }
-    }
-    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
@@ -183,14 +174,6 @@ extension NewQuestViewController: UITextViewDelegate {
         }
         
         return true
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        // Reinsert placeholder
-        if textView.text.isEmpty && !hasPlaceholder {
-            textView.text = "Goals/Description"
-            hasPlaceholder = true
-        }
     }
 }
 

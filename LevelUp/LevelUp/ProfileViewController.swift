@@ -40,6 +40,10 @@ class ProfileViewController: UIViewController {
         self.tableView.backgroundColor =  AppColors.BrandPrimaryBackgroundColor
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
 
+        if let cachedQuests = LevelUpClient.cachedQuests {
+            quests = cachedQuests
+            tableView.reloadData()
+        }
         reloadData()
     }
     
