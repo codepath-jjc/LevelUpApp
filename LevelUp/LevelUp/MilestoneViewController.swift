@@ -12,6 +12,7 @@ import UserNotifications
 class MilestoneViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
 
+    @IBOutlet weak var dueDateLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
     
     @IBOutlet weak var pointsHolder: UIView!

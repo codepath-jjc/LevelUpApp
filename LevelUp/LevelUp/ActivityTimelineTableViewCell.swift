@@ -24,7 +24,7 @@ class ActivityTimelineTableViewCell: UITableViewCell {
             categoryLabel.text = milestone.title
             if let date = milestone.deadline {
                 let formatter = DateFormatter()
-                formatter.dateFormat = "dd.MM.yy"
+                formatter.dateFormat = "MMM d, yyyy"
                 dateLabel.text = formatter.string(from: date)
             }
             mainImage.image = #imageLiteral(resourceName: "placeholder").setAlpha(value: 0.12)
