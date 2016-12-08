@@ -314,11 +314,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paw3" translatesAutoresizingMaskIntoConstraints="NO" id="aRV-e1-cgj">
-                                <rect key="frame" x="329" y="35" width="33" height="29"/>
+                                <rect key="frame" x="314" y="35" width="33" height="29"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="33" id="TWt-Ra-Lku"/>
-                                    <constraint firstAttribute="height" constant="29" id="hqj-Ql-rM2"/>
+                                    <constraint firstAttribute="width" constant="33" id="XIF-9c-ipK"/>
+                                    <constraint firstAttribute="height" constant="29" id="ggn-FN-Y9q"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="59q-JM-GlJ" appends="YES" id="GSL-eM-yEN"/>
@@ -329,13 +329,13 @@
                         <constraints>
                             <constraint firstItem="S58-ci-iPd" firstAttribute="top" secondItem="jSU-ew-NPi" secondAttribute="bottom" constant="20" id="4AN-kJ-vq8"/>
                             <constraint firstItem="S58-ci-iPd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4l0-bN-aAk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aRV-e1-cgj" secondAttribute="trailing" constant="12" id="7IQ-Ew-J1c"/>
+                            <constraint firstItem="aRV-e1-cgj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="Jhw-Fg-KbK"/>
                             <constraint firstAttribute="trailing" secondItem="jSU-ew-NPi" secondAttribute="trailing" constant="20" id="Ucu-Nl-OAe"/>
                             <constraint firstAttribute="trailing" secondItem="S58-ci-iPd" secondAttribute="trailing" id="WZ8-33-8Z7"/>
-                            <constraint firstItem="aRV-e1-cgj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="fPv-GR-i34"/>
                             <constraint firstItem="jSU-ew-NPi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="fjs-bh-GWM"/>
                             <constraint firstItem="jSU-ew-NPi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="kEq-Xt-4sf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="S58-ci-iPd" secondAttribute="bottom" id="pIX-LB-BzV"/>
-                            <constraint firstAttribute="trailing" secondItem="aRV-e1-cgj" secondAttribute="trailing" constant="13" id="yfD-a0-OKS"/>
                         </constraints>
                     </view>
                     <connections>
