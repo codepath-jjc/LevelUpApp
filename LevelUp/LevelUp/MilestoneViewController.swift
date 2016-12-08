@@ -60,13 +60,17 @@ class MilestoneViewController: UIViewController {
                 icon.image = image
             }
 
-            let _ = quest!.upcomingMilestone(success: {
-                (upcomingMilestone: Milestone) -> () in
-                self.milestone = upcomingMilestone
-            }, failure: {
-                (error: Error?) -> () in
-                print(error?.localizedDescription ?? "Error getting upcoming milestone")
-            })
+            if let milestone = quest?.milestone {
+                self.milestone = milestone
+            } else {
+                let _ = quest!.upcomingMilestone(success: {
+                    (upcomingMilestone: Milestone) -> () in
+                    self.milestone = upcomingMilestone
+                }, failure: {
+                    (error: Error?) -> () in
+                    print(error?.localizedDescription ?? "Error getting upcoming milestone")
+                })
+            }
             
             frequencyLabel.text = quest!.frequency?.simpleDescription()
             

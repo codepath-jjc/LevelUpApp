@@ -54,6 +54,8 @@ class ProfileViewController: UIViewController {
         self.headerTitle.alpha = 0
         self.tableView.alpha = 0.3
         self.view.layoutIfNeeded()
+        
+        reloadData()
     }
     
     
