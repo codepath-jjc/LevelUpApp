@@ -49,6 +49,7 @@
 		96B76C0A1DFA01A800BA2B20 /* morph.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 96B76C091DFA01A800BA2B20 /* morph.atlas */; };
 		96B76C0E1DFA06FB00BA2B20 /* lilmonsters.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 96B76C0D1DFA06FB00BA2B20 /* lilmonsters.atlas */; };
 		96B76C101DFA08F600BA2B20 /* turd.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 96B76C0F1DFA08F600BA2B20 /* turd.atlas */; };
+		96B76C121DFA186900BA2B20 /* egg.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 96B76C111DFA186900BA2B20 /* egg.atlas */; };
 		C19E4B6B1DF49452003EDCAE /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E4B6A1DF49452003EDCAE /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		96B76C091DFA01A800BA2B20 /* morph.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = morph.atlas; sourceTree = "<group>"; };
 		96B76C0D1DFA06FB00BA2B20 /* lilmonsters.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = lilmonsters.atlas; sourceTree = "<group>"; };
 		96B76C0F1DFA08F600BA2B20 /* turd.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = turd.atlas; sourceTree = "<group>"; };
+		96B76C111DFA186900BA2B20 /* egg.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = egg.atlas; sourceTree = "<group>"; };
 		C19E4B6A1DF49452003EDCAE /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		C98740D3F5870BAF99ED43AF /* Pods-LevelUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-LevelUp/Pods-LevelUp.release.xcconfig"; sourceTree = "<group>"; };
 		D161F0C0F2C0C56B63FB7D4A /* Pods-LevelUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LevelUp/Pods-LevelUp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 		968CB7021DD4571F002D565E /* LevelUp */ = {
 			isa = PBXGroup;
 			children = (
+				96B76C111DFA186900BA2B20 /* egg.atlas */,
 				96B76C0F1DFA08F600BA2B20 /* turd.atlas */,
 				96B76C0D1DFA06FB00BA2B20 /* lilmonsters.atlas */,
 				96B76C091DFA01A800BA2B20 /* morph.atlas */,
@@ -327,6 +330,7 @@
 				968CB70B1DD4571F002D565E /* Assets.xcassets in Resources */,
 				96B76C0E1DFA06FB00BA2B20 /* lilmonsters.atlas in Resources */,
 				968CB7091DD4571F002D565E /* Main.storyboard in Resources */,
+				96B76C121DFA186900BA2B20 /* egg.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
