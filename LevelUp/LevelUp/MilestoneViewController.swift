@@ -14,7 +14,7 @@ class MilestoneViewController: UIViewController {
 
     @IBOutlet weak var dueDateLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
-    
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var pointsHolder: UIView!
     
     // points crap
