@@ -34,6 +34,8 @@
 		965823C91DEEC9B5004F22CF /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965823C71DEEC9B5004F22CF /* AVKit.framework */; };
 		965823CA1DEECD62004F22CF /* intro2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 965823C51DEEC810004F22CF /* intro2.mp4 */; };
 		965FAB541DF9519F0009C0E7 /* PointsShort.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 965FAB531DF94EBB0009C0E7 /* PointsShort.mp4 */; };
+		965FAB581DF9DCE10009C0E7 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965FAB571DF9DCE10009C0E7 /* PetViewController.swift */; };
+		965FAB5A1DF9DD1B0009C0E7 /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 965FAB591DF9DD1B0009C0E7 /* MainScene.sks */; };
 		966688481DE068B300259542 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966688471DE068B300259542 /* AppColors.swift */; };
 		968CB7041DD4571F002D565E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CB7031DD4571F002D565E /* AppDelegate.swift */; };
 		968CB7091DD4571F002D565E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968CB7071DD4571F002D565E /* Main.storyboard */; };
@@ -72,6 +74,8 @@
 		965823C61DEEC9B5004F22CF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		965823C71DEEC9B5004F22CF /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		965FAB531DF94EBB0009C0E7 /* PointsShort.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = PointsShort.mp4; sourceTree = "<group>"; };
+		965FAB571DF9DCE10009C0E7 /* PetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
+		965FAB591DF9DD1B0009C0E7 /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
 		966688471DE068B300259542 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		968CB7001DD4571F002D565E /* LevelUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevelUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		968CB7031DD4571F002D565E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				4212EFAE1DD7813D00440814 /* TabBarViewController.swift */,
 				428B624B1DF48EDB00101ED3 /* EditQuestViewController.swift */,
 				960A38821DF7C2DA0031CDCB /* PointsViewController.swift */,
+				965FAB571DF9DCE10009C0E7 /* PetViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 				961754951DD458A000080277 /* Views */,
 				968CB7031DD4571F002D565E /* AppDelegate.swift */,
 				965FAB531DF94EBB0009C0E7 /* PointsShort.mp4 */,
+				965FAB591DF9DD1B0009C0E7 /* MainScene.sks */,
 				965823C51DEEC810004F22CF /* intro2.mp4 */,
 				968CB7071DD4571F002D565E /* Main.storyboard */,
 				968CB70A1DD4571F002D565E /* Assets.xcassets */,
@@ -287,6 +293,7 @@
 				968CB70E1DD4571F002D565E /* LaunchScreen.storyboard in Resources */,
 				964EB3BA1DD67F710081CA30 /* ActivityTableViewCell.xib in Resources */,
 				96AD22051DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.xib in Resources */,
+				965FAB5A1DF9DD1B0009C0E7 /* MainScene.sks in Resources */,
 				968CB70B1DD4571F002D565E /* Assets.xcassets in Resources */,
 				968CB7091DD4571F002D565E /* Main.storyboard in Resources */,
 			);
@@ -357,6 +364,7 @@
 				96AD22041DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.swift in Sources */,
 				428B624E1DF4A64A00101ED3 /* SelectableImageView.swift in Sources */,
 				42FE5E091DD6712200E63BFF /* TutorialViewController.swift in Sources */,
+				965FAB581DF9DCE10009C0E7 /* PetViewController.swift in Sources */,
 				961754A01DD45BFB00080277 /* ProfileViewController.swift in Sources */,
 				C19E4B6B1DF49452003EDCAE /* CalendarView.swift in Sources */,
 				42FE5E0E1DD68ADF00E63BFF /* Extensions.swift in Sources */,
