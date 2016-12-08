@@ -151,7 +151,7 @@ class MilestoneViewController: UIViewController {
         LevelUpClient.sharedInstance.addPoints(points: 24)
         print(points)
         
-        pointsLabel.text = "Points: \(points)"
+        pointsLabel.text = "Power Level: \(points)"
         
         
         
