@@ -11,8 +11,6 @@ import UIKit
 import SpriteKit
 
 
-
-
 class PetViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -57,6 +55,6 @@ class PetViewController: UIViewController {
 extension PetViewController: GameSceneControllerCellDelegate{
     func closedPressed() {
         print(" YAY GO BACK TO SEGUEEE")
-        //dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
