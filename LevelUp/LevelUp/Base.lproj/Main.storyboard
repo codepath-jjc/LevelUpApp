@@ -621,13 +621,36 @@
                                 <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mag-dS-52T">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points: 30000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vB1-ja-Zt1">
+                                        <rect key="frame" x="10" y="284" width="355" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="rdD-E7-3Ki"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="29"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.06018829347602915" green="0.36398582559681703" blue="0.16403756644770501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="vB1-ja-Zt1" firstAttribute="leading" secondItem="mag-dS-52T" secondAttribute="leading" constant="10" id="BbC-XP-YPU"/>
+                                    <constraint firstAttribute="trailing" secondItem="vB1-ja-Zt1" secondAttribute="trailing" constant="10" id="p5X-Pr-kqN"/>
+                                    <constraint firstItem="vB1-ja-Zt1" firstAttribute="centerY" secondItem="mag-dS-52T" secondAttribute="centerY" id="sao-Ue-HY0"/>
+                                    <constraint firstItem="vB1-ja-Zt1" firstAttribute="centerX" secondItem="mag-dS-52T" secondAttribute="centerX" id="xu8-v3-Uyg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yAf-XA-368" firstAttribute="centerY" secondItem="JRy-7S-KRx" secondAttribute="centerY" id="0Cb-ai-ost"/>
                             <constraint firstItem="OJO-Fg-xiq" firstAttribute="top" secondItem="8oT-H1-iFH" secondAttribute="bottom" constant="20" id="1P2-dY-elZ"/>
+                            <constraint firstAttribute="trailing" secondItem="mag-dS-52T" secondAttribute="trailing" id="2bO-J0-QLt"/>
                             <constraint firstItem="JRy-7S-KRx" firstAttribute="leading" secondItem="kmX-Pu-52B" secondAttribute="leading" constant="30" id="2m4-iw-hmH"/>
                             <constraint firstItem="JjN-py-LTU" firstAttribute="top" secondItem="jO3-fQ-EGd" secondAttribute="bottom" constant="20" id="7nn-0P-vsi"/>
+                            <constraint firstItem="mag-dS-52T" firstAttribute="leading" secondItem="kmX-Pu-52B" secondAttribute="leading" id="7w0-fz-kbt"/>
                             <constraint firstItem="DLP-Sb-VWd" firstAttribute="top" secondItem="yAf-XA-368" secondAttribute="bottom" constant="20" id="FVu-Mb-BpZ"/>
                             <constraint firstItem="tVJ-jA-KHD" firstAttribute="leading" secondItem="kmX-Pu-52B" secondAttribute="leading" constant="30" id="GLG-lm-Fet"/>
                             <constraint firstItem="Sbe-gh-lzu" firstAttribute="leading" secondItem="MJ3-Xw-aTt" secondAttribute="trailing" constant="20" id="GjE-nU-Eks"/>
@@ -641,6 +664,7 @@
                             <constraint firstItem="MJ3-Xw-aTt" firstAttribute="top" secondItem="OJO-Fg-xiq" secondAttribute="bottom" constant="15" id="evY-zR-Rp1"/>
                             <constraint firstItem="8oT-H1-iFH" firstAttribute="leading" secondItem="tVJ-jA-KHD" secondAttribute="trailing" constant="20" id="fhd-OF-lj2"/>
                             <constraint firstItem="8oT-H1-iFH" firstAttribute="top" secondItem="JjN-py-LTU" secondAttribute="bottom" constant="10" id="h5F-4B-Kha"/>
+                            <constraint firstItem="DLP-Sb-VWd" firstAttribute="top" secondItem="mag-dS-52T" secondAttribute="bottom" id="hAj-Am-KQg"/>
                             <constraint firstItem="OJO-Fg-xiq" firstAttribute="leading" secondItem="kmX-Pu-52B" secondAttribute="leading" constant="20" id="jVi-Og-wOs"/>
                             <constraint firstItem="Qzt-Rb-qLD" firstAttribute="leading" secondItem="Sbe-gh-lzu" secondAttribute="trailing" constant="10" id="jgm-9U-520"/>
                             <constraint firstAttribute="trailing" secondItem="8oT-H1-iFH" secondAttribute="trailing" constant="20" id="mI9-h3-J4D"/>
@@ -649,6 +673,7 @@
                             <constraint firstItem="jO3-fQ-EGd" firstAttribute="leading" secondItem="kmX-Pu-52B" secondAttribute="leading" constant="20" id="qIb-6r-5fr"/>
                             <constraint firstItem="Qzt-Rb-qLD" firstAttribute="bottom" secondItem="MJ3-Xw-aTt" secondAttribute="bottom" id="qmV-13-xdc"/>
                             <constraint firstAttribute="trailing" secondItem="OJO-Fg-xiq" secondAttribute="trailing" constant="20" id="s0e-fn-XUA"/>
+                            <constraint firstItem="mag-dS-52T" firstAttribute="top" secondItem="kmX-Pu-52B" secondAttribute="top" id="v67-xw-x0X"/>
                         </constraints>
                     </view>
                     <connections>
@@ -664,28 +689,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maA-f9-hRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="mag-dS-52T">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points: 30000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vB1-ja-Zt1">
-                            <rect key="frame" x="10" y="284" width="355" height="100"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="100" id="rdD-E7-3Ki"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="29"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="0.06018829347602915" green="0.36398582559681703" blue="0.16403756644770501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstItem="vB1-ja-Zt1" firstAttribute="leading" secondItem="mag-dS-52T" secondAttribute="leading" constant="10" id="BbC-XP-YPU"/>
-                        <constraint firstAttribute="trailing" secondItem="vB1-ja-Zt1" secondAttribute="trailing" constant="10" id="p5X-Pr-kqN"/>
-                        <constraint firstItem="vB1-ja-Zt1" firstAttribute="centerY" secondItem="mag-dS-52T" secondAttribute="centerY" id="sao-Ue-HY0"/>
-                        <constraint firstItem="vB1-ja-Zt1" firstAttribute="centerX" secondItem="mag-dS-52T" secondAttribute="centerX" id="xu8-v3-Uyg"/>
-                    </constraints>
-                </view>
             </objects>
             <point key="canvasLocation" x="1992.8" y="849.62518740629696"/>
         </scene>
