@@ -28,5 +28,10 @@ class AppColors: NSObject {
 
 
     
+    // 676260
+    
+    static let CurrentDay = UIColor(red:0.40, green:0.38, blue:0.38, alpha:1.0)
+    
+
     
 }
