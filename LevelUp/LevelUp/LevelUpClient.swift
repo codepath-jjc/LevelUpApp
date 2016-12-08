@@ -12,7 +12,21 @@ import Parse
 class LevelUpClient: NSObject {
 
     static let sharedInstance =  LevelUpClient()
-    static var cachedQuests: [Quest]?
+    static var cachedQuests: [Quest]? {
+        didSet {
+            guard cachedQuests != nil else {return}
+            
+            for cachedQuest in cachedQuests! {
+                LevelUpClient.sharedInstance.fetchIcon(quest: cachedQuest, success: {
+                    (image: UIImage) -> () in
+                    cachedQuest.image = image
+                }, failure: {
+                    (error: Error) -> () in
+                    //
+                })
+            }
+        }
+    }
     static var cachedMilestones: [Milestone]?
     static var __points = 1
     
