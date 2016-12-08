@@ -611,6 +611,9 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Points: 30000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vB1-ja-Zt1">
                                         <rect key="frame" x="88" y="308" width="179" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="rdD-E7-3Ki"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="29"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

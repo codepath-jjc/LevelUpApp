@@ -18,7 +18,7 @@ class MilestoneViewController: UIViewController {
     
     // points crap
     
-    var lastPosition:CGFloat = -10
+    var lastPosition:CGFloat = 15
     
     var snapBehaviour:UISnapBehavior!
     var animator:UIDynamicAnimator!
@@ -159,10 +159,10 @@ class MilestoneViewController: UIViewController {
         self.pointsLabel.setNeedsLayout()
 
         
-        if lastPosition == -10  {
+        if lastPosition ==  15  {
             lastPosition = 30
         } else {
-            lastPosition = -10
+            lastPosition = 15
         }
         
         animator = UIDynamicAnimator(referenceView: self.view)
@@ -176,7 +176,9 @@ class MilestoneViewController: UIViewController {
 
         
         
-        
+        UIView.animate(withDuration: 0.3, delay: 0.13, options: .curveEaseOut,  animations: {
+            self.pointsHolder.alpha = 1
+        })
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             //text.textColor = AppColors.PrimaryAccentColor
             self.navigationDelegate?.page = Page.profile
