@@ -11,6 +11,7 @@ import UIKit
 import Parse
 
 class ProfileViewController: UIViewController {
+    @IBOutlet weak var petButton: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     var navigationDelegate: TabBarViewController?
     var quests = [Quest]()
@@ -24,6 +25,9 @@ class ProfileViewController: UIViewController {
     
     let refreshControl = UIRefreshControl()
 
+    @IBAction func petButtonTapped(_ sender: Any) {
+    performSegue(withIdentifier: "showPet", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

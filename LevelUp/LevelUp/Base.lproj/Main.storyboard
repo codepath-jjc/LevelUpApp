@@ -304,23 +304,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S58-ci-iPd">
-                                <rect key="frame" x="0.0" y="102" width="375" height="565"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSU-ew-NPi">
-                                <rect key="frame" x="20" y="40" width="335" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <rect key="frame" x="20" y="40" width="335" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.73304647840000003" green="0.73304647840000003" blue="0.73304647840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNK-oc-OBX">
-                                <rect key="frame" x="67" y="40" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title=":)"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paw3" translatesAutoresizingMaskIntoConstraints="NO" id="aRV-e1-cgj">
+                                <rect key="frame" x="329" y="35" width="33" height="29"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="TWt-Ra-Lku"/>
+                                    <constraint firstAttribute="height" constant="29" id="hqj-Ql-rM2"/>
+                                </constraints>
                                 <connections>
-                                    <segue destination="vZi-En-9UI" kind="presentation" id="ZXP-kW-DfQ"/>
+                                    <outletCollection property="gestureRecognizers" destination="59q-JM-GlJ" appends="YES" id="GSL-eM-yEN"/>
                                 </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.18891268968582153" green="0.16088712215423584" blue="0.14810806512832642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -328,22 +331,31 @@
                             <constraint firstItem="S58-ci-iPd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4l0-bN-aAk"/>
                             <constraint firstAttribute="trailing" secondItem="jSU-ew-NPi" secondAttribute="trailing" constant="20" id="Ucu-Nl-OAe"/>
                             <constraint firstAttribute="trailing" secondItem="S58-ci-iPd" secondAttribute="trailing" id="WZ8-33-8Z7"/>
+                            <constraint firstItem="aRV-e1-cgj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="fPv-GR-i34"/>
                             <constraint firstItem="jSU-ew-NPi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="fjs-bh-GWM"/>
                             <constraint firstItem="jSU-ew-NPi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="kEq-Xt-4sf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="S58-ci-iPd" secondAttribute="bottom" id="pIX-LB-BzV"/>
+                            <constraint firstAttribute="trailing" secondItem="aRV-e1-cgj" secondAttribute="trailing" constant="13" id="yfD-a0-OKS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="headerTitle" destination="jSU-ew-NPi" id="lzE-nE-ccc"/>
                         <outlet property="headerTopConstraint" destination="fjs-bh-GWM" id="zxZ-ft-r1i"/>
+                        <outlet property="petButton" destination="aRV-e1-cgj" id="Emn-SE-ib4"/>
                         <outlet property="tableFromTopConstraint" destination="4AN-kJ-vq8" id="kTt-UW-g2L"/>
                         <outlet property="tableView" destination="S58-ci-iPd" id="pBp-49-yHT"/>
                         <segue destination="lar-Ps-rYo" kind="presentation" identifier="showMilestone" id="rWu-OZ-Zgl"/>
+                        <segue destination="vZi-En-9UI" kind="presentation" identifier="showPet" id="rKJ-Wd-5Ev"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="59q-JM-GlJ">
+                    <connections>
+                        <action selector="petButtonTapped:" destination="BYZ-38-t0r" id="7TX-le-unG"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2706" y="21"/>
+            <point key="canvasLocation" x="2426" y="-5"/>
         </scene>
         <!--Pet View Controller-->
         <scene sceneID="cYt-d4-rma">
@@ -981,6 +993,7 @@
     <resources>
         <image name="activity" width="28" height="28"/>
         <image name="milestones" width="31" height="31"/>
+        <image name="paw3" width="35" height="32"/>
         <image name="profile" width="31" height="31"/>
         <image name="quest" width="27" height="27"/>
     </resources>
