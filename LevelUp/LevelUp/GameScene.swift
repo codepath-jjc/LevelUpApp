@@ -17,10 +17,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     let flare = SKEmitterNode(fileNamed: "Flare")
     
     var playerDirection:CGFloat = 1.0
-    var playerSpeed:CGFloat = 10.0
+    var playerSpeed:CGFloat = 5.0
    
     // 1
-    let player = SKSpriteNode(imageNamed: "profile")
+    let player = SKSpriteNode(imageNamed: "pet1")
     
     override func didMove(to view: SKView) {
         // 2
@@ -43,6 +43,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
        player.zPosition = 2
         
     }
+    
+    
     
     override func update(_ currentTime: TimeInterval) {
         
@@ -79,6 +81,18 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
                 self.shakeScreen()
              //   node.isHidden = true
                 self.flare?.isHidden = false
+                
+                
+                
+                let ballAction = SKAction.wait(forDuration: TimeInterval(2.0));
+                self.run(ballAction, completion: { () -> Void in
+                    //self.resetEverything()
+                        print("action ran")
+                    self.flare?.isHidden = true
+
+                });
+                
+                
                // stop.memory = true
             }
         }
