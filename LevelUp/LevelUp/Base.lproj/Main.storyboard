@@ -304,17 +304,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S58-ci-iPd">
-                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="91" width="375" height="576"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSU-ew-NPi">
-                                <rect key="frame" x="20" y="40" width="335" height="20"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <rect key="frame" x="20" y="28" width="335" height="43"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="35"/>
                                 <color key="textColor" red="0.73304647840000003" green="0.73304647840000003" blue="0.73304647840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paw3" translatesAutoresizingMaskIntoConstraints="NO" id="aRV-e1-cgj">
-                                <rect key="frame" x="314" y="35" width="33" height="29"/>
+                                <rect key="frame" x="322" y="35" width="33" height="29"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="XIF-9c-ipK"/>
@@ -329,11 +329,12 @@
                         <constraints>
                             <constraint firstItem="S58-ci-iPd" firstAttribute="top" secondItem="jSU-ew-NPi" secondAttribute="bottom" constant="20" id="4AN-kJ-vq8"/>
                             <constraint firstItem="S58-ci-iPd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4l0-bN-aAk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aRV-e1-cgj" secondAttribute="trailing" constant="12" id="7IQ-Ew-J1c"/>
+                            <constraint firstAttribute="trailing" secondItem="aRV-e1-cgj" secondAttribute="trailing" constant="20" id="4yO-Fh-I7g"/>
                             <constraint firstItem="aRV-e1-cgj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="Jhw-Fg-KbK"/>
-                            <constraint firstAttribute="trailing" secondItem="jSU-ew-NPi" secondAttribute="trailing" constant="20" id="Ucu-Nl-OAe"/>
+                            <constraint firstItem="aRV-e1-cgj" firstAttribute="centerY" secondItem="jSU-ew-NPi" secondAttribute="centerY" id="S5S-aQ-wVx"/>
                             <constraint firstAttribute="trailing" secondItem="S58-ci-iPd" secondAttribute="trailing" id="WZ8-33-8Z7"/>
-                            <constraint firstItem="jSU-ew-NPi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="fjs-bh-GWM"/>
+                            <constraint firstItem="jSU-ew-NPi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZAo-c9-sxo"/>
+                            <constraint firstItem="jSU-ew-NPi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="fjs-bh-GWM"/>
                             <constraint firstItem="jSU-ew-NPi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="kEq-Xt-4sf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="S58-ci-iPd" secondAttribute="bottom" id="pIX-LB-BzV"/>
                         </constraints>
@@ -620,7 +621,7 @@
                                         <rect key="frame" x="0.0" y="28" width="249" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5EK-Rs-qgf" id="9fs-85-n0o">
-                                            <rect key="frame" x="0.0" y="0.0" width="249" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="249" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
