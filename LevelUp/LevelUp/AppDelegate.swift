@@ -53,8 +53,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         //*/
         
+        
         LevelUpClient.sharedInstance.quests(success: {
             (quests: [Quest]) -> () in
+            //
+        }, failure: {
+            (error: Error?) -> () in
+            //
+        })
+        
+        LevelUpClient.sharedInstance.milestones(success: {
+            (milestones: [Milestone]) -> () in
             //
         }, failure: {
             (error: Error?) -> () in
