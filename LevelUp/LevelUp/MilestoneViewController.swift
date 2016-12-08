@@ -44,6 +44,11 @@ class MilestoneViewController: UIViewController {
                     notesTextView.text = milestone?.notes
                 }
             }
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM d, yyyy"
+            if let deadline = milestone?.deadline {
+                dueDateLabel.text = formatter.string(from: deadline)
+            }
         }
     }
     var quest: Quest? {
@@ -143,7 +148,7 @@ class MilestoneViewController: UIViewController {
         })
         
         UIView.animate(withDuration: 0.9, delay: 0.0, options: .curveEaseOut,  animations: {
-            self.pointsHolder.backgroundColor =          UIColor(white: 0, alpha: 0.95)
+            self.pointsHolder.backgroundColor = UIColor(white: 0, alpha: 0.95)
         })
         
     
@@ -169,23 +174,23 @@ class MilestoneViewController: UIViewController {
         animator = UIDynamicAnimator(referenceView: self.view)
         snapBehaviour = UISnapBehavior(item: pointsLabel, snapTo: CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2 - lastPosition))
         snapBehaviour.action = {
-            print("behaviour ")
             //self.pointsLabel.setNeedsLayout()
         }
         snapBehaviour.damping = 0.15
         animator.addBehavior(snapBehaviour)
 
-        
-        
         UIView.animate(withDuration: 0.3, delay: 0.13, options: .curveEaseOut,  animations: {
             self.pointsHolder.alpha = 1
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             //text.textColor = AppColors.PrimaryAccentColor
-            self.navigationDelegate?.page = Page.profile
+            if let navDelegate = self.navigationDelegate {
+                navDelegate.page = Page.profile
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
             
         }
-        
         
     }
     
