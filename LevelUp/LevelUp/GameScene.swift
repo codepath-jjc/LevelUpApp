@@ -31,7 +31,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
    
     // 1
     let player = SKSpriteNode(imageNamed: "pet1")
-    
+    let atlas = SKTextureAtlas(named: "pet.atlas")
+    let morphaAlas = SKTextureAtlas(named: "morph.atlas")
+
     override func didMove(to view: SKView) {
         // 2
 
@@ -41,6 +43,21 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
 
         
      
+        
+     
+        let m1 = atlas.textureNamed("pet1.png")
+        let m2 = atlas.textureNamed("pet2.png")
+        let m3 = atlas.textureNamed("pet3.png")
+
+        
+        let textures = [m1, m2, m3]
+        
+        
+        
+        let meleeAnimation = SKAction.animate(with: textures, timePerFrame: 0.095)
+        
+        player.run(SKAction.repeatForever(meleeAnimation))
+        
         backgroundColor = SKColor.black
         // 3
         player.position = CGPoint(x: size.width * 0.1, y: size.height * 0.5)
@@ -82,8 +99,25 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("TOUCH")
         
-        closedDelegate?.closedPressed?()
+        //closedDelegate?.closedPressed?()
         
+        
+        /////////
+        let m1 = morphaAlas.textureNamed("morph1.png")
+        let m2 = morphaAlas.textureNamed("morph2.png")
+        
+        
+        let textures = [m1, m2]
+        
+        
+        
+        let morphAniamtion = SKAction.animate(with: textures, timePerFrame: 0.15)
+        
+        player.run(SKAction.repeatForever(morphAniamtion))
+        
+        
+        
+        ///////////////
         let location = touches.first!.location(in: self)
         
         backgroundLayer?.enumerateChildNodes(withName: "player") { node, stop in
