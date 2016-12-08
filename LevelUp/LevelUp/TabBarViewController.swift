@@ -183,8 +183,6 @@ class TabBarViewController: UIViewController {
         self.milestoneLabel.alpha = 0
         self.profileLabel.alpha = 0
         self.view.layoutIfNeeded()
-
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {

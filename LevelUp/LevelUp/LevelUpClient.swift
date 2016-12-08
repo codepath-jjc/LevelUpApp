@@ -16,7 +16,7 @@ class LevelUpClient: NSObject {
     static var cachedMilestones: [Milestone]?
     static var __points = 1
     
-    func fetchIcon( quest: Quest, success: @escaping (UIImage) -> (), failure: @escaping (Error)->() ) {
+    func fetchIcon(quest: Quest, success: @escaping (UIImage) -> (), failure: @escaping (Error)->() ) {
         
         if let loadedIcon = quest.image {
             success(loadedIcon)

@@ -27,6 +27,7 @@ class QuestTableViewCell: UITableViewCell {
 
             LevelUpClient.sharedInstance.fetchIcon(quest: quest, success: { (image: UIImage) in
                 self.iconImage.image = image
+                self.quest.image = image
                 }, failure: { (error:Error) in
                     print("error", error.localizedDescription)
             })
