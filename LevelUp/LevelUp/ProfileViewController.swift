@@ -176,7 +176,8 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.textColor = AppColors.PrimaryTextColor
             
             cell.milestones = milestones
-            
+            cell.selectionStyle = UITableViewCellSelectionStyle.none;
+
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("QuestTableViewCell", owner: self, options: nil)?.first  as! QuestTableViewCell

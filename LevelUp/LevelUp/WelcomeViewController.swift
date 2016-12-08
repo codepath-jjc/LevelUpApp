@@ -41,6 +41,11 @@ class WelcomeViewController: UIViewController {
         //showQuestInfo
     }
     
+    override var prefersStatusBarHidden : Bool {
+        return true
+    }
+    
+    
     func playerDidFinishPlaying(note:NSNotification){
         print("finished")
         self.performSegue(withIdentifier: "showQuestInfo", sender: self)

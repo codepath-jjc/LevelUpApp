@@ -73,7 +73,7 @@ class CalendarView: UIView {
         
         let green  = AppColors.PrimaryAccentColor
         let grey = AppColors.ThirdGrey
-        let textColor = AppColors.PrimaryTextColor
+        let textColor = AppColors.CurrentDay
         
         let margin = CGFloat(10)
         let spacer = CGFloat(8)

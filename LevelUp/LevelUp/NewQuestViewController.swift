@@ -74,6 +74,12 @@ class NewQuestViewController: UIViewController  {
         
     }
     
+    
+    override var prefersStatusBarHidden : Bool {
+        return true
+    }
+    
+    
     func onTimePickerTap() {
         if isExpandedTimePicker {
             dueTimeHeightConstraint.constant = originalTimePickerHeight

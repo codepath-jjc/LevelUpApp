@@ -44,7 +44,7 @@ class ActivityTimelineViewController: UIViewController {
         LevelUpClient.sharedInstance.milestones(success: { (milestones: [Milestone]) in
          
             // TODO: JASON add back            
-            self._milestones = milestones
+            self._milestones = milestones.reversed()
             self.refreshControl.endRefreshing()
             self.tableView.reloadData()
 
@@ -72,7 +72,8 @@ extension ActivityTimelineViewController: UITableViewDataSource, UITableViewDele
  
         let cell = Bundle.main.loadNibNamed("ActivityTimelineTableViewCell", owner: self, options: nil)?.first  as! ActivityTimelineTableViewCell
         
-        
+        cell.selectionStyle = UITableViewCellSelectionStyle.none;
+
         cell.milestone = _milestones[indexPath.row]
         cell.related = _milestones.filter({$0.questId == cell.milestone.questId})
         
