@@ -58,6 +58,8 @@ class ProfileViewController: UIViewController {
         self.headerTopConstraint.constant = 0
         self.headerTitle.alpha = 0
         self.tableView.alpha = 0.3
+        self.petButton.alpha = 0.1
+
         self.view.layoutIfNeeded()
     }
     
@@ -77,6 +79,7 @@ class ProfileViewController: UIViewController {
             self.headerTopConstraint.constant = 20
             self.headerTitle.alpha = 1
             self.tableView.alpha = 1
+            self.petButton.alpha = 1
             self.tableFromTopConstraint.constant = 20
             self.view.layoutIfNeeded()
         })
