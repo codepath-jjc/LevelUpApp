@@ -50,6 +50,8 @@
 		96B76C0E1DFA06FB00BA2B20 /* lilmonsters.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 96B76C0D1DFA06FB00BA2B20 /* lilmonsters.atlas */; };
 		96B76C101DFA08F600BA2B20 /* turd.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 96B76C0F1DFA08F600BA2B20 /* turd.atlas */; };
 		96B76C121DFA186900BA2B20 /* egg.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 96B76C111DFA186900BA2B20 /* egg.atlas */; };
+		96E8E6991DFA288B009B1C03 /* Rain.sks in Resources */ = {isa = PBXBuildFile; fileRef = 96E8E6981DFA288B009B1C03 /* Rain.sks */; };
+		96E8E69B1DFA294D009B1C03 /* Spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = 96E8E69A1DFA294D009B1C03 /* Spark.sks */; };
 		C19E4B6B1DF49452003EDCAE /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E4B6A1DF49452003EDCAE /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +101,8 @@
 		96B76C0D1DFA06FB00BA2B20 /* lilmonsters.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = lilmonsters.atlas; sourceTree = "<group>"; };
 		96B76C0F1DFA08F600BA2B20 /* turd.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = turd.atlas; sourceTree = "<group>"; };
 		96B76C111DFA186900BA2B20 /* egg.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = egg.atlas; sourceTree = "<group>"; };
+		96E8E6981DFA288B009B1C03 /* Rain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rain.sks; sourceTree = "<group>"; };
+		96E8E69A1DFA294D009B1C03 /* Spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Spark.sks; sourceTree = "<group>"; };
 		C19E4B6A1DF49452003EDCAE /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		C98740D3F5870BAF99ED43AF /* Pods-LevelUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-LevelUp/Pods-LevelUp.release.xcconfig"; sourceTree = "<group>"; };
 		D161F0C0F2C0C56B63FB7D4A /* Pods-LevelUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LevelUp/Pods-LevelUp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +252,8 @@
 				965FAB571DF9DCE10009C0E7 /* PetViewController.swift */,
 				96B76BF61DF9DF4200BA2B20 /* GameScene.swift */,
 				96B76BF81DF9EE4D00BA2B20 /* Flare.sks */,
+				96E8E6981DFA288B009B1C03 /* Rain.sks */,
+				96E8E69A1DFA294D009B1C03 /* Spark.sks */,
 			);
 			name = Pet;
 			sourceTree = "<group>";
@@ -330,7 +336,9 @@
 				968CB70B1DD4571F002D565E /* Assets.xcassets in Resources */,
 				96B76C0E1DFA06FB00BA2B20 /* lilmonsters.atlas in Resources */,
 				968CB7091DD4571F002D565E /* Main.storyboard in Resources */,
+				96E8E6991DFA288B009B1C03 /* Rain.sks in Resources */,
 				96B76C121DFA186900BA2B20 /* egg.atlas in Resources */,
+				96E8E69B1DFA294D009B1C03 /* Spark.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

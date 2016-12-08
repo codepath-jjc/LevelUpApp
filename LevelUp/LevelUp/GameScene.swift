@@ -27,6 +27,14 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     
     let flare = SKEmitterNode(fileNamed: "Flare")
     
+    let spark = SKEmitterNode(fileNamed: "Spark")
+
+    let rain = SKEmitterNode(fileNamed: "Rain")
+
+    
+    var frozen = false
+    
+    
     var playerDirection:CGFloat = 1.0
     var playerSpeed:CGFloat = 5.0
     let MAX_POOP = 10
@@ -72,7 +80,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         
         backgroundLayer?.addChild(backBtn)
         
-        backBtn.position = CGPoint(x: 20  + backBtn.frame.width/2, y: 70)
+        backBtn.position = CGPoint(x: 20  + backBtn.frame.width/2, y: 20)
 
         
         //
@@ -85,7 +93,18 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         backgroundLayer?.addChild(player)
         flare?.name = "playerflare"
         flare?.isHidden = true
+        
+        
+        
+        spark?.isHidden = true
+        
+        rain?.isHidden = true
+        
+        
         player.addChild(flare!)
+        player.addChild(spark!)
+
+        
         player.zPosition = 2
         
         // POOPS on timer
@@ -173,6 +192,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     
     func updatePlayer(){
         
+        if frozen  {
+            return
+        }
         if LevelUpClient.morphLevel >= 1 {
             var playerX = player.position.x
             playerX = playerX +  playerDirection * playerSpeed
@@ -258,6 +280,21 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         
     }
     
+    func showSpark(){
+        frozen = true
+        self.spark?.isHidden = false
+        self.spark?.zPosition = 5
+        
+        let ballAction = SKAction.wait(forDuration: TimeInterval(0.3));
+        self.run(ballAction, completion: { () -> Void in
+            //self.resetEverything()
+            print("action ran")
+            self.frozen = false
+            self.spark?.isHidden = true
+            
+        });
+    }
+    
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let location = touches.first!.location(in: self)
@@ -282,11 +319,12 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
             
             if(LevelUpClient.__points >= 20 && LevelUpClient.morphLevel == 1){
                 loadMorphLevel2()
+                showSpark()
             }
             
             if(LevelUpClient.morphLevel == 0){
                 loadMorphLevel1()
-
+                showSpark()
             }
 
             
