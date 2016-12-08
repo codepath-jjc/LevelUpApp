@@ -306,7 +306,7 @@ class MilestoneViewController: UIViewController {
         UIView.animate(withDuration: 0.3, delay: 0.13, options: .curveEaseOut,  animations: {
             self.pointsHolder.alpha = 1
         })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
             //text.textColor = AppColors.PrimaryAccentColor
             if let navDelegate = self.navigationDelegate {
                 navDelegate.page = Page.profile
