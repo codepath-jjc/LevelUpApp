@@ -21,6 +21,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     
     
     var backgroundLayer: SKSpriteNode?
+    var scoreLabel :SKLabelNode!
 
     var closedDelegate: GameSceneControllerCellDelegate?
     
@@ -30,8 +31,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     var playerSpeed:CGFloat = 5.0
    
     // 1
-    let player = SKSpriteNode(imageNamed: "pet1")
-    let atlas = SKTextureAtlas(named: "pet.atlas")
+    let atlas = SKTextureAtlas(named: "lilmonsters.atlas")
+
+    let player = SKSpriteNode(imageNamed: "petbase.png")
     let morphaAlas = SKTextureAtlas(named: "morph.atlas")
 
     override func didMove(to view: SKView) {
@@ -42,13 +44,26 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         self.addChild(backgroundLayer!);
 
         
+        // Our score board!
+        let points = LevelUpClient.__points
+        scoreLabel = SKLabelNode(text: "Power Level: \(points)")
+        scoreLabel.position = CGPoint(x: 50, y: self.frame.size.height - 60)
+        scoreLabel.fontSize = 30
+        scoreLabel.fontName = "AmericanTypewriter-Bold"
+        
+        backgroundLayer?.addChild(scoreLabel)
+
      
         
-     
+        let m1 = atlas.textureNamed("sprite_0.png")
+        let m2 = atlas.textureNamed("sprite_1.png")
+        let m3 = atlas.textureNamed("sprite_2.png")
+        
+     /*
         let m1 = atlas.textureNamed("pet1.png")
         let m2 = atlas.textureNamed("pet2.png")
         let m3 = atlas.textureNamed("pet3.png")
-
+*/
         
         let textures = [m1, m2, m3]
         
