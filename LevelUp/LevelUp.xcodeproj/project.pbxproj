@@ -44,6 +44,7 @@
 		96AD22041DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AD22021DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.swift */; };
 		96AD22051DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96AD22031DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.xib */; };
 		96B76BF71DF9DF4200BA2B20 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B76BF61DF9DF4200BA2B20 /* GameScene.swift */; };
+		96B76BF91DF9EE4D00BA2B20 /* Flare.sks in Resources */ = {isa = PBXBuildFile; fileRef = 96B76BF81DF9EE4D00BA2B20 /* Flare.sks */; };
 		C19E4B6B1DF49452003EDCAE /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E4B6A1DF49452003EDCAE /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		96AD22021DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTimelineTableViewCell.swift; sourceTree = "<group>"; };
 		96AD22031DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityTimelineTableViewCell.xib; sourceTree = "<group>"; };
 		96B76BF61DF9DF4200BA2B20 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		96B76BF81DF9EE4D00BA2B20 /* Flare.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Flare.sks; sourceTree = "<group>"; };
 		C19E4B6A1DF49452003EDCAE /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		C98740D3F5870BAF99ED43AF /* Pods-LevelUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-LevelUp/Pods-LevelUp.release.xcconfig"; sourceTree = "<group>"; };
 		D161F0C0F2C0C56B63FB7D4A /* Pods-LevelUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevelUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LevelUp/Pods-LevelUp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				965FAB571DF9DCE10009C0E7 /* PetViewController.swift */,
 				96B76BF61DF9DF4200BA2B20 /* GameScene.swift */,
+				96B76BF81DF9EE4D00BA2B20 /* Flare.sks */,
 			);
 			name = Pet;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				968CB70E1DD4571F002D565E /* LaunchScreen.storyboard in Resources */,
 				964EB3BA1DD67F710081CA30 /* ActivityTableViewCell.xib in Resources */,
 				96AD22051DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.xib in Resources */,
+				96B76BF91DF9EE4D00BA2B20 /* Flare.sks in Resources */,
 				965FAB5A1DF9DD1B0009C0E7 /* MainScene.sks in Resources */,
 				968CB70B1DD4571F002D565E /* Assets.xcassets in Resources */,
 				968CB7091DD4571F002D565E /* Main.storyboard in Resources */,
