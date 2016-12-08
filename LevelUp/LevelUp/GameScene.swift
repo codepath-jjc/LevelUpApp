@@ -59,24 +59,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         scoreLabel.position = CGPoint(x: 20  + scoreLabel.frame.width/2, y: self.frame.size.height - 60)
 
      
-        
-        let m1 = atlas.textureNamed("sprite_0.png")
-        let m2 = atlas.textureNamed("sprite_1.png")
-        let m3 = atlas.textureNamed("sprite_2.png")
-        
-     /*
-        let m1 = atlas.textureNamed("pet1.png")
-        let m2 = atlas.textureNamed("pet2.png")
-        let m3 = atlas.textureNamed("pet3.png")
-*/
-        
-        let textures = [m1, m2, m3]
-        
-        
-        
-        let meleeAnimation = SKAction.animate(with: textures, timePerFrame: 0.095)
-        
-        player.run(SKAction.repeatForever(meleeAnimation))
+      
         
         backgroundColor = SKColor.black
         // 3
@@ -87,14 +70,26 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         flare?.name = "playerflare"
         flare?.isHidden = true
         player.addChild(flare!)
-       player.zPosition = 2
-        
+        player.zPosition = 2
+        loadMorphLevel1()
         
         // POOPS on timer
         
-
+        
         // POOP TIMER
-        let wait = SKAction.wait(forDuration: 4.0) //change countdown speed here
+        
+        var poopTimer = 4.0
+        if(LevelUpClient.morphLevel > 1){
+            poopTimer = 80
+        }
+        
+        print("poopTimer",poopTimer)
+        
+        // EGG!!!
+        
+        
+        
+        let wait = SKAction.wait(forDuration: poopTimer) //change countdown speed here
         let block = SKAction.run({
             [unowned self] in
                 print("POOP TIMER")
@@ -160,6 +155,44 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     
 
     
+    func loadMorphLevel1(){
+        
+        let m1 = atlas.textureNamed("sprite_0.png")
+        let m2 = atlas.textureNamed("sprite_1.png")
+        let m3 = atlas.textureNamed("sprite_2.png")
+        
+        /*
+         let m1 = atlas.textureNamed("pet1.png")
+         let m2 = atlas.textureNamed("pet2.png")
+         let m3 = atlas.textureNamed("pet3.png")
+         */
+        
+        let textures = [m1, m2, m3]
+        
+        
+        
+        let meleeAnimation = SKAction.animate(with: textures, timePerFrame: 0.095)
+        
+        player.run(SKAction.repeatForever(meleeAnimation))
+    }
+    
+    func loadMorphLevel2(){
+        
+        
+        /////////
+        let m1 = morphaAlas.textureNamed("morph1.png")
+        let m2 = morphaAlas.textureNamed("morph2.png")
+        
+        
+        let textures = [m1, m2]
+        
+        
+        let morphAniamtion = SKAction.animate(with: textures, timePerFrame: 0.15)
+        player.run(SKAction.repeatForever(morphAniamtion))
+        
+    }
+    
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let location = touches.first!.location(in: self)
 
@@ -182,20 +215,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
             
             // TRANFORM:
             
-            
-            /////////
-            let m1 = morphaAlas.textureNamed("morph1.png")
-            let m2 = morphaAlas.textureNamed("morph2.png")
-            
-            
-            let textures = [m1, m2]
-            
-            
-            
-            let morphAniamtion = SKAction.animate(with: textures, timePerFrame: 0.15)
-            
-            player.run(SKAction.repeatForever(morphAniamtion))
-        
+            if(LevelUpClient.__points >= 20){
+                loadMorphLevel2()
+            }
             
             
             //  self.shakeScreen()
