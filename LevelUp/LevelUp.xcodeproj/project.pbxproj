@@ -33,6 +33,7 @@
 		965823C81DEEC9B5004F22CF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965823C61DEEC9B5004F22CF /* AVFoundation.framework */; };
 		965823C91DEEC9B5004F22CF /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965823C71DEEC9B5004F22CF /* AVKit.framework */; };
 		965823CA1DEECD62004F22CF /* intro2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 965823C51DEEC810004F22CF /* intro2.mp4 */; };
+		965FAB541DF9519F0009C0E7 /* PointsShort.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 965FAB531DF94EBB0009C0E7 /* PointsShort.mp4 */; };
 		966688481DE068B300259542 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966688471DE068B300259542 /* AppColors.swift */; };
 		968CB7041DD4571F002D565E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CB7031DD4571F002D565E /* AppDelegate.swift */; };
 		968CB7091DD4571F002D565E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968CB7071DD4571F002D565E /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 		965823C51DEEC810004F22CF /* intro2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro2.mp4; sourceTree = "<group>"; };
 		965823C61DEEC9B5004F22CF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		965823C71DEEC9B5004F22CF /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		965FAB531DF94EBB0009C0E7 /* PointsShort.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = PointsShort.mp4; sourceTree = "<group>"; };
 		966688471DE068B300259542 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		968CB7001DD4571F002D565E /* LevelUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevelUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		968CB7031DD4571F002D565E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				961754961DD458A600080277 /* View Controllers */,
 				961754951DD458A000080277 /* Views */,
 				968CB7031DD4571F002D565E /* AppDelegate.swift */,
+				965FAB531DF94EBB0009C0E7 /* PointsShort.mp4 */,
 				965823C51DEEC810004F22CF /* intro2.mp4 */,
 				968CB7071DD4571F002D565E /* Main.storyboard */,
 				968CB70A1DD4571F002D565E /* Assets.xcassets */,
@@ -277,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				965FAB541DF9519F0009C0E7 /* PointsShort.mp4 in Resources */,
 				965823CA1DEECD62004F22CF /* intro2.mp4 in Resources */,
 				9617549D1DD459E900080277 /* QuestTableViewCell.xib in Resources */,
 				428B62501DF4A67E00101ED3 /* SelectableImageView.xib in Resources */,

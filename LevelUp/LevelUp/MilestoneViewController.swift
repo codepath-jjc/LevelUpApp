@@ -8,6 +8,9 @@
 
 import UIKit
 import UserNotifications
+import AVKit
+import AVFoundation
+
 
 class MilestoneViewController: UIViewController {
     var navigationDelegate: TabBarViewController?
@@ -18,6 +21,7 @@ class MilestoneViewController: UIViewController {
     @IBOutlet weak var pointsHolder: UIView!
     
     // points crap
+    @IBOutlet weak var videoHolder: UIView!
     
     var lastPosition:CGFloat = 15
     
@@ -125,6 +129,11 @@ class MilestoneViewController: UIViewController {
         navigationDelegate?.tabBarHidden = true
     }
 
+    
+    func playerDidFinishPlaying(){
+        
+    }
+    
     @IBAction func onDone(_ sender: Any) {
         milestone?.completed = true
         
@@ -148,6 +157,35 @@ class MilestoneViewController: UIViewController {
             })
         }
 
+        
+        
+        
+        // REMEMBER:
+        // ADD THIS  FILE TO THE Project -> Build Phase
+        // COPY BUNDLE RESOURCES
+        ///////// VIDEO
+        let fileURL = NSURL(fileURLWithPath:  Bundle.main.path(forResource: "PointsShort", ofType: "mp4")!)
+        
+        let player = AVPlayer(url: fileURL as URL )
+        let playerController = AVPlayerViewController()
+        
+        playerController.player = player
+        self.addChildViewController(playerController)
+        self.videoHolder.addSubview(playerController.view)
+        playerController.view.frame = videoHolder.frame
+        playerController.showsPlaybackControls = false
+        //  player.addObserver(self, forKeyPath: "actionAtItemEnd", options: [], context: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying),
+                                               name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                               object: player.currentItem)
+        
+        
+        
+        player.play()
+        
+        
+        /////// VIDEO
         pointsHolder.backgroundColor = AppColors.DarkGreen
         pointsHolder.alpha = 0.0
         pointsHolder.isHidden = false
@@ -177,6 +215,13 @@ class MilestoneViewController: UIViewController {
             lastPosition = 15
         }
         
+        
+        
+        
+        
+        
+        
+        
         animator = UIDynamicAnimator(referenceView: self.view)
         snapBehaviour = UISnapBehavior(item: pointsLabel, snapTo: CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2 - lastPosition))
         snapBehaviour.action = {
@@ -188,7 +233,7 @@ class MilestoneViewController: UIViewController {
         UIView.animate(withDuration: 0.3, delay: 0.13, options: .curveEaseOut,  animations: {
             self.pointsHolder.alpha = 1
         })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             //text.textColor = AppColors.PrimaryAccentColor
             if let navDelegate = self.navigationDelegate {
                 navDelegate.page = Page.profile

@@ -624,6 +624,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mag-dS-52T">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KxN-ae-pJx">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points: 30000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vB1-ja-Zt1">
                                         <rect key="frame" x="10" y="284" width="355" height="100"/>
                                         <constraints>
@@ -686,6 +691,7 @@
                         <outlet property="pointsLabel" destination="vB1-ja-Zt1" id="A4M-fP-pCC"/>
                         <outlet property="questNameTableView" destination="8oT-H1-iFH" id="msZ-04-7ED"/>
                         <outlet property="tableViewHeightConstraint" destination="Lo0-BF-3qx" id="t0c-il-P0g"/>
+                        <outlet property="videoHolder" destination="KxN-ae-pJx" id="lfj-Ag-hmT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maA-f9-hRb" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // comment  tout these last few lines to show tutorial always
-        /*
+        ///*
         if UserDefaults.standard.bool(forKey: "HasLaunched") {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let tabBarVC = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.setValue(true, forKey: "HasLaunched")
         }
     
-        */
+        //*/
         
         LevelUpClient.sharedInstance.quests(success: {
             (quests: [Quest]) -> () in

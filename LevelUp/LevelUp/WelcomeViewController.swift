@@ -17,6 +17,9 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // REMEMBER:
+        // ADD THIS  FILE TO THE Project -> Build Phase
+        // COPY BUNDLE RESOURCES
         let fileURL = NSURL(fileURLWithPath:  Bundle.main.path(forResource: "intro2", ofType: "mp4")!)
         
         let player = AVPlayer(url: fileURL as URL )
@@ -35,7 +38,7 @@ class WelcomeViewController: UIViewController {
 
         
         
-            player.play()
+        player.play()
     
         
         //showQuestInfo
