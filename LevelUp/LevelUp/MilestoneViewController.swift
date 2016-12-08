@@ -38,9 +38,6 @@ class MilestoneViewController: UIViewController {
         didSet {
             view.layoutIfNeeded()
             
-            if let image = milestone?.image {
-                icon.image = image
-            }
             if let notes = milestone?.notes {
                 if !notes.isEmpty {
                     notesTextView.text = milestone?.notes
@@ -58,6 +55,10 @@ class MilestoneViewController: UIViewController {
             guard quest != nil else { return }
             
             view.layoutIfNeeded()
+            
+            if let image = quest?.image {
+                icon.image = image
+            }
 
             let _ = quest!.upcomingMilestone(success: {
                 (upcomingMilestone: Milestone) -> () in

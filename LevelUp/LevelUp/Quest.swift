@@ -147,7 +147,7 @@ class Quest: NSObject {
         
         let date = Date(timeIntervalSinceNow: 0)
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d, yyyy"
+        formatter.dateFormat = "M.d.YY"
         var milestoneTitle = "\(title ?? "") - "
         var milestone = Milestone(dictionary: ["title": milestoneTitle, "completed": false, "questId": pfObject?.objectId ?? "", "quest": self])
         
