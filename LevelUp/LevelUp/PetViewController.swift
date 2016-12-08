@@ -18,7 +18,7 @@ class PetViewController: UIViewController {
 
         
         let skView = SKView(frame: self.view.frame)
-        let scene = SKScene(fileNamed: "MainScene")
+        let scene = GameScene(size: view.bounds.size)
         skView.presentScene(scene)
         view.addSubview(skView)
         
@@ -27,6 +27,8 @@ class PetViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+  
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
