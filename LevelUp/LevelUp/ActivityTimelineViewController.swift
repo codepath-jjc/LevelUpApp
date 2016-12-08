@@ -44,7 +44,7 @@ class ActivityTimelineViewController: UIViewController {
         LevelUpClient.sharedInstance.milestones(success: { (milestones: [Milestone]) in
          
             // TODO: JASON add back            
-            self._milestones = milestones
+            self._milestones = milestones.reversed()
             self.refreshControl.endRefreshing()
             self.tableView.reloadData()
 
