@@ -39,6 +39,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     let morphaAlas = SKTextureAtlas(named: "morph.atlas")
     let eggAtlas = SKTextureAtlas(named: "egg.atlas")
 
+    
+    var backBtn: SKLabelNode!
+    
     override func didMove(to view: SKView) {
         // 2
 
@@ -59,10 +62,22 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         backgroundLayer?.addChild(scoreLabel)
         scoreLabel.position = CGPoint(x: 20  + scoreLabel.frame.width/2, y: self.frame.size.height - 60)
 
-     
-      
+        // Back btn
+        backBtn = SKLabelNode(text: "Back")
         
-        backgroundColor = SKColor.black
+        backBtn.fontColor = AppColors.PrimaryAccentColor
+        backBtn.fontSize = 20
+        backBtn.name = "backbtn"
+        backBtn.fontName = "AmericanTypewriter-Bold"
+        
+        backgroundLayer?.addChild(backBtn)
+        
+        backBtn.position = CGPoint(x: 20  + backBtn.frame.width/2, y: 60)
+
+        
+        //
+        
+        backgroundColor = AppColors.DARKDARKBROWN
         // 3
         player.position = CGPoint(x: size.width * 0.45, y: size.height * 0.5)
         player.name = "player"
@@ -249,14 +264,13 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
 
         print("TOUCH")
         
-        
-        
-       
-        
-        if scoreLabel.contains(location) {
+        if backBtn.contains(location) {
             closedDelegate?.closedPressed?()
-
+            
         }
+        
+        
+        
         
         ///////////////
         
