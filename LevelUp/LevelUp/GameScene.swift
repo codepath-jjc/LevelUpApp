@@ -20,7 +20,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     var playerSpeed:CGFloat = 10.0
    
     // 1
-    let player = SKSpriteNode(imageNamed: "player")
+    let player = SKSpriteNode(imageNamed: "profile")
     
     override func didMove(to view: SKView) {
         // 2
@@ -31,7 +31,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
 
         
      
-        backgroundColor = SKColor.white
+        backgroundColor = SKColor.black
         // 3
         player.position = CGPoint(x: size.width * 0.1, y: size.height * 0.5)
         player.name = "player"
@@ -49,10 +49,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         
         var playerX = player.position.x
         playerX = playerX +  playerDirection * playerSpeed
-        print("positionX", playerX)
+        //print("positionX", playerX)
         player.position = CGPoint(x:  playerX, y: player.position.y)
  
-        if(playerX >=  300 || playerX <= 0){ //(backgroundLayer?.frame.size.width)!){
+        if(playerX >=  self.size.width * 0.85  || playerX <= self.size.width * 0.1){ //(backgroundLayer?.frame.size.width)!){
             playerDirection *= -1.0
         }
         
