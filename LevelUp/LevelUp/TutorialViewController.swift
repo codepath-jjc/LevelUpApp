@@ -44,6 +44,12 @@ class TutorialViewController: UIViewController {
         self.createQuestbottomConstraint.constant = -20
         self.view.layoutIfNeeded()
     }
+    
+    override var prefersStatusBarHidden : Bool {
+        return true
+    }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         
         if alreadyAppeared  {

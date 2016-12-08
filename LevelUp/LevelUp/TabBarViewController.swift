@@ -288,6 +288,11 @@ class TabBarViewController: UIViewController {
         
     }
     
+    override var prefersStatusBarHidden : Bool {
+        return true
+    }
+    
+    
     func unselectAll(){
         unselect(image: profileImage, text: profileLabel)
         unselect(image: milestoneImage, text: milestoneLabel)
