@@ -293,7 +293,7 @@
 				TargetAttributes = {
 					968CB6FF1DD4571F002D565E = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = GFSP92A3FB;
+						DevelopmentTeam = 3BVZGRTELF;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -545,11 +545,11 @@
 			baseConfigurationReference = D161F0C0F2C0C56B63FB7D4A /* Pods-LevelUp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GFSP92A3FB;
+				DEVELOPMENT_TEAM = 3BVZGRTELF;
 				INFOPLIST_FILE = LevelUp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jasonify.LevelUp;
+				PRODUCT_BUNDLE_IDENTIFIER = joshua.LevelUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -560,11 +560,11 @@
 			baseConfigurationReference = C98740D3F5870BAF99ED43AF /* Pods-LevelUp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GFSP92A3FB;
+				DEVELOPMENT_TEAM = 3BVZGRTELF;
 				INFOPLIST_FILE = LevelUp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jasonify.LevelUp;
+				PRODUCT_BUNDLE_IDENTIFIER = joshua.LevelUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

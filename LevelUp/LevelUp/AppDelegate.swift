@@ -53,6 +53,100 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         */
         
+        // Preload data for demo
+        var q1 = Quest(dictionary: ["title": "Music", "notes": "Practice scales and chords"])
+        var q2 = Quest(dictionary: ["title": "Writing", "notes": "Write a long paragraph"])
+        var q3 = Quest(dictionary: ["title": "Birdwatching", "notes": "Spot some birds at golden gate"])
+        var q4 = Quest(dictionary: ["title": "Painting", "notes": "Try oil painting"])
+        var q5 = Quest(dictionary: ["title": "Skateboarding", "notes": "Go to Soma West skatepark"])
+        var q6 = Quest(dictionary: ["title": "Running", "notes": "Run a 5k"])
+        LevelUpClient.sharedInstance.sync(quest: &q1, success: {
+            
+            var dateString = "2016-12-06" // change to your date format
+            var dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            var date = dateFormatter.date(from: dateString)
+            
+            var milestone = Milestone(dictionary: ["title": q1.title!, "questId": "\(q1.pfObject?.objectId!)", "quest": q1, "completed": true, "deadline": date])
+            LevelUpClient.sharedInstance.sync(milestone: &milestone, success: {
+            }, failure: {
+                (error: Error?) -> () in
+                //
+            })
+        }, failure: {
+            (error: Error?) -> () in
+        })
+        LevelUpClient.sharedInstance.sync(quest: &q2, success: {
+            var dateString = "2016-12-02" // change to your date format
+            var dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            var date = dateFormatter.date(from: dateString)
+            var milestone = Milestone(dictionary: ["title": q2.title!, "questId": "\(q2.pfObject?.objectId!)", "quest": q2, "completed": true, "deadline": date])
+            LevelUpClient.sharedInstance.sync(milestone: &milestone, success: {
+            }, failure: {
+                (error: Error?) -> () in
+                //
+            })
+        }, failure: {
+            (error: Error?) -> () in
+        })
+        LevelUpClient.sharedInstance.sync(quest: &q3, success: {
+            var dateString = "2016-12-03" // change to your date format
+            var dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            var date = dateFormatter.date(from: dateString)
+            var milestone = Milestone(dictionary: ["title": q3.title!, "questId": "\(q3.pfObject?.objectId!)", "quest": q3, "completed": true, "deadline": date])
+            LevelUpClient.sharedInstance.sync(milestone: &milestone, success: {
+            }, failure: {
+                (error: Error?) -> () in
+                //
+            })
+        }, failure: {
+            (error: Error?) -> () in
+        })
+        LevelUpClient.sharedInstance.sync(quest: &q4, success: {
+            var dateString = "2016-12-01" // change to your date format
+            var dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            var date = dateFormatter.date(from: dateString)
+            var milestone = Milestone(dictionary: ["title": q4.title!, "questId": "\(q4.pfObject?.objectId!)", "quest": q4, "completed": true, "deadline": date])
+            LevelUpClient.sharedInstance.sync(milestone: &milestone, success: {
+            }, failure: {
+                (error: Error?) -> () in
+                //
+            })
+        }, failure: {
+            (error: Error?) -> () in
+        })
+        LevelUpClient.sharedInstance.sync(quest: &q5, success: {
+            var dateString = "2016-12-05" // change to your date format
+            var dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            var date = dateFormatter.date(from: dateString)
+            var milestone = Milestone(dictionary: ["title": q5.title!, "questId": "\(q5.pfObject?.objectId!)", "quest": q5, "completed": true, "deadline": date])
+            LevelUpClient.sharedInstance.sync(milestone: &milestone, success: {
+            }, failure: {
+                (error: Error?) -> () in
+                //
+            })
+        }, failure: {
+            (error: Error?) -> () in
+        })
+        LevelUpClient.sharedInstance.sync(quest: &q6, success: {
+            var dateString = "2016-11-29" // change to your date format
+            var dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            var date = dateFormatter.date(from: dateString)
+            var milestone = Milestone(dictionary: ["title": q6.title!, "questId": "\(q6.pfObject?.objectId!)", "quest": q6, "completed": true, "deadline": Date()])
+            LevelUpClient.sharedInstance.sync(milestone: &milestone, success: {
+            }, failure: {
+                (error: Error?) -> () in
+                //
+            })
+        }, failure: {
+            (error: Error?) -> () in
+        })
+        
         
         LevelUpClient.sharedInstance.quests(success: {
             (quests: [Quest]) -> () in

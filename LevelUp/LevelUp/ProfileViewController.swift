@@ -45,7 +45,9 @@ class ProfileViewController: UIViewController {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
 
         if let cachedQuests = LevelUpClient.cachedQuests {
-            quests = cachedQuests
+            quests = cachedQuests.filter({ (quest: Quest) -> Bool in
+                quest.archived == false
+                })
             tableView.reloadData()
         } else {
             reloadData()

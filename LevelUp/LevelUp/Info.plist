@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
-	<key>UIStatusBarHidden</key>
-	<true/>
-	<key>NSCalendarsUsageDescription</key>
-	<string>Access to calendar for creating reminder events</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -24,10 +18,14 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>We need access to photos to record you progress.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Access to calendar for creating reminder events</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We need access to photos to record you progress.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -40,6 +38,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
