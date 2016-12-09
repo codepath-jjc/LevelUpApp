@@ -42,7 +42,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     let atlas = SKTextureAtlas(named: "lilmonsters.atlas")
 
     //
-    var poops = 0
     let player = SKSpriteNode(imageNamed: "egg")
     let morphaAlas = SKTextureAtlas(named: "morph.atlas")
     let eggAtlas = SKTextureAtlas(named: "egg.atlas")
@@ -141,6 +140,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     
     func startPoopingTimer(){
         
+        preLoadPoops()
+        
+        
         var poopTimer = 4.0
         if(LevelUpClient.morphLevel > 1){
             poopTimer = 80
@@ -165,10 +167,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     
     func addPoop(){
    
-        if (poops > MAX_POOP) {
+        if (LevelUpClient.poops > MAX_POOP) {
             return
         }
-        poops += 1
+        LevelUpClient.poops += 1
 
         self.shakeScreen()
 
@@ -243,6 +245,16 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     
 
     
+    func preLoadPoops(){
+        var i = 0
+        let currentPoops = LevelUpClient.poops
+        LevelUpClient.poops = 0 // reset since add poop icnrease it back up 
+        
+        while i <  currentPoops {
+            i += 1
+            addPoop()
+        }
+    }
     func loadMorphLevel1(){
         startPoopingTimer()
 
@@ -322,9 +334,32 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         
         if backBtn.contains(location) {
             closedDelegate?.closedPressed?()
+            return
             
         }
         
+        
+        
+      
+        
+        // loop over POOP
+        var clearedPoop = false
+        backgroundLayer?.enumerateChildNodes(withName: "poop") { node, stop in
+            
+            
+            if  !clearedPoop && node.contains(location) && node.isHidden == false {
+                clearedPoop = true
+                node.isHidden = true
+                LevelUpClient.poops -= 1
+                node.removeFromParent()
+            }
+        }
+
+        
+        
+        if clearedPoop {
+            return
+        }
         
         
         ///////////////
@@ -342,10 +377,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
                 loadMorphLevel1()
                 showSpark()
             }
-
             
             
-            //  self.shakeScreen()
+            
             //   node.isHidden = true
             self.flare?.isHidden = false
             
@@ -359,17 +393,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
             });
             
         }
-        
-        // loop over POOP
-        backgroundLayer?.enumerateChildNodes(withName: "poop") { node, stop in
-            
-            if node.contains(location) && node.isHidden == false {
-                node.isHidden = true
-                self.poops -= 1
-                node.removeFromParent()
-            }
-        }
-
     }
     
     
