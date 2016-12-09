@@ -47,6 +47,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     let morphaAlas = SKTextureAtlas(named: "morph.atlas")
     let eggAtlas = SKTextureAtlas(named: "egg.atlas")
 
+    let poopAtlas = SKTextureAtlas(named: "turd.atlas")
+
     
     var backBtn: SKLabelNode!
     
@@ -170,8 +172,25 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
 
         self.shakeScreen()
 
+        
         // ADD POOP
         let poop = SKSpriteNode(imageNamed: "poop.png")
+
+        
+        /////////
+        let m1 = poopAtlas.textureNamed("sprite_0.png")
+        let m2 = poopAtlas.textureNamed("sprite_1.png")
+        let m3 = poopAtlas.textureNamed("sprite_2.png")
+        let m4 = poopAtlas.textureNamed("sprite_3.png")
+        let m5 = poopAtlas.textureNamed("sprite_4.png")
+
+        
+        let textures = [m1, m2, m3, m4, m5]
+        
+        
+        let morphAniamtion = SKAction.animate(with: textures, timePerFrame: 0.15)
+        poop.run(SKAction.repeatForever(morphAniamtion))
+        
         poop.name = "poop"
         let poopX =  random(min: size.width * 0.2, max:  size.width * 0.8)
         let poopY =  random(min: size.height * 0.1, max:  size.height * 0.45)
@@ -308,10 +327,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         
         
         
-        
         ///////////////
-        
-    
         if  player.contains(location) {
             print("TOUCH PET")
             
