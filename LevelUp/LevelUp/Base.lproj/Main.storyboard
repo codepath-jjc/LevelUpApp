@@ -237,6 +237,10 @@
                                 <color key="textColor" red="0.6180139805" green="0.62705794989999997" blue="0.63526931239999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXP-zj-mrf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -253,14 +257,17 @@
                             <constraint firstItem="Tgg-wY-hTV" firstAttribute="top" secondItem="lrW-OL-gkK" secondAttribute="bottom" constant="35" id="N5P-YC-u6T"/>
                             <constraint firstAttribute="trailing" secondItem="v5z-Jp-prG" secondAttribute="trailing" constant="20" id="N9E-PW-QpH"/>
                             <constraint firstItem="rwv-Sd-aET" firstAttribute="centerY" secondItem="lrW-OL-gkK" secondAttribute="centerY" id="NbQ-7c-FB6"/>
+                            <constraint firstItem="yXP-zj-mrf" firstAttribute="top" secondItem="eh5-ld-GOg" secondAttribute="top" id="Nh6-Pr-08p"/>
                             <constraint firstAttribute="trailing" secondItem="rwv-Sd-aET" secondAttribute="trailing" constant="30" id="Q2u-Kr-b1N"/>
                             <constraint firstItem="v5z-Jp-prG" firstAttribute="leading" secondItem="82H-29-m3E" secondAttribute="trailing" constant="20" id="TSp-En-5H5"/>
                             <constraint firstAttribute="trailing" secondItem="WMp-h9-vCd" secondAttribute="trailing" constant="20" id="V4q-WP-f5C"/>
                             <constraint firstItem="WMp-h9-vCd" firstAttribute="top" secondItem="9yR-5E-q9F" secondAttribute="bottom" constant="8" id="bf8-GF-wxA"/>
+                            <constraint firstItem="yXP-zj-mrf" firstAttribute="leading" secondItem="eh5-ld-GOg" secondAttribute="leading" id="cni-pR-uhe"/>
                             <constraint firstItem="atc-xm-qoE" firstAttribute="top" secondItem="rwv-Sd-aET" secondAttribute="bottom" constant="25" id="dgr-bR-Zyw"/>
                             <constraint firstItem="vYN-ZZ-URS" firstAttribute="top" secondItem="82H-29-m3E" secondAttribute="bottom" constant="20" id="eR7-N8-B9p"/>
                             <constraint firstItem="rwv-Sd-aET" firstAttribute="leading" secondItem="lrW-OL-gkK" secondAttribute="trailing" constant="30" id="erz-rK-fsf"/>
                             <constraint firstItem="fsW-5x-Ylf" firstAttribute="leading" secondItem="eh5-ld-GOg" secondAttribute="leadingMargin" constant="15" id="hJu-bp-HG9"/>
+                            <constraint firstItem="Syu-r5-V6J" firstAttribute="top" secondItem="yXP-zj-mrf" secondAttribute="bottom" id="ho5-Q5-X4s"/>
                             <constraint firstAttribute="trailing" secondItem="atc-xm-qoE" secondAttribute="trailing" constant="20" id="iLf-OI-ogn"/>
                             <constraint firstItem="vYN-ZZ-URS" firstAttribute="leading" secondItem="eh5-ld-GOg" secondAttribute="leading" constant="20" id="iX5-S4-9xP"/>
                             <constraint firstItem="Fdw-5t-Bdn" firstAttribute="top" secondItem="WMp-h9-vCd" secondAttribute="bottom" constant="20" id="icN-TB-aAx"/>
@@ -269,6 +276,7 @@
                             <constraint firstItem="Syu-r5-V6J" firstAttribute="top" secondItem="fsW-5x-Ylf" secondAttribute="bottom" constant="21" id="rD9-p1-7LG"/>
                             <constraint firstItem="Pz4-5Z-0Vd" firstAttribute="top" secondItem="vYN-ZZ-URS" secondAttribute="bottom" constant="10" id="sdd-nc-URg"/>
                             <constraint firstItem="Fdw-5t-Bdn" firstAttribute="leading" secondItem="82H-29-m3E" secondAttribute="trailing" constant="20" id="sxD-o6-IWb"/>
+                            <constraint firstAttribute="trailing" secondItem="yXP-zj-mrf" secondAttribute="trailing" id="tcw-yq-P1t"/>
                             <constraint firstItem="82H-29-m3E" firstAttribute="leading" secondItem="eh5-ld-GOg" secondAttribute="leading" constant="20" id="u3X-Lx-MfB"/>
                         </constraints>
                     </view>
@@ -280,6 +288,7 @@
                         <outlet property="frequencySegmentControl" destination="rwv-Sd-aET" id="lfS-YY-t1B"/>
                         <outlet property="icon" destination="82H-29-m3E" id="qYA-lt-qGz"/>
                         <outlet property="titleTextField" destination="v5z-Jp-prG" id="s3H-9M-bhb"/>
+                        <outlet property="videoHolder" destination="yXP-zj-mrf" id="STO-Oo-k4u"/>
                         <segue destination="LjX-5f-E9x" kind="show" identifier="showTabBar" id="KUn-yl-kUy"/>
                     </connections>
                 </viewController>
@@ -290,7 +299,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="538" y="152"/>
+            <point key="canvasLocation" x="536.79999999999995" y="151.57421289355324"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="tne-QT-ifu">

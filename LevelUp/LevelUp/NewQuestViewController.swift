@@ -9,6 +9,9 @@
 import UIKit
 import Parse
 
+import AVKit
+import AVFoundation
+
 class NewQuestViewController: UIViewController  {
 
     @IBOutlet weak var frequencySegmentControl: UISegmentedControl!
@@ -18,6 +21,7 @@ class NewQuestViewController: UIViewController  {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var createQuestButton: UIButton!
     @IBOutlet weak var icon: SelectableImageView!
+    @IBOutlet weak var videoHolder: UIView!
     
     var navigationDelegate: TabBarViewController?
     var originalTimePickerHeight: CGFloat!
@@ -93,6 +97,7 @@ class NewQuestViewController: UIViewController  {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationDelegate?.tabBarHidden = true
+        videoHolder.isHidden = true
     }
     
     func frequencyChanged() {
@@ -113,7 +118,36 @@ class NewQuestViewController: UIViewController  {
     @IBAction func onCreatePressed(_ sender: Any) {
 
     
+        
+        videoHolder.isHidden = false
+        
+        ///////// VIDEO
+        let fileURL = NSURL(fileURLWithPath:  Bundle.main.path(forResource: "NewQuest", ofType: "mov")!)
+        
+        let player = AVPlayer(url: fileURL as URL )
+        let playerController = AVPlayerViewController()
+        
+        playerController.player = player
+        self.addChildViewController(playerController)
+        self.videoHolder.addSubview(playerController.view)
+        playerController.view.frame = videoHolder.frame
+        playerController.showsPlaybackControls = false
+        //  player.addObserver(self, forKeyPath: "actionAtItemEnd", options: [], context: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying),
+                                               name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                               object: player.currentItem)
+        
+        player.play()
+        
+        
+        /////// VIDEO
+        
+        
+        
+    }
     
+    func playerDidFinishPlaying(){
         var dictionary = ["frequency": frequency.rawValue, "title": titleTextField.text ?? "", "notes": descriptionTextView.text, "archived": false, "dueTime": dueTimePicker.date] as [String: Any]
         if let chosenImage = icon.image {
             dictionary["image"] = chosenImage
