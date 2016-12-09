@@ -110,9 +110,10 @@ class NewQuestViewController: UIViewController  {
             dismiss(animated: true, completion: nil)
         }
     }
+    @IBAction func onCreatePressed(_ sender: Any) {
+
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+    
         var dictionary = ["frequency": frequency.rawValue, "title": titleTextField.text ?? "", "notes": descriptionTextView.text, "archived": false, "dueTime": dueTimePicker.date] as [String: Any]
         if let chosenImage = icon.image {
             dictionary["image"] = chosenImage
@@ -130,7 +131,10 @@ class NewQuestViewController: UIViewController  {
             // TODO
             print(error?.localizedDescription ?? "New Quest Error")
         })
+   
+        performSegue(withIdentifier: "showTabBar", sender: self)
     }
+    
 
 }
 

@@ -176,7 +176,7 @@
                                     <color key="titleColor" red="0.17254901960784313" green="0.396078431372549" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="LjX-5f-E9x" kind="presentation" id="P9Y-1D-qdv"/>
+                                    <action selector="onCreatePressed:" destination="Afg-hG-90n" eventType="touchUpInside" id="Tmp-n6-09N"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rwv-Sd-aET">
@@ -280,6 +280,7 @@
                         <outlet property="frequencySegmentControl" destination="rwv-Sd-aET" id="lfS-YY-t1B"/>
                         <outlet property="icon" destination="82H-29-m3E" id="qYA-lt-qGz"/>
                         <outlet property="titleTextField" destination="v5z-Jp-prG" id="s3H-9M-bhb"/>
+                        <segue destination="LjX-5f-E9x" kind="show" identifier="showTabBar" id="KUn-yl-kUy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHw-Ik-Vav" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -289,7 +290,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="369" y="128"/>
+            <point key="canvasLocation" x="538" y="152"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="tne-QT-ifu">

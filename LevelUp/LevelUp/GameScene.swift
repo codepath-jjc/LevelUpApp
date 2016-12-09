@@ -316,7 +316,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         self.spark?.isHidden = false
         self.spark?.zPosition = 5
         
-        let ballAction = SKAction.wait(forDuration: TimeInterval(0.3));
+        let ballAction = SKAction.wait(forDuration: TimeInterval(0.25));
         self.run(ballAction, completion: { () -> Void in
             //self.resetEverything()
             print("action ran")

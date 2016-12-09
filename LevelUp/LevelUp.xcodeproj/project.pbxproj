@@ -41,6 +41,7 @@
 		968CB7091DD4571F002D565E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968CB7071DD4571F002D565E /* Main.storyboard */; };
 		968CB70B1DD4571F002D565E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 968CB70A1DD4571F002D565E /* Assets.xcassets */; };
 		968CB70E1DD4571F002D565E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968CB70C1DD4571F002D565E /* LaunchScreen.storyboard */; };
+		968F1EA21DFA39AA005D3BA6 /* NewQuest.mov in Resources */ = {isa = PBXBuildFile; fileRef = 968F1EA11DFA39AA005D3BA6 /* NewQuest.mov */; };
 		96AD22041DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AD22021DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.swift */; };
 		96AD22051DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96AD22031DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.xib */; };
 		96B76BF71DF9DF4200BA2B20 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B76BF61DF9DF4200BA2B20 /* GameScene.swift */; };
@@ -92,6 +93,7 @@
 		968CB70A1DD4571F002D565E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		968CB70D1DD4571F002D565E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		968CB70F1DD4571F002D565E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		968F1EA11DFA39AA005D3BA6 /* NewQuest.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = NewQuest.mov; sourceTree = "<group>"; };
 		96AD22021DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTimelineTableViewCell.swift; sourceTree = "<group>"; };
 		96AD22031DED4CD900B3C7C1 /* ActivityTimelineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityTimelineTableViewCell.xib; sourceTree = "<group>"; };
 		96B76BF61DF9DF4200BA2B20 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				968CB7031DD4571F002D565E /* AppDelegate.swift */,
 				965FAB531DF94EBB0009C0E7 /* PointsShort.mp4 */,
 				965FAB591DF9DD1B0009C0E7 /* MainScene.sks */,
+				968F1EA11DFA39AA005D3BA6 /* NewQuest.mov */,
 				965823C51DEEC810004F22CF /* intro2.mp4 */,
 				968CB7071DD4571F002D565E /* Main.storyboard */,
 				968CB70A1DD4571F002D565E /* Assets.xcassets */,
@@ -336,6 +339,7 @@
 				96B76C0E1DFA06FB00BA2B20 /* lilmonsters.atlas in Resources */,
 				968CB7091DD4571F002D565E /* Main.storyboard in Resources */,
 				96E8E6991DFA288B009B1C03 /* Rain.sks in Resources */,
+				968F1EA21DFA39AA005D3BA6 /* NewQuest.mov in Resources */,
 				96B76C121DFA186900BA2B20 /* egg.atlas in Resources */,
 				96E8E69D1DFA32CA009B1C03 /* morph.atlas in Resources */,
 				96E8E69B1DFA294D009B1C03 /* Spark.sks in Resources */,
