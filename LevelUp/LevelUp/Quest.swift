@@ -13,7 +13,7 @@ import EventKit
 
 class Quest: NSObject {
     
-    static let className = "QuestTest14"
+    static let className = "QuestTestDemo1"
     static let images = [UIImage(named: "0000"), UIImage(named: "0001"), UIImage(named: "0002"), UIImage(named: "0003") , UIImage(named: "0004"), UIImage(named: "0006"), UIImage(named: "0007"), UIImage(named: "0008")]
     var pfObject: PFObject?
     var imageFile: PFFile?

@@ -54,12 +54,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         */
         
         // Preload data for demo
-        var q1 = Quest(dictionary: ["title": "Music", "notes": "Practice scales and chords"])
-        var q2 = Quest(dictionary: ["title": "Writing", "notes": "Write a long paragraph"])
-        var q3 = Quest(dictionary: ["title": "Birdwatching", "notes": "Spot some birds at golden gate"])
-        var q4 = Quest(dictionary: ["title": "Painting", "notes": "Try oil painting"])
-        var q5 = Quest(dictionary: ["title": "Skateboarding", "notes": "Go to Soma West skatepark"])
-        var q6 = Quest(dictionary: ["title": "Running", "notes": "Run a 5k"])
+        var q1 = Quest(dictionary: ["title": "Music", "notes": "Practice scales and chords", "frequency": Frequency.daily])
+        var q2 = Quest(dictionary: ["title": "Writing", "notes": "Write a long paragraph", "frequency": Frequency.weekly])
+        var q3 = Quest(dictionary: ["title": "Birdwatching", "notes": "Spot some birds at golden gate", "frequency": Frequency.weekly])
+        var q4 = Quest(dictionary: ["title": "Painting", "notes": "Try oil painting", "frequency": Frequency.daily])
+        var q5 = Quest(dictionary: ["title": "Skateboarding", "notes": "Go to Soma West skatepark", "frequency": Frequency.daily])
+        var q6 = Quest(dictionary: ["title": "Running", "notes": "Run a 5k", "frequency": Frequency.daily])
         LevelUpClient.sharedInstance.sync(quest: &q1, success: {
             
             var dateString = "2016-12-06" // change to your date format
