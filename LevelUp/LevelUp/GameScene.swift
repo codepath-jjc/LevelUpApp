@@ -345,7 +345,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
 
             
             
-            //  self.shakeScreen()
             //   node.isHidden = true
             self.flare?.isHidden = false
             
@@ -361,9 +360,12 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         }
         
         // loop over POOP
+        var clearedPoop = false
         backgroundLayer?.enumerateChildNodes(withName: "poop") { node, stop in
             
-            if node.contains(location) && node.isHidden == false {
+            
+            if  !clearedPoop && node.contains(location) && node.isHidden == false {
+                clearedPoop = true
                 node.isHidden = true
                 self.poops -= 1
                 node.removeFromParent()
