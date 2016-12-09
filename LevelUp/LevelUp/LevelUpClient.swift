@@ -14,6 +14,7 @@ class LevelUpClient: NSObject {
     static let sharedInstance =  LevelUpClient()
     
     static var morphLevel = 0
+    static var poops = 0
     static var cachedQuests: [Quest]? {
         didSet {
             guard cachedQuests != nil else {return}
