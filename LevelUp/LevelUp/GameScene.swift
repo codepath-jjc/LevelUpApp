@@ -247,7 +247,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
     
     func preLoadPoops(){
         var i = 0
-        var currentPoops = LevelUpClient.poops
+        let currentPoops = LevelUpClient.poops
+        LevelUpClient.poops = 0 // reset since add poop icnrease it back up 
+        
         while i <  currentPoops {
             i += 1
             addPoop()
@@ -332,9 +334,32 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
         
         if backBtn.contains(location) {
             closedDelegate?.closedPressed?()
+            return
             
         }
         
+        
+        
+      
+        
+        // loop over POOP
+        var clearedPoop = false
+        backgroundLayer?.enumerateChildNodes(withName: "poop") { node, stop in
+            
+            
+            if  !clearedPoop && node.contains(location) && node.isHidden == false {
+                clearedPoop = true
+                node.isHidden = true
+                LevelUpClient.poops -= 1
+                node.removeFromParent()
+            }
+        }
+
+        
+        
+        if clearedPoop {
+            return
+        }
         
         
         ///////////////
@@ -352,7 +377,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
                 loadMorphLevel1()
                 showSpark()
             }
-
+            
             
             
             //   node.isHidden = true
@@ -368,20 +393,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate{
             });
             
         }
-        
-        // loop over POOP
-        var clearedPoop = false
-        backgroundLayer?.enumerateChildNodes(withName: "poop") { node, stop in
-            
-            
-            if  !clearedPoop && node.contains(location) && node.isHidden == false {
-                clearedPoop = true
-                node.isHidden = true
-                LevelUpClient.poops -= 1
-                node.removeFromParent()
-            }
-        }
-
     }
     
     
