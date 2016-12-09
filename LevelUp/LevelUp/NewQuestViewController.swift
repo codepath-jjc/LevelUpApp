@@ -122,7 +122,7 @@ class NewQuestViewController: UIViewController  {
         videoHolder.isHidden = false
         
         ///////// VIDEO
-        let fileURL = NSURL(fileURLWithPath:  Bundle.main.path(forResource: "NewQuest", ofType: "mov")!)
+        let fileURL = NSURL(fileURLWithPath:  Bundle.main.path(forResource: "NewQuest2", ofType: "mov")!)
         
         let player = AVPlayer(url: fileURL as URL )
         let playerController = AVPlayerViewController()
